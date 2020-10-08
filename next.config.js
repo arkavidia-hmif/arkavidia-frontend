@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 
 const { parsed } = dotenv.config({
-  path: `./.env.${process.env.DOTENV_FILE}`
+  path: `./.env.${process.env.DOTENV_FILE || 'development'}`
 });
 
 module.exports = {
