@@ -2,7 +2,7 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "DOTENV_FILE=development next",
     "build": "next build",
     "generate:production": "DOTENV_FILE=production next build && DOTENV_FILE=production next export",
     "generate:staging": "DOTENV_FILE=staging next build && DOTENV_FILE=staging next export",
