@@ -6,9 +6,11 @@ const Navbar = () => {
         <header>
             <nav>
                 <div className="logo">
-                    <Link href="/"><a>
-                        <img src="/img/logo-horizontal.svg" alt="Logo Arkavidia"/>
-                    </a></Link>
+                    <Link href="/">
+                        <a>
+                            <img src="/img/logo-horizontal.svg" alt="Logo Arkavidia"/>
+                        </a>
+                    </Link>
                 </div>
                 <div className="spacer"></div>
                 <NavItems/>
