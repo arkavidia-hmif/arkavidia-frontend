@@ -2,7 +2,7 @@ import items from "./Items"
 import Link from 'next/link'
 import { useState } from 'react'
 
-const NavItems = () => {
+const NavDesktop = () => {
     const [hover, setHover] = useState(-1);
 
     return (
@@ -48,9 +48,15 @@ const NavItems = () => {
                     color: #FFFFFF;
                 }
                 .items {
+                    margin-left: auto;
                     display: flex;
                     align-items: center;
                     padding: 0 20px;
+                }
+                @media (max-width: 1300px) {
+                    .items {
+                        display: none;
+                    }
                 }
             `}</style> 
         </div>
@@ -58,4 +64,4 @@ const NavItems = () => {
 }
 
 
-export default NavItems;
+export default NavDesktop;

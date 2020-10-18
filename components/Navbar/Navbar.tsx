@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
-import NavItems from './NavItems'
+import NavDesktop from './NavDesktop'
 import Burger from './Burger'
 import BurgerMenu from './BurgerMenu'
 
@@ -22,10 +22,9 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="spacer"></div>
-                <NavItems/>
+                <NavDesktop/>
                 <Burger {...burgerProps}/>
             </nav>
-            <BurgerMenu {...burgerProps}/>
 
             <style jsx>{`
                 nav {
@@ -37,17 +36,32 @@ const Navbar = () => {
                     align-items: center;
                 }
                 .logo {
-                    padding-left: 60px;
+                    padding-left: 30px;
                     max-width: 300px;
-                    min-width: 200px;
 
                 }
                 .logo img {
                     height: auto;
                     max-width: 100%;
                 }
-                .spacer {
-                    flex-grow: 0.7!important;
+                @media (max-width: 1300px) {
+                    .logo {
+                        padding-left: 30px;
+                    }
+                    .spacer {
+                        flex-grow: 0.9!important;
+                    }
+                }
+                @media (max-width: 500px) {
+                    .logo {
+                        padding-left: 10px;
+                        max-width: 200px;
+                    }
+                }
+                @media (max-width: 300px) {
+                    .logo {
+                        max-width: 175px;
+                    }
                 }
             `}</style>
         </header>
