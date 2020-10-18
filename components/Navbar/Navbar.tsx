@@ -1,7 +1,16 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import NavItems from './NavItems'
+import Burger from './Burger'
+import BurgerMenu from './BurgerMenu'
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false)
+    const burgerProps = {
+        open: open,
+        setOpen: setOpen
+    }
+
     return (
         <header>
             <nav>
@@ -14,10 +23,11 @@ const Navbar = () => {
                 </div>
                 <div className="spacer"></div>
                 <NavItems/>
+                <Burger {...burgerProps}/>
             </nav>
+            <BurgerMenu {...burgerProps}/>
 
             <style jsx>{`
-                @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
                 nav {
                     position: fixed;
                     display: flex;

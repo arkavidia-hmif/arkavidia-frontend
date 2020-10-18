@@ -23,6 +23,7 @@ const NavItems = () => {
             </div>  
 
             <style jsx>{`
+                @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
                 ul {
                     display: flex;
                     list-style: none;
