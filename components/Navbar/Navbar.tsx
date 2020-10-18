@@ -25,15 +25,17 @@ const Navbar = () => {
                 <NavDesktop/>
                 <Burger {...burgerProps}/>
             </nav>
-
+                <BurgerMenu {...burgerProps}/>
             <style jsx>{`
                 nav {
                     position: fixed;
                     display: flex;
                     padding-top: 10px;
                     width: 100%;
+                    height: auto;
                     line-height: 32px;
                     align-items: center;
+                    z-index: 20;
                 }
                 .logo {
                     padding-left: 30px;

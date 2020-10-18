@@ -1,20 +1,15 @@
 import items from "./Items"
 import Link from 'next/link'
-import { useState } from 'react'
 
 const NavDesktop = () => {
-    const [hover, setHover] = useState(-1);
-
+    
     return (
         <div className="items">
             <ul>
                 {items.map((link, index) => (
-                    <li key={index}
-                        onMouseEnter = { () => setHover(index)}
-                        onMouseLeave = { () => setHover(-1)}
-                        style = {{ color: hover === index ? '#FE789A' :  '#623FA2' }}
-                    >
+                    <li key={index}>
                         <Link href={link.path}><a>{link.text}</a></Link>
+                        <div className="indicator"></div>
                     </li>
                 ))}
             </ul>
@@ -44,14 +39,31 @@ const NavDesktop = () => {
                     background: #FE789A;
                     border-radius: 15px;
                 }
+                .login:hover {
+                    background: #FFFFFF;
+                    transition: all 0.3s linear;
+                    transform-origin: 1px;
+                }
                 .login a {
                     color: #FFFFFF;
+                }
+                .login a:hover {
+                    color: #FE789A;
+                    transition: all 0.3s linear;
+                    transform-origin: 1px;
                 }
                 .items {
                     margin-left: auto;
                     display: flex;
                     align-items: center;
                     padding: 0 20px;
+                }
+                .indicator {
+                    width: 100%;
+                    height: 0.25rem;
+                    background: linear-gradient(90deg, #00FFFF 0%, #623FA2 100%);
+                    transition: all 0.3s linear;
+                    transform-origin: 1px;
                 }
                 @media (max-width: 1300px) {
                     .items {

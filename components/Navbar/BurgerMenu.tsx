@@ -12,7 +12,7 @@ const BurgerMenu = ({open}: any) => (
         <style jsx>{`
             @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
             .burger-menu {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 justify-content: center;
                 background:  #FE789A;
@@ -22,13 +22,13 @@ const BurgerMenu = ({open}: any) => (
                 padding: 2rem;
                 position: relative;
                 top: 100px;
-                right: 10px;
+                
                 transition: transform 0.3s ease-in-out;
             }
 
             a {
                 font-family: Viga;
-                font-size: 24px;
+                font-size: 20px;
                 text-transform: uppercase;
                 padding: 2rem 0;
                 font-weight: bold;
@@ -41,10 +41,16 @@ const BurgerMenu = ({open}: any) => (
             a:hover {
                 color: pink;
             }
+
+            @media (max-width: 1300px) {
+                .burger-menu {
+                    display: flex;
+                }
+            }
         `}</style>
         <style jsx>{`
             .burger-menu {
-                transform: ${ ({open}) ? 'translateY(0)': 'translateY(-120%)' };
+                transform: ${ ({open}) ? 'translateX(0)': 'translateX(-120%)' };
             }
         `}</style>
     </div>

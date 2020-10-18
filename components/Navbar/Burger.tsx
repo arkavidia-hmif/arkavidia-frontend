@@ -1,5 +1,3 @@
-
-
 const Burger = ({open, setOpen} : any) => (
     <div>
         <button className="burger" onClick={ () => setOpen(!open) }>
