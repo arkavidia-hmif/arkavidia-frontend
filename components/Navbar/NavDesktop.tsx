@@ -1,15 +1,41 @@
 import items from "./Items"
 import Link from 'next/link'
+import { useState, useEffect, useRef, RefObject } from 'react'
+
+function useHover() : [RefObject<HTMLLIElement>, boolean] {
+    const [value, setValue] = useState<boolean>(false);
+
+    const ref = useRef<HTMLLIElement>(null);
+
+    const handleMouseOver = () => setValue(true);
+    const handleMouseOut = () => setValue(false);
+
+    useEffect( () => {
+        const node = ref.current;
+        if (node) {
+            node.addEventListener('mouseover', handleMouseOver);
+            node.addEventListener('mouseout', handleMouseOut);
+
+            return () => {
+                node.removeEventListener('mouseover', handleMouseOver);
+                node.removeEventListener('mouseout', handleMouseOut);
+            }
+        }
+    }, [ref.current])
+
+    return [ref, !!value]
+}
 
 const NavDesktop = () => {
+    const [hoverRef, isHovered] = useHover();
     
     return (
         <div className="items">
             <ul>
                 {items.map((link, index) => (
-                    <li key={index}>
+                    <li key={index} ref={hoverRef}>
                         <Link href={link.path}><a>{link.text}</a></Link>
-                        <div className="indicator"></div>
+                        {isHovered ? <div className="indicator"></div> : ''}
                     </li>
                 ))}
             </ul>
@@ -60,7 +86,7 @@ const NavDesktop = () => {
                 }
                 .indicator {
                     width: 100%;
-                    height: 0.25rem;
+                    height: 7px;
                     background: linear-gradient(90deg, #00FFFF 0%, #623FA2 100%);
                     transition: all 0.3s linear;
                     transform-origin: 1px;
