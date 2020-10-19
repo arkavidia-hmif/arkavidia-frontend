@@ -33,7 +33,14 @@ const Burger = ({open, setOpen} : any) => (
                 transition: all 0.3s linear;
                 transform-origin: 1px;
             }
-            
+
+            @media (max-width: 1300px) {
+                .burger {
+                    display: flex;
+                }
+            }
+        `}</style>
+        <style jsx>{`
             .lines:first-child {
                 transform: ${ open ? 'rotate(45deg)' : 'rotate(0)'};
             }
@@ -46,14 +53,6 @@ const Burger = ({open, setOpen} : any) => (
             .lines:nth-child(3) {
                 transform: ${ open ? 'rotate(-45deg)' : 'rotate(0)'};
             }
-
-            @media (max-width: 1300px) {
-                .burger {
-                    display: flex;
-                }
-            }
-            
-            
         `}</style>
     </div>
 )

@@ -1,0 +1,21 @@
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  1) import React, { ReactNode } from 'react'
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  2) import Head from 'next/head'
+ef1d1097 (Fabian Pranoto 2020-10-17 20:19:57 +0700  3) import Navbar from './Navbar/Navbar'
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  4) 
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  5) type Props = {
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  6)   children?: ReactNode
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  7)   title?: string
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  8) }
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700  9) 
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 10) const Layout = ({ children, title = 'This is the default title' }: Props) => (
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 11)   <div>
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 12)     <Head>
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 13)       <title>{title}</title>
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 14)       <meta charSet="utf-8" />
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 15)       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 16)     </Head>
+ef1d1097 (Fabian Pranoto 2020-10-17 20:19:57 +0700 17)     <Navbar/>
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 18)   </div>
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 19) )
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 20) 
+^e2a8f6a (jrandiny       2020-09-29 11:36:23 +0700 21) export default Layout
