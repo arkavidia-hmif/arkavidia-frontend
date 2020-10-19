@@ -1,6 +1,6 @@
 const Burger = ({open, setOpen} : any) => (
     <div>
-        <button className="burger" onClick={ () => setOpen(!open) }>
+        <button className="burger" onClick={ () => setOpen(!open)}>
             <div className="lines"/>
             <div className="lines"/>
             <div className="lines"/>
@@ -34,17 +34,26 @@ const Burger = ({open, setOpen} : any) => (
                 transform-origin: 1px;
             }
             
+            .lines:first-child {
+                transform: ${ open ? 'rotate(45deg)' : 'rotate(0)'};
+            }
+
+            .lines:nth-child(2) {
+                opacity: ${ open ? '0' : '1'};
+                transform: ${ open ? 'translateX(20px)' : 'translateX(0)'};
+            }
+
+            .lines:nth-child(3) {
+                transform: ${ open ? 'rotate(-45deg)' : 'rotate(0)'};
+            }
+
             @media (max-width: 1300px) {
                 .burger {
                     display: flex;
                 }
             }
-            @media (max-width: 500px) {
-                .lines {
-                    width: 1.5rem;
-                    height: 0.2rem;
-                }
-            }
+            
+            
         `}</style>
     </div>
 )

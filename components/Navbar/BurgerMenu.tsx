@@ -7,6 +7,7 @@ const BurgerMenu = ({open}: any) => (
             {Items.map((link, index) => (
                 <Link key={index} href={link.path}><a>{link.text}</a></Link>
             ))}
+            <Link href="/"><a>Login</a></Link>
         </div>
 
         <style jsx>{`
@@ -50,7 +51,7 @@ const BurgerMenu = ({open}: any) => (
         `}</style>
         <style jsx>{`
             .burger-menu {
-                transform: ${ ({open}) ? 'translateX(0)': 'translateX(-120%)' };
+                transform: ${ open ? 'translateX(0)': 'translateX(200%)' };
             }
         `}</style>
     </div>
