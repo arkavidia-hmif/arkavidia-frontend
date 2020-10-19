@@ -23,7 +23,6 @@ const BurgerMenu = ({open}: any) => (
                 padding: 2rem;
                 position: relative;
                 top: 100px;
-                
                 transition: transform 0.3s ease-in-out;
             }
 

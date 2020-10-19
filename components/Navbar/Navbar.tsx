@@ -25,7 +25,8 @@ const Navbar = () => {
                 <NavDesktop/>
                 <Burger {...burgerProps}/>
             </nav>
-                <BurgerMenu {...burgerProps}/>
+            <BurgerMenu {...burgerProps}/>
+
             <style jsx>{`
                 nav {
                     position: fixed;
@@ -37,15 +38,18 @@ const Navbar = () => {
                     align-items: center;
                     z-index: 20;
                 }
+
                 .logo {
                     padding-left: 30px;
                     max-width: 300px;
 
                 }
+
                 .logo img {
                     height: auto;
                     max-width: 100%;
                 }
+
                 @media (max-width: 1300px) {
                     .logo {
                         padding-left: 30px;
@@ -54,12 +58,14 @@ const Navbar = () => {
                         flex-grow: 0.9!important;
                     }
                 }
+
                 @media (max-width: 500px) {
                     .logo {
                         padding-left: 10px;
                         max-width: 200px;
                     }
                 }
+
                 @media (max-width: 300px) {
                     .logo {
                         max-width: 175px;
