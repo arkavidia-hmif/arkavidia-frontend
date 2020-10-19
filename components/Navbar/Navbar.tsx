@@ -29,6 +29,7 @@ const Navbar = () => {
 
             <style jsx>{`
                 nav {
+                    background: #FFFF;
                     position: fixed;
                     display: flex;
                     padding-top: 10px;
