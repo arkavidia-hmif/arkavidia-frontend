@@ -26,16 +26,16 @@ function Footer () {
                     <Link href="#"><a>Competitive Programming</a></Link>
                   </li>
                   <li>
-                    <Link href="#"><a>toMap</a></Link>
+                    <Link href="#"><a>Capture the Flag</a></Link>
                   </li>
                   <li>
-                    <Link href="#"><a>toMap</a></Link>
+                    <Link href="#"><a>Game Dev</a></Link>
                   </li>
                   <li>
-                    <Link href="#"><a>toMap</a></Link>
+                    <Link href="#"><a>Datavidia</a></Link>
                   </li>
                   <li>
-                    <Link href="#"><a>toMap</a></Link>
+                    <Link href="#"><a>Arkalogica</a></Link>
                   </li>
                 </ul>
               </li>
@@ -43,19 +43,16 @@ function Footer () {
                 <h3>PRE-EVENTS</h3>
                 <ul>
                   <li>
-                    <Link href="#"><a>toMap</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>toMap</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>toMap</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>toMap</a></Link>
+                    <Link href="#"><a>Technocamp</a></Link>
                   </li>
                   <li>
                     <Link href="#"><a>Arkavidia Goes To School</a></Link>
+                  </li>
+                  <li>
+                    <Link href="#"><a>Arkavidia Academy</a></Link>
+                  </li>
+                  <li>
+                    <Link href="#"><a>Arkavidia On Air</a></Link>
                   </li>
                 </ul>
               </li>
@@ -63,19 +60,10 @@ function Footer () {
               <h3>EVENTS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>Arkavidia Talk</a></Link>
+                  <Link href="#"><a>IT Fest</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>toMap</a></Link>
-                </li>
-                <li>
-                  <Link href="#"><a>toMap</a></Link>
-                </li>
-                <li>
-                  <Link href="#"><a>toMap</a></Link>
-                </li>
-                <li>
-                  <Link href="#"><a>toMap</a></Link>
+                  <Link href="#"><a>Arkavidia Talks</a></Link>
                 </li>
               </ul>
               </li>
