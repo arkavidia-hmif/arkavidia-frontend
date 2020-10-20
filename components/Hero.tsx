@@ -2,8 +2,8 @@ import * as React from 'react'
 
 function Hero (){
     return (
-        <div className="main-container">
-            <div className="bg-container">
+        <div id="main-container">
+            <div id="bg-container">
                 <div id="city-container">
                     <div id="bg-filter"></div>
                     <div className="sky-filter" id="sky-filter-1"></div>
@@ -13,8 +13,13 @@ function Hero (){
                     <img src="/img/bg.png" />
                 </div>
             </div>
+            <div id="content-container">
+                <h1>ESTABLISHING DIGITAL</h1>
+                <h1>INDEPENDENCE</h1>
+                <p id="date">26-28 February 2021</p>
+            </div>
             <style jsx>
-                {`
+                {`  
                     #main-container{
                         max-width: 1200px;
                         height: 100vh;
@@ -22,6 +27,31 @@ function Hero (){
                         overflow: hidden; 
                         position: relative;
                     }
+                    
+                    #content-container{
+                        margin-top:7rem;
+                        padding-left: 2rem;
+                    }
+
+                    h1{
+                        font-family: 'Viga', sans-serif;
+                        font-size: 72px;
+                        font-weight: normal;
+                        margin: 1rem 0 0;
+                      
+                        line-height: 100%;
+                        color: #431785;
+                    }
+                      
+                    #date{
+                        font-family: 'Viga', sans-serif;
+                        font-size: 2rem;
+                        font-weight: normal;
+                        margin:0;
+
+                        color: #094963;
+                    }
+
                     #bg-container{
                         position: absolute;
                         top:0;
@@ -39,7 +69,6 @@ function Hero (){
                     #city-container{
                         width: min(95vh,95vw);
                         height: min(95vh,95vw);
-                        left: 600px;
                       
                         position: relative;
                     }
@@ -99,15 +128,32 @@ function Hero (){
                     }
 
                     @media (orientation:portrait) {
+                        #content-container{
+                            text-align: center;
+                        
+                            margin-top: 1.5rem;
+                        
+                            padding: 0;
+                        }
+                        
                         #bg-container{
                             align-items: flex-start;
-                            padding-top: 150px;
-                        }
-                        #city-container{
-                            left:0;
+                            padding-top: 60px;
                         }
                         
                     }
+
+                    @media (max-width: 450px){
+                        h1{
+                            font-size: 1.5rem;
+                            margin-top: 5px;
+                        }
+                        
+                        #date{
+                            font-size: 14px;
+                        }
+                    }
+
                     @keyframes sky-fade{
                         0%{opacity: 0;}
                         25%{opacity: 1;}
