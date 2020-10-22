@@ -84,6 +84,7 @@ function Footer() {
           }
 
           #bottom-footer{
+            font-size: 1.2rem;
             background-color: black;
             color: white;
             justify-content: center;
