@@ -1,11 +1,13 @@
 import * as React from 'react'
+import { StandardColor, Theme } from '../styles/theme'
 
 type Props = {
   onClick?: () => void,
-  text: string
+  text: string,
+  color?: StandardColor
 }
 
-const FilledButton = ({ onClick, text }: Props) => (
+const FilledButton = ({ onClick, text, color = Theme.colors.red }: Props) => (
   <>
     <div onClick={onClick}>
       <b>{text}</b>
@@ -16,13 +18,13 @@ const FilledButton = ({ onClick, text }: Props) => (
         padding: 0.5rem 1rem;
         border-radius: 10px;
         
-        background-color: #FE789A;
+        background-color: ${color.main};
         color: white;
         
         cursor: pointer;
       }
       div:hover {
-        background-color: #f9a3b9;
+        background-color: ${color.light};
       }
     `}</style>
   </>
