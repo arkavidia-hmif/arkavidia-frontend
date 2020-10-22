@@ -15,6 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <style global jsx>{`
         body {
           font-family: 'roboto';
+          margin: 0;
         }
       `}
       </style>
