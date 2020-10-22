@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ButtonColor, StandardColor, Theme } from '../styles/theme'
+import { ButtonColor, Theme } from '../styles/theme'
 
 type Props = {
   onClick?: () => void,
