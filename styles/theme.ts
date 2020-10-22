@@ -5,6 +5,11 @@ export interface StandardColor {
   dark: string;
 }
 
+export interface ButtonColor {
+  main: string;
+  hover: string;
+}
+
 const blue: StandardColor = {
   superlight: '#CAF1F1',
   light: '#5EE6E9',
@@ -33,11 +38,32 @@ const red: StandardColor = {
   dark: '#AC0B3D'
 };
 
+const purpleButton: ButtonColor = {
+  main: '#623FA2',
+  hover: '#936bd4'
+}
+
+const lightBlueButton: ButtonColor = {
+  main: '#5FE6EA',
+  hover: '#98ffff'
+}
+
+const pinkButton: ButtonColor = {
+  main: '#fe789a',
+  hover: '#ffaacb'
+}
+
+
 export const Theme = {
   colors: {
     blue,
     purple,
     pink,
     red
+  },
+  buttonColors: {
+    lightBlueButton,
+    pinkButton,
+    purpleButton
   }
 }
