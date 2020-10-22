@@ -5,8 +5,8 @@ import { Theme } from '../styles/theme'
 function Footer() {
   return (
     <footer className="container-fluid">
-      <div id="main-footer" className="row">
-        <div className="col-lg-4 p-h-5">
+      <div id="main-footer" className="row mb-5">
+        <div className="col-lg-4 px-5">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
             <li><Link href="#"><a><img src="/img/ig.jpg"></img></a></Link></li>
