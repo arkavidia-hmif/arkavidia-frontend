@@ -1,62 +1,65 @@
 import * as React from 'react'
 import Link from 'next/link'
+import { Theme } from '../styles/theme'
 
-function Footer () {
-    return (
-      <div className="main-content">
-        <div className="container-1">
-          <div className="left-side">
-            <img src="/img/logo.jpg" className="logo"></img>
-            <div className="social">
+function Footer() {
+  return (
+    <footer className="container-fluid">
+      <div id="main-footer" className="row">
+        <div className="col-lg-4 p-h-5">
+          <img id="footer-logo" src="/img/logo.jpg"></img>
+          <ul id="social-link">
+            <li><Link href="#"><a><img src="/img/ig.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/twitter.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/linkedin.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/fb.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/line.jpg"></img></a></Link></li>
+          </ul>
+        </div>
+        <div id="footer-link" className="col-lg-8">
+          <ul>
+            <li>
+              <h3>COMPETITIONS</h3>
               <ul>
-                <li><Link href="#"><a><img src="/img/ig.jpg"></img></a></Link></li>
-                <li><Link href="#"><a><img src="/img/twitter.jpg"></img></a></Link></li>
-                <li><Link href="#"><a><img src="/img/linkedin.jpg"></img></a></Link></li>
-                <li><Link href="#"><a><img src="/img/fb.jpg"></img></a></Link></li>
-                <li><Link href="#"><a><img src="/img/line.jpg"></img></a></Link></li>
+                <li>
+                  <Link href="#"><a>Competitive Programming</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Capture the Flag</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Game Dev</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Datavidia</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Arkalogica</a></Link>
+                </li>
               </ul>
-            </div>
-          </div>
-          <div className="right-side">
-            <ul>
-              <li className="float-left">
-                <h3>COMPETITIONS</h3>
-                <ul>
-                  <li>
-                    <Link href="#"><a>Competitive Programming</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Capture the Flag</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Game Dev</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Datavidia</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Arkalogica</a></Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="float-left">
-                <h3>PRE-EVENTS</h3>
-                <ul>
-                  <li>
-                    <Link href="#"><a>Technocamp</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Arkavidia Goes To School</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Arkavidia Academy</a></Link>
-                  </li>
-                  <li>
-                    <Link href="#"><a>Arkavidia On Air</a></Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="float-left">
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h3>PRE-EVENTS</h3>
+              <ul>
+                <li>
+                  <Link href="#"><a>Technocamp</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Arkavidia Goes To School</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Arkavidia Academy</a></Link>
+                </li>
+                <li>
+                  <Link href="#"><a>Arkavidia On Air</a></Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li>
               <h3>EVENTS</h3>
               <ul>
                 <li>
@@ -66,171 +69,91 @@ function Footer () {
                   <Link href="#"><a>Arkavidia Talks</a></Link>
                 </li>
               </ul>
-              </li>
-            </ul>
-          </div>
+            </li>
+          </ul>
         </div>
-        <div className="container-2">
-          ARKAVIDIA 7.0 - 2020
-        </div>
-        
-        <style jsx>
-          {`
-            .main-content {
-              position: absolute;
-              width: 100%;
-              height: 290px;
-              left: 0px;
-              right: 0px;
-              margin: 0;
-            }
-
-            .float-left {
-              float:left;
-            }
-            
-            ul {
-              list-style-type: none;
-            }
-
-            .container-1{
-              margin: 68px 0 50px 0;
-              position: absolute
-              height: 239px;
-              display: flex;
-            }
-
-            .left-side {
-              margin: 0 0 0 70px;
-            }
-
-            .logo {
-              width:406px;
-              height:113px;
-              display:block;
-            }
-            
-            .left-side ul li{
-              float: left;
-              margin-left:10px;
-            }
-            
-            .left-side ul li img {
-              margin-left: 20px;
-            }
-
-            .right-side {
-              margin: 0 10px 0 100px;
-            }
-
-            .right-side ul li{
-              margin : 0 23px 0 0;
-            }
-
-            .right-side ul li h3{
-              font-family: Viga;
-              font-style: Regular;
-              font-size: 24px;
-              line-height: 32px;
-              color: #431785;
-              margin: 0;
-            }
-
-            .right-side ul li ul li {
-              margin-top: 10px;
-              margin-left: -39px;
-            }
-
-            .right-side ul li ul li a{
-              font-family: Roboto;
-              font-style: Regular;
-              font-size: 18px;
-              line-height: 21px;
-              text-decoration: none;
-              color: #000000;
-            }
-
-            .container-2 {
-              display:flex;
-              position: absolute;
-              background-color: #000000;
-              width: 100%;
-              height: 51px;
-              font-family: Viga;
-              font-style: normal;
-              font-weight: normal;
-              font-size: 18px;
-              line-height: 24px;
-              color: #FFFFFF;
-              align-items:center;
-              justify-content:center;
-            }
-
-            @media (orientation:portrait) {
-              .container-1{
-                  display: initial;
-              }
-              .left-side {
-                margin: 10px 0 0 20px;
-              }
-
-              .logo {
-                width:165.5px;
-                height:46.6px;
-              }
-
-              .social{
-                margin-left:-10px;
-                display: inline-block;
-              }
-
-              .left-side ul li{
-                float: left;
-                margin-left:5px;
-              }
-
-              .left-side ul li img {
-                margin-left: 5px;
-                width:16.71px;
-                height:16.71px;
-              }
-
-              .right-side{
-                margin: 0px 0 0 -20px;
-              }
-
-              .right-side ul li{
-                margin-top: 15px;
-              }
-
-              .right-side ul li h3{
-                font-size: 14px;
-              }
-
-              .right-side ul li ul li{
-                margin-top: 0px;
-              }
-
-              .right-side ul li ul li a{
-                font-size: 11px;
-              }
-
-              .float-left{
-                float:none;
-              }
-
-              .container-2 {
-                height: 21px;
-                font-size: 7.34px;
-                line-height: 9.86px;
-              }
-
-            }
-
-          `}
-        </style>
       </div>
-    )
-  }
+      <div id="bottom-footer" className="row p-3">
+        ARKAVIDIA 7.0 - 2020
+      </div>
+
+      <style jsx>{`
+          #main-footer {
+            max-width: 1440px;
+            margin:auto;
+          }
+
+          #bottom-footer{
+            background-color: black;
+            color: white;
+            justify-content: center;
+            font-family: Viga;
+          }
+
+          ul {
+            list-style-type: none;
+          }
+
+          #footer-logo {
+            width: 100%;
+            max-width: 400px;
+          }
+
+          #social-link {
+            justify-content: flex-end;
+            display: flex;
+            padding: 0px;
+            flex-direction: row;
+            max-width: 400px;
+          }
+          
+          #social-link li {
+            margin-right: 10px;
+          }
+          
+          #footer-link {
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-around;
+          }
+
+          #footer-link ul {
+            padding: 0;
+          }
+
+          #footer-link ul li {
+            padding-top: 0.5rem;
+          }
+
+          #footer-link ul li a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: #000000;
+          }
+
+          #footer-link ul h3 {
+            font-family: Viga;
+            font-size: 1.5rem;
+            color: ${Theme.colors.purple.dark};
+            margin: 0;
+          }
+
+          @media (max-width: 800px) {
+            #footer-link {
+              flex-direction: column;
+            }
+            #footer-logo {
+              max-width: 250px;
+            }
+            #social-link {
+              justify-content: flex-start;
+            }
+          }
+        }
+      `}</style>
+    </footer>
+  )
+}
 
 export default Footer
