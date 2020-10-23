@@ -8,7 +8,7 @@ type Props = {
   color?: ButtonColor
 }
 
-const FilledButton = ({ onClick, text, padding, color = Theme.buttonColors.pinkButton }: Props) => (
+const FilledButton: React.FC<Props> = ({ onClick, text, padding, color = Theme.buttonColors.pinkButton }) => (
   <>
     <div onClick={onClick} style={{ padding }}>
       <b>{text}</b>

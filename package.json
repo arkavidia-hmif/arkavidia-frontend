@@ -7,7 +7,8 @@
     "generate:production": "DOTENV_FILE=production next build && DOTENV_FILE=production next export",
     "generate:staging": "DOTENV_FILE=staging next build && DOTENV_FILE=staging next export",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "lint": "eslint --max-warnings 0 --ext .ts,.js,.tsx ."
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
@@ -20,6 +21,10 @@
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-plugin-react": "^7.21.5",
     "typescript": "4.0"
   },
   "license": "MIT"

@@ -1,4 +1,9 @@
-const Burger = ({ open, setOpen }: any) => (
+type Props = {
+    open: boolean,
+    setOpen: (input: boolean) => void
+}
+
+const Burger: React.FC<Props> = ({ open, setOpen }) => (
     <div>
         <button className="burger mr-3" onClick={() => setOpen(!open)}>
             <div className="lines" />

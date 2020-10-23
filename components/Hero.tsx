@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function Hero (){
+const Hero: React.FC = () => {
     return (
         <div id="main-container">
             <div id="bg-container">
@@ -38,11 +38,11 @@ function Hero (){
                         font-size: 72px;
                         font-weight: normal;
                         margin: 1rem 0 0;
-                      
+
                         line-height: 100%;
                         color: #431785;
                     }
-                      
+
                     #date{
                         font-family: 'Viga', sans-serif;
                         font-size: 2rem;
@@ -57,7 +57,7 @@ function Hero (){
                         top:0;
                         left:0;
                         z-index: -1;
-                      
+
                         width: 100%;
                         height: 100%;
                         
@@ -65,25 +65,25 @@ function Hero (){
                         align-items: center;
                         justify-content: flex-end;
                     }
-                      
+
                     #city-container{
                         width: min(95vh,95vw);
                         height: min(95vh,95vw);
-                      
+
                         position: relative;
                     }
-                      
+
                     #city-container img{
                         object-fit: contain;
                         width: 100%;
                         height: 100%;
                         z-index: 1;
                     }
-                      
+
                     .sky-filter{
                         width: 57%;
                         height: 57%;
-                      
+
                         position: absolute;
                         top: 0;
                         left: 50%;
@@ -96,27 +96,27 @@ function Hero (){
                         animation-name: sky-fade;
                         animation-iteration-count: infinite;
                     }
-                      
+
                     #sky-filter-1{
                         animation-delay: 0s;
                         background: transparent linear-gradient(224deg, #5FE6EA 0%, #B395FFA8 30%, #FE598300 100%) 0% 0% no-repeat padding-box;
                     }
-                      
+
                     #sky-filter-2{
                         animation-delay: 2s;
                         background: transparent linear-gradient(178deg, #451889 0%, #5FE6EA00 100%) 0% 0% no-repeat padding-box;
                     }
-                      
+
                     #sky-filter-3{
                         animation-delay: 4s;
                         background: transparent linear-gradient(139deg, #FE5983 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box;
                     }
-                      
+
                     #sky-filter-4{
                         animation-delay: 6s;
                         background: transparent linear-gradient(190deg, #5FE6EA 0%, #FEFEFE00 100%) 0% 0% no-repeat padding-box;
                     }
-                      
+
                     #bg-filter{
                         width: 100%;
                         height: 70%;
@@ -160,7 +160,6 @@ function Hero (){
                         50%{opacity: 0;}
                         100%{opacity: 0;}
                     }
-                      
                 `}
             </style>
         </div>

@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import menuItem from '../../utils/constants/nav-item'
 
-const BurgerMenu = ({ open }: any) => (
+type Props = {
+    open: boolean
+}
+
+const BurgerMenu: React.FC<Props> = ({ open }) => (
     <div>
         <div className="burger-menu">
             {menuItem.map((link, index) => (

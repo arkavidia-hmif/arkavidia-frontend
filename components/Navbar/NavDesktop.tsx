@@ -2,7 +2,7 @@ import items from "../../utils/constants/nav-item"
 import Link from 'next/link'
 import FilledButton from "../FilledButton";
 
-const NavDesktop = () => {
+const NavDesktop: React.FC = () => {
     return (
         <div className="items">
             <ul className="mr-3">

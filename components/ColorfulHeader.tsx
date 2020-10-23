@@ -5,8 +5,8 @@ type Props = {
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 }
 
-const ColorfulHeader = ({ children, headingLevel = 1 }: Props) => {
-  const Tag: any = `h${headingLevel}`;
+const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1 }) => {
+  const Tag = React.createFactory(`h${headingLevel}`);
 
   return (
     <>

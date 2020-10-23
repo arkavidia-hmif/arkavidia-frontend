@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { Theme } from '../styles/theme'
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="container-fluid">
       <div id="main-footer" className="row mb-5 max-content">

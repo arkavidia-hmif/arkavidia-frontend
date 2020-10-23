@@ -5,7 +5,7 @@ import Burger from './Burger'
 import BurgerMenu from './BurgerMenu'
 import { Dimen } from '../../styles/dimen'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     const [open, setOpen] = useState(false)
     const burgerProps = {
         open: open,

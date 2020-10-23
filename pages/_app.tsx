@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -26,3 +26,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default MyApp
