@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
         <div className="col-lg-4 px-5">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
-            <li><Link href="#"><a><img src="/img/ig.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/twitter.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/linkedin.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/fb.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/line.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/ig.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/twitter.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/linkedin.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/fb.jpg"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/line.jpg"></img></a></Link></li>
           </ul>
         </div>
         <div id="footer-link" className="col-lg-8">
