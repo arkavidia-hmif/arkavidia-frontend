@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import Items from './Items'
+import menuItem from '../../utils/constants/nav-item'
 
 const BurgerMenu = ({ open }: any) => (
     <div>
         <div className="burger-menu">
-            {Items.map((link, index) => (
+            {menuItem.map((link, index) => (
                 <Link key={index} href={link.path}><a>{link.text}</a></Link>
             ))}
             <Link href="/"><a>Login</a></Link>

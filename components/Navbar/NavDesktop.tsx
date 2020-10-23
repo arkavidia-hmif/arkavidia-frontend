@@ -1,4 +1,4 @@
-import items from "./Items"
+import items from "../../utils/constants/nav-item"
 import Link from 'next/link'
 
 const NavDesktop = () => {
