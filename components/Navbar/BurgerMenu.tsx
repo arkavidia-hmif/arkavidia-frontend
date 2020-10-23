@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Dimen } from '../../styles/dimen'
 import menuItem from '../../utils/constants/nav-item'
 
 type Props = {
@@ -23,18 +24,18 @@ const BurgerMenu: React.FC<Props> = ({ open }) => (
           height: auto;
           width: 100%;
           text-align: center;
-          padding: 2rem;
+          padding: 1rem;
           position: absolute;
-          top: 100px;
+          top: ${Dimen.navbarMobileHeight};
           transition: transform 0.3s ease-in-out;
           z-index: -10;
         }
 
         a {
           font-family: Viga;
-          font-size: 20px;
+          font-size: 1rem;
           text-transform: uppercase;
-          padding: 2rem 0;
+          padding: 1rem 0;
           font-weight: bold;
           letter-spacing: 0.5rem;
           color: white;

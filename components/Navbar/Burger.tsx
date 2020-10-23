@@ -16,8 +16,8 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
         display: none;
         flex-direction: column;
         justify-content: space-around;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -30,7 +30,7 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
       }
 
       .lines {
-        width: 2rem;
+        width: 1.5rem;
         height: 0.25rem;
         background: #FE789A;
         border-radius: 10px;

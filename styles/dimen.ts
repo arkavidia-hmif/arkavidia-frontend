@@ -1,3 +1,4 @@
 export const Dimen = {
-  navbarHeight: '100px'
+  navbarHeight: '80px',
+  navbarMobileHeight: '60px'
 }

@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
   return (
     <header className={onTop ? '' : 'shadow'}>
       <nav className="container-fluid max-content">
-        <div className="logo">
+        <div className="logo pl-md-3">
           <Link href="/">
             <a>
               <img src="/img/logo-horizontal.svg" alt="Logo Arkavidia" />
@@ -68,7 +68,6 @@ const Navbar: React.FC = () => {
           }
 
           .logo {
-            padding-left: 30px;
             max-width: 300px;
           }
 
@@ -77,24 +76,14 @@ const Navbar: React.FC = () => {
           }
 
           @media (max-width: 1300px) {
-            .logo {
-                padding-left: 30px;
-            }
             #spacer {
                 flex-grow: 1!important;
             }
-          }
-
-          @media (max-width: 500px) {
-            .logo {
-                padding-left: 10px;
-                max-width: 200px;
+            .logo img {
+              height: 30px;
             }
-          }
-
-          @media (max-width: 300px) {
-            .logo {
-                max-width: 175px;
+            nav {
+              height: ${Dimen.navbarMobileHeight}
             }
           }
       `}</style>
