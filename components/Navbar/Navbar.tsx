@@ -73,8 +73,7 @@ const Navbar = () => {
                 }
 
                 .logo img {
-                    height: auto;
-                    max-width: 100%;
+                    height: 60px;
                 }
 
                 @media (max-width: 1300px) {
