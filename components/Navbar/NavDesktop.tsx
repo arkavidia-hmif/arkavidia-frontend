@@ -13,11 +13,10 @@ const NavDesktop = () => {
                 ))}
             </ul>
             <div className="login">
-                <Link href="/"><a>LOGIN</a></Link>    
-            </div>  
+                <Link href="/"><a>LOGIN</a></Link>
+            </div>
 
             <style jsx>{`
-                @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
                 ul {
                     display: flex;
                     list-style: none;
@@ -82,7 +81,7 @@ const NavDesktop = () => {
                         display: none;
                     }
                 }
-            `}</style> 
+            `}</style>
         </div>
     )
 }

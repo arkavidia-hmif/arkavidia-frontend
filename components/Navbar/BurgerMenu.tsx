@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Items from './Items'
 
-const BurgerMenu = ({open}: any) => (
+const BurgerMenu = ({ open }: any) => (
     <div>
         <div className="burger-menu">
             {Items.map((link, index) => (
@@ -11,7 +11,6 @@ const BurgerMenu = ({open}: any) => (
         </div>
 
         <style jsx>{`
-            @import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
             .burger-menu {
                 display: none;
                 flex-direction: column;
@@ -50,7 +49,7 @@ const BurgerMenu = ({open}: any) => (
         `}</style>
         <style jsx>{`
             .burger-menu {
-                transform: ${ open ? 'translateX(0)': 'translateX(200%)' };
+                transform: ${open ? 'translateX(0)' : 'translateX(200%)'};
             }
         `}</style>
     </div>
