@@ -17,6 +17,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           font-family: 'roboto';
           margin: 0;
         }
+
+        .max-content {
+          max-width: 1440px;
+        }
       `}
       </style>
     </>

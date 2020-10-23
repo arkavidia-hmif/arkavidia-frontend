@@ -5,7 +5,7 @@ import { Theme } from '../styles/theme'
 function Footer() {
   return (
     <footer className="container-fluid">
-      <div id="main-footer" className="row mb-5">
+      <div id="main-footer" className="row mb-5 max-content">
         <div className="col-lg-4 px-5">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
@@ -79,7 +79,6 @@ function Footer() {
 
       <style jsx>{`
           #main-footer {
-            max-width: 1440px;
             margin:auto;
           }
 
