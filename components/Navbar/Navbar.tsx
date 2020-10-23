@@ -6,100 +6,100 @@ import BurgerMenu from './BurgerMenu'
 import { Dimen } from '../../styles/dimen'
 
 const Navbar: React.FC = () => {
-    const [open, setOpen] = useState(false)
-    const burgerProps = {
-        open: open,
-        setOpen: setOpen
+  const [open, setOpen] = useState(false)
+  const burgerProps = {
+    open: open,
+    setOpen: setOpen
+  }
+
+  const [onTop, setOnTop] = useState(true);
+
+  const handleScroll = () => {
+    console.log(window.pageYOffset)
+    if (onTop != (window.pageYOffset == 0)) {
+      setOnTop(window.pageYOffset == 0);
     }
+  }
 
-    const [onTop, setOnTop] = useState(true);
-
-    const handleScroll = () => {
-        console.log(window.pageYOffset)
-        if (onTop != (window.pageYOffset == 0)) {
-            setOnTop(window.pageYOffset == 0);
-        }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
+  });
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    });
+  return (
+    <header className={onTop ? '' : 'shadow'}>
+      <nav className="container-fluid max-content">
+        <div className="logo">
+          <Link href="/">
+            <a>
+              <img src="/img/logo-horizontal.svg" alt="Logo Arkavidia" />
+            </a>
+          </Link>
+        </div>
+        <div id="spacer" />
+        <NavDesktop />
+        <Burger {...burgerProps} />
+      </nav>
+      <BurgerMenu {...burgerProps} />
 
-    return (
-        <header className={onTop ? '' : 'shadow'}>
-            <nav className="container-fluid max-content">
-                <div className="logo">
-                    <Link href="/">
-                        <a>
-                            <img src="/img/logo-horizontal.svg" alt="Logo Arkavidia" />
-                        </a>
-                    </Link>
-                </div>
-                <div id="spacer" />
-                <NavDesktop />
-                <Burger {...burgerProps} />
-            </nav>
-            <BurgerMenu {...burgerProps} />
+      <style jsx>{`
+          header {
+            padding: 0.05;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 20;
+            background: #FFFF;
 
-            <style jsx>{`
-                header {
-                    padding: 0.05;
-                    position: sticky;
-                    position: -webkit-sticky;
-                    top: 0;
-                    z-index: 20;
-                    background: #FFFF;
+            transition: box-shadow .3s cubic-bezier(.4,0,.2,1);
+          }
+          header.shadow{
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+          }
 
-                    transition: box-shadow .3s cubic-bezier(.4,0,.2,1);
-                }
-                header.shadow{
-                    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-                }
+          nav {
+            background: #FFFF;
+            display: flex;
+            width: 100%;
+            height: ${Dimen.navbarHeight};
+            align-items: center;
+          }
 
-                nav {
-                    background: #FFFF;
-                    display: flex;
-                    width: 100%;
-                    height: ${Dimen.navbarHeight};
-                    align-items: center;
-                }
+          .logo {
+            padding-left: 30px;
+            max-width: 300px;
+          }
 
-                .logo {
-                    padding-left: 30px;
-                    max-width: 300px;
-                }
+          .logo img {
+            height: 60px;
+          }
 
-                .logo img {
-                    height: 60px;
-                }
+          @media (max-width: 1300px) {
+            .logo {
+                padding-left: 30px;
+            }
+            #spacer {
+                flex-grow: 1!important;
+            }
+          }
 
-                @media (max-width: 1300px) {
-                    .logo {
-                        padding-left: 30px;
-                    }
-                    #spacer {
-                        flex-grow: 1!important;
-                    }
-                }
+          @media (max-width: 500px) {
+            .logo {
+                padding-left: 10px;
+                max-width: 200px;
+            }
+          }
 
-                @media (max-width: 500px) {
-                    .logo {
-                        padding-left: 10px;
-                        max-width: 200px;
-                    }
-                }
-
-                @media (max-width: 300px) {
-                    .logo {
-                        max-width: 175px;
-                    }
-                }
-            `}</style>
-        </header>
-    )
+          @media (max-width: 300px) {
+            .logo {
+                max-width: 175px;
+            }
+          }
+      `}</style>
+    </header>
+  )
 }
 
 export default Navbar

@@ -24,7 +24,7 @@ const StaticPropsDetail: React.FC<Props> = ({ item, errors }) => {
   return (
     <Layout
       title={`${item ? item.name : 'User Detail'
-        } | Next.js + TypeScript Example`}
+      } | Next.js + TypeScript Example`}
     >
       {item && <ListDetail item={item} />}
     </Layout>

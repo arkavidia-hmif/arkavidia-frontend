@@ -8,7 +8,9 @@
     "generate:staging": "DOTENV_FILE=staging next build && DOTENV_FILE=staging next export",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint --max-warnings 0 --ext .ts,.js,.tsx ."
+    "lint": "npm run lint:check",
+    "lint:check": "eslint --max-warnings 0 --ext .ts,.js,.tsx .",
+    "lint:fix": "eslint --max-warnings 0 --fix --ext .ts,.js,.tsx ."
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
