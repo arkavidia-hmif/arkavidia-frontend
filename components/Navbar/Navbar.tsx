@@ -60,6 +60,7 @@ const Navbar = () => {
                 }
 
                 nav {
+                    background: #FFFF;
                     display: flex;
                     width: 100%;
                     height: ${Dimen.navbarHeight};

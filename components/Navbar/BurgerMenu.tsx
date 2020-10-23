@@ -20,9 +20,10 @@ const BurgerMenu = ({ open }: any) => (
                 width: 100%;
                 text-align: center;
                 padding: 2rem;
-                position: relative;
+                position: absolute;
                 top: 100px;
                 transition: transform 0.3s ease-in-out;
+                z-index: -10;
             }
 
             a {
@@ -49,7 +50,7 @@ const BurgerMenu = ({ open }: any) => (
         `}</style>
         <style jsx>{`
             .burger-menu {
-                transform: ${open ? 'translateX(0)' : 'translateX(200%)'};
+                transform: ${open ? 'translateY(0)' : 'translateY(-200%)'};
             }
         `}</style>
     </div>
