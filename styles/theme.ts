@@ -67,7 +67,7 @@ export const Theme = {
     purpleButton
   },
   bgColors: {
-    whblpi: 'linear-gradient(to bottom, #FFFFFF 3.87%, #DAFFFF 44.43%, #FFDFF2 93.49%)', // White blue pink
+    whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink
     whpipl: 'linear-gradient(to bottom, );', // White pink purple
     whblpl: 'linear-gradient(to bottom, );' // White blue purple
   }
