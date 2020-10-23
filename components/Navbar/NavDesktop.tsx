@@ -1,10 +1,11 @@
 import items from "../../utils/constants/nav-item"
 import Link from 'next/link'
+import FilledButton from "../FilledButton";
 
 const NavDesktop = () => {
     return (
         <div className="items">
-            <ul>
+            <ul className="mr-3">
                 {items.map((link, index) => (
                     <li key={index}>
                         <Link href={link.path}><a>{link.text}</a></Link>
@@ -12,9 +13,7 @@ const NavDesktop = () => {
                     </li>
                 ))}
             </ul>
-            <div className="login">
-                <Link href="/"><a>LOGIN</a></Link>
-            </div>
+            <FilledButton text="LOGIN" padding="0.75em 1.5em" />
 
             <style jsx>{`
                 ul {
@@ -36,24 +35,6 @@ const NavDesktop = () => {
                 .login {
                     margin-left: 20px;
                     padding: 10px;
-                    background: #FE789A;
-                    border-radius: 15px;
-                }
-
-                .login:hover {
-                    background: #FFFFFF;
-                    transition: all 0.3s linear;
-                    transform-origin: 1px;
-                }
-
-                .login a {
-                    color: #FFFFFF;
-                }
-
-                .login a:hover {
-                    color: #FE789A;
-                    transition: all 0.3s linear;
-                    transform-origin: 1px;
                 }
 
                 .items {

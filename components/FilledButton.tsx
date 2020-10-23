@@ -4,12 +4,13 @@ import { ButtonColor, Theme } from '../styles/theme'
 type Props = {
   onClick?: () => void,
   text: string,
+  padding?: string,
   color?: ButtonColor
 }
 
-const FilledButton = ({ onClick, text, color = Theme.buttonColors.pinkButton }: Props) => (
+const FilledButton = ({ onClick, text, padding, color = Theme.buttonColors.pinkButton }: Props) => (
   <>
-    <div onClick={onClick}>
+    <div onClick={onClick} style={{ padding }}>
       <b>{text}</b>
     </div>
     <style jsx>{`
@@ -22,6 +23,8 @@ const FilledButton = ({ onClick, text, color = Theme.buttonColors.pinkButton }: 
         color: white;
         
         cursor: pointer;
+
+        transition: background-color 0.1s;
       }
       div:hover {
         background-color: ${color.hover};
