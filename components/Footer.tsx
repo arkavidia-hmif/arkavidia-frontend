@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="container-fluid mt-5">
       <div id="main-footer" className="row mb-5 max-content">
-        <div className="col-lg-4 px-5">
+        <div className="col-lg-4">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
             <li><Link href="#"><a><img src="/img/social/ig.jpg"></img></a></Link></li>
