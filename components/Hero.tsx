@@ -5,12 +5,12 @@ const Hero: React.FC = () => {
     <div id="main-container">
       <div id="bg-container">
         <div id="city-container">
-          <div id="bg-filter"></div>
+          <div id="bg-filter" />
           <div className="sky-filter" id="sky-filter-1"></div>
           <div className="sky-filter" id="sky-filter-2"></div>
           <div className="sky-filter" id="sky-filter-3"></div>
           <div className="sky-filter" id="sky-filter-4"></div>
-          <img src="/img/bg.png" />
+          <img src="/img/bg-white.png" />
         </div>
       </div>
       <div id="content-container">
@@ -19,23 +19,20 @@ const Hero: React.FC = () => {
         <p id="date">26-28 February 2021</p>
       </div>
       <style jsx>
-        {`  
-          #main-container{
-            max-width: 1200px;
-            height: 100vh;
-            margin: auto;
-            overflow: hidden; 
+        {`
+          #main-container {
             position: relative;
+            height: 80vh;
           }
-          
+
           #content-container{
-            margin-top:7rem;
-            padding-left: 2rem;
+            position: relative;
+            z-index: 4;
           }
 
           h1{
-            font-family: 'Viga', sans-serif;
-            font-size: 72px;
+            font-family: 'Viga';
+            font-size: 4rem;
             font-weight: normal;
             margin: 1rem 0 0;
 
@@ -44,8 +41,8 @@ const Hero: React.FC = () => {
           }
 
           #date{
-            font-family: 'Viga', sans-serif;
-            font-size: 2rem;
+            font-family: 'Viga';
+            font-size: 1.5rem;
             font-weight: normal;
             margin:0;
 
@@ -56,10 +53,9 @@ const Hero: React.FC = () => {
             position: absolute;
             top:0;
             left:0;
-            z-index: -1;
 
             width: 100%;
-            height: 100%;
+            height: 80vh;
             
             display: flex;
             align-items: center;
@@ -67,16 +63,14 @@ const Hero: React.FC = () => {
           }
 
           #city-container{
-            width: min(95vh,95vw);
-            height: min(95vh,95vw);
-
+            height: 100%;
             position: relative;
           }
 
           #city-container img{
             object-fit: contain;
-            width: 100%;
             height: 100%;
+            width: auto;
             z-index: 1;
           }
 
@@ -118,13 +112,18 @@ const Hero: React.FC = () => {
           }
 
           #bg-filter{
-            width: 100%;
-            height: 70%;
-            
+            width: 57%;
+            height: 57%;
+
             position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 3;
             
-            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 50%;
+            
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
           }
 
           @media (orientation:portrait) {
@@ -138,18 +137,19 @@ const Hero: React.FC = () => {
             
             #bg-container{
                 align-items: flex-start;
-                padding-top: 60px;
+                justify-content: center;
+                padding-top: 5rem;
             }
           }
 
           @media (max-width: 450px){
             h1{
-                font-size: 1.5rem;
+                font-size: 2rem;
                 margin-top: 5px;
             }
             
             #date{
-                font-size: 14px;
+                font-size: 1rem;
             }
           }
 
