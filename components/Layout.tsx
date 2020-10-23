@@ -14,8 +14,16 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <title>{title}</title>
     </Head>
     <Navbar />
-    {children}
+    <div id="main-container">
+      {children}
+    </div>
     <Footer />
+    <style jsx>{`
+      #main-container {
+        overflow: auto;
+      }
+    `}
+    </style>
   </div>
 )
 
