@@ -15,7 +15,6 @@ const Navbar: React.FC = () => {
   const [onTop, setOnTop] = useState(true);
 
   const handleScroll = () => {
-    console.log(window.pageYOffset)
     if (onTop != (window.pageYOffset == 0)) {
       setOnTop(window.pageYOffset == 0);
     }
