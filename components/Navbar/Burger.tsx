@@ -1,19 +1,18 @@
-const Burger = ({open, setOpen} : any) => (
+const Burger = ({ open, setOpen }: any) => (
     <div>
-        <button className="burger" onClick={ () => setOpen(!open)}>
-            <div className="lines"/>
-            <div className="lines"/>
-            <div className="lines"/>
+        <button className="burger mr-3" onClick={() => setOpen(!open)}>
+            <div className="lines" />
+            <div className="lines" />
+            <div className="lines" />
         </button>
 
         <style jsx>{`
             .burger {
-                margin-right: 10px;
                 display: none;
                 flex-direction: column;
                 justify-content: space-around;
-                width: 32px;
-                height: 32px;
+                width: 2rem;
+                height: 2rem;
                 background: transparent;
                 border: none;
                 cursor: pointer;
@@ -42,16 +41,16 @@ const Burger = ({open, setOpen} : any) => (
         `}</style>
         <style jsx>{`
             .lines:first-child {
-                transform: ${ open ? 'rotate(45deg)' : 'rotate(0)'};
+                transform: ${open ? 'rotate(45deg)' : 'rotate(0)'};
             }
 
             .lines:nth-child(2) {
-                opacity: ${ open ? '0' : '1'};
-                transform: ${ open ? 'translateX(20px)' : 'translateX(0)'};
+                opacity: ${open ? '0' : '1'};
+                transform: ${open ? 'translateX(20px)' : 'translateX(0)'};
             }
 
             .lines:nth-child(3) {
-                transform: ${ open ? 'rotate(-45deg)' : 'rotate(0)'};
+                transform: ${open ? 'rotate(-45deg)' : 'rotate(0)'};
             }
         `}</style>
     </div>

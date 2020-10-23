@@ -38,7 +38,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                 </div>
-                <div className="spacer"></div>
+                <div id="spacer" />
                 <NavDesktop />
                 <Burger {...burgerProps} />
             </nav>
@@ -81,8 +81,8 @@ const Navbar = () => {
                     .logo {
                         padding-left: 30px;
                     }
-                    .spacer {
-                        flex-grow: 0.9!important;
+                    #spacer {
+                        flex-grow: 1!important;
                     }
                 }
 
