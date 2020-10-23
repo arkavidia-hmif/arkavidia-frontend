@@ -4,7 +4,7 @@ import { Theme } from '../styles/theme'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="container-fluid">
+    <footer className="container-fluid mt-5">
       <div id="main-footer" className="row mb-5 max-content">
         <div className="col-lg-4 px-5">
           <img id="footer-logo" src="/img/logo.jpg"></img>
