@@ -4,8 +4,8 @@ import { Theme } from '../styles/theme'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="container-fluid mt-5">
-      <div id="main-footer" className="row mb-5 max-content">
+    <footer className="container mt-5">
+      <div className="row mb-5">
         <div id="footer-social" className="col-lg-4">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
@@ -78,10 +78,6 @@ const Footer: React.FC = () => {
       </div>
 
       <style jsx>{`
-          #main-footer {
-            margin:auto;
-          }
-
           #bottom-footer{
             font-size: 1.2rem;
             background-color: black;
