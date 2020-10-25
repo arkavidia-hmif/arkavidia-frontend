@@ -8,6 +8,22 @@ const BackgroundProps = {
     talks : {
         title : 'Arkavidia Talks',
         background: Theme.bgColors.whpipl
+    },
+    aoa : {
+        title : 'Arkavidia On Air',
+        background : Theme.bgColors.whblpl
+    },
+    academy : {
+        title : 'Arkavidia Academy',
+        background : Theme.bgColors.whblpl
+    },
+    agts : {
+        title : 'Arkavidia Goes to School',
+        background : Theme.bgColors.whblpl
+    },
+    technocamp : {
+        title : 'Technocamp',
+        background : Theme.bgColors.whblpl
     }
 }
 
