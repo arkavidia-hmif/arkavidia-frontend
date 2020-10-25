@@ -4,7 +4,7 @@ import { Theme } from '../styles/theme';
 type Props = {
   children: React.ReactNode,
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  color: string;
+  color?: string;
 }
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
