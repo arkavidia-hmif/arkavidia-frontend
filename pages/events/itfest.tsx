@@ -1,13 +1,13 @@
 import Layout from '../../components/Layout'
 import BackgroundProps  from '../../utils/constants/events-background'
-import Content from '../../components/event/itfest/Content'
-import Gallery from '../../components/event/itfest/Gallery'
+import ItFestContent from '../../components/event/itfest/ItFestContent'
+import ItFestGallery from '../../components/event/itfest/ItFestGallery'
 
 const ItFest: React.FC = () => (
     <Layout {...BackgroundProps.itfest}>
         <div className="container">
-            <Content/>
-            <Gallery/>
+            <ItFestContent/>
+            <ItFestGallery/>
         </div>
     </Layout>
 )
