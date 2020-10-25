@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import ColorfulHeader from '../components/ColorfulHeader'
 import Layout from '../components/Layout'
 import { Theme } from '../styles/theme'
@@ -18,7 +17,7 @@ const AboutPage: React.FC = () => {
               <img src="/img/about/photo-1-mobile.png" className="d-block d-md-none mt-3 mt-md-0" />
               <br />
               <ColorfulHeader color={Theme.headerColors.plpi} size="3rem" headingLevel={1}>Arkavidia 7.0</ColorfulHeader>
-              <p className="p-1 p-md-0">Arkavidia 7.0 adalah acara prestisius tahunan yang diselenggarakan oleh Himpunan Mahasiswa Informatika Institut Teknologi Bandung (HMIF ITB). Bertemakan "Establishing Digital Independence," Arkavidia hadir untuk memberikan kesadaran bagi setiap individu akan hak dan kewajibannya di dunia digital, sehingga mereka dapat mewujudkan kemerdekaan digital bagi dirinya. Dengan pengalaman lebih dari 6 tahun dan 2000 peserta, Arkavidia berkembang lebih jauh lagi untuk memajukan pemahaman teknologi Indonesia.</p>
+              <p className="p-1 p-md-0">Arkavidia 7.0 adalah acara prestisius tahunan yang diselenggarakan oleh Himpunan Mahasiswa Informatika Institut Teknologi Bandung (HMIF ITB). Bertemakan &quot;Establishing Digital Independence,&quot; Arkavidia hadir untuk memberikan kesadaran bagi setiap individu akan hak dan kewajibannya di dunia digital, sehingga mereka dapat mewujudkan kemerdekaan digital bagi dirinya. Dengan pengalaman lebih dari 6 tahun dan 2000 peserta, Arkavidia berkembang lebih jauh lagi untuk memajukan pemahaman teknologi Indonesia.</p>
             </div>
           </div>
           <br />
