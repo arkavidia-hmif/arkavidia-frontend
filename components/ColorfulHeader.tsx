@@ -1,12 +1,14 @@
 import * as React from 'react'
 
 type Props = {
-  children: string,
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  children: React.ReactNode,
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
+type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1 }) => {
-  const Tag = React.createFactory(`h${headingLevel}`);
+  const Tag = `h${headingLevel}` as HeadingTag;
 
   return (
     <>
