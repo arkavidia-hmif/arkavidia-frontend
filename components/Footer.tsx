@@ -4,8 +4,8 @@ import { Theme } from '../styles/theme'
 
 const Footer: React.FC = () => {
   return (
-    <footer className="container mt-5">
-      <div className="row mb-5">
+    <footer className="container-fluid mt-5">
+      <div className="container mx-auto row mb-5">
         <div id="footer-social" className="col-lg-4">
           <img id="footer-logo" src="/img/logo.jpg"></img>
           <ul id="social-link">
@@ -73,13 +73,13 @@ const Footer: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div id="bottom-footer" className="row p-3">
+      <div id="bottom-footer" className="row p-2">
         ARKAVIDIA 7.0 - 2020
       </div>
 
       <style jsx>{`
           #bottom-footer{
-            font-size: 1.2rem;
+            font-size: 1rem;
             background-color: black;
             color: white;
             justify-content: center;
@@ -130,6 +130,7 @@ const Footer: React.FC = () => {
 
           #footer-link ul h3 {
             font-family: Viga;
+            font-weight: 500;
             font-size: 1.5rem;
             color: ${Theme.colors.purple.dark};
             margin: 0;
