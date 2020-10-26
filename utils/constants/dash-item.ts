@@ -1,23 +1,23 @@
 const DashItems = [
     {
       title: 'ANNOUNCEMENT',
-      path: '/',
+      route: '/dashboard',
     },
     {
       title: 'PROFILE',
-      path: '/',
+      route: '/dashboard/profile',
     },
     {
       title: 'COMPETITIONS',
-      path: '/',
+      route: '/dashboard',
     },
     {
       title: 'PRE-EVENTS',
-      path: '/',
+      route: '/dashboard',
     },
     {
       title: 'EVENTS',
-      path: '/',
+      route: '/dashboard',
     },
   ]
   
