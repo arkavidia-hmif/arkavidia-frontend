@@ -17,17 +17,8 @@ const Layout: React.FC<Props> = ({ children, title = 'Arkavidia 7.0', background
       <title>{title}</title>
     </Head>
     <Navbar />
-    <div id="main-container">
-      {children}
-    </div>
-    <Footer />
-    <style jsx>{`
-      #main-container {
-        overflow: auto;
-        background: ${background};
-      }
-    `}
-    </style>    
+    <Register />
+    <Footer /> 
   </div>
 )
 
