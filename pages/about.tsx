@@ -37,7 +37,7 @@ const AboutPage: React.FC = () => {
           <br />
           <div className="row mt-5">
             <div className="col-12">
-              <h2 className="blue-text">Misions</h2>
+              <h2 className="blue-text">Missions</h2>
             </div>
           </div>
           <br />
