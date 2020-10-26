@@ -36,6 +36,7 @@ const TalksContent : React.FC = () => (
 
             #content-container{
                 position: relative;
+                height: 40vh;
                 top: 25%;
             }
 

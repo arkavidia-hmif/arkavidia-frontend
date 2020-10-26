@@ -43,6 +43,11 @@ const purpleButton: ButtonColor = {
   hover: '#936bd4'
 }
 
+const blueButton : ButtonColor = {
+  main: '#00B6F1',
+  hover: '#5EE6E9'
+}
+
 const lightBlueButton: ButtonColor = {
   main: '#5FE6EA',
   hover: '#98ffff'
@@ -53,6 +58,10 @@ const pinkButton: ButtonColor = {
   hover: '#ffaacb'
 }
 
+const darkPinkButton : ButtonColor = {
+  main: '#FE65D4',
+  hover: '#F3A9DD'
+}
 
 export const Theme = {
   colors: {
@@ -62,9 +71,11 @@ export const Theme = {
     red
   },
   buttonColors: {
+    blueButton,
     lightBlueButton,
     pinkButton,
-    purpleButton
+    darkPinkButton,
+    purpleButton,
   },
   bgColors: {
     whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink

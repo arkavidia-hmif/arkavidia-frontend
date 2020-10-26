@@ -1,14 +1,18 @@
 import Layout from '../../components/Layout'
 import BackgroundProps  from '../../utils/constants/events-background'
-import ItFestContent from '../../components/event/itfest/ItFestContent'
-import ItFestGallery from '../../components/event/itfest/ItFestGallery'
+import TechContent from '../../components/pre-event/technocamp/TechContent'
+import TechDesc from '../../components/pre-event/technocamp/TechDesc'
+import TechBenefits from '../../components/pre-event/technocamp/TechBenefits'
+import TechTimeline from '../../components/pre-event/technocamp/TechTimeline'
 
 const Technocamp: React.FC = () => (
-    <Layout {...BackgroundProps.itfest}>
+    <Layout {...BackgroundProps.technocamp}>
         <div className="container">
-            <ItFestContent/>
-            <ItFestGallery/>
+            <TechContent/>
+            <TechDesc/>
+            <TechBenefits/>
         </div>
+        <TechTimeline/>
     </Layout>
 )
 

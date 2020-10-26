@@ -1,30 +1,23 @@
 import * as React from 'react'
+import Buttons from './Buttons'
+import Pricing from './Pricing'
 
-const AcademyContent: React.FC = () => (
+const TechContent : React.FC = () => (
     <div id="main-container">
         <div id="bg-container">
             <div id="city-container">
                 <div id="bg-filter"/>
-                <img src="/img/pre-event/academy/academy1.png" alt="city"/>
+                <img src="/img/pre-event/agts/school.png" alt="city"/>
             </div>
         </div>
         <div id="content-container">
-            <h1>ARKAVIDIA<br/>ACADEMY</h1>
+            <h1>TECHNOCAMP</h1>
             <p>
-                Arkavidia Academy adalah rangkaian acara pre-event dari Arkavidia yang bertujuan 
-                untuk meningkatkan kemampuan dalam bidang informatika. 
-                Dalam pelaksanaannya, Arkavidia Academy bekerjasama dengan perusahaan 
-                atau startup ternama Indonesia yang bergerak dalam bidang teknologi.
+                Technocamp adalah kegiatan selama dua hari yang mencakup dasar teori, 
+                hands on, dan seminar IT untuk anak SMA/sederajat yang tertarik pada dunia pemrograman.
             </p>
-            <div className="date-container">
-                <img src="/img/date1.svg" alt="calendar"/>
-                <div className="dates">
-                    <h3>Sabtu, 30 Januari 2021</h3>
-                    <h3>Sabtu, 6 Februari 2021</h3>
-                    <h3>Sabtu, 13 Februari 2021</h3>
-                    <h3>Sabtu, 20 Februari 2021</h3>
-                </div>
-            </div>
+            <Pricing/>
+            <Buttons/>
         </div>
         <style jsx>{`
             #main-container {
@@ -36,6 +29,7 @@ const AcademyContent: React.FC = () => (
             #bg-container{
                 position: relative;
                 top: 10%;
+                left: 0;
 
                 width: 100%;
                 height: 60vh;
@@ -85,10 +79,10 @@ const AcademyContent: React.FC = () => (
                 font-weight: normal;
                 margin : 0;
                 line-height: 100%;
-                background: linear-gradient(101.29deg, #0083AF 17.7%, #FE81DB 76.97%);
+                background: -webkit-linear-gradient(101.29deg,#FE81DB 17.7%,  #0083AF 76.97%);
                 background-clip: text;
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent
+                -webkit-text-fill-color: transparent;
             }
 
             h3 {
@@ -100,15 +94,9 @@ const AcademyContent: React.FC = () => (
 
             p {
                 font-size: 1.2rem;
-            }
-
-            .date-container {
-                display: flex;
-                align-items: flex-start;
-            }     
-
+            } 
         `}</style>
     </div>
 )
 
-export default AcademyContent
+export default TechContent

@@ -77,7 +77,7 @@ const AoaContent: React.FC = () => (
                 font-weight: normal;
                 margin : 0;
                 line-height: 100%;
-                background: -webkit-linear-gradient(101.29deg, #0083AF 100%, #FE81DB 100%);
+                background: linear-gradient(101.29deg, #0083AF 10.7%, #FE81DB 76.97%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent
