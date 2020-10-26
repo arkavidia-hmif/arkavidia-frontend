@@ -18,21 +18,21 @@ const ItFestGallery: React.FC = () => (
             #image-container {
                 display: flex;
                 height: 80vh;
-                width: auto;
+                width: 100%;
             }
 
             .image-box1 {
                 width: 100%;
                 height: auto;
-                padding-right: 1rem;
+                padding-right: 0.5rem;
             }
 
             .image-box2 {
-                padding: 0 1rem;
+                padding: 0 0.5rem;
             }
 
             .image-box3 {
-                padding-left: 1rem;
+                padding-left: 0.5rem;
             }    
 
             .image-box3 img:last-child {

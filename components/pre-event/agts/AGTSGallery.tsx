@@ -4,26 +4,26 @@ const AGTSGallery: React.FC = () => (
     <div id="gallery-container">
         <div id="image-container">
             <div className="image-box1">
-                <img src="/img/event/itfest/itfest1.png" alt="gdblabs"/>
+                <img src="/img/pre-event/agts/agts2.png" alt="school"/>
             </div>
             <div className="image-box2">
-                <img src="/img/event/itfest/itfest2.png" alt="moka"/>
+                <img src="/img/pre-event/agts/agts1.png"  alt="speaker"/>
             </div>
         </div>
         <style jsx>{`
             #image-container {
                 display: flex;
-                height: 80vh;
+                height: 60vh;
                 width: auto;
             }
 
-            .image-box1 {
+            .image-box1 img {
                 width: 100%;
-                height: auto;
                 padding-right: 1rem;
             }
 
-            .image-box2 {
+            .image-box2 img{
+                width: 100%;
                 padding: 0 1rem;
             }
 

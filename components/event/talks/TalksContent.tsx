@@ -17,27 +17,26 @@ const TalksContent : React.FC = () => (
         <style jsx>{`
             #main-container {
                 position: relative;
-                height: 100vh;
+                height: 90vh;
                 display: flex;
             }
 
             #bg-container{
                 position: relative;
-                top: 5%;
                 left: 0;
 
                 width: 100%;
-                height: 70vh;
+                height: 60vh;
                 
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                margin: 3rem 3rem 3rem 0;
             }
 
             #content-container{
                 position: relative;
-                top: 30%;
-                left: 10%; 
+                top: 25%;
             }
 
             #city-container{
@@ -46,8 +45,8 @@ const TalksContent : React.FC = () => (
 
             #city-container img {
                 position: relative;
-                top: 0;
-                right: 45%;
+                top: 5%;
+                right: 50%;
                 object-fit: contain;
                 height: 100%;
                 width: auto;
@@ -56,15 +55,14 @@ const TalksContent : React.FC = () => (
 
             #bg-filter{
                 width: 100%;
-                height: 85%;
+                height: 95%;
 
                 position: absolute;
-                top: 15%;
                 left: 7%;
                 
                 border-radius: 50%;
                 
-                background: linear-gradient(127.12deg, #CDBBFF 20.51%, #FEEEEE 56.25%, rgba(255, 255, 255, 0) 83.3%);
+                background:linear-gradient(127.12deg, #CDBBFF 20.51%, #FEEEEE 56.25%, rgba(255, 255, 255, 0) 83.3%);
                 transform: rotate(-85.95deg);
             }
 
@@ -89,6 +87,7 @@ const TalksContent : React.FC = () => (
             p {
                 font-size: 1.2rem;
             }     
+
         `}</style>
     </div>
 )

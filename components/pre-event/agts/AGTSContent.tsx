@@ -1,22 +1,29 @@
 import * as React from 'react'
 
-const AoaContent: React.FC = () => (
+const AGTSContent : React.FC = () => (
     <div id="main-container">
         <div id="bg-container">
             <div id="city-container">
                 <div id="bg-filter"/>
-                <img src="/img/pre-event/aoa/phone.png" alt="city"/>
+                <img src="/img/pre-event/agts/school.png" alt="city"/>
             </div>
         </div>
         <div id="content-container">
-            <h1>ARKAVIDIA</h1>
-            <h1>ON AIR</h1>
+            <h1>ARKAVIDIA GOES<br/>TO SCHOOL</h1>
             <p>
-                Arkavidia on Air merupakan suatu acara berbentuk kumpulan kajian mengenai 
-                isu-isu teknologi yang relevan dan berdampak kepada masyarakat. 
-                Kajian dilakukan dengan bahasa yang mudah dipahami oleh orang awam dan mudah dimengerti 
-                tanpa perlu banyak pengetahuan sebelum-sebelumnya mengenai isu yang dibahas.
+                Arkavidia Goes to School adalah salah satu acara 
+                pre-event dari Arkavidia yang memiliki tujuan utama untuk 
+                memperkenalkan teknologi IT saat ini kepada anak-anak 
+                SMA / sederajat dalam bentuk kunjungan ke sekolah-sekolah.
             </p>
+            <div className="date-container">
+                <img src="/img/date1.svg" alt="calendar"/>
+                <div className="dates">
+                    <h3>Senin, 4 Januari 2021</h3>
+                    <h3>Rabu, 6 Januari 2021</h3>
+                    <h3>Jumat, 8 Januari 2021</h3>
+                </div>
+            </div>
         </div>
         <style jsx>{`
             #main-container {
@@ -28,6 +35,7 @@ const AoaContent: React.FC = () => (
             #bg-container{
                 position: relative;
                 top: 10%;
+                left: 0;
 
                 width: 100%;
                 height: 60vh;
@@ -39,8 +47,8 @@ const AoaContent: React.FC = () => (
             }
 
             #content-container{
-                height: 40vh;
                 position: relative;
+                height: 40vh;
                 top: 25%;
             }
 
@@ -58,12 +66,12 @@ const AoaContent: React.FC = () => (
             }
 
             #bg-filter{
-                width: 100%;
-                height: 90%;
+                width: 90%;
+                height: 100%;
 
                 position: absolute;
                 top: 0;
-                left: 0;
+                left: 7%;
                 
                 border-radius: 50%;
                 
@@ -84,17 +92,23 @@ const AoaContent: React.FC = () => (
             }
 
             h3 {
+                margin: 0;
                 font-weight: 700;
-                padding-left: 13px;
-                color: #623FA2;
+                padding: 0 0 1rem 2rem;
+                color:#0E2A47;
             }
 
             p {
                 font-size: 1.2rem;
             }
 
+            .date-container {
+                display: flex;
+                align-items: flex-start;
+            }     
+
         `}</style>
     </div>
 )
 
-export default AoaContent
+export default AGTSContent

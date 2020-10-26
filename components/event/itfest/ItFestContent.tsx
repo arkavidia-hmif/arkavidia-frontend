@@ -21,27 +21,27 @@ const ItFestContent: React.FC = () => (
         <style jsx>{`
             #main-container {
                 position: relative;
-                height: 100vh;
+                height: 90vh;
                 display: flex;
             }
 
             #bg-container{
                 position: relative;
-                top: 5%;
                 left: 0;
 
                 width: 100%;
-                height: 70vh;
+                height: 60vh;
                 
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                margin: 3rem 3rem 3rem 0;
             }
 
             #content-container{
                 position: relative;
-                top: 30%;
-                left: 10%; 
+                height: 40vh;
+                top: 25%;
             }
 
             #city-container{
@@ -58,18 +58,16 @@ const ItFestContent: React.FC = () => (
             }
 
             #bg-filter{
-                width: 90%;
-                height: 90%;
+                width: 100%;
+                height: 95%;
 
                 position: absolute;
-                top: 0;
                 left: 7%;
-                transform: translateX(-50%);
                 
                 border-radius: 50%;
                 
-                background: linear-gradient(127.12deg, #CDBBFF 20.51%, #FEEEEE 56.25%, rgba(255, 255, 255, 0) 83.3%);
-                transform: rotate(19.29deg);
+                background:linear-gradient(127.12deg, #CDBBFF 20.51%, #FEEEEE 56.25%, rgba(255, 255, 255, 0) 83.3%);
+                transform: rotate(-85.95deg);
             }
 
             h1 {
@@ -92,11 +90,11 @@ const ItFestContent: React.FC = () => (
 
             p {
                 font-size: 1.2rem;
-            }
+            }     
 
             .date-container {
                 display: flex;
-            }     
+            }
         `}</style>
     </div>
 )

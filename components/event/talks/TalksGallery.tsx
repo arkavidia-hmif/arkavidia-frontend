@@ -19,12 +19,6 @@ const TalksGallery: React.FC = () => (
             #image-container {
                 display: flex;
                 height: 80vh;
-                width: auto;
-            }
-
-            .image-box1 {
-                width: 100%;
-                height: auto;
             }
 
             .image-box2 {
@@ -34,6 +28,7 @@ const TalksGallery: React.FC = () => (
             .image-subbox {
                 display: flex;
                 padding-bottom: 1rem;
+                width: 100%;
             }
 
             .image-subbox img:first-child{

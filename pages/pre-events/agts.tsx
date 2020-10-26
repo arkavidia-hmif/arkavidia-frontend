@@ -1,13 +1,13 @@
 import Layout from '../../components/Layout'
 import BackgroundProps  from '../../utils/constants/events-background'
-import ItFestContent from '../../components/event/itfest/ItFestContent'
-import ItFestGallery from '../../components/event/itfest/ItFestGallery'
+import AGTSContent from '../../components/pre-event/agts/AGTSContent'
+import AGTSGallery from '../../components/pre-event/agts/AGTSGallery'
 
 const Agts: React.FC = () => (
-    <Layout {...BackgroundProps.itfest}>
+    <Layout {...BackgroundProps.agts}>
         <div className="container">
-            <ItFestContent/>
-            <ItFestGallery/>
+            <AGTSContent/>
+            <AGTSGallery/>
         </div>
     </Layout>
 )

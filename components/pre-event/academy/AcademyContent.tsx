@@ -9,16 +9,13 @@ const AcademyContent: React.FC = () => (
             </div>
         </div>
         <div id="content-container">
-            <h1>ARKAVIDIA</h1>
-            <h1>ACADEMY</h1>
-            <div className="description">
-                <p>
-                    Arkavidia Academy adalah rangkaian acara pre-event dari Arkavidia yang bertujuan 
-                    untuk meningkatkan kemampuan dalam bidang informatika. 
-                    Dalam pelaksanaannya, Arkavidia Academy bekerjasama dengan perusahaan 
-                    atau startup ternama Indonesia yang bergerak dalam bidang teknologi.
-                </p>
-            </div>
+            <h1>ARKAVIDIA<br/>ACADEMY</h1>
+            <p>
+                Arkavidia Academy adalah rangkaian acara pre-event dari Arkavidia yang bertujuan 
+                untuk meningkatkan kemampuan dalam bidang informatika. 
+                Dalam pelaksanaannya, Arkavidia Academy bekerjasama dengan perusahaan 
+                atau startup ternama Indonesia yang bergerak dalam bidang teknologi.
+            </p>
             <div className="date-container">
                 <img src="/img/date1.svg" alt="calendar"/>
                 <div className="dates">
@@ -32,14 +29,13 @@ const AcademyContent: React.FC = () => (
         <style jsx>{`
             #main-container {
                 position: relative;
-                height: 80vh;
+                height: 100vh;
                 display: flex;
             }
 
             #bg-container{
                 position: relative;
                 top: 10%;
-                left: 0;
 
                 width: 100%;
                 height: 60vh;
@@ -47,12 +43,13 @@ const AcademyContent: React.FC = () => (
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                margin: 3rem 3rem 3rem 0;
             }
 
             #content-container{
                 position: relative;
+                height: 40vh;
                 top: 25%;
-                left: 10%; 
             }
 
             #city-container{
@@ -99,7 +96,6 @@ const AcademyContent: React.FC = () => (
                 font-weight: 700;
                 padding: 0 0 1rem 2rem;
                 color:#0E2A47;
-;
             }
 
             p {
