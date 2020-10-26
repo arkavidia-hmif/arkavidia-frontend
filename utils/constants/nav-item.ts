@@ -5,7 +5,7 @@ const NavItems = [
   },
   {
     text: 'ABOUT US',
-    path: '/',
+    path: '/about',
   },
   {
     text: 'COMPETITIONS',

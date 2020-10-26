@@ -1,14 +1,17 @@
 import items from "../../utils/constants/nav-item"
 import Link from 'next/link'
 import FilledButton from "../FilledButton";
+import { useRouter } from "next/dist/client/router";
 
 const NavDesktop: React.FC = () => {
+  const router = useRouter();
+
   return (
     <div className="items">
       <ul className="mr-3">
         {items.map((link, index) => (
           <li key={index}>
-            <Link href={link.path}><a>{link.text}</a></Link>
+            <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
             <div className="indicator"></div>
           </li>
         ))}
@@ -54,6 +57,10 @@ const NavDesktop: React.FC = () => {
           }
 
           a:hover + .indicator {
+            opacity: 1;
+          }
+
+          a.current + .indicator {
             opacity: 1;
           }
 

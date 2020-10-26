@@ -1,20 +1,29 @@
 import * as React from 'react'
+import { Theme } from '../styles/theme';
 
 type Props = {
-  children: string,
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  children: React.ReactNode,
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  color?: string;
+  size?: string;
 }
 
-const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1 }) => {
-  const Tag = React.createFactory(`h${headingLevel}`);
+type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1, color = Theme.headerColors.plbl, size }) => {
+  const Tag = `h${headingLevel}` as HeadingTag;
 
   return (
     <>
       <Tag><span>{children}</span></Tag>
       <style jsx>{`
+        ${Tag} {
+          margin: 0;
+        }
+
         span{
           background-size: 100%;
-          background-image: linear-gradient(120deg, #835FBF, #835FBF, #30C5E8);
+          background-image: ${color};
           
           background-clip: text;
           -webkit-background-clip: text;
@@ -22,6 +31,8 @@ const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1 }) => {
           text-fill-color: transparent;
           -webkit-text-fill-color: transparent; 
           -moz-text-fill-color: transparent;
+
+          ${size ? 'font-size:' + size + ';' : ''}
         }
       `}</style>
     </>

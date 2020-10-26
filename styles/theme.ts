@@ -70,5 +70,9 @@ export const Theme = {
     whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink
     whpipl: 'linear-gradient(to bottom, );', // White pink purple
     whblpl: 'linear-gradient(to bottom, );' // White blue purple
+  },
+  headerColors: {
+    plbl: 'linear-gradient(120deg, #835FBF, #835FBF, #30C5E8)', // Purple blue (e.g on competition page)
+    plpi: 'linear-gradient(120deg, #623FA2 25%, #FE5982 100%)'
   }
 }
