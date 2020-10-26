@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import Head from 'next/head'
 import Footer from './Footer'
 import Navbar from './Navbar/Navbar'
-import Register from './Register'
 import { Theme } from '../styles/theme'
 
 type Props = {
@@ -17,8 +16,17 @@ const Layout: React.FC<Props> = ({ children, title = 'Arkavidia 7.0', background
       <title>{title}</title>
     </Head>
     <Navbar />
-    <Register />
-    <Footer /> 
+    <div id="main-container">
+      {children}
+    </div>
+    <Footer />
+    <style jsx>{`
+      #main-container {
+        overflow: auto;
+        background: ${background};
+      }
+    `}
+    </style>
   </div>
 )
 
