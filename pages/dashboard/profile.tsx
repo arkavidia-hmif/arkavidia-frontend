@@ -7,7 +7,7 @@ const IndexPage: React.FC = () => (
     <div className="container">
       <DashboardWrapper />
       <br />
-      There is no announcement yet
+      Profile
       <p>
         <Link href="/about">
           <a>About {process.env.NODE_ENV}</a>
