@@ -34,7 +34,7 @@ function Login() {
 
                     .left {
                         flex: 45%;
-                        padding-left: 50px;
+                        padding-left: 60px;
                     }
                       
                     .right {
