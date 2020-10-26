@@ -83,6 +83,7 @@ export const Theme = {
     whblpl: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 17.32%, rgba(0, 255, 255, 0.21) 56.34%, rgba(218, 125, 218, 0.58) 100%);' // White blue purple
   },
   headerColors: {
-    plbl: 'linear-gradient(120deg, #835FBF, #835FBF, #30C5E8)' // Purple blue (e.g on competition page)
+    plbl: 'linear-gradient(120deg, #835FBF, #835FBF, #30C5E8)', // Purple blue (e.g on competition page)
+    plpi: 'linear-gradient(120deg, #623FA2 25%, #FE5982 100%)'
   }
 }
