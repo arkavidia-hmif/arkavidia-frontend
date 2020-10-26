@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import Head from 'next/head'
 import Footer from './Footer'
 import Navbar from './Navbar/Navbar'
+import Register from './Register'
 import { Theme } from '../styles/theme'
 
 type Props = {
