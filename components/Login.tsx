@@ -7,7 +7,6 @@ const Login: React.FC = () => {
   return (
     <div className="flex-container">
       <div className="left">
-        {/* <h1>Login ke Dashboard</h1> */}
         <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Login ke Dashboard</ColorfulHeader>
         <hr />
         <br />
@@ -57,18 +56,6 @@ const Login: React.FC = () => {
             h1 {
                 width: 75%;
             }
-          }
-
-          h1 {
-            font-family: Viga;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 4em;
-            letter-spacing: 0.01em;
-            display: block;
-            background: linear-gradient(rgba(254, 120, 154, 1), rgba(98, 63, 162, 1));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
           }
 
           hr {
