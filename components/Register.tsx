@@ -7,7 +7,7 @@ type Props = {
   background?: string
 }
 
-const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpi }) => {
+const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
   return (
     <div className="flex-container">
       <div className="left">
