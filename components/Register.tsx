@@ -1,11 +1,19 @@
-import React from 'react'
+import * as React from 'react'
+import FilledButton from "./FilledButton"
+import ColorfulHeader from '../components/ColorfulHeader'
+import { Theme } from '../styles/theme'
 
-function Register() {
+type Props = {
+  background?: string
+}
+
+const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpi }) => {
   return (
     <div className="flex-container">
       <div className="left">
-        <h1>Registrasi Akun</h1>
+        <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Registrasi Akun</ColorfulHeader>
         <hr />
+        <br />
         <form>
           <label>Nama Lengkap</label>
           <input type="text" placeholder="John Doe" />
@@ -13,10 +21,10 @@ function Register() {
           <input type="text" placeholder="johndoe@gmail.com" />
           <label>Kata Sandi</label>
           <input type="password" placeholder="*********" />
-          <label>Ulang Kata Sandi</label>
-          <input type="password" />
-          <button type="submit">Daftar</button>
-          <a href="#">Sudah punya akun ?</a>
+          <label>Ulangi Kata Sandi</label>
+          <input type="password" placeholder="*********" />
+          <FilledButton text="DAFTAR" padding="0.75em 1.5em" />
+          <a href="#">Sudah punya akun ? </a>
         </form>
       </div>
       <div className="right">
@@ -29,123 +37,100 @@ function Register() {
           }
           
           .flex-container {
+            margin-top: 2rem;
+            width: 100%;
             display: flex;
             flex-direction: row;
             height: auto;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.26) 20.31%, rgba(255, 163, 186, 0.38) 53.65%, rgba(168, 142, 215, 0.56) 100%);
+            background: ${background};
           }
-
           .left {
-            flex: 45%;
-            padding-left: 50px;
+            flex: 50%;
+            padding-left: 3rem;
           }
             
           .right {
-            padding: 10px;
-            flex: 55%;
+            padding: 1rem;
+            flex: 50%;
           }
-
           @media (max-width: 800px) {
             .flex-container {
               flex-direction: column;
             }
+            h1 {
+                width: 75%;
+            }
           }
-
-          h1 {
-            font-family: Viga;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 60px;
-            line-height: 81px;
-            letter-spacing: 0.01em;
-            display: block;
-            background: linear-gradient(rgba(254, 120, 154, 1), rgba(98, 63, 162, 1));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          }
-
           hr {
-            width: 30%;
-            height: 10px;
+            width: 40%;
+            height: 0.4rem;
             background: linear-gradient(90deg, #FE789A 0%, #623FA2 100%);
             float: left;
-            margin-top: -50px;
+            margin-top: -0.05rem;
+            display: block;
           }
-
           form {
+            margin-top: 2rem;
             height: auto;
             width: 78%;
+            display: block;
           }
-
           label {
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
-            font-size: 22px;
-            line-height: 26px;
+            font-size: 1.4rem;
+            line-height: 1.2rem;
             display: block;
             color: #000000;
-            margin-top: 10px;
+            margin-top: 0.8rem;
           }
-
           input {
             width: 100%;
             border: none;
-            padding: 5px 0 10px 0;
-            border-bottom: 2px solid black;
+            padding: 0.5rem 0 0.5rem 0;
+            border-bottom: 0.15rem solid black;
             box-sizing: border-box;
             background: none;
-            margin-top: 10px;
+            margin: 0.5rem 0 1rem 0;
           }
-
           input[type="text"], input[type="password"] {
-            font-size: 20px;
+            font-size: 1.2rem;
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
           }
-
           input:focus {
             outline: none;
           }
-
           ::placeholder {
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 1.2rem;
           }
-
-          button {
-            display: inline-block;
-            background: #FE789A;
-            border-radius: 10px;
-            width: 110px;
-            height: 45px;
-            border: none;
-            color: white;
+          p {
             font-family: Roboto;
             font-style: normal;
-            font-size: 20px;
-            margin-right: 140px;
-            cursor: pointer;
-            margin-top: 20px;
+            font-weight: normal;
+            font-size: 1.3rem;
+            line-height: 0.2rem;
+            color: #7446A1;
           }
-
           a {
             display: inline-block;
             font-family: Roboto;
-            font-style: normal;
             font-weight: bold;
-            font-size: 20px;
+            font-style: normal;
+            font-size: 1.3rem;
             color: #7446A1;
             text-decoration: none;
-          }
-
-          img {
-            width: 660px;
             float: right;
-            margin: -45px 0 0 0;
+          }
+          img {
+            width: 100%;
+            float: right;
+            margin: -3rem 0 0 0;
           }
         `}
       </style>
