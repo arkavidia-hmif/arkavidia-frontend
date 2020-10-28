@@ -64,7 +64,7 @@ const Login: React.FC<Props> = ({ background = Theme.bgColors.whblpi }) => {
 
           hr {
             width: 40%;
-            height: 0.8rem;
+            height: 0.4rem;
             background: linear-gradient(90deg, #FE789A 0%, #623FA2 100%);
             float: left;
             margin-top: -0.05rem;
