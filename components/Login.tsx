@@ -1,17 +1,22 @@
 import * as React from 'react'
+import FilledButton from "./FilledButton"
+import ColorfulHeader from '../components/ColorfulHeader'
+import { Theme } from '../styles/theme'
 
 const Login: React.FC = () => {
   return (
     <div className="flex-container">
       <div className="left">
-        <h1>Login ke Dashboard</h1>
+        {/* <h1>Login ke Dashboard</h1> */}
+        <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Login ke Dashboard</ColorfulHeader>
         <hr />
+        <br />
         <form>
           <label>Alamat Email</label>
           <input type="text" placeholder="johndoe@gmail.com" />
           <label>Kata Sandi</label>
           <input type="password" placeholder="*********" />
-          <button type="submit">Login</button>
+          <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           <p>Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="#">Daftar</a></p>
         </form>
@@ -26,6 +31,7 @@ const Login: React.FC = () => {
           }
           
           .flex-container {
+            margin-top: 2rem;
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -34,13 +40,13 @@ const Login: React.FC = () => {
           }
 
           .left {
-            flex: 45%;
-            padding-left: 60px;
+            flex: 50%;
+            padding-left: 3rem;
           }
             
           .right {
-            padding: 10px;
-            flex: 55%;
+            padding: 1rem;
+            flex: 50%;
           }
 
           @media (max-width: 800px) {
@@ -49,7 +55,7 @@ const Login: React.FC = () => {
             }
 
             h1 {
-                width: 50%;
+                width: 75%;
             }
           }
 
@@ -57,8 +63,7 @@ const Login: React.FC = () => {
             font-family: Viga;
             font-style: normal;
             font-weight: normal;
-            font-size: 60px;
-            line-height: 81px;
+            font-size: 4em;
             letter-spacing: 0.01em;
             display: block;
             background: linear-gradient(rgba(254, 120, 154, 1), rgba(98, 63, 162, 1));
@@ -68,40 +73,43 @@ const Login: React.FC = () => {
 
           hr {
             width: 40%;
-            height: 10px;
+            height: 0.8rem;
             background: linear-gradient(90deg, #FE789A 0%, #623FA2 100%);
             float: left;
-            margin-top: -40px;
+            margin-top: -0.05rem;
+            display: block;
           }
 
           form {
+            margin-top: 2rem;
             height: auto;
             width: 78%;
+            display: block;
           }
 
           label {
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
-            font-size: 22px;
-            line-height: 26px;
+            font-size: 1.4rem;
+            line-height: 1.2rem;
             display: block;
             color: #000000;
-            margin-top: 10px;
+            margin-top: 0.8rem;
           }
 
           input {
             width: 100%;
             border: none;
-            padding: 5px 0 10px 0;
-            border-bottom: 2px solid black;
+            padding: 0.5rem 0 0.5rem 0;
+            border-bottom: 0.15rem solid black;
             box-sizing: border-box;
             background: none;
-            margin-top: 10px;
+            margin: 0.5rem 0 1rem 0;
           }
 
           input[type="text"], input[type="password"] {
-            font-size: 20px;
+            font-size: 1.2rem;
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
@@ -115,31 +123,15 @@ const Login: React.FC = () => {
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
-            font-size: 20px;
-          }
-
-          button {
-            display: block;
-            background: #FE789A;
-            border-radius: 10px;
-            width: 110px;
-            height: 45px;
-            border: none;
-            color: white;
-            font-family: Roboto;
-            font-style: normal;
-            font-size: 20px;
-            margin-right: 140px;
-            cursor: pointer;
-            margin-top: 20px;
+            font-size: 1.2rem;
           }
 
           p {
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 22px;
-            line-height: 3px;
+            font-size: 1.3rem;
+            line-height: 0.2rem;
             color: #7446A1;
           }
 
@@ -148,15 +140,15 @@ const Login: React.FC = () => {
             font-family: Roboto;
             font-weight: bold;
             font-style: normal;
-            font-size: 20px;
+            font-size: 1.3rem;
             color: #FE789A;
             text-decoration: none;
           }
 
           img {
-            width: 660px;
+            width: 100%;
             float: right;
-            margin: -45px 0 0 0;
+            margin: -3rem 0 0 0;
           }
         `}
       </style>
