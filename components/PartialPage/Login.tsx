@@ -11,10 +11,10 @@ const Login: React.FC = () => {
         <hr />
         <br />
         <form>
-          <label>Alamat Email</label>
-          <input type="text" placeholder="johndoe@gmail.com" />
-          <label>Kata Sandi</label>
-          <input type="password" placeholder="*********" />
+          <label htmlFor="email">Alamat Email</label>
+          <input id="email" type="email" placeholder="johndoe@gmail.com" />
+          <label htmlFor="password">Kata Sandi</label>
+          <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           <p>Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="#">Daftar</a></p>
