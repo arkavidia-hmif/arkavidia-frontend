@@ -1,11 +1,12 @@
 import Layout from '../../components/Layout'
 import BackgroundProps  from '../../utils/constants/events-background'
-import AcademyContent from '../../components/pre-event/academy/AcademyContent'
+import EventItems from '../../utils/constants/event-items'
+import EventHeader from '../../components/EventHeader'
 
 const Academy: React.FC = () => (
     <Layout {...BackgroundProps.academy}>
         <div className="container">
-            <AcademyContent/>
+            <EventHeader {...EventItems.academy}/>
         </div>
     </Layout>
 )

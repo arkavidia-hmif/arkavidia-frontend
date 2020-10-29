@@ -1,11 +1,12 @@
 import Layout from '../../components/Layout'
 import BackgroundProps  from '../../utils/constants/events-background'
-import AoaContent from '../../components/pre-event/aoa/AoaContent'
+import EventItems from '../../utils/constants/event-items'
+import EventHeader from '../../components/EventHeader'
 
 const Aoa: React.FC = () => (
     <Layout {...BackgroundProps.aoa}>
         <div className="container">
-            <AoaContent/>
+            <EventHeader {...EventItems.aoa}/>
         </div>
     </Layout>
 )
