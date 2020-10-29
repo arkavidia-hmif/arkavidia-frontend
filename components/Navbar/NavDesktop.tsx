@@ -16,7 +16,7 @@ const NavDesktop: React.FC = () => {
           </li>
         ))}
       </ul>
-      <FilledButton text="LOGIN" padding="0.75em 1.5em" />
+      <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login") }} />
 
       <style jsx>{`
           ul {
