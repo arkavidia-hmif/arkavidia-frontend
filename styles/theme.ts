@@ -68,7 +68,7 @@ export const Theme = {
   },
   bgColors: {
     whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink
-    whpipl: 'linear-gradient(to bottom, );', // White pink purple
+    whpipl: 'linear-gradient(180deg, rgba(255, 255, 255, 0.26) 20.31%, rgba(255, 163, 186, 0.38) 53.65%, rgba(168, 142, 215, 0.56) 100%);', // White pink purple
     whblpl: 'linear-gradient(to bottom, );' // White blue purple
   },
   headerColors: {
