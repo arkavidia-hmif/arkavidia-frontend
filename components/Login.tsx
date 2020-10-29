@@ -3,11 +3,7 @@ import FilledButton from "./FilledButton"
 import ColorfulHeader from '../components/ColorfulHeader'
 import { Theme } from '../styles/theme'
 
-type Props = {
-  background?: string
-}
-
-const Login: React.FC<Props> = ({ background = Theme.bgColors.whblpi }) => {
+const Login: React.FC = () => {
   return (
     <div className="flex-container">
       <div className="left">
@@ -39,7 +35,6 @@ const Login: React.FC<Props> = ({ background = Theme.bgColors.whblpi }) => {
             display: flex;
             flex-direction: row;
             height: auto;
-            background: ${background};
           }
 
           .left {
