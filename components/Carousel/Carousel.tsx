@@ -13,7 +13,6 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
 
   const goLeft = () => {
     setPosition(position + 100);
-    console.log(position);
     if (position === 0) {
       setPosition(-100 * (children.length - 1));
     } else {
@@ -22,7 +21,6 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
   };
 
   const goRight = () => {
-    console.log(position);
     if (position === -100 * (children.length - 1)) {
       setPosition(0);
     } else {
@@ -30,8 +28,8 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
     }
   };
 
-  const prevButtonStyle = alignment == 'right' ? { left: "10px" } : { right: "40px" };
-  const nextButtonStyle = alignment == 'right' ? { left: "40px" } : { right: "10px" };
+  const prevButtonStyle = alignment == 'right' ? { left: "10px" } : { right: "45px" };
+  const nextButtonStyle = alignment == 'right' ? { left: "45px" } : { right: "10px" };
 
   return (
     <div className="carousels">
@@ -51,8 +49,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
       <style jsx>
         {`
           .carousels {
-            /* border: 1px solid blue; */
-            width: 400px;
+            width: 100%;
             height: 300px;
             box-sizing: border-box;
             margin: 0;
@@ -77,6 +74,12 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
             transform: translateY(-50%);
             width: 30px;
             cursor: pointer;
+
+            transition: filter 0.2s;
+          }
+
+          .navigation-button:hover {
+            filter: brightness(75%);
           }
         `}
       </style>

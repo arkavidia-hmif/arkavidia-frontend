@@ -69,7 +69,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
 
           .item-carousel {
             position: absolute;
-            width: 400px;
+            width: 100%;
             height: 280px;
             margin: 0;
             padding: 0;
