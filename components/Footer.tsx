@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
         <div id="footer-social" className="col-lg-4">
           <img id="footer-logo" className="mb-3" src="/img/logo.jpg"></img>
           <ul id="social-link">
-            <li><Link href="#"><a><img src="/img/social/ig.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/twitter.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/linkedin.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/fb.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/line.jpg"></img></a></Link></li>
+            <li><Link href="https://instagram.com/arkavidia"><a><img src="/img/social/ig.png"></img></a></Link></li>
+            <li><Link href="https://twitter.com/arkavidia_hmif"><a><img src="/img/social/twitter.png"></img></a></Link></li>
+            <li><Link href="https://linkedin.com/company/arkavidia"><a><img src="/img/social/linkedin.png"></img></a></Link></li>
+            <li><Link href="https://facebook.com/arkavidia"><a><img src="/img/social/fb.png"></img></a></Link></li>
+            <li><Link href="#"><a><img src="/img/social/line.png"></img></a></Link></li>
           </ul>
         </div>
         <div id="footer-link" className="col-lg-8">
@@ -105,6 +105,15 @@ const Footer: React.FC = () => {
           
           #social-link li {
             margin-right: 10px;
+          }
+
+          #social-link li img{
+            width: 40px;
+            transition: filter 0.1s;
+          }
+
+          #social-link li img:hover {
+            filter: contrast(75%);
           }
           
           #footer-link {
