@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Link from 'next/link'
-import DashItems from '../../utils/constants/dash-item'
+import DashItems from '../../../utils/constants/dash-item'
 import { useRouter } from "next/dist/client/router";
-import ColorfulHeader from '../ColorfulHeader'
-import { Theme } from '../../styles/theme'
+import ColorfulHeader from '../../ColorfulHeader'
+import { Theme } from '../../../styles/theme'
 
 const DashboardWrapper: React.FC = () => {
   const router = useRouter();
