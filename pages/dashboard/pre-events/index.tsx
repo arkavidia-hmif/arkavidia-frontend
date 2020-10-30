@@ -3,7 +3,7 @@ import PreEventsCard from '../../../components/Dashboard/Pre-Events/PreEventsCar
 import Layout from '../../../components/Layout'
 
 const IndexPage: React.FC = () => (
-  <Layout title="Announcement | Arkavidia 7.0" background="white">
+  <Layout title="Pre-Events | Arkavidia 7.0" background="white">
     <DashboardWrapper />
     <PreEventsCard />
   </Layout>
