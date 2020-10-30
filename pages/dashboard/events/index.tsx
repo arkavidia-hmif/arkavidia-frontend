@@ -7,6 +7,12 @@ const IndexPage: React.FC = () => (
     <DashboardWrapper />
     <EventsCard />
   </Layout>
+<<<<<<< HEAD
 );
 
 export default IndexPage;
+=======
+)
+
+export default IndexPage
+>>>>>>> ec20654... add EventsCard
