@@ -1,32 +1,30 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from "react";
+import Link from "next/link";
 
 const AnnouncementCard: React.FC = () => {
   // example data
   const ex = [
-      {
-        title:'COMPETITIVE PROGRAMMING',
-        content: 'BATAS waktu'
-      },
-      {
-        title:'ARKALOGICA',
-        content: 'BATAS waktu'
-      },
-  ]
-  
+    {
+      title: "COMPETITIVE PROGRAMMING",
+      content: "BATAS waktu",
+    },
+    {
+      title: "ARKALOGICA",
+      content: "BATAS waktu",
+    },
+  ];
+
   return (
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="card mt-3">
-            <div className="title">
-              {link.title}
-            </div>
-            <div className="content">
-              {link.content}
-            </div>
+            <div className="title">{link.title}</div>
+            <div className="content">{link.content}</div>
             <div className="link">
-              <Link href="/"><a>Upload bukti</a></Link>
+              <Link href="/">
+                <a>Upload bukti</a>
+              </Link>
             </div>
           </div>
         ))}
@@ -41,36 +39,36 @@ const AnnouncementCard: React.FC = () => {
           background-color: white;
         }
 
-        .title{
+        .title {
           font-family: Viga;
           font-size: 1.25rem;
 
-          color: #05058D;
+          color: #05058d;
         }
 
-        .content{
+        .content {
           font-family: Roboto;
           font-size: 1.125rem;
 
           color: #646464;
         }
 
-        .link{
+        .link {
           display: flex;
           justify-content: flex-end;
           font-family: Roboto;
           font-size: 1.125rem;
           font-weight: bold;
 
-          color: #623FA2;
+          color: #623fa2;
         }
 
-        a{
+        a {
           text-decoration: none;
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default AnnouncementCard
+export default AnnouncementCard;

@@ -3,34 +3,34 @@ import * as React from 'react'
 const ProfileField: React.FC = () => {
   // example data
   const ex = [
-      {
-        title:'Nama',
-        content: 'John Doe'
-      },
-      {
-        title:'Nomor Telefon',
-        content: '0'
-      },
-      {
-        title:'Email',
-        content: 'a@gmail.com'
-      },
-      {
-        title:'Tanggal lahir',
-        content: '1 Januari 2001'
-      },
-      {
-        title:'Status',
-        content: 'Mahasiswa'
-      },
-      {
-        title:'Alamat',
-        content: 'Cisitu Indah'
-      },
-      {
-        title:'Universitas',
-        content: 'Institut Teknologi Bandung'
-      },
+    {
+      title:'Nama',
+      content: 'John Doe'
+    },
+    {
+      title:'Nomor Telefon',
+      content: '0'
+    },
+    {
+      title:'Email',
+      content: 'a@gmail.com'
+    },
+    {
+      title:'Tanggal lahir',
+      content: '1 Januari 2001'
+    },
+    {
+      title:'Status',
+      content: 'Mahasiswa'
+    },
+    {
+      title:'Alamat',
+      content: 'Cisitu Indah'
+    },
+    {
+      title:'Universitas',
+      content: 'Institut Teknologi Bandung'
+    },
   ]
   
   return (
