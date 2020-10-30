@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="container-fluid mt-5">
       <div className="container mx-auto row mb-5">
         <div id="footer-social" className="col-lg-4">
-          <img id="footer-logo" src="/img/logo.jpg"></img>
+          <img id="footer-logo" className="mb-3" src="/img/logo.jpg"></img>
           <ul id="social-link">
             <li><Link href="#"><a><img src="/img/social/ig.jpg"></img></a></Link></li>
             <li><Link href="#"><a><img src="/img/social/twitter.jpg"></img></a></Link></li>
