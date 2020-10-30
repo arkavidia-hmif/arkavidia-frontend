@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
-import DashboardWrapper from '../../components/Dashboard/DashboardWrapper'
-import AnnouncementCard from '../../components/Dashboard/Announcement/AnnouncementCard'
+import DashboardWrapper from '../../components/page/Dashboard/DashboardWrapper'
+import AnnouncementCard from '../../components/page/Dashboard/Announcement/AnnouncementCard'
 
 const IndexPage: React.FC = () => (
   <Layout title="Announcement | Arkavidia 7.0" background="white">
