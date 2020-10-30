@@ -23,14 +23,7 @@ const Login: React.FC = () => {
           <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           <p className="mt-3">Lupa kata sandi ? <a href="/forget-password">Reset</a></p>
-          <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="/register">Daftar</a></p>
-          <p>
-            Lupa kata sandi ? <a href="#">Reset</a>
-          </p>
-          <p>
-            Belum terdafar ? <a href="#">Daftar</a>
-          </p>
         </form>
       </div>
       <div className="right">
@@ -131,8 +124,13 @@ const Login: React.FC = () => {
             font-style: normal;
             font-weight: normal;
             font-size: 1.3rem;
+<<<<<<< HEAD:components/page/Login.tsx
             line-height: 0.5rem;
             color: #7446A1;
+=======
+            line-height: 0.2rem;
+            color: #7446a1;
+>>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint:components/PartialPage/Login.tsx
           }
 
           a {
