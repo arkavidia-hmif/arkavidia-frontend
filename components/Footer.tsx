@@ -22,19 +22,19 @@ const Footer: React.FC = () => {
               <h3>COMPETITIONS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>Competitive Programming</a></Link>
+                  <Link href="/competition/competitive-programming"><a>Competitive Programming</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Capture the Flag</a></Link>
+                  <Link href="/competition/capture-the-flag"><a>Capture the Flag</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Game Dev</a></Link>
+                  <Link href="/competition/gamedev"><a>Gamedev</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Datavidia</a></Link>
+                  <Link href="/competition/datavidia"><a>Datavidia</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkalogica</a></Link>
+                  <Link href="/competition/arkalogica"><a>Arkalogica</a></Link>
                 </li>
               </ul>
             </li>
@@ -44,16 +44,16 @@ const Footer: React.FC = () => {
               <h3>PRE-EVENTS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>Technocamp</a></Link>
+                  <Link href="/preevent/technocamp"><a>Technocamp</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Goes To School</a></Link>
+                  <Link href="/preevent/arkavidia-goes-to-school"><a>Arkavidia Goes To School</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Academy</a></Link>
+                  <Link href="/preevent/arkavidia-academy"><a>Arkavidia Academy</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia On Air</a></Link>
+                  <Link href="/preevent/arkavidia-on-air"><a>Arkavidia On Air</a></Link>
                 </li>
               </ul>
             </li>
@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
               <h3>EVENTS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>IT Fest</a></Link>
+                  <Link href="/event/it-festival"><a>IT Fest</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Talks</a></Link>
+                  <Link href="/event/arkavidia-talks"><a>Arkavidia Talks</a></Link>
                 </li>
               </ul>
             </li>

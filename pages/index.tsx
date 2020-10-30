@@ -38,20 +38,20 @@ const IndexPage: React.FC = () => {
           <div className="col-lg-6 order-lg-1 order-0">
             <Carousel alignment="right">
               <CarouselItem url="/competition/arkalogica" desc={"ARKALOGICA"} backgroundImage={"/img/carousel/bg-arkalogica.png"} foregroundImage={"/img/carousel/arkalogica.png"} width={"150px"} type="competition" />
-              <CarouselItem url="/competition/ctf" desc={"CAPTURE THE FLAG"} backgroundImage={"/img/carousel/bg-ctf.png"} foregroundImage={"/img/carousel/ctf.png"} width={"150px"} type="competition" />
-              <CarouselItem url="/competition/cp" desc={"COMPETITIVE PROGRAMMING"} backgroundImage={"/img/carousel/bg-cp.png"} foregroundImage={"/img/carousel/cp.png"} width={"160px"} type="competition" />
+              <CarouselItem url="/competition/capture-the-flag" desc={"CAPTURE THE FLAG"} backgroundImage={"/img/carousel/bg-ctf.png"} foregroundImage={"/img/carousel/ctf.png"} width={"150px"} type="competition" />
+              <CarouselItem url="/competition/competitive-programming" desc={"COMPETITIVE PROGRAMMING"} backgroundImage={"/img/carousel/bg-cp.png"} foregroundImage={"/img/carousel/cp.png"} width={"160px"} type="competition" />
               <CarouselItem url="/competition/datavidia" desc={"DATAVIDIA"} backgroundImage={"/img/carousel/bg-datavidia.png"} foregroundImage={"/img/carousel/datavidia.png"} width={"130px"} type="competition" />
-              <CarouselItem url="/competition/gamedev" desc={"GAME DEV"} backgroundImage={"/img/carousel/bg-gamedev.png"} foregroundImage={"/img/carousel/gamedev.png"} width={"150px"} type="competition" />
+              <CarouselItem url="/competition/gamedev" desc={"GAMEDEV"} backgroundImage={"/img/carousel/bg-gamedev.png"} foregroundImage={"/img/carousel/gamedev.png"} width={"150px"} type="competition" />
             </Carousel>
           </div>
         </div>
         <div className="row mt-5 mb-5">
           <div className="col-lg-6">
             <Carousel alignment="left" >
-              <CarouselItem url="/competition/itfest" desc={"IT FEST"} backgroundImage={"/img/carousel/bg-itfest.png"} foregroundImage={"/img/carousel/itfest.png"} width={"170px"} type="event" />
-              <CarouselItem url="/competition/arkavtalks" desc={"ARKAVIDIA TALKS"} backgroundImage={"/img/carousel/bg-arkavtalks.png"} foregroundImage={"/img/carousel/arkavtalks.png"} width={"85px"} type="event" />
-              <CarouselItem url="/competition/agts" desc={"ARKAVIDIA GOES TO SCHOOL"} backgroundImage={"/img/carousel/bg-school.png"} foregroundImage={"/img/carousel/school.png"} width={"200px"} type="event" />
-              <CarouselItem url="/competition/technocamp" desc={"TECHNOCAMP"} backgroundImage={"/img/carousel/bg-tech.png"} foregroundImage={"/img/carousel/tech.png"} width={"200px"} type="event" />
+              <CarouselItem url="/event/it-festival" desc={"IT FEST"} backgroundImage={"/img/carousel/bg-itfest.png"} foregroundImage={"/img/carousel/itfest.png"} width={"170px"} type="event" />
+              <CarouselItem url="/event/arkavidia-talks" desc={"ARKAVIDIA TALKS"} backgroundImage={"/img/carousel/bg-arkavtalks.png"} foregroundImage={"/img/carousel/arkavtalks.png"} width={"85px"} type="event" />
+              <CarouselItem url="/preevent/arkavidia-goes-to-school" desc={"ARKAVIDIA GOES TO SCHOOL"} backgroundImage={"/img/carousel/bg-school.png"} foregroundImage={"/img/carousel/school.png"} width={"200px"} type="event" />
+              <CarouselItem url="/preevent/technocamp" desc={"TECHNOCAMP"} backgroundImage={"/img/carousel/bg-tech.png"} foregroundImage={"/img/carousel/tech.png"} width={"200px"} type="event" />
             </Carousel>
           </div>
           <div id="mata-acara" className="col-lg-6">
