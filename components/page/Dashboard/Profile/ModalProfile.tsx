@@ -1,5 +1,5 @@
 import * as React from 'react'
-import FilledButton from '../../FilledButton'
+import FilledButton from '../../../FilledButton'
 
 const ModalProfile: React.FC = () => {
   return (

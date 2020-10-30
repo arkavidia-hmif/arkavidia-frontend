@@ -1,5 +1,5 @@
-import DashboardWrapper from '../../../components/Dashboard/DashboardWrapper'
-import EventsCard from '../../../components/Dashboard/Events/EventsCard'
+import DashboardWrapper from '../../../components/page/Dashboard/DashboardWrapper'
+import EventsCard from '../../../components/page/Dashboard/Events/EventsCard'
 import Layout from '../../../components/Layout'
 
 const IndexPage: React.FC = () => (
