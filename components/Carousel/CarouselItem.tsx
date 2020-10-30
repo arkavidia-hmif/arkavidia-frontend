@@ -1,3 +1,4 @@
+import { useRouter } from 'next/dist/client/router';
 import React from 'react'
 
 type CarouselItemProps = {
@@ -5,10 +6,11 @@ type CarouselItemProps = {
   width: string,
   foregroundImage?: string,
   desc: string,
-  type: 'event' | 'competition'
+  type: 'event' | 'competition',
+  url: string
 }
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, foregroundImage, desc, type }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, foregroundImage, desc, type, url }) => {
   const background = {
     backgroundImage: `url(${backgroundImage})`
   }
@@ -57,13 +59,15 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
 
   const choosenStyle = type == 'event' ? eventStyle : competitionStyle;
 
+  const router = useRouter();
+
   return (
     <div className="item-carousel" style={background}>
       <div className="gradient" style={choosenStyle.gradient}></div>
       <img className="img-ctg" src={foregroundImage} style={choosenStyle.img}></img>
       <div className="content-p" style={choosenStyle.posR2}>
         <p className="p-desc" style={choosenStyle.title}>{desc}</p>
-        <p className="p-info" style={choosenStyle.infoBtn}>more info</p>
+        <p className="p-info" style={choosenStyle.infoBtn} onClick={() => { router.push(url) }}>more info</p>
       </div>
 
       <style jsx>
@@ -119,7 +123,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
 
           .item-carousel .p-info {
             margin-top: -5px;
-            font-size: 12px;
+            font-size: 1rem;
             font-family: Roboto;
             color: #22A8C4;
             cursor: pointer;
