@@ -69,7 +69,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
           .navigation-button {
             position: absolute;
             bottom: 0;
-            z-index: 99;
+            z-index: 2;
             transform: translateY(-50%);
             width: 30px;
             cursor: pointer;
