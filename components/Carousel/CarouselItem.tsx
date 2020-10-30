@@ -73,8 +73,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
             height: 280px;
             margin: 0;
             padding: 0;
-            border-radius: 5px;
-            /* border: 1px solid red; */
+            border-radius: 1rem;
             position: relative;
             overflow: hidden;
             background-size: cover;

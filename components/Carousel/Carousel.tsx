@@ -61,7 +61,6 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
           }
           
           .carousels-content {
-            /* border: 1px solid blue; */
             min-width: 100%;
             height: 250px;
             transition: 0.5s;
