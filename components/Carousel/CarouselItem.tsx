@@ -79,7 +79,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
           .item-carousel {
             position: absolute;
             width: 100%;
-            height: 280px;
+            height: 300px;
             margin: 0;
             padding: 0;
             border-radius: 1rem;
@@ -92,7 +92,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
           .item-carousel .img-ctg {
             z-index: 2;
             position: absolute;
-            bottom: 50px;
+            bottom: 80px;
           }
 
           .content-p {
@@ -106,7 +106,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
           .item-carousel .gradient {
             position: absolute;
             width: 100%;
-            height: 280px;
+            height: 300px;
             z-index: 0;
           }
 
