@@ -1,4 +1,3 @@
-import { useRouter } from 'next/dist/client/router';
 import React from 'react'
 
 type CarouselItemProps = {
@@ -63,15 +62,15 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
 
   const choosenStyle = type == 'event' ? eventStyle : competitionStyle;
 
-  const router = useRouter();
-
   return (
     <div className="item-carousel" style={background}>
       <div className="gradient" style={choosenStyle.gradient}></div>
       <img className="img-ctg d-none d-md-block" src={foregroundImage} style={choosenStyle.img}></img>
       <div className="content-p" style={choosenStyle.infoBox}>
         <p className="p-desc" style={choosenStyle.title}>{desc}</p>
-        <p className="p-info" style={choosenStyle.infoBtn} onClick={() => { router.push(url) }}>more info</p>
+        <a href={url}>
+          <p className="p-info" style={choosenStyle.infoBtn}>more info</p>
+        </a>
       </div>
 
       <style jsx>
