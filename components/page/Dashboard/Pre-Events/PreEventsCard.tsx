@@ -33,17 +33,17 @@ const PreEventsCard: React.FC = () => {
             <hr />
             <div className="link">
               {link.isRegistrationOpen? 
-              (<Link href="/"><a>{link.isRegistered? 
-                ("View Application")
-                :(
-                  "Register"
-                )
+                (<Link href="/"><a>{link.isRegistered? 
+                  ("View Application")
+                  :(
+                    "Register"
+                  )
                 }</a></Link>)
-              :(
-                <div className="content">
+                :(
+                  <div className="content">
                   Anda tidak bisa mendaftar lomba ini
-                </div>
-              )
+                  </div>
+                )
               }
             </div>
           </div>

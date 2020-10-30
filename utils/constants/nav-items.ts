@@ -1,13 +1,14 @@
 const NavItems = [
   {
-    text: 'HOME',
-    path: '/',
+    text: "HOME",
+    path: "/",
   },
   {
-    text: 'ABOUT US',
-    path: '/about',
+    text: "ABOUT US",
+    path: "/about",
   },
   {
+<<<<<<< HEAD
     text: 'COMPETITIONS',
     path: '/competition',
     submenu: [
@@ -68,6 +69,18 @@ const NavItems = [
         path: '/event/arkavidia-talks'
       }
     ]
+=======
+    text: "COMPETITIONS",
+    path: "/",
+  },
+  {
+    text: "PRE-EVENTS",
+    path: "/",
+  },
+  {
+    text: "EVENTS",
+    path: "/",
+>>>>>>> eb0b5b2... add basic structure to tim status in dashboard, fix all lint
   },
 ];
 

@@ -1,44 +1,36 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from "react";
+import Link from "next/link";
 
 const EventsCard: React.FC = () => {
   // example data
   const ex = [
     {
-      title:'ARKAVIDIA TALKS',
-      content: 'Advance Talk',
+      title: "ARKAVIDIA TALKS",
+      content: "Advance Talk",
       isRegistered: false,
       isRegistrationOpen: true,
     },
-  ]
-  
+  ];
+
   return (
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="card mt-3 col mr-4">
-            <div className="title">
-              {link.title}
-            </div>
-            <div className="content">
-              {link.content}
-            </div>
+            <div className="title">{link.title}</div>
+            <div className="content">{link.content}</div>
             <br />
             <hr />
             <div className="link">
-              {link.isRegistrationOpen? 
-              (<Link href="/"><a>{link.isRegistered? 
-                ("View Application")
-                :(
-                  "Register"
-                )
-                }</a></Link>)
-              :(
+              {link.isRegistrationOpen ? (
+                <Link href="/">
+                  <a>{link.isRegistered ? "View Application" : "Register"}</a>
+                </Link>
+              ) : (
                 <div className="content">
                   Anda tidak bisa mendaftar lomba ini
                 </div>
-              )
-              }
+              )}
             </div>
           </div>
         ))}
@@ -52,39 +44,39 @@ const EventsCard: React.FC = () => {
           border-radius: 10px;
           background-color: white;
 
-          float:left;
+          float: left;
         }
 
-        .title{
+        .title {
           font-family: Viga;
           font-size: 1.25rem;
 
-          color: #05058D;
+          color: #05058d;
         }
 
-        .content{
+        .content {
           font-family: Roboto;
           font-size: 1.125rem;
 
           color: #646464;
         }
 
-        .link{
+        .link {
           display: flex;
           justify-content: flex-end;
           font-family: Roboto;
           font-size: 1.125rem;
           font-weight: bold;
 
-          color: #623FA2;
+          color: #623fa2;
         }
 
-        a{
+        a {
           text-decoration: none;
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default EventsCard
+export default EventsCard;

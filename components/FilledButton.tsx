@@ -20,10 +20,10 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color 
         display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 10px;
-        
+
         background-color: ${color.main};
         color: white;
-        
+
         cursor: pointer;
 
         transition: background-color 0.1s;

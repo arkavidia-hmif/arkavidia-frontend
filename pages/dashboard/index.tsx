@@ -7,6 +7,6 @@ const IndexPage: React.FC = () => (
     <DashboardWrapper />
     <AnnouncementCard />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

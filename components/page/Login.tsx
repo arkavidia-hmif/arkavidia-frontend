@@ -7,7 +7,13 @@ const Login: React.FC = () => {
   return (
     <div className="flex-container">
       <div className="left">
-        <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Login ke Dashboard</ColorfulHeader>
+        <ColorfulHeader
+          color={Theme.headerColors.plpi}
+          headingLevel={6}
+          size="4rem"
+        >
+          Login ke Dashboard
+        </ColorfulHeader>
         <hr />
         <br />
         <form>
@@ -17,7 +23,14 @@ const Login: React.FC = () => {
           <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           <p className="mt-3">Lupa kata sandi ? <a href="/forget-password">Reset</a></p>
+          <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="/register">Daftar</a></p>
+          <p>
+            Lupa kata sandi ? <a href="#">Reset</a>
+          </p>
+          <p>
+            Belum terdafar ? <a href="#">Daftar</a>
+          </p>
         </form>
       </div>
       <div className="right">
@@ -28,7 +41,7 @@ const Login: React.FC = () => {
           * {
             box-sizing: border-box;
           }
-          
+
           .flex-container {
             margin-top: 2rem;
             width: 100%;
@@ -41,7 +54,7 @@ const Login: React.FC = () => {
             flex: 50%;
             padding-left: 3rem;
           }
-            
+
           .right {
             padding: 1rem;
             flex: 50%;
@@ -53,14 +66,14 @@ const Login: React.FC = () => {
             }
 
             h1 {
-                width: 75%;
+              width: 75%;
             }
           }
 
           hr {
             width: 40%;
             height: 0.4rem;
-            background: linear-gradient(90deg, #FE789A 0%, #623FA2 100%);
+            background: linear-gradient(90deg, #fe789a 0%, #623fa2 100%);
             float: left;
             margin-top: -0.05rem;
             display: block;
@@ -94,7 +107,8 @@ const Login: React.FC = () => {
             margin: 0.5rem 0 1rem 0;
           }
 
-          input[type="text"], input[type="password"] {
+          input[type="text"],
+          input[type="password"] {
             font-size: 1.2rem;
             font-family: Roboto;
             font-style: normal;
@@ -127,7 +141,7 @@ const Login: React.FC = () => {
             font-weight: bold;
             font-style: normal;
             font-size: 1.3rem;
-            color: #FE789A;
+            color: #fe789a;
             text-decoration: none;
           }
 
