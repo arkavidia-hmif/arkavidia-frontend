@@ -1,54 +1,63 @@
 import React from 'react'
 
-const ItemCarousel = (props: { styles: string, width: string, src: string, desc: string, position: number }) => {
+type ItemCarouselProps = {
+  backgroundImage?: string,
+  width: string,
+  foregroundImage?: string,
+  desc: string,
+  type: 'event' | 'competition'
+}
+
+const ItemCarousel: React.FC<ItemCarouselProps> = ({ backgroundImage, width, foregroundImage, desc, type }) => {
   const background = {
-    backgroundImage: `url(${props.styles})`
+    backgroundImage: `url(${backgroundImage})`
   }
 
-  let img: any = {
-    width: `${props.width}`,
-    left: "30px"
-  }
-
-  let posR2: any = {
-    right: "0px"
-  }
-
-  let colorP: any = {
-    color: "#623FA2"
-  }
-
-  let gradient: any = {
-    transform: `rotate(0deg)`,
-    backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`
-  }
-
-  if (props.position == 1) {
-    gradient = {
+  const competitionStyle = {
+    img: {
+      width: `${width}`,
+      left: "30px"
+    },
+    posR2: {
+      right: "0px"
+    },
+    colorP: {
+      color: "#623FA2"
+    },
+    gradient: {
+      transform: `rotate(0deg)`,
+      backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`
+    }
+  };
+  const eventStyle = {
+    gradient: {
       transform: `rotate(180deg)`,
       backgroundImage: `linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)`
-    }
+    },
 
-    img = {
-      width: `${props.width}`,
+    img: {
+      width: `${width}`,
       right: "30px"
-    }
+    },
 
-    posR2 = {
+    posR2: {
       left: "0px"
-    }
+    },
 
-    colorP = {
+    colorP: {
       color: "#B41A83"
     }
-  }
+  };
+
+  const choosenStyle = type == 'event' ? eventStyle : competitionStyle;
+
 
   return (
     <div className="item-carousel" style={background}>
-      <div className="gradient" style={gradient}></div>
-      <img className="img-ctg" src={props.src} style={img}></img>
-      <div className="content-p" style={posR2}>
-        <p className="p-desc" style={colorP}>{props.desc}</p>
+      <div className="gradient" style={choosenStyle.gradient}></div>
+      <img className="img-ctg" src={foregroundImage} style={choosenStyle.img}></img>
+      <div className="content-p" style={choosenStyle.posR2}>
+        <p className="p-desc" style={choosenStyle.colorP}>{desc}</p>
         <p className="p-info">more info</p>
       </div>
 

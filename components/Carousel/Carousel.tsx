@@ -1,62 +1,52 @@
-import React, {useState} from 'react'
+import React, { ReactNode, useState } from 'react'
 
 // const arLeft = require('../../public/img/carousel/ar-left.png');
 // const arRight = require('../../public/img/carousel/ar-right.png');
 
-const Carousel = (props: { itemArr: any, position: number }) => {
-  const [x, setX] = useState(0);
+type CarouselProps = {
+  children: ReactNode[],
+  alignment: 'left' | 'right'
+}
+
+const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
+  const [position, setPosition] = useState(0);
 
   const goLeft = () => {
-    setX(x + 100);
-    console.log(x);
-    if (x === 0) {
-      setX(-100*(props.itemArr.length-1));
+    setPosition(position + 100);
+    console.log(position);
+    if (position === 0) {
+      setPosition(-100 * (children.length - 1));
     } else {
-      setX(x + 100);
+      setPosition(position + 100);
     }
   };
 
   const goRight = () => {
-    console.log(x);
-    if (x === -100*(props.itemArr.length - 1)) {
-      setX(0);
+    console.log(position);
+    if (position === -100 * (children.length - 1)) {
+      setPosition(0);
     } else {
-      setX(x - 100);
+      setPosition(position - 100);
     }
   };
 
-  let posR1: any = {
-    left: "10px"
-  }
-
-  let posR2: any = {
-    left: "40px"
-  }
-
-  if (props.position == 1) {
-    posR1 = {
-      right: "40px"
-    }
-
-    posR2 = {
-      right: "10px"
-    }
-  }
+  const prevButtonStyle = alignment == 'right' ? { left: "10px" } : { right: "40px" };
+  const nextButtonStyle = alignment == 'right' ? { left: "40px" } : { right: "10px" };
 
   return (
     <div className="carousels">
       {
-        props.itemArr.map((item: any, index: number) => {
+        children.map((item: ReactNode, index: number) => {
           return (
-            <div key={index} className="carousels-content" style={{transform: `translateX(${x}%)`}}>
+            <div key={index} className="carousels-content" style={{ transform: `translateX(${position}%)` }}>
               {item}
             </div>
           );
         })
       }
 
-      {/* <img id="goLeft" onClick={goLeft} src={arLeft} style={posR1}/>
-      <img id="goRight" onClick={goRight} src={arRight} style={posR2}/> */}
+      <img className="navigation-button" onClick={goLeft} src="/img/carousel/ar-left.png" style={prevButtonStyle} />
+      <img className="navigation-button" onClick={goRight} src="/img/carousel/ar-right.png" style={nextButtonStyle} />
 
       <style jsx>
         {`
@@ -80,7 +70,7 @@ const Carousel = (props: { itemArr: any, position: number }) => {
             transition: 0.5s;
           }
           
-          #goRight, #goLeft {
+          .navigation-button {
             position: absolute;
             bottom: 0;
             z-index: 99;
