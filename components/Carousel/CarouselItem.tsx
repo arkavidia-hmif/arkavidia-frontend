@@ -19,46 +19,51 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
       left: "30px"
     },
     posR2: {
-      right: "0px"
+      right: "0px",
+      padding: "0.5rem 0.5rem 0.5rem 1rem",
     },
-    colorP: {
+    title: {
       color: "#623FA2"
     },
     gradient: {
       transform: `rotate(0deg)`,
       backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`
+    },
+    infoBtn: {
+      textAlign: "right"
     }
   };
+
   const eventStyle = {
     gradient: {
       transform: `rotate(180deg)`,
       backgroundImage: `linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)`
     },
-
     img: {
       width: `${width}`,
       right: "30px"
     },
-
     posR2: {
-      left: "0px"
+      left: "0px",
+      padding: "0.5rem 1rem 0.5rem 0.5rem",
     },
-
-    colorP: {
+    title: {
       color: "#B41A83"
+    },
+    infoBtn: {
+      textAlign: "left"
     }
   };
 
   const choosenStyle = type == 'event' ? eventStyle : competitionStyle;
-
 
   return (
     <div className="item-carousel" style={background}>
       <div className="gradient" style={choosenStyle.gradient}></div>
       <img className="img-ctg" src={foregroundImage} style={choosenStyle.img}></img>
       <div className="content-p" style={choosenStyle.posR2}>
-        <p className="p-desc" style={choosenStyle.colorP}>{desc}</p>
-        <p className="p-info">more info</p>
+        <p className="p-desc" style={choosenStyle.title}>{desc}</p>
+        <p className="p-info" style={choosenStyle.infoBtn}>more info</p>
       </div>
 
       <style jsx>
@@ -102,15 +107,14 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
           }
 
           p {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Viga';
             text-align: right;
             margin: 0px;
             padding: 0px;
           }
 
           .item-carousel .p-desc {
-            font-weight: bold;
-            font-size: 26px;
+            font-size: 2rem;
           }
 
           .item-carousel .p-info {
@@ -118,6 +122,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
             font-size: 12px;
             font-family: Roboto;
             color: #22A8C4;
+            cursor: pointer;
           }
         `}
       </style>
