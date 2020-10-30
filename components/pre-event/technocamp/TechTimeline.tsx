@@ -8,7 +8,7 @@ const TechTimeline : React.FC = () => (
         <Ribbon/>
         <style jsx>{`
             #timeline-container {
-                height: 70vh;
+                margin-bottom: 10%;
             }
         `}</style>
     </div>
