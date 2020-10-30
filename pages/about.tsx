@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
           <br />
-          <div id="vision-section" className="row mt-5 mb-5">
+          <div id="vision-section" className="row">
             <div className="col-12 col-md-8 offset-md-2">
               <h2 className="blue-text">Vision Statement</h2>
               <ColorfulHeader headingLevel={6} size="4em" color="linear-gradient(180deg, #4583BC, #8382C6)">Establishing Digital</ColorfulHeader>
@@ -79,6 +79,7 @@ const AboutPage: React.FC = () => {
 
         #vision-section {
           font-size: 24px;
+          margin: 5rem 0;
         }
 
         .blue-text {
