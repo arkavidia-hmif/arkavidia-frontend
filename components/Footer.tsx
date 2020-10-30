@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             <li><Link href="https://twitter.com/arkavidia_hmif"><a><img src="/img/social/twitter.png"></img></a></Link></li>
             <li><Link href="https://linkedin.com/company/arkavidia"><a><img src="/img/social/linkedin.png"></img></a></Link></li>
             <li><Link href="https://facebook.com/arkavidia"><a><img src="/img/social/fb.png"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/line.png"></img></a></Link></li>
+            <li><Link href="http://line.me/ti/p/@aab5143y"><a><img src="/img/social/line.png"></img></a></Link></li>
           </ul>
         </div>
         <div id="footer-link" className="col-lg-8">
