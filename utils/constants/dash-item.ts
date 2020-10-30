@@ -9,15 +9,15 @@ const DashItems = [
     },
     {
       title: 'COMPETITIONS',
-      route: '/dashboard',
+      route: '/dashboard/competitions',
     },
     {
       title: 'PRE-EVENTS',
-      route: '/dashboard',
+      route: '/dashboard/preevents',
     },
     {
       title: 'EVENTS',
-      route: '/dashboard',
+      route: '/dashboard/events',
     },
   ]
   
