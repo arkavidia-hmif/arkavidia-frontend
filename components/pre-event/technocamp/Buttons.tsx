@@ -15,8 +15,14 @@ const Buttons : React.FC = () => (
                 display: flex;
             }
 
-            .button {
+            .button:first-child {
                 margin-right: 2rem;
+            }
+
+            @media (max-width: 1000px) {
+                #buttons-container {
+                    justify-content: center;
+                }
             }
         `}</style>    
     </div>

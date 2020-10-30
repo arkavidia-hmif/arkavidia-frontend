@@ -20,7 +20,7 @@ const TechBenefits : React.FC = () => (
         <style jsx>{`
             #benefits-container {
                 text-align: center;
-                height: 70vh;
+                margin-bottom: 10%;
             }
 
             .benefit-content {

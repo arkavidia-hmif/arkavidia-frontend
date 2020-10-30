@@ -48,6 +48,16 @@ const Pricing : React.FC = () => (
                 border-radius: 15px;
                 padding: 0.3rem 0.5rem;
             }
+
+            @media (max-width: 1000px) {
+                .wrapper {
+                    flex-direction: column;
+                }
+
+                .coloredText {
+                    margin-top: 2%;
+                }
+            }
         `}</style>
     </div>
 )

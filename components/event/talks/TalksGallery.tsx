@@ -18,7 +18,7 @@ const TalksGallery: React.FC = () => (
         <style jsx>{`
             #image-container {
                 display: flex;
-                height: 80vh;
+                margin-bottom: 10%;
             }
 
             .image-box2 {

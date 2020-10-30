@@ -17,6 +17,12 @@ const TechHeader : React.FC<Props> = ({title}) => (
                 font-weight: 400;
                 font-size: 3rem;
                 color: #0084AF;
+            }
+
+            @media (max-width: 1000px) {
+                .header h1 {
+                    font-size: 2rem;
+                }
             }    
         `}</style>
     </div>

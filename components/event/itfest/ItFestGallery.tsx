@@ -17,8 +17,8 @@ const ItFestGallery: React.FC = () => (
         <style jsx>{`
             #image-container {
                 display: flex;
-                height: 80vh;
                 width: 100%;
+                margin-bottom: 10%;
             }
 
             .image-box1 {

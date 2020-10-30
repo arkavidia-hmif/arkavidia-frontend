@@ -24,7 +24,7 @@ const TechDesc : React.FC = () => (
         <style jsx>{`
             #desc-container {
                 display: flex;
-                height: 60vh;
+                margin-bottom: 10%;
             }
 
             .text-container {
@@ -33,6 +33,18 @@ const TechDesc : React.FC = () => (
 
             p {
                 margin: 0;
+            }
+
+            @media (max-width: 1000px) {
+                #desc-container {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .image-container {
+                    margin-bottom: 5%;
+                }
             }
         `}</style>
     </div>

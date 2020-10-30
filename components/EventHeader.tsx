@@ -62,6 +62,26 @@ const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragr
 
             p {
                 font-size: 1.2rem;
+            }
+
+            @media (max-width: 1000px) {
+                #main-container {
+                    display: block;
+                    text-align: center;
+                }
+
+                #logo-container {
+                    width: 100%;
+                }
+
+                #content-container {
+                    margin-top: 5%;
+                    width: 100%;
+                }
+
+                h1 {
+                    font-size: 3rem;
+                }
             }     
         `}</style>
     </div>

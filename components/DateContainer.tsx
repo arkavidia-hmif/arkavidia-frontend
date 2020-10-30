@@ -27,6 +27,17 @@ const DateContainer : React.FC<Props> = ({dates}) => (
                 margin: 0;
                 padding-bottom: 5%;
             }
+
+            @media (max-width: 1000px) {
+                #date-container {
+                    display: block;
+                }
+
+                .dates {
+                    margin-left: 0;
+                    margin-top: 5%;
+                }
+            }
         `}</style>
     </div>
 )

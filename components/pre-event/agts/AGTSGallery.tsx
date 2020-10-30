@@ -13,8 +13,7 @@ const AGTSGallery: React.FC = () => (
         <style jsx>{`
             #image-container {
                 display: flex;
-                height: 60vh;
-                width: auto;
+                margin-bottom: 10%;
             }
 
             .image-box1 img {
@@ -25,6 +24,20 @@ const AGTSGallery: React.FC = () => (
             .image-box2 img{
                 width: 100%;
                 padding: 0 1rem;
+            }
+
+            @media (max-width: 1000px) {
+                .image-box1 {
+                    margin-right: 5%;
+                }
+                
+                .image-box1 img {
+                    padding: 0;
+                }
+
+                .image-box2 img {
+                    padding: 0;
+                }
             }
 
         `}</style>
