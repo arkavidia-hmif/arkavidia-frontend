@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 import * as React from 'react';
 import { ButtonColor, Theme } from '../styles/theme';
+=======
+import * as React from "react";
+import { ButtonColor, Theme } from "../styles/theme";
+>>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint
 
 type Props = {
-  onClick?: () => void,
-  text: string,
-  padding?: string,
-  color?: ButtonColor
-}
+  onClick?: () => void;
+  text: string;
+  padding?: string;
+  color?: ButtonColor;
+};
 
-const FilledButton: React.FC<Props> = ({ onClick, text, padding, color = Theme.buttonColors.pinkButton }) => (
+const FilledButton: React.FC<Props> = ({
+  onClick,
+  text,
+  padding,
+  color = Theme.buttonColors.pinkButton,
+}) => (
   <>
     <div onClick={onClick} style={{ padding }}>
       <b>{text}</b>
@@ -18,10 +28,10 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, color = Theme.b
         display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 10px;
-        
+
         background-color: ${color.main};
         color: white;
-        
+
         cursor: pointer;
 
         transition: background-color 0.1s;

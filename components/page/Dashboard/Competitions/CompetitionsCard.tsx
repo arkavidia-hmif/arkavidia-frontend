@@ -1,68 +1,58 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from "react";
+import Link from "next/link";
 
 const CompetitionsCard: React.FC = () => {
   // example data
   const ex = [
     {
-      title:'COMPETITIVE PROGRAMMING',
-      content: 'Untuk Mahasiswa',
+      title: "COMPETITIVE PROGRAMMING",
+      content: "Untuk Mahasiswa",
       isRegistered: true,
       isRegistrationOpen: true,
     },
     {
-      title:'CAPTURE THE FLAG',
-      content: 'Untuk SMA & Mahasiswa',
+      title: "CAPTURE THE FLAG",
+      content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
-      title:'DATAVIDIA',
-      content: 'Untuk SMA & Mahasiswa',
+      title: "DATAVIDIA",
+      content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
-      title:'GAMEDEV',
-      content: 'Untuk SMA & Mahasiswa',
+      title: "GAMEDEV",
+      content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
-      title:'ARKALOGICA',
-      content: 'Untuk SMA',
+      title: "ARKALOGICA",
+      content: "Untuk SMA",
       isRegistered: false,
       isRegistrationOpen: false,
     },
-  ]
-  
+  ];
+
   return (
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col mr-4">
-            <div className="title">
-              {link.title}
-            </div>
-            <div className="content">
-              {link.content}
-            </div>
-            <br />
-            <hr />
+          <div key={index} className="card mt-3">
+            <div className="title">{link.title}</div>
+            <div className="content">{link.content}</div>
             <div className="link">
-              {link.isRegistrationOpen? 
-              (<Link href="/"><a>{link.isRegistered? 
-                ("View Application")
-                :(
-                  "Register"
-                )
-                }</a></Link>)
-              :(
+              {link.isRegistrationOpen ? (
+                <Link href="/">
+                  <a>{link.isRegistered ? "View Application" : "Register"}</a>
+                </Link>
+              ) : (
                 <div className="content">
                   Anda tidak bisa mendaftar lomba ini
                 </div>
-              )
-              }
+              )}
             </div>
           </div>
         ))}
@@ -75,40 +65,36 @@ const CompetitionsCard: React.FC = () => {
           max-height: auto;
           border-radius: 10px;
           background-color: white;
-
-          float:left;
+          float: left;
         }
 
-        .title{
+        .title {
           font-family: Viga;
           font-size: 1.25rem;
-
-          color: #05058D;
+          color: #05058d;
         }
 
-        .content{
+        .content {
           font-family: Roboto;
           font-size: 1.125rem;
-
           color: #646464;
         }
 
-        .link{
+        .link {
           display: flex;
           justify-content: flex-end;
           font-family: Roboto;
           font-size: 1.125rem;
           font-weight: bold;
-
-          color: #623FA2;
+          color: #623fa2;
         }
 
-        a{
+        a {
           text-decoration: none;
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default CompetitionsCard
+export default CompetitionsCard;

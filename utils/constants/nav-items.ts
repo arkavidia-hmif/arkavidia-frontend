@@ -1,23 +1,23 @@
 const NavItems = [
   {
-    text: 'HOME',
-    path: '/',
+    text: "HOME",
+    path: "/",
   },
   {
-    text: 'ABOUT US',
-    path: '/about',
+    text: "ABOUT US",
+    path: "/about",
   },
   {
-    text: 'COMPETITIONS',
-    path: '/',
+    text: "COMPETITIONS",
+    path: "/",
   },
   {
-    text: 'PRE-EVENTS',
-    path: '/',
+    text: "PRE-EVENTS",
+    path: "/",
   },
   {
-    text: 'EVENTS',
-    path: '/',
+    text: "EVENTS",
+    path: "/",
   },
 ];
 
