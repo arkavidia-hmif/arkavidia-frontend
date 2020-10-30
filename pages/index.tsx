@@ -1,20 +1,99 @@
-import Link from 'next/link'
 import Layout from '../components/Layout'
 import Hero from '../components/Hero'
+import Carousel from '../components/Carousel/Carousel'
+import CarouselItem from '../components/Carousel/CarouselItem'
+import { Theme } from '../styles/theme'
+import ColorfulHeader from '../components/ColorfulHeader'
+import FilledButton from '../components/FilledButton'
+import { useRouter } from 'next/dist/client/router'
 
-const IndexPage: React.FC = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <div className="container">
-      <br />
-      <Hero />
-      <p>
-        <Link href="/about">
-          <a>About {process.env.NODE_ENV}</a>
-        </Link>
-        <p>API url: {process.env.API_BASE_URL}</p>
-      </p>
-    </div>
-  </Layout>
-)
+const IndexPage: React.FC = () => {
+  const router = useRouter();
+
+  return (
+    <Layout title="Home">
+      <div className="container">
+        <br />
+        <Hero />
+        <div id="about" className="row mt-5">
+          <div id="about-img" className="col-md-6 mb-3 mb-md-0">
+            <div className="d-block d-md-none mb-3">
+              <ColorfulHeader headingLevel={1} color={Theme.headerColors.plpi} size="3rem">Tentang Arkavidia 7.0</ColorfulHeader>
+            </div>
+            <img src="/img/about/hero.png" />
+          </div>
+          <div className="col-md-6">
+            <div className="d-none d-md-block">
+              <ColorfulHeader headingLevel={1} color={Theme.headerColors.plpi} size="3rem">Tentang Arkavidia 7.0</ColorfulHeader>
+            </div>
+            <p className="mt-3">Arkavidia 7.0 adalah acara prestisius tahunan yang diselenggarakan oleh Himpunan Mahasiswa Informatika Institut Teknologi Bandung (HMIF ITB). Bertemakan &quot;Establishing Digital Independence,&quot; Arkavidia hadir untuk memberikan kesadaran bagi setiap individu akan hak dan kewajibannya di dunia digital, sehingga mereka dapat mewujudkan kemerdekaan digital bagi dirinya. Dengan pengalaman lebih dari 6 tahun dan 2000 peserta, Arkavidia berkembang lebih jauh lagi untuk memajukan pemahaman teknologi Indonesia. </p>
+            <FilledButton text="Baca lebih lanjut" onClick={() => { router.push("/about"); }} />
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div id="kompetisi" className="col-md-6 order-md-0 order-1">
+            <h2>KOMPETISI</h2>
+            <p className="mt-3">Asah logika, pengetahuan, dan talentamu lalu tunjukkan kemampuanmu di Arkavidia tahun ini. Arkavidia memiliki berbagai macam kompetisi bergengsi yang dapat membantu mengasah dan mempertajam kemampuanmu dengan bersaing menghadapi lawan dari seluruh Indonesia.</p>
+          </div>
+          <div className="col-md-6 order-md-1 order-0">
+            <Carousel alignment="right">
+              <CarouselItem url="/competition/arkalogica" desc={"ARKALOGICA"} backgroundImage={"/img/carousel/bg-arkalogica.png"} foregroundImage={"/img/carousel/arkalogica.png"} width={"150px"} type="competition" />
+              <CarouselItem url="/competition/ctf" desc={"CAPTURE THE FLAG"} backgroundImage={"/img/carousel/bg-ctf.png"} foregroundImage={"/img/carousel/ctf.png"} width={"150px"} type="competition" />
+              <CarouselItem url="/competition/cp" desc={"COMPETITIVE PROGRAMMING"} backgroundImage={"/img/carousel/bg-cp.png"} foregroundImage={"/img/carousel/cp.png"} width={"160px"} type="competition" />
+              <CarouselItem url="/competition/datavidia" desc={"DATAVIDIA"} backgroundImage={"/img/carousel/bg-datavidia.png"} foregroundImage={"/img/carousel/datavidia.png"} width={"130px"} type="competition" />
+              <CarouselItem url="/competition/gamedev" desc={"GAME DEV"} backgroundImage={"/img/carousel/bg-gamedev.png"} foregroundImage={"/img/carousel/gamedev.png"} width={"150px"} type="competition" />
+            </Carousel>
+          </div>
+        </div>
+        <div className="row mt-5 mb-5">
+          <div className="col-md-6">
+            <Carousel alignment="left" >
+              <CarouselItem url="/competition/itfest" desc={"IT FEST"} backgroundImage={"/img/carousel/bg-itfest.png"} foregroundImage={"/img/carousel/itfest.png"} width={"170px"} type="event" />
+              <CarouselItem url="/competition/arkavtalks" desc={"ARKAVIDIA TALKS"} backgroundImage={"/img/carousel/bg-arkavtalks.png"} foregroundImage={"/img/carousel/arkavtalks.png"} width={"85px"} type="event" />
+              <CarouselItem url="/competition/agts" desc={"ARKAVIDIA GOES TO SCHOOL"} backgroundImage={"/img/carousel/bg-school.png"} foregroundImage={"/img/carousel/school.png"} width={"200px"} type="event" />
+              <CarouselItem url="/competition/technocamp" desc={"TECHNOCAMP"} backgroundImage={"/img/carousel/bg-tech.png"} foregroundImage={"/img/carousel/tech.png"} width={"200px"} type="event" />
+            </Carousel>
+          </div>
+          <div id="mata-acara" className="col-md-6">
+            <h2>MATA ACARA</h2>
+            <p className="mt-3">Asah logika, pengetahuan, dan talentamu lalu tunjukkan kemampuanmu di Arkavidia tahun ini. Arkavidia memiliki berbagai macam kompetisi bergengsi yang dapat membantu mengasah dan mempertajam kemampuanmu dengan bersaing menghadapi lawan dari seluruh Indonesia.</p>
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
+        h2 {
+          font-size: 3rem;
+          margin: 3rem 0 0 0;
+        }
+
+        #kompetisi {
+          text-align: right;
+        }
+
+        #kompetisi h2 {
+          color: #623FA2;
+        }
+
+        #mata-acara h2 {
+          color: ${Theme.colors.pink.dark}
+        }
+
+        #about img {
+          width: 90%;
+        }
+
+        #about-img {
+          text-align: center;
+        }
+
+        @media (max-width: 768px) {
+          #about{
+            text-align: center;
+          }
+        }
+      `}</style>
+    </Layout>
+  );
+}
 
 export default IndexPage
