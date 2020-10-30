@@ -1,6 +1,6 @@
 import React from 'react'
 
-type ItemCarouselProps = {
+type CarouselItemProps = {
   backgroundImage?: string,
   width: string,
   foregroundImage?: string,
@@ -8,7 +8,7 @@ type ItemCarouselProps = {
   type: 'event' | 'competition'
 }
 
-const ItemCarousel: React.FC<ItemCarouselProps> = ({ backgroundImage, width, foregroundImage, desc, type }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, foregroundImage, desc, type }) => {
   const background = {
     backgroundImage: `url(${backgroundImage})`
   }
@@ -126,4 +126,4 @@ const ItemCarousel: React.FC<ItemCarouselProps> = ({ backgroundImage, width, for
   )
 }
 
-export default ItemCarousel;
+export default CarouselItem;
