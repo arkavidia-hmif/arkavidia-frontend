@@ -13,7 +13,7 @@ const DashItems = [
     },
     {
       title: 'PRE-EVENTS',
-      route: '/dashboard/preevents',
+      route: '/dashboard/pre-events',
     },
     {
       title: 'EVENTS',
