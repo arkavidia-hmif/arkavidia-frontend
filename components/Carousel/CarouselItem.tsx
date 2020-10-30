@@ -20,12 +20,14 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
       width: `${width}`,
       left: "30px"
     },
-    posR2: {
+    infoBox: {
       right: "0px",
       padding: "0.5rem 0.5rem 0.5rem 1rem",
+      marginLeft: "85px"
     },
     title: {
-      color: "#623FA2"
+      color: "#623FA2",
+      textAlign: "right"
     },
     gradient: {
       transform: `rotate(0deg)`,
@@ -45,12 +47,14 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
       width: `${width}`,
       right: "30px"
     },
-    posR2: {
+    infoBox: {
       left: "0px",
       padding: "0.5rem 1rem 0.5rem 0.5rem",
+      marginRight: "85px"
     },
     title: {
-      color: "#B41A83"
+      color: "#B41A83",
+      textAlign: "left"
     },
     infoBtn: {
       textAlign: "left"
@@ -64,8 +68,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
   return (
     <div className="item-carousel" style={background}>
       <div className="gradient" style={choosenStyle.gradient}></div>
-      <img className="img-ctg" src={foregroundImage} style={choosenStyle.img}></img>
-      <div className="content-p" style={choosenStyle.posR2}>
+      <img className="img-ctg d-none d-md-block" src={foregroundImage} style={choosenStyle.img}></img>
+      <div className="content-p" style={choosenStyle.infoBox}>
         <p className="p-desc" style={choosenStyle.title}>{desc}</p>
         <p className="p-info" style={choosenStyle.infoBtn} onClick={() => { router.push(url) }}>more info</p>
       </div>
@@ -127,6 +131,12 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
             font-family: Roboto;
             color: #22A8C4;
             cursor: pointer;
+          }
+
+          @media (max-width: 576px) {
+            .item-carousel .p-desc {
+              font-size: 1.75rem;
+            }
           }
         `}
       </style>
