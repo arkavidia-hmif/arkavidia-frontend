@@ -1,21 +1,21 @@
 import * as React from 'react'
 
 const TalksGallery: React.FC = () => (
-    <div id="image-container">
-        <div className="image-box1">
-            <div className="image-subbox">
-                <img src="/img/event/talks/talks1.png" alt="class"/>
-                <img src="/img/event/talks/talks2.png" alt="talks"/>
-            </div>
-            <div className="image-subbox">
-                <img src="/img/event/talks/talks3.png" alt="certificate"/>
-                <img src="/img/event/talks/talks4.png" alt="listening"/>
-            </div>
-        </div>
-        <div className="image-box2">
-            <img src="/img/event/talks/talks5.png" alt="speaker"/>
-        </div>
-        <style jsx>{`
+  <div id="image-container">
+    <div className="image-box1">
+      <div className="image-subbox">
+        <img src="/img/event/talks/talks1.png" alt="class"/>
+        <img src="/img/event/talks/talks2.png" alt="talks"/>
+      </div>
+      <div className="image-subbox">
+        <img src="/img/event/talks/talks3.png" alt="certificate"/>
+        <img src="/img/event/talks/talks4.png" alt="listening"/>
+      </div>
+    </div>
+    <div className="image-box2">
+      <img src="/img/event/talks/talks5.png" alt="speaker"/>
+    </div>
+    <style jsx>{`
             #image-container {
                 display: flex;
                 margin-bottom: 10%;
@@ -36,7 +36,7 @@ const TalksGallery: React.FC = () => (
             }
 
         `}</style>
-    </div>
+  </div>
 )
 
 export default TalksGallery

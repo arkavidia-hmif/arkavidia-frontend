@@ -1,24 +1,24 @@
 import * as React from 'react'
 
 const Pricing : React.FC = () => (
-    <div id="pricing">
-        <div className="wrapper">
-            <div className="text">
-                <p>Kategori</p>
-            </div>
-            <div className="coloredText">
-                <p>SMA/Sederajat</p>
-            </div>
-        </div>
-        <div className="wrapper">
-            <div className="text">
-                <p>Biaya Komitmen</p>
-            </div>
-            <div className="coloredText">
-                <p>Rp50.000,-</p>
-            </div>
-        </div>
-        <style jsx>{`
+  <div id="pricing">
+    <div className="wrapper">
+      <div className="text">
+        <p>Kategori</p>
+      </div>
+      <div className="coloredText">
+        <p>SMA/Sederajat</p>
+      </div>
+    </div>
+    <div className="wrapper">
+      <div className="text">
+        <p>Biaya Komitmen</p>
+      </div>
+      <div className="coloredText">
+        <p>Rp50.000,-</p>
+      </div>
+    </div>
+    <style jsx>{`
             p {
                 margin: 0;
             }
@@ -59,7 +59,7 @@ const Pricing : React.FC = () => (
                 }
             }
         `}</style>
-    </div>
+  </div>
 )
 
 export default Pricing

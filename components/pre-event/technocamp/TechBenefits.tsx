@@ -3,21 +3,21 @@ import TechHeader from './TechHeader'
 import BenefitBox from './BenefitBox'
 
 const TechBenefits : React.FC = () => (
-    <div id="benefits-container">
-        <TechHeader title="BENEFITS"/>
-        <div className="benefit-content">
-            <BenefitBox
-            alt="programming" 
-            link="/img/pre-event/technocamp/programming.svg" 
-            text="Pengetahuan Dasar Pemrograman"
-            />
-            <BenefitBox
-            alt="certificate" 
-            link="/img/pre-event/technocamp/certificate.svg" 
-            text="Sertifikat"
-            />
-        </div>
-        <style jsx>{`
+  <div id="benefits-container">
+    <TechHeader title="BENEFITS"/>
+    <div className="benefit-content">
+      <BenefitBox
+        alt="programming" 
+        link="/img/pre-event/technocamp/programming.svg" 
+        text="Pengetahuan Dasar Pemrograman"
+      />
+      <BenefitBox
+        alt="certificate" 
+        link="/img/pre-event/technocamp/certificate.svg" 
+        text="Sertifikat"
+      />
+    </div>
+    <style jsx>{`
             #benefits-container {
                 text-align: center;
                 margin-bottom: 10%;
@@ -45,7 +45,7 @@ const TechBenefits : React.FC = () => (
                 color: #094963;
             }
         `}</style>
-    </div>
+  </div>
 )
 
 export default TechBenefits

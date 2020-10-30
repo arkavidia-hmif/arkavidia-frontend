@@ -7,12 +7,12 @@ type Props = {
 }
 
 const BenefitBox : React.FC<Props> = ({link, text, alt}) => (
-    <div className="content-box">
-        <div className="content">
-            <img src={link} alt={alt}/>
-            <h3>{text}</h3>    
-        </div>
-        <style jsx>{`
+  <div className="content-box">
+    <div className="content">
+      <img src={link} alt={alt}/>
+      <h3>{text}</h3>    
+    </div>
+    <style jsx>{`
             .content-box {
                 display: flex;
                 align-items: center;
@@ -43,7 +43,7 @@ const BenefitBox : React.FC<Props> = ({link, text, alt}) => (
                 }
             }
         `}</style>
-    </div>
+  </div>
 )
 
 export default BenefitBox

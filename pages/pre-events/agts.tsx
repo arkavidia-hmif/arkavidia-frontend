@@ -7,14 +7,14 @@ import EventHeader from '../../components/EventHeader'
 import AGTSGallery from '../../components/pre-event/agts/AGTSGallery'
 
 const Agts: React.FC = () => (
-    <Layout {...BackgroundProps.agts}>
-        <div className="container">
-            <EventHeader {...EventItems.agts}>
-                <DateContainer dates={Dates.agts}/>
-            </EventHeader>
-            <AGTSGallery/>
-        </div>
-    </Layout>
+  <Layout {...BackgroundProps.agts}>
+    <div className="container">
+      <EventHeader {...EventItems.agts}>
+        <DateContainer dates={Dates.agts}/>
+      </EventHeader>
+      <AGTSGallery/>
+    </div>
+  </Layout>
 )
 
 export default Agts

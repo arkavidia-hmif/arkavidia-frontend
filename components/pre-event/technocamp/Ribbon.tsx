@@ -2,14 +2,14 @@ import * as React from 'react'
 import items from '../../../utils/constants/timeline-items'
 
 const Ribbon :React.FC = () => (
-    <div id="ribbon-container">
-        {items.map((item) => 
-            <div className="ribbon" style={item.css}>
-                <h1>{item.date}</h1>
-                <p>{item.content}</p>
-            </div>
-        )}
-        <style jsx>{`
+  <div id="ribbon-container">
+    {items.map((item, index) => 
+      <div className="ribbon" key={index} style={item.css}>
+        <h1>{item.date}</h1>
+        <p>{item.content}</p>
+      </div>
+    )}
+    <style jsx>{`
             #ribbon-container {
                 overflow: hidden;
                 display: flex;
@@ -63,7 +63,7 @@ const Ribbon :React.FC = () => (
                 }
             }
         `}</style>
-    </div>
+  </div>
 )
 
 export default Ribbon

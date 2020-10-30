@@ -11,16 +11,16 @@ type Props = {
 }
 
 const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragraph, bg}) => (
-    <div id="main-container">
-        <div id="logo-container">
-            <img src={image} alt={imageAlt}/>
-        </div>
-        <div id="content-container">
-            <h1>{title}</h1>
-            <p>{paragraph}</p>
-            {children}
-        </div>
-        <style jsx>{`
+  <div id="main-container">
+    <div id="logo-container">
+      <img src={image} alt={imageAlt}/>
+    </div>
+    <div id="content-container">
+      <h1>{title}</h1>
+      <p>{paragraph}</p>
+      {children}
+    </div>
+    <style jsx>{`
             #main-container {
                 display: flex;
                 margin-bottom: 10%;
@@ -84,7 +84,7 @@ const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragr
                 }
             }     
         `}</style>
-    </div>
+  </div>
 )
 
 export default EventHeader

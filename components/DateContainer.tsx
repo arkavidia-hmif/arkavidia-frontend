@@ -5,14 +5,14 @@ type Props = {
 }
 
 const DateContainer : React.FC<Props> = ({dates}) => (
-    <div id="date-container">
-        <img src="/img/date1.svg" alt="calendar"/>
-        <div className="dates">
-            {dates.map((date) => 
-                <h3>{date}</h3>
-            )}
-        </div>
-        <style jsx>{`
+  <div id="date-container">
+    <img src="/img/date1.svg" alt="calendar"/>
+    <div className="dates">
+      {dates.map((date, index) => 
+        <h3 key={index}>{date}</h3>
+      )}
+    </div>
+    <style jsx>{`
             #date-container {
                 margin-top: 5%;
                 display: flex;
@@ -39,7 +39,7 @@ const DateContainer : React.FC<Props> = ({dates}) => (
                 }
             }
         `}</style>
-    </div>
+  </div>
 )
 
 export default DateContainer

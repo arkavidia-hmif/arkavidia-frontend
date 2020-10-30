@@ -7,14 +7,14 @@ import DateContainer from '../../components/DateContainer'
 import ItFestGallery from '../../components/event/itfest/ItFestGallery'
 
 const ItFest: React.FC = () => (
-    <Layout {...BackgroundProps.itfest}>
-        <div className="container">
-            <EventHeader {...EventItems.itfest}>
-                <DateContainer dates={Dates.itfest}/>
-            </EventHeader>
-            <ItFestGallery/>
-        </div>
-    </Layout>
+  <Layout {...BackgroundProps.itfest}>
+    <div className="container">
+      <EventHeader {...EventItems.itfest}>
+        <DateContainer dates={Dates.itfest}/>
+      </EventHeader>
+      <ItFestGallery/>
+    </div>
+  </Layout>
 )
 
 

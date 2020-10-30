@@ -5,9 +5,9 @@ type Props = {
 }
 
 const TechHeader : React.FC<Props> = ({title}) => (
-    <div className="header">
-        <h1>{title}</h1>
-        <style jsx>{`
+  <div className="header">
+    <h1>{title}</h1>
+    <style jsx>{`
             .header {
                 text-align: center;
             }
@@ -25,7 +25,7 @@ const TechHeader : React.FC<Props> = ({title}) => (
                 }
             }    
         `}</style>
-    </div>
+  </div>
 )
 
 export default TechHeader

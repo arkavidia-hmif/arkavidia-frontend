@@ -9,17 +9,17 @@ import TechBenefits from '../../components/pre-event/technocamp/TechBenefits'
 import TechTimeline from '../../components/pre-event/technocamp/TechTimeline'
 
 const Technocamp: React.FC = () => (
-    <Layout {...BackgroundProps.technocamp}>
-        <div className="container">
-            <EventHeader {...EventItems.technocamp}>
-                <Pricing/>
-                <Buttons/>
-            </EventHeader>
-            <TechDesc/>
-            <TechBenefits/>
-        </div>
-        <TechTimeline/>
-    </Layout>
+  <Layout {...BackgroundProps.technocamp}>
+    <div className="container">
+      <EventHeader {...EventItems.technocamp}>
+        <Pricing/>
+        <Buttons/>
+      </EventHeader>
+      <TechDesc/>
+      <TechBenefits/>
+    </div>
+    <TechTimeline/>
+  </Layout>
 )
 
 export default Technocamp
