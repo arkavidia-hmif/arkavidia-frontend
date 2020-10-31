@@ -37,7 +37,7 @@ const ProfileField: React.FC = () => {
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="field col mt-3">
+          <div key={index} className="field col-6 mt-3">
             <div className="title">
               {link.title}
             </div>
