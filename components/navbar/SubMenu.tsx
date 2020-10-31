@@ -14,7 +14,7 @@ type Props = {
 
 const SubMenu : React.FC<Props> = ({items, hover, setHover}) => {
   return (
-    <div className="sub-menu" onMouseLeave={() => setHover(false)}>
+    <div className="sub-menu" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <ul className="mr-3">
         {items.map((item, index) => (
           <li key={index}>
