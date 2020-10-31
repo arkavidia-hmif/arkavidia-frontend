@@ -14,16 +14,46 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
-      <AuthProvider>
-        <ApiProvider>
-          <Component {...pageProps} />
-        </ApiProvider>
-      </AuthProvider>
+      {/* <AuthProvider> */}
+      <ApiProvider>
+        <Component {...pageProps} />
+      </ApiProvider>
+      {/* </AuthProvider> */}
       <style global jsx>{`
         body {
           font-family: 'roboto';
           margin: 0;
           line-height: 1.2;
+        }
+
+        h1 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h2 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h3 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h4 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h5 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h6 {
+          font-family: 'Viga';
+          font-weight: 300;
         }
 
         .max-content {

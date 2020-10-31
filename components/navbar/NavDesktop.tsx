@@ -1,20 +1,52 @@
 import items from "../../utils/constants/nav-items";
+import SubMenu from './SubMenu';
 import Link from 'next/link';
 import FilledButton from "../FilledButton";
+import { useState } from 'react';
 import { useRouter } from "next/dist/client/router";
 
 const NavDesktop: React.FC = () => {
   const router = useRouter();
 
+  const hoverState = items.map((entry) => {
+    if (entry.submenu) {
+      return useState(false);
+    } else {
+      return [];
+    }
+  });
+
   return (
     <div className="items">
       <ul className="mr-3">
-        {items.map((link, index) => (
-          <li key={index} className="mt-3">
-            <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
-            <div className="indicator"></div>
-          </li>
-        ))}
+        {items.map((link, index) => {
+          if (link.submenu) {
+            const curentHover = hoverState[index];
+            const setHover = curentHover[1];
+            const hover = curentHover[0];
+            return (
+              <li key={index} className="mt-3">
+                <a
+                  style={{ cursor: 'pointer' }}
+                  className={router.pathname.startsWith(link.path) ? "current" : ""}
+                  onMouseOver={() => setHover(true)}
+                  onMouseLeave={() => setHover(false)}
+                >
+                  {link.text}
+                </a>
+                <div className="indicator"></div>
+                <SubMenu items={link.submenu} hover={hover} setHover={setHover} />
+              </li>
+            );
+          } else {
+            return (
+              <li key={index} className="mt-3">
+                <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
+                <div className="indicator"></div>
+              </li>
+            );
+          }
+        })}
       </ul>
       <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login"); }} />
 
