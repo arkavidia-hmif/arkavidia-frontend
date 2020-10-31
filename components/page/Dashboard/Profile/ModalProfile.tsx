@@ -1,5 +1,5 @@
-import * as React from 'react'
-import FilledButton from '../../../FilledButton'
+import * as React from 'react';
+import FilledButton from '../../../FilledButton';
 
 const ModalProfile: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const ModalProfile: React.FC = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default ModalProfile
+export default ModalProfile;

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const ProfileField: React.FC = () => {
   // example data
@@ -31,7 +31,7 @@ const ProfileField: React.FC = () => {
       title:'Universitas',
       content: 'Institut Teknologi Bandung'
     },
-  ]
+  ];
   
   return (
     <div className="container mb-3">
@@ -76,7 +76,7 @@ const ProfileField: React.FC = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileField
+export default ProfileField;
