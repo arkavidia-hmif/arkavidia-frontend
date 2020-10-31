@@ -1,6 +1,7 @@
 import items from "../../utils/constants/nav-items";
 import event from '../../utils/constants/event';
 import preevent from '../../utils/constants/preevent';
+import competition from '../../utils/constants/competition';
 import SubMenu from './SubMenu';
 import Link from 'next/link';
 import FilledButton from "../FilledButton";
@@ -11,6 +12,7 @@ const NavDesktop: React.FC = () => {
   const router = useRouter();
   const [hover, setHover] = useState(false);
   const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
 
   const eventProps = {
     hover: hover,
@@ -20,6 +22,11 @@ const NavDesktop: React.FC = () => {
   const preeventProps = {
     hover: hover1,
     setHover: setHover1
+  };
+
+  const competitionProps = {
+    hover: hover2,
+    setHover: setHover2
   };
 
   return (
@@ -38,7 +45,7 @@ const NavDesktop: React.FC = () => {
                 <SubMenu items={event} {...eventProps}/>
               </li>
             );
-          else if (link.text === 'PRE-EVENTS')
+          if (link.text === 'PRE-EVENTS')
             return (
               <li key={index} className="mt-3">
                 <Link href={link.path}>
@@ -48,6 +55,18 @@ const NavDesktop: React.FC = () => {
                 </Link>
                 <div className="indicator"></div>
                 <SubMenu items={preevent} {...preeventProps}/>
+              </li>
+            );
+          if (link.text === 'COMPETITIONS')
+            return (
+              <li key={index} className="mt-3">
+                <Link href={link.path}>
+                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover2(true)} onMouseLeave={() => setHover2(false)}>
+                    {link.text}
+                  </a>
+                </Link>
+                <div className="indicator"></div>
+                <SubMenu items={competition} {...competitionProps}/>
               </li>
             );
           return (

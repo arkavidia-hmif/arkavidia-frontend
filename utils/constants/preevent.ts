@@ -1,19 +1,19 @@
 const PreEvent = [
   {
-    text: 'ARKAVIDIA ACADEMY',
-    path: '/preevent/arkavidia-academy'
+    text: 'TECHNOCAMP',
+    path: '/preevent/technocamp'
   },
   {
     text: 'ARKAVIDIA GOES TO SCHOOL',
     path: '/preevent/arkavidia-goes-to-school'
   },
   {
-    text: 'ARKAVIDIA ON AIR',
-    path: '/preevent/arkavidia-on-air'
+    text: 'ARKAVIDIA ACADEMY',
+    path: '/preevent/arkavidia-academy'
   },
   {
-    text: 'TECHNOCAMP',
-    path: '/preevent/technocamp'
+    text: 'ARKAVIDIA ON AIR',
+    path: '/preevent/arkavidia-on-air'
   },
 ];
 
