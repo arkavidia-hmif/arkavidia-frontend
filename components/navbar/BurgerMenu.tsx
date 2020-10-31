@@ -42,7 +42,7 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
             );
           }
         })}
-        <Link href="/"><a>Login</a></Link>
+        <Link href="/login"><a>Login</a></Link>
       </div>
 
       <style jsx>{`
@@ -50,7 +50,7 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
           border: solid white;
           border-width: 0 4px 4px 0;
           display: inline-block;
-          padding: 4px ;
+          padding: 4px;
 
           transition: transform 0.2s;
         }
