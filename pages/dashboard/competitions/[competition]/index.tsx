@@ -2,12 +2,14 @@ import { useState } from "react";
 import DashboardWrapper from "../../../../components/PartialPage/Dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/PartialPage/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
+import FilledButton from "../../../../components/FilledButton";
+import { Theme } from "../../../../styles/theme";
 
 const StatusTim: React.FC = () => {
   const [active, setActive] = useState(1);
 
   return (
-    <Layout title="Competitions | Arkavidia 7.0" background="white">
+    <Layout title="Informasi Tim | Arkavidia 7.0" background="white">
       <DashboardWrapper />
       <div className="container">
         <div className="row container">
@@ -21,7 +23,18 @@ const StatusTim: React.FC = () => {
           >
             <div id="content-container">
               <div id="heading">Arkalogica - Informasi Tim</div>
-              Arya sambung
+              <div className="mt-4">
+                <div className="title">Nama Tim</div>
+                <div className="subtitle">Lorem ipsum</div>
+              </div>
+              <div className="mt-4">
+                <div className="title">Asal Sekolah/Universitas</div>
+                <div className="subtitle">SMA 1 Bandung</div>
+              </div>
+              <div className="mt-5" id="button">
+                <div className="mr-5"><FilledButton text="Hapus Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem"/></div>
+                <div><FilledButton text="Edit Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem"/></div>
+              </div>
             </div>
             <div id="bg-container">
               <img src="../../../img/competitions/ctf.png" />
@@ -44,8 +57,26 @@ const StatusTim: React.FC = () => {
 
           #heading {
             font-family: Viga;
-            font-size: 2.25rem;
+            font-size: 1.55rem;
             color: #05058d;
+          }
+
+          #button{
+            display: flex;
+          }
+
+          .title{
+            font-family: Roboto;
+            color: #646464;
+            font-weight: bold;
+            font-size: 1.125rem;
+          }
+
+          .subtitle{
+            font-family: Roboto;
+            color: #646464;
+            font-weight: normal;
+            font-size: 1.125rem;
           }
 
           @media (max-width: 800px) {
