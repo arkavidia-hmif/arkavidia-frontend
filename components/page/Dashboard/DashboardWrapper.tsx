@@ -34,10 +34,11 @@ const DashboardWrapper: React.FC = () => {
                   </a>
                 </Link>
                 <div className="indicator mt-5"></div>
+                <div className="indicator-2 mt-5"></div>
               </li>
             ))}
           </ul>
-          <hr className="line" />
+          <br />
         </div>
         <style jsx>
           {`
@@ -73,6 +74,7 @@ const DashboardWrapper: React.FC = () => {
             }
 
             .indicator {
+              z-index: 1;
               opacity: 0;
               position: absolute;
               width: 125%;
@@ -80,6 +82,15 @@ const DashboardWrapper: React.FC = () => {
               background: linear-gradient(90deg, #623fa2 0%, #f25785 100%);
               transition: opacity 0.2s ease-in;
               transform-origin: 1px;
+            }
+
+            .indicator-2 {
+              margin-left: -30px;
+              z-index: 0;
+              position: absolute;
+              width: 260%;
+              height: 0.5rem;
+              background: #c4c4c4;
             }
 
             a:hover + .indicator {
