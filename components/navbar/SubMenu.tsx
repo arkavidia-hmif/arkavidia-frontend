@@ -25,9 +25,10 @@ const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
       <style jsx>{`
         .sub-menu {
           background: #FFFF;
-          width: 300px;
+          width: 250px;
           position: absolute;
           top: 2.5rem;
+          left: -1rem;
           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
           transition: visibility 0.2s, opacity 0.2s linear;
         }
@@ -36,6 +37,7 @@ const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
           display: flex;
           flex-direction: column;
           list-style: none;
+          padding-left: 1rem;
         }
 
         li {
