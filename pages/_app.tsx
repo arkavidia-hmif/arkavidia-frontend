@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import { AuthContext, AuthContextType } from '../utils/context/auth'
 import { useState } from 'react'
 import { AuthData } from '../interfaces'
+import { SWRConfig } from 'swr';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -15,7 +16,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     auth,
     setAuthenticated,
     setAuth
-  }
+  };
+
+  const swrConfig = {};
 
   return (
     <>
@@ -26,7 +29,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
       <AuthContext.Provider value={authContext}>
-        <Component {...pageProps} />
+        <SWRConfig value={swrConfig}>
+          <Component {...pageProps} />
+        </SWRConfig>
       </AuthContext.Provider>
       <style global jsx>{`
         body {
