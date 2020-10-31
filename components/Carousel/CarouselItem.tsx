@@ -26,14 +26,14 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
     },
     title: {
       color: "#623FA2",
-      textAlign: "right"
+      textAlign: "right" as const
     },
     gradient: {
       transform: `rotate(0deg)`,
       backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`
     },
     infoBtn: {
-      textAlign: "right"
+      textAlign: "right" as const
     }
   };
 
@@ -53,10 +53,10 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
     },
     title: {
       color: "#B41A83",
-      textAlign: "left"
+      textAlign: "left" as const
     },
     infoBtn: {
-      textAlign: "left"
+      textAlign: "left" as const
     }
   };
 
