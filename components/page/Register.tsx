@@ -24,7 +24,7 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
           <label>Ulangi Kata Sandi</label>
           <input type="password" placeholder="*********" />
           <FilledButton text="DAFTAR" padding="0.75em 1.5em" />
-          <a href="#">Sudah punya akun ? </a>
+          <a href="/login">Sudah punya akun ? </a>
         </form>
       </div>
       <div className="right">

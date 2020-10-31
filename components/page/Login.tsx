@@ -17,7 +17,7 @@ const Login: React.FC = () => {
           <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
-          <p>Belum terdafar ? <a href="#">Daftar</a></p>
+          <p>Belum terdafar ? <a href="/register">Daftar</a></p>
         </form>
       </div>
       <div className="right">
