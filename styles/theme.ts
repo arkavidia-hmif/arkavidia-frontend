@@ -43,6 +43,11 @@ const purpleButton: ButtonColor = {
   hover: '#936bd4'
 }
 
+const blueButton : ButtonColor = {
+  main: '#00B6F1',
+  hover: '#5EE6E9'
+}
+
 const lightBlueButton: ButtonColor = {
   main: '#5FE6EA',
   hover: '#98ffff'
@@ -53,6 +58,10 @@ const pinkButton: ButtonColor = {
   hover: '#ffaacb'
 }
 
+const darkPinkButton : ButtonColor = {
+  main: '#FE65D4',
+  hover: '#F3A9DD'
+}
 
 export const Theme = {
   colors: {
@@ -62,14 +71,16 @@ export const Theme = {
     red
   },
   buttonColors: {
+    blueButton,
     lightBlueButton,
     pinkButton,
-    purpleButton
+    darkPinkButton,
+    purpleButton,
   },
   bgColors: {
     whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink
-    whpipl: 'linear-gradient(180deg, rgba(255, 255, 255, 0.26) 20.31%, rgba(255, 163, 186, 0.38) 53.65%, rgba(168, 142, 215, 0.56) 100%);', // White pink purple
-    whblpl: 'linear-gradient(to bottom, );' // White blue purple
+    whpipl: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.26) 0.19%, rgba(255, 163, 186, 0.38) 59.95%, rgba(168, 142, 215, 0.56) 100%);', // White pink purple
+    whblpl: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 17.32%, rgba(0, 255, 255, 0.21) 56.34%, rgba(218, 125, 218, 0.58) 100%);' // White blue purple
   },
   headerColors: {
     plbl: 'linear-gradient(120deg, #835FBF, #835FBF, #30C5E8)', // Purple blue (e.g on competition page)
