@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import 'bootstrap/dist/css/bootstrap-reboot.min.css'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -16,6 +17,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         body {
           font-family: 'roboto';
           margin: 0;
+          line-height: 1.2;
         }
 
         .max-content {

@@ -10,7 +10,7 @@ const NavDesktop: React.FC = () => {
     <div className="items">
       <ul className="mr-3">
         {items.map((link, index) => (
-          <li key={index}>
+          <li key={index} className="mt-3">
             <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
             <div className="indicator"></div>
           </li>

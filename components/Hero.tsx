@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const Hero: React.FC = () => {
   return (
-    <div id="main-container">
+    <div id="main-container" className="row">
       <div id="bg-container">
         <div id="city-container">
           <div id="bg-filter" />
@@ -22,7 +22,8 @@ const Hero: React.FC = () => {
         {`
           #main-container {
             position: relative;
-            height: 80vh;
+            height: 85vh;
+            overflow: hidden
           }
 
           #content-container{
@@ -133,6 +134,8 @@ const Hero: React.FC = () => {
                 margin-top: 1.5rem;
             
                 padding: 0;
+
+                width: 100%;
             }
             
             #bg-container{
@@ -142,16 +145,35 @@ const Hero: React.FC = () => {
             }
           }
 
-          @media (max-width: 450px){
+          @media (max-width: 768px){
+            #main-container {
+              height: 70vh;
+            }
+  
+            #bg-container {
+              height: 70vh;
+            }
+          }
+          
+          @media (max-width: 475px){
+            #main-container {
+              height: 50vh;
+            }
+  
+            #bg-container {
+              height: 50vh;
+            }
+
             h1{
-                font-size: 2rem;
-                margin-top: 5px;
+              font-size: 2.5rem;
+              margin-top: 0;
             }
             
             #date{
-                font-size: 1rem;
+              font-size: 1.25rem;
             }
           }
+          
 
           @keyframes sky-fade{
             0%{opacity: 0;}

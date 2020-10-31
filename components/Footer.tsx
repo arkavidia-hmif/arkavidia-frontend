@@ -7,13 +7,13 @@ const Footer: React.FC = () => {
     <footer className="container-fluid mt-5">
       <div className="container mx-auto row mb-5">
         <div id="footer-social" className="col-lg-4">
-          <img id="footer-logo" src="/img/logo.jpg"></img>
+          <img id="footer-logo" className="mb-3" src="/img/logo.jpg"></img>
           <ul id="social-link">
-            <li><Link href="#"><a><img src="/img/social/ig.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/twitter.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/linkedin.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/fb.jpg"></img></a></Link></li>
-            <li><Link href="#"><a><img src="/img/social/line.jpg"></img></a></Link></li>
+            <li><Link href="https://instagram.com/arkavidia"><a><img src="/img/social/ig.png"></img></a></Link></li>
+            <li><Link href="https://twitter.com/arkavidia_hmif"><a><img src="/img/social/twitter.png"></img></a></Link></li>
+            <li><Link href="https://linkedin.com/company/arkavidia"><a><img src="/img/social/linkedin.png"></img></a></Link></li>
+            <li><Link href="https://facebook.com/arkavidia"><a><img src="/img/social/fb.png"></img></a></Link></li>
+            <li><Link href="http://line.me/ti/p/@aab5143y"><a><img src="/img/social/line.png"></img></a></Link></li>
           </ul>
         </div>
         <div id="footer-link" className="col-lg-8">
@@ -22,19 +22,19 @@ const Footer: React.FC = () => {
               <h3>COMPETITIONS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>Competitive Programming</a></Link>
+                  <Link href="/competition/competitive-programming"><a>Competitive Programming</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Capture the Flag</a></Link>
+                  <Link href="/competition/capture-the-flag"><a>Capture the Flag</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Game Dev</a></Link>
+                  <Link href="/competition/gamedev"><a>Gamedev</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Datavidia</a></Link>
+                  <Link href="/competition/datavidia"><a>Datavidia</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkalogica</a></Link>
+                  <Link href="/competition/arkalogica"><a>Arkalogica</a></Link>
                 </li>
               </ul>
             </li>
@@ -44,16 +44,16 @@ const Footer: React.FC = () => {
               <h3>PRE-EVENTS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>Technocamp</a></Link>
+                  <Link href="/preevent/technocamp"><a>Technocamp</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Goes To School</a></Link>
+                  <Link href="/preevent/arkavidia-goes-to-school"><a>Arkavidia Goes To School</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Academy</a></Link>
+                  <Link href="/preevent/arkavidia-academy"><a>Arkavidia Academy</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia On Air</a></Link>
+                  <Link href="/preevent/arkavidia-on-air"><a>Arkavidia On Air</a></Link>
                 </li>
               </ul>
             </li>
@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
               <h3>EVENTS</h3>
               <ul>
                 <li>
-                  <Link href="#"><a>IT Fest</a></Link>
+                  <Link href="/event/it-festival"><a>IT Fest</a></Link>
                 </li>
                 <li>
-                  <Link href="#"><a>Arkavidia Talks</a></Link>
+                  <Link href="/event/arkavidia-talks"><a>Arkavidia Talks</a></Link>
                 </li>
               </ul>
             </li>
@@ -105,6 +105,15 @@ const Footer: React.FC = () => {
           
           #social-link li {
             margin-right: 10px;
+          }
+
+          #social-link li img{
+            width: 40px;
+            transition: filter 0.1s;
+          }
+
+          #social-link li img:hover {
+            filter: contrast(75%);
           }
           
           #footer-link {
