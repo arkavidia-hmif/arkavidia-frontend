@@ -5,7 +5,6 @@ import ColorfulHeader from '../ColorfulHeader';
 import { Theme } from '../../styles/theme';
 import { ApiContext } from '../../utils/context/api';
 import { AuthContext } from '../../utils/context/auth';
-import { stat } from 'fs';
 
 const Login: React.FC = () => {
 
@@ -47,11 +46,11 @@ const Login: React.FC = () => {
         <br />
         <form>
           <label htmlFor="email">Alamat Email</label>
-          <input id="email" type="email" placeholder="johndoe@gmail.com" value={email} onChange={(evt => {setEmail(evt.target.value)})} />
-          {result?.data.code == "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
+          <input id="email" type="email" placeholder="johndoe@gmail.com" value={email} onChange={(evt => {setEmail(evt.target.value);})} />
+          {result?.data.code === "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
           <label htmlFor="password">Kata Sandi</label>
-          <input id="password" type="password" placeholder="*********" value={password} onChange={(evt => {setPassword(evt.target.value)})}/>
-          {result?.data.code == "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
+          <input id="password" type="password" placeholder="*********" value={password} onChange={(evt => {setPassword(evt.target.value);})}/>
+          {result?.data.code === "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
           <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => {
             if (!authContext.authenticated) {
               apiContext.axios.post('/auth/login/', {
