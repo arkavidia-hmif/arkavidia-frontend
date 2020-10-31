@@ -47,17 +47,12 @@ const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragr
                 font-size: 4rem;
                 font-weight: normal;
                 margin : 0;
+                margin-bottom: 5%;
                 line-height: 100%;
                 background: ${bg};
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-            }
-
-            h3 {
-                font-weight: 700;
-                padding-left: 13px;
-                color: #623FA2;
             }
 
             p {
