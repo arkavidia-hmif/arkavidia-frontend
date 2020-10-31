@@ -7,6 +7,7 @@ import FilledButton from '../components/FilledButton';
 import Layout from '../components/Layout';
 import { Theme } from '../styles/theme';
 import { ApiContext } from '../utils/context/api';
+import { isValidEmail } from '../utils/validator';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -19,10 +20,7 @@ const LoginPage: React.FC = () => {
   const onSubmit = () => {
     setError(null);
 
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const validEmail = re.test(String(email).toLowerCase());
-
-    if (!validEmail) {
+    if (!isValidEmail(email)) {
       setError('Alamat email invalid');
     }
 
