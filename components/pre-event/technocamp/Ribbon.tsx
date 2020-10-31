@@ -26,6 +26,7 @@ const Ribbon :React.FC = () => (
             .text {
                 display: flex;
                 width: 50%;
+                padding: 1rem 0;
                 flex-direction: column;
                 justify-content: center;
             }
