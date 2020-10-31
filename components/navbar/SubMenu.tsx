@@ -1,5 +1,5 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from 'react';
+import Link from 'next/link';
 
 type ArrayType = {
     path: string,
@@ -54,7 +54,7 @@ const SubMenu : React.FC<Props> = ({items, hover, setHover}) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default SubMenu
+export default SubMenu;

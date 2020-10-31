@@ -7,6 +7,6 @@ const Event = [
     text: 'ARKAVIDIA TALKS',
     path: '/event/arkavidia-talks'
   },
-]
+];
 
-export default Event
+export default Event;

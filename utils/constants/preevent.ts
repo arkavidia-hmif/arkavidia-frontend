@@ -15,6 +15,6 @@ const PreEvent = [
     text: 'TECHNOCAMP',
     path: '/preevent/technocamp'
   },
-]
+];
 
-export default PreEvent
+export default PreEvent;
