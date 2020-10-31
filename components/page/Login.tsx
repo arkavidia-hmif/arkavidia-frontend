@@ -63,7 +63,6 @@ const Login: React.FC = () => {
                   data: response.data.user,
                   status: response.status
                 });
-                console.log(response);
               }).catch((err) => {
                 setResult({
                   data: {
@@ -73,7 +72,6 @@ const Login: React.FC = () => {
                   },
                   status: err.response.status
                 });
-                console.log(err.response);
               });
             } else {
               authContext.setAuthenticated(!authContext.authenticated);
