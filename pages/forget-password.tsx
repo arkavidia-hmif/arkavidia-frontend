@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Layout background={Theme.bgColors.whpipl} title="Login">
+    <Layout background={Theme.bgColors.whpipl} title="Lupa Kata Sandi">
       <div className="container mx-auto row mb-3">
         <div className="col-md-6 px-4 px-md-5">
           <br />
