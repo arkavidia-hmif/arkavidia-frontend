@@ -45,7 +45,7 @@ const Prasyarat: React.FC = () => {
                 <div className="subtitle">Belum diverivikasi</div>
               </div>
               <div id="simpan" className="mt-5">
-              <FilledButton text="Simpan" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem"/>
+                <FilledButton text="Simpan" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem"/>
               </div>
             </div>
             <div id="bg-container">
