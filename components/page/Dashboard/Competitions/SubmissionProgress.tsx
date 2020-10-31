@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 
 type Props = {
   setActive: (integer: number) => void;
@@ -20,8 +21,54 @@ const SubmissionProgress: React.FC<Props> = ({ setActive }) => {
       <div className="not-dropdown">
         <div className="title">TIM</div>
       </div>
+      <div className="dropdown">
+        <ul className="list">
+          {/* routenya diganti yaa */}
+          <Link href="/dashboard/competitions/ctf"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/tim.png" className="mr-3"/>
+              Informasi Tim
+            </li>  
+          </a></Link>
+          <Link href="/dashboard/competitions/ctf/anggota-tim"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/anggota.png" className="mr-3"/>
+              Anggota Tim
+            </li>
+          </a></Link>
+        </ul>
+      </div>
       <div className="not-dropdown">
         <div className="title">PRASYARAT PENDAFTARAN </div>
+      </div>
+      <div className="dropdown">
+        <ul className="list">
+          {/* routenya diganti yaa */}
+          <Link href="/dashboard/competitions/ctf"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/lingkaran.png" className="mr-3"/>
+              Foto Diri
+            </li>  
+          </a></Link>
+          <Link href="/dashboard/competitions/ctf"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/jampasir.png" className="mr-3"/>
+              KTP/KTM
+            </li>
+          </a></Link>
+          <Link href="/dashboard/competitions/ctf"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/check.png" className="mr-3"/>
+              SKMA
+            </li>  
+          </a></Link>
+          <Link href="/dashboard/competitions/ctf"><a>
+            <li className="mt-1">
+              <img src="../../../img/dashboard/submission/lingkaran.png" className="mr-3"/>
+              Bukti Pembayaran
+            </li>
+          </a></Link>
+        </ul>
       </div>
       <style jsx>{`
         h2 {
@@ -31,8 +78,27 @@ const SubmissionProgress: React.FC<Props> = ({ setActive }) => {
           font-size: 23.4375px;
           line-height: 31px;
         }
-        .not-dropdown {
-          margin-top: 2rem;
+        a{
+          text-decoration:none;
+        }
+        img{
+          max-width: 17px;
+        }
+        ul{
+          list-style:none;
+        }
+        .dropdown li{
+          color: #161F24;
+          max-width: 25rem;
+          max-height: 3rem;
+          padding: 0.5rem;
+          font-size: 0.875rem;
+        }
+        .dropdown{
+          padding: 0;
+        }
+        .list{
+          padding: 0;
         }
         p {
           font-size: 11.7187px;
