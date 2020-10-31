@@ -6,7 +6,20 @@ const { parsed } = dotenv.config({
 
 module.exports = {
   env: {
-    API_BASE_URL: parsed.API_BASE_URL
+    API_BASE_URL: parsed.API_BASE_URL,
+    LOCAL_STORAGE_AUTHENTICATED: parsed.LOCAL_STORAGE_AUTHENTICATED,
+    LOCAL_STORAGE_AUTH: parsed.LOCAL_STORAGE_AUTH
   },
-  basePath: parsed.BASE_PATH || ''
+  basePath: parsed.BASE_PATH || '',
+  exportPathMap: (defaultPathMap) => {
+
+    const filteredPathMap = {};
+    for (const key in defaultPathMap) {
+      if (!key.startsWith('/dashboard')) {
+        filteredPathMap[key] = defaultPathMap[key];
+      }
+    }
+
+    return filteredPathMap;
+  }
 }

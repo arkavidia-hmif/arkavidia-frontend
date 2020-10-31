@@ -40,10 +40,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     setAuth: setAndSaveAuth
   };
 
-  const router = useRouter();
+  if (typeof window !== "undefined") {
+    const router = useRouter();
 
-  if (router.pathname.startsWith('/event') && !authenticated) {
-    router.push(`/login?continue=${router.pathname}`);
+    if (router.pathname.startsWith('/dashboard') && !authenticated) {
+      router.replace(`/login?continue=${router.pathname}`);
+    }
   }
 
   const swrConfig = {};
