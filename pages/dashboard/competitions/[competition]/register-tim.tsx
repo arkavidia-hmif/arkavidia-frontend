@@ -1,6 +1,7 @@
 import DashboardWrapper from "../../../../components/PartialPage/Dashboard/DashboardWrapper";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
+import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
   <Layout title="Competitions | Arkavidia 7.0" background="white">
@@ -14,7 +15,9 @@ const RegisterTim: React.FC = () => (
             <input id="nama-tim" type="nama-tim" />
             <label htmlFor="asal">Asal universitas/sekolah</label>
             <input id="asal" type="asal" />
-            <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" />
+            <br />
+            <br />
+            <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton}/>
           </form>
         </div>
         <div id="bg-container">
