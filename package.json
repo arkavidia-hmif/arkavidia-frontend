@@ -13,7 +13,7 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "npm run lint:check",
-    "lint:check": "eslint --max-warnings 0 --ext .ts,.js,.tsx .",
+    "lint:check": "eslint --max-warnings 0 --ext .ts,.js,.tsx . && tsc",
     "lint:fix": "eslint --max-warnings 0 --fix --ext .ts,.js,.tsx ."
   },
   "dependencies": {
@@ -39,8 +39,8 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
+      "pre-commit": "npm run lint:check",
+      "pre-push": "npm run lint:check"
     }
   }
 }
