@@ -16,7 +16,7 @@ const Login: React.FC = () => {
           <label htmlFor="password">Kata Sandi</label>
           <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
-          <p>Lupa kata sandi ? <a href="#">Reset</a></p>
+          <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="#">Daftar</a></p>
         </form>
       </div>
@@ -117,7 +117,7 @@ const Login: React.FC = () => {
             font-style: normal;
             font-weight: normal;
             font-size: 1.3rem;
-            line-height: 0.2rem;
+            line-height: 0.5rem;
             color: #7446A1;
           }
 
