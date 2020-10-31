@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Layout from '../components/Layout';
 import Hero from '../components/page/home/Hero';
 import Carousel from '../components/page/home/carousel/Carousel';
@@ -111,25 +110,5 @@ const IndexPage: React.FC = () => {
     </Layout>
   );
 };
-=======
-import Link from "next/link";
-import Layout from "../components/Layout";
-import Hero from "../components/Hero";
-
-const IndexPage: React.FC = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <div className="container">
-      <br />
-      <Hero />
-      <p>
-        <Link href="/about">
-          <a>About {process.env.NODE_ENV}</a>
-        </Link>
-        <p>API url: {process.env.API_BASE_URL}</p>
-      </p>
-    </div>
-  </Layout>
-);
->>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint
 
 export default IndexPage;

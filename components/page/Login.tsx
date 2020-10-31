@@ -124,13 +124,8 @@ const Login: React.FC = () => {
             font-style: normal;
             font-weight: normal;
             font-size: 1.3rem;
-<<<<<<< HEAD:components/page/Login.tsx
             line-height: 0.5rem;
             color: #7446A1;
-=======
-            line-height: 0.2rem;
-            color: #7446a1;
->>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint:components/PartialPage/Login.tsx
           }
 
           a {
