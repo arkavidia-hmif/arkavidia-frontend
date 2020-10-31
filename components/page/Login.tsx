@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import FilledButton from "../FilledButton";
 import ColorfulHeader from '../ColorfulHeader';
 import { Theme } from '../../styles/theme';
@@ -31,12 +31,40 @@ const Login: React.FC = () => {
     status: number;
   }
 
-  const authContext = useContext(AuthContext);
-  const apiContext = useContext(ApiContext);
+  const authContext = React.useContext(AuthContext);
+  const apiContext = React.useContext(ApiContext);
 
   const [result, setResult] = useState<UserStatus | undefined>(undefined);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    if (!authContext.authenticated) {
+      apiContext.axios.post('/auth/login/', {
+        email,
+        password
+      }).then((response) => {
+        authContext.setAuthenticated(true);
+        authContext.setAuth(response.data);
+        setResult({
+          data: response.data.user,
+          status: response.status
+        });
+      }).catch((err) => {
+        setResult({
+          data: {
+            code: err.response.data.code,
+            detailWrong: err.response.data.detail,
+            detailUnknown: err.response.data.detail,
+          },
+          status: err.response.status
+        });
+      });
+    } else {
+      authContext.setAuthenticated(!authContext.authenticated);
+      authContext.setAuth();
+    }
+  };
 
   return (
     <div className="flex-container">
@@ -50,34 +78,8 @@ const Login: React.FC = () => {
           {result?.data.code === "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
           <label htmlFor="password">Kata Sandi</label>
           <input id="password" type="password" placeholder="*********" value={password} onChange={(evt => {setPassword(evt.target.value);})}/>
-          {result?.data.code === "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.email}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
-          <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => {
-            if (!authContext.authenticated) {
-              apiContext.axios.post('/auth/login/', {
-                email,
-                password
-              }).then((response) => {
-                authContext.setAuthenticated(true);
-                authContext.setAuth(response.data);
-                setResult({
-                  data: response.data.user,
-                  status: response.status
-                });
-              }).catch((err) => {
-                setResult({
-                  data: {
-                    code: err.response.data.code,
-                    detailWrong: err.response.data.detail,
-                    detailUnknown: err.response.data.detail,
-                  },
-                  status: err.response.status
-                });
-              });
-            } else {
-              authContext.setAuthenticated(!authContext.authenticated);
-              authContext.setAuth();
-            }
-          }}/>
+          {result?.data.code === "unknown_error" ? <p className="p-wrong">{result?.data.detailUnknown?.password}</p> : <p className="p-wrong">{result?.data.detailWrong}</p>}
+          <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={handleSubmit}/>
           <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
           <p className="mt-3">Belum terdafar ? <a href="/register">Daftar</a></p>
         </form>
