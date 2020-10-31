@@ -1,7 +1,4 @@
 import items from "../../utils/constants/nav-items";
-import event from '../../utils/constants/event';
-import preevent from '../../utils/constants/preevent';
-import competition from '../../utils/constants/competition';
 import SubMenu from './SubMenu';
 import Link from 'next/link';
 import FilledButton from "../FilledButton";
@@ -10,71 +7,45 @@ import { useRouter } from "next/dist/client/router";
 
 const NavDesktop: React.FC = () => {
   const router = useRouter();
-  const [hover, setHover] = useState(false);
-  const [hover1, setHover1] = useState(false);
-  const [hover2, setHover2] = useState(false);
 
-  const eventProps = {
-    hover: hover,
-    setHover: setHover
-  };
-
-  const preeventProps = {
-    hover: hover1,
-    setHover: setHover1
-  };
-
-  const competitionProps = {
-    hover: hover2,
-    setHover: setHover2
-  };
+  const hoverState = items.map((entry) => {
+    if (entry.submenu) {
+      return useState(false);
+    } else {
+      return [];
+    }
+  });
 
   return (
     <div className="items">
       <ul className="mr-3">
         {items.map((link, index) => {
-          if (link.text === 'EVENTS')
+          if (link.submenu) {
+            const curentHover = hoverState[index];
+            const setHover = curentHover[1];
+            const hover = curentHover[0];
             return (
               <li key={index} className="mt-3">
-                <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                    {link.text}
-                  </a>
-                </Link>
+                <a
+                  style={{ cursor: 'pointer' }}
+                  className={router.pathname.startsWith(link.path) ? "current" : ""}
+                  onMouseOver={() => setHover(true)}
+                  onMouseLeave={() => setHover(false)}
+                >
+                  {link.text}
+                </a>
                 <div className="indicator"></div>
-                <SubMenu items={event} {...eventProps}/>
+                <SubMenu items={link.submenu} hover={hover} setHover={setHover} />
               </li>
             );
-          if (link.text === 'PRE-EVENTS')
+          } else {
             return (
               <li key={index} className="mt-3">
-                <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover1(true)} onMouseLeave={() => setHover1(false)}>
-                    {link.text}
-                  </a>
-                </Link>
+                <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
                 <div className="indicator"></div>
-                <SubMenu items={preevent} {...preeventProps}/>
               </li>
             );
-          if (link.text === 'COMPETITIONS')
-            return (
-              <li key={index} className="mt-3">
-                <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover2(true)} onMouseLeave={() => setHover2(false)}>
-                    {link.text}
-                  </a>
-                </Link>
-                <div className="indicator"></div>
-                <SubMenu items={competition} {...competitionProps}/>
-              </li>
-            );
-          return (
-            <li key={index} className="mt-3">
-              <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
-              <div className="indicator"></div>
-            </li>
-          );
+          }
         })}
       </ul>
       <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login"); }} />

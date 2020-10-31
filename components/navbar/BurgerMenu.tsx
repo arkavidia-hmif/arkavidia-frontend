@@ -3,64 +3,41 @@ import { Dimen } from '../../styles/dimen';
 import { useState } from 'react';
 import menuItem from '../../utils/constants/nav-items';
 import BurgerSubMenu from './BurgerSubMenu';
-import event from '../../utils/constants/event';
-import preevent from '../../utils/constants/preevent';
-import competition from '../../utils/constants/competition';
 
 type Props = {
   open: boolean
 }
 
 const BurgerMenu: React.FC<Props> = ({ open }) => {
-  const [toggle, setToggle] = useState(false);
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
-
-  const eventProps = {
-    toggle: toggle,
-    setToggle: setToggle
-  };
-
-  const preeventProps = {
-    toggle: toggle1,
-    setToggle: setToggle1
-  };
-
-  const competitionProps = {
-    toggle: toggle2,
-    setToggle: setToggle2
-  };
+  const toggleState = menuItem.map((entry) => {
+    if (entry.submenu) {
+      return useState(false);
+    } else {
+      return [];
+    }
+  });
 
   return (
     <div>
       <div className="burger-menu">
         {menuItem.map((link, index) => {
-          if (link.text === 'EVENTS')
+          if (link.submenu) {
+            const toggle = toggleState[index][0];
+            const setToggle = toggleState[index][1];
+
             return (
               <>
-                <Link key={index} href={link.path}><a onClick={() => setToggle(!toggle)}>{link.text}</a></Link>
-                <BurgerSubMenu items={event} {...eventProps}/>
+                <a onClick={() => setToggle(!toggle)}>{link.text}</a>
+                <BurgerSubMenu items={link.submenu} toggle={toggle} />
               </>
             );
-          if (link.text === 'PRE-EVENTS')
+          } else {
             return (
               <>
-                <Link key={index} href={link.path}><a onClick={() => setToggle1(!toggle1)}>{link.text}</a></Link>
-                <BurgerSubMenu items={preevent} {...preeventProps}/>
+                <Link key={index} href={link.path}><a>{link.text}</a></Link>
               </>
             );
-          if (link.text === 'COMPETITIONS')
-            return (
-              <>
-                <Link key={index} href={link.path}><a onClick={() => setToggle2(!toggle2)}>{link.text}</a></Link>
-                <BurgerSubMenu items={competition} {...competitionProps}/>
-              </>
-            );
-          return (
-            <>
-              <Link key={index} href={link.path}><a>{link.text}</a></Link>
-            </>
-          );
+          }
         })}
         <Link href="/"><a>Login</a></Link>
       </div>
