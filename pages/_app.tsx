@@ -3,7 +3,7 @@ import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap-reboot.min.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import ApiProvider from '../components/provider/ApiProvider';
-import AuthProvider from '../components/provider/AuthProvider';
+// import AuthProvider from '../components/provider/AuthProvider';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (

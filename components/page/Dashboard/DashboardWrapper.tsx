@@ -16,7 +16,7 @@ const DashboardWrapper: React.FC = () => {
           <ColorfulHeader
             color={Theme.headerColors.plpi}
             headingLevel={6}
-            size="3rem"
+            size="2rem"
           >
             Halo, John Doe
           </ColorfulHeader>
@@ -54,7 +54,7 @@ const DashboardWrapper: React.FC = () => {
               display: flex;
               flex-direction: row;
               list-style-type: none;
-              padding: 0;
+              padding: 0;              
             }
 
             li {
@@ -69,15 +69,15 @@ const DashboardWrapper: React.FC = () => {
               font-style: normal;
               font-weight: normal;
               font-size: 1.5rem;
-
-              color: #623fa2;
+              color: #623fa2 !important;
+              word-break: keep-all;
             }
 
             .indicator {
               z-index: 1;
               opacity: 0;
               position: absolute;
-              width: 125%;
+              width: 100%;
               height: 0.5rem;
               background: linear-gradient(90deg, #623fa2 0%, #f25785 100%);
               transition: opacity 0.2s ease-in;
@@ -101,16 +101,19 @@ const DashboardWrapper: React.FC = () => {
               opacity: 1;
             }
 
+            @media (max-width: 767px) {
+              ul {
+                overflow: auto;
+              }
+            }
+
             @media (max-width: 450px) {
               li{
                 margin: 0 1rem;
               }
               #dashboard {
                 font-size: 1.5rem;
-              }
-              a {
-                font-size: 1.25rem;
-              }
+              }             
             }
           `}
         </style>
