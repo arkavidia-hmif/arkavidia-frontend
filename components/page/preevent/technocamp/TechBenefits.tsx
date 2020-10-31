@@ -5,6 +5,7 @@ import BenefitBox from './BenefitBox';
 const TechBenefits: React.FC = () => (
   <div id="benefits-container">
     <TechHeader title="BENEFITS" />
+    <br />
     <div className="benefit-content">
       <BenefitBox
         alt="programming"

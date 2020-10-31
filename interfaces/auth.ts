@@ -12,3 +12,7 @@ export type AuthData = {
     address: string | null
   }
 }
+
+export enum LoginStatus {
+  ERROR, INVALID_CREDS, EMAIL_NOT_CONFIRMED
+}

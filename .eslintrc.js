@@ -14,8 +14,10 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'indent': ['error', 2],
     'semi': ['warn'],
-    "no-var": 'error',
-    "eqeqeq": 'error'
+    'no-var': 'error',
+    'eqeqeq': 'error',
+    'no-console': 'warn',
+    'curly': ['error', 'multi-line']
   },
   settings: {
     react: {

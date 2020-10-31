@@ -22,7 +22,6 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
 
   apiClient.interceptors.request.use((config) => {
     const currentEpoch = new Date().getTime() / 1000;
-    console.log(currentEpoch);
 
     if (authContext.authenticated && authContext.auth) {
       if (authContext.auth.exp > currentEpoch) {
