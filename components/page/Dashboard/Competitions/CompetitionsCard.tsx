@@ -40,9 +40,11 @@ const CompetitionsCard: React.FC = () => {
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card mt-3">
+          <div key={index} className="card col mt-3 mr-4">
             <div className="title">{link.title}</div>
             <div className="content">{link.content}</div>
+            <br />
+            <hr />
             <div className="link">
               {link.isRegistrationOpen ? (
                 <Link href="/">
