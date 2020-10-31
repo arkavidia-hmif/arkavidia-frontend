@@ -1,5 +1,5 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from 'react';
+import Link from 'next/link';
 
 const PreEventsCard: React.FC = () => {
   // example data
@@ -16,7 +16,7 @@ const PreEventsCard: React.FC = () => {
       isRegistered: false,
       isRegistrationOpen: true,
     },
-  ]
+  ];
   
   return (
     <div className="container mb-3">
@@ -90,7 +90,7 @@ const PreEventsCard: React.FC = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default PreEventsCard
+export default PreEventsCard;
