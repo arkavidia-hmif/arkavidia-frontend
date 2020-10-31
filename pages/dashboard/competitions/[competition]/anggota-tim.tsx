@@ -1,6 +1,6 @@
 import { useState } from "react";
-import DashboardWrapper from "../../../../components/PartialPage/Dashboard/DashboardWrapper";
-import SubmissionProgress from "../../../../components/PartialPage/Dashboard/Competitions/SubmissionProgress";
+import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 
 const AnggotaTim: React.FC = () => {

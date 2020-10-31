@@ -1,14 +1,7 @@
-<<<<<<< HEAD:components/page/Login.tsx
 import * as React from 'react';
 import FilledButton from "../FilledButton";
 import ColorfulHeader from '../ColorfulHeader';
 import { Theme } from '../../styles/theme';
-=======
-import * as React from "react";
-import FilledButton from "../FilledButton";
-import ColorfulHeader from "../ColorfulHeader";
-import { Theme } from "../../styles/theme";
->>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint:components/PartialPage/Login.tsx
 
 const Login: React.FC = () => {
   return (
@@ -29,17 +22,8 @@ const Login: React.FC = () => {
           <label htmlFor="password">Kata Sandi</label>
           <input id="password" type="password" placeholder="*********" />
           <FilledButton text="LOGIN" padding="0.75em 1.5em" />
-<<<<<<< HEAD:components/page/Login.tsx
           <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
           <p>Belum terdafar ? <a href="/register">Daftar</a></p>
-=======
-          <p>
-            Lupa kata sandi ? <a href="#">Reset</a>
-          </p>
-          <p>
-            Belum terdafar ? <a href="#">Daftar</a>
-          </p>
->>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint:components/PartialPage/Login.tsx
         </form>
       </div>
       <div className="right">
