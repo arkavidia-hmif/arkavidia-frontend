@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import * as React from 'react';
 import { Theme } from '../styles/theme';
-=======
-import * as React from "react";
-import { Theme } from "../styles/theme";
->>>>>>> 81ffba4... add basic structure to tim status in dashboard, fix all lint
 
 type Props = {
   children: React.ReactNode;

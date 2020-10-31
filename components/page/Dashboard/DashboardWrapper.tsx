@@ -22,7 +22,7 @@ const DashboardWrapper: React.FC = () => {
           </ColorfulHeader>
         </div>
 
-        <div id="menu">
+        <div id="menu" className="mt-3">
           <ul>
             {DashItems.map((link, index) => (
               <li key={index} className="item">

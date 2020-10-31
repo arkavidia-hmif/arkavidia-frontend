@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/PartialPage/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
