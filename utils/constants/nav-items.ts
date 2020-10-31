@@ -19,6 +19,6 @@ const NavItems = [
     text: 'EVENTS',
     path: '/',
   },
-]
+];
 
 export default NavItems;

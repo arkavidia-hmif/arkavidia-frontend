@@ -1,7 +1,7 @@
-import * as React from 'react'
-import FilledButton from "./FilledButton"
-import ColorfulHeader from '../components/ColorfulHeader'
-import { Theme } from '../styles/theme'
+import * as React from 'react';
+import FilledButton from "./FilledButton";
+import ColorfulHeader from '../components/ColorfulHeader';
+import { Theme } from '../styles/theme';
 
 type Props = {
   background?: string
@@ -135,7 +135,7 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

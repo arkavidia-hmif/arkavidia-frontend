@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 type Props = {
     color?: string,
@@ -52,6 +52,6 @@ const DateContainer : React.FC<Props> = ({dates, color}) => (
             }
         `}</style>
   </div>
-)
+);
 
-export default DateContainer
+export default DateContainer;

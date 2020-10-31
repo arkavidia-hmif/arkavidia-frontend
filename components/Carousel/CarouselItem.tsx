@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 type CarouselItemProps = {
   backgroundImage?: string,
@@ -12,7 +12,7 @@ type CarouselItemProps = {
 const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, foregroundImage, desc, type, url }) => {
   const background = {
     backgroundImage: `url(${backgroundImage})`
-  }
+  };
 
   const competitionStyle = {
     img: {
@@ -60,7 +60,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
     }
   };
 
-  const choosenStyle = type == 'event' ? eventStyle : competitionStyle;
+  const choosenStyle = type === 'event' ? eventStyle : competitionStyle;
 
   return (
     <div className="item-carousel" style={background}>
@@ -140,7 +140,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
 export default CarouselItem;

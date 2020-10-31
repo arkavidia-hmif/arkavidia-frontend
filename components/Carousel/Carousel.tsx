@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react';
 
 // const arLeft = require('../../public/img/carousel/ar-left.png');
 // const arRight = require('../../public/img/carousel/ar-right.png');
@@ -28,8 +28,8 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
     }
   };
 
-  const prevButtonStyle = alignment == 'right' ? { left: "10px" } : { right: "45px" };
-  const nextButtonStyle = alignment == 'right' ? { left: "45px" } : { right: "10px" };
+  const prevButtonStyle = alignment === 'right' ? { left: "10px" } : { right: "45px" };
+  const nextButtonStyle = alignment === 'right' ? { left: "45px" } : { right: "10px" };
 
   return (
     <div className="carousels">
@@ -83,7 +83,7 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
 export default Carousel;

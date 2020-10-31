@@ -1,4 +1,4 @@
-import { Theme } from '../../styles/theme'
+import { Theme } from '../../styles/theme';
 
 const BackgroundProps = {
   itfest : {
@@ -25,6 +25,6 @@ const BackgroundProps = {
     title : 'Technocamp',
     background : Theme.bgColors.whblpl
   }
-}
+};
 
 export default BackgroundProps;

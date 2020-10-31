@@ -1,30 +1,30 @@
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import NavDesktop from './NavDesktop'
-import Burger from './Burger'
-import BurgerMenu from './BurgerMenu'
-import { Dimen } from '../../styles/dimen'
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import NavDesktop from './NavDesktop';
+import Burger from './Burger';
+import BurgerMenu from './BurgerMenu';
+import { Dimen } from '../../styles/dimen';
 
 const Navbar: React.FC = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const burgerProps = {
     open: open,
     setOpen: setOpen
-  }
+  };
 
   const [onTop, setOnTop] = useState(true);
 
   const handleScroll = () => {
-    if (onTop != (window.pageYOffset == 0)) {
-      setOnTop(window.pageYOffset == 0);
+    if (onTop !== (window.pageYOffset === 0)) {
+      setOnTop(window.pageYOffset === 0);
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+      window.removeEventListener('scroll', handleScroll);
+    };
   });
 
   return (
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
           }
       `}</style>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

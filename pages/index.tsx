@@ -1,11 +1,11 @@
-import Layout from '../components/Layout'
-import Hero from '../components/Hero'
-import Carousel from '../components/Carousel/Carousel'
-import CarouselItem from '../components/Carousel/CarouselItem'
-import { Theme } from '../styles/theme'
-import ColorfulHeader from '../components/ColorfulHeader'
-import FilledButton from '../components/FilledButton'
-import { useRouter } from 'next/dist/client/router'
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import Carousel from '../components/Carousel/Carousel';
+import CarouselItem from '../components/Carousel/CarouselItem';
+import { Theme } from '../styles/theme';
+import ColorfulHeader from '../components/ColorfulHeader';
+import FilledButton from '../components/FilledButton';
+import { useRouter } from 'next/dist/client/router';
 
 const IndexPage: React.FC = () => {
   const router = useRouter();
@@ -109,6 +109,6 @@ const IndexPage: React.FC = () => {
       `}</style>
     </Layout>
   );
-}
+};
 
-export default IndexPage
+export default IndexPage;

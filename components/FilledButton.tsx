@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { ButtonColor, Theme } from '../styles/theme'
+import * as React from 'react';
+import { ButtonColor, Theme } from '../styles/theme';
 
 type Props = {
   onClick?: () => void,
@@ -31,6 +31,6 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, color = Theme.b
       }
     `}</style>
   </>
-)
+);
 
-export default FilledButton
+export default FilledButton;

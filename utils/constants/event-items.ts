@@ -41,6 +41,6 @@ const EventItems = {
     paragraph: "Technocamp adalah kegiatan selama dua hari yang mencakup dasar teori, hands on, dan seminar IT untuk anak SMA/sederajat yang tertarik pada dunia pemrograman.",
     bg: "linear-gradient(90deg, rgba(0,131,175,1) 0%, rgba(254,129,219,1) 80%)",
   },
-}
+};
 
 export default EventItems;

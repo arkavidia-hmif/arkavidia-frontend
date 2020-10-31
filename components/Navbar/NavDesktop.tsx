@@ -1,5 +1,5 @@
-import items from "../../utils/constants/nav-items"
-import Link from 'next/link'
+import items from "../../utils/constants/nav-items";
+import Link from 'next/link';
 import FilledButton from "../FilledButton";
 import { useRouter } from "next/dist/client/router";
 
@@ -16,7 +16,7 @@ const NavDesktop: React.FC = () => {
           </li>
         ))}
       </ul>
-      <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login") }} />
+      <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login"); }} />
 
       <style jsx>{`
           ul {
@@ -71,8 +71,8 @@ const NavDesktop: React.FC = () => {
           }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 
 export default NavDesktop;

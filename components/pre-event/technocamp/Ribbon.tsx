@@ -1,5 +1,5 @@
-import * as React from 'react'
-import items from '../../../utils/constants/timeline-items'
+import * as React from 'react';
+import items from '../../../utils/constants/timeline-items';
 
 const Ribbon :React.FC = () => (
   <div id="ribbon-container">
@@ -74,6 +74,6 @@ const Ribbon :React.FC = () => (
             }
         `}</style>
   </div>
-)
+);
 
-export default Ribbon
+export default Ribbon;

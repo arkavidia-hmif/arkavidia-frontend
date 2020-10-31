@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const Pricing : React.FC = () => (
   <div id="pricing">
@@ -60,6 +60,6 @@ const Pricing : React.FC = () => (
             }
         `}</style>
   </div>
-)
+);
 
-export default Pricing
+export default Pricing;

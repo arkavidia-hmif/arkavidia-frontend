@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import { Theme } from '../styles/theme';
 
 type Props = {
@@ -37,6 +37,6 @@ const ColorfulHeader: React.FC<Props> = ({ children, headingLevel = 1, color = T
       `}</style>
     </>
   );
-}
+};
 
-export default ColorfulHeader
+export default ColorfulHeader;

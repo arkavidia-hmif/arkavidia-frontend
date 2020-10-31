@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import { Dimen } from '../../styles/dimen'
-import menuItem from '../../utils/constants/nav-items'
+import Link from 'next/link';
+import { Dimen } from '../../styles/dimen';
+import menuItem from '../../utils/constants/nav-items';
 
 type Props = {
   open: boolean
@@ -59,6 +59,6 @@ const BurgerMenu: React.FC<Props> = ({ open }) => (
         }
     `}</style>
   </div>
-)
+);
 
-export default BurgerMenu
+export default BurgerMenu;

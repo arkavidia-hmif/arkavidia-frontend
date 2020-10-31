@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const ItFestGallery: React.FC = () => (
   <div id="gallery-container">
@@ -41,6 +41,6 @@ const ItFestGallery: React.FC = () => (
 
         `}</style>
   </div>
-)
+);
 
-export default ItFestGallery
+export default ItFestGallery;

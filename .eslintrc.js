@@ -12,7 +12,10 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'indent': ['error', 2]
+    'indent': ['error', 2],
+    'semi': ['warn'],
+    "no-var": 'error',
+    "eqeqeq": 'error'
   },
   settings: {
     react: {

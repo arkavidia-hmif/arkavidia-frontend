@@ -59,6 +59,6 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
       }
     `}</style>
   </div>
-)
+);
 
 export default Burger;

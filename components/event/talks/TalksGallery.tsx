@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const TalksGallery: React.FC = () => (
   <div id="image-container">
@@ -37,6 +37,6 @@ const TalksGallery: React.FC = () => (
 
         `}</style>
   </div>
-)
+);
 
-export default TalksGallery
+export default TalksGallery;

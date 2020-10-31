@@ -1,6 +1,6 @@
-import ColorfulHeader from '../components/ColorfulHeader'
-import Layout from '../components/Layout'
-import { Theme } from '../styles/theme'
+import ColorfulHeader from '../components/ColorfulHeader';
+import Layout from '../components/Layout';
+import { Theme } from '../styles/theme';
 
 const AboutPage: React.FC = () => {
 
@@ -107,6 +107,6 @@ const AboutPage: React.FC = () => {
         }
       `}</style>
     </Layout >);
-}
+};
 
-export default AboutPage
+export default AboutPage;

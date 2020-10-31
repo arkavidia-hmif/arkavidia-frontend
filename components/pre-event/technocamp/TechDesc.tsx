@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const TechDesc: React.FC = () => (
   <div id="desc-container">
@@ -48,6 +48,6 @@ const TechDesc: React.FC = () => (
             }
         `}</style>
   </div>
-)
+);
 
-export default TechDesc
+export default TechDesc;

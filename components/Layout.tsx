@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
-import Head from 'next/head'
-import Footer from './Footer'
-import Navbar from './Navbar/Navbar'
-import { Theme } from '../styles/theme'
+import { ReactNode } from 'react';
+import Head from 'next/head';
+import Footer from './Footer';
+import Navbar from './Navbar/Navbar';
+import { Theme } from '../styles/theme';
 
 type Props = {
   children?: ReactNode
@@ -28,6 +28,6 @@ const Layout: React.FC<Props> = ({ children, title = 'Arkavidia 7.0', background
     `}
     </style>
   </div>
-)
+);
 
-export default Layout
+export default Layout;

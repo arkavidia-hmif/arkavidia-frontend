@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { ReactNode } from 'react'
+import * as React from 'react';
+import { ReactNode } from 'react';
 
 type Props = {
     children?: ReactNode
@@ -80,6 +80,6 @@ const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragr
             }     
         `}</style>
   </div>
-)
+);
 
-export default EventHeader
+export default EventHeader;

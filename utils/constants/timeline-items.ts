@@ -29,6 +29,6 @@ const TimelineItems = [
     content: 'Technocamp Minggu Kedua',
     css: {background: 'linear-gradient(90deg, #B376CB 1.82%, #607ABD 100%)'}
   },
-]
+];
 
-export default TimelineItems
+export default TimelineItems;

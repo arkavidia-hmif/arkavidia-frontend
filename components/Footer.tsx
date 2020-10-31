@@ -1,6 +1,6 @@
-import * as React from 'react'
-import Link from 'next/link'
-import { Theme } from '../styles/theme'
+import * as React from 'react';
+import Link from 'next/link';
+import { Theme } from '../styles/theme';
 
 const Footer: React.FC = () => {
   return (
@@ -172,7 +172,7 @@ const Footer: React.FC = () => {
         }
       `}</style>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

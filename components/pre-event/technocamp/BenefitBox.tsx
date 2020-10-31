@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 type Props = {
     link: string,
@@ -44,6 +44,6 @@ const BenefitBox : React.FC<Props> = ({link, text, alt}) => (
             }
         `}</style>
   </div>
-)
+);
 
-export default BenefitBox
+export default BenefitBox;

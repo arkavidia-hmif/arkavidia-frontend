@@ -1,6 +1,6 @@
-import * as React from 'react'
-import FilledButton from '../../FilledButton'
-import {Theme} from '../../../styles/theme'
+import * as React from 'react';
+import FilledButton from '../../FilledButton';
+import {Theme} from '../../../styles/theme';
 
 const Buttons : React.FC = () => (
   <div id="buttons-container">
@@ -26,6 +26,6 @@ const Buttons : React.FC = () => (
             }
         `}</style>    
   </div>
-)
+);
 
 export default Buttons;

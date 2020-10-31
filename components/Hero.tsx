@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const Hero: React.FC = () => {
   return (
@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
       `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

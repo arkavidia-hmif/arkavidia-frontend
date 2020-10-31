@@ -1,10 +1,10 @@
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap-reboot.min.css'
-import 'bootstrap/dist/css/bootstrap-grid.min.css'
-import { AuthContext, AuthContextType } from '../utils/context/auth'
-import { useState } from 'react'
-import { AuthData } from '../interfaces'
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import 'bootstrap/dist/css/bootstrap-reboot.min.css';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import { AuthContext, AuthContextType } from '../utils/context/auth';
+import { useState } from 'react';
+import { AuthData } from '../interfaces';
 import { SWRConfig } from 'swr';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -46,7 +46,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       `}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

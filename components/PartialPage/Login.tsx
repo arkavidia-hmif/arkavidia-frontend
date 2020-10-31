@@ -1,7 +1,7 @@
-import * as React from 'react'
-import FilledButton from "../FilledButton"
-import ColorfulHeader from '../ColorfulHeader'
-import { Theme } from '../../styles/theme'
+import * as React from 'react';
+import FilledButton from "../FilledButton";
+import ColorfulHeader from '../ColorfulHeader';
+import { Theme } from '../../styles/theme';
 
 const Login: React.FC = () => {
   return (
@@ -139,7 +139,7 @@ const Login: React.FC = () => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

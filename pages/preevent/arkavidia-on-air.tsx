@@ -1,7 +1,7 @@
-import Layout from '../../components/Layout'
-import BackgroundProps  from '../../utils/constants/events-background'
-import EventItems from '../../utils/constants/event-items'
-import EventHeader from '../../components/EventHeader'
+import Layout from '../../components/Layout';
+import BackgroundProps  from '../../utils/constants/events-background';
+import EventItems from '../../utils/constants/event-items';
+import EventHeader from '../../components/EventHeader';
 
 const Aoa: React.FC = () => (
   <Layout {...BackgroundProps.aoa}>
@@ -9,6 +9,6 @@ const Aoa: React.FC = () => (
       <EventHeader {...EventItems.aoa}/>
     </div>
   </Layout>
-)
+);
 
-export default Aoa
+export default Aoa;

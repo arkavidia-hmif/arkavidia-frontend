@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 type Props = {
     title: string,
@@ -26,6 +26,6 @@ const TechHeader : React.FC<Props> = ({title}) => (
             }    
         `}</style>
   </div>
-)
+);
 
-export default TechHeader
+export default TechHeader;

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 const AGTSGallery: React.FC = () => (
   <div id="gallery-container">
@@ -42,6 +42,6 @@ const AGTSGallery: React.FC = () => (
 
         `}</style>
   </div>
-)
+);
 
-export default AGTSGallery
+export default AGTSGallery;

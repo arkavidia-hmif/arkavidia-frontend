@@ -41,27 +41,27 @@ const red: StandardColor = {
 const purpleButton: ButtonColor = {
   main: '#623FA2',
   hover: '#936bd4'
-}
+};
 
 const blueButton : ButtonColor = {
   main: '#00B6F1',
   hover: '#5EE6E9'
-}
+};
 
 const lightBlueButton: ButtonColor = {
   main: '#5FE6EA',
   hover: '#98ffff'
-}
+};
 
 const pinkButton: ButtonColor = {
   main: '#fe789a',
   hover: '#ffaacb'
-}
+};
 
 const darkPinkButton : ButtonColor = {
   main: '#FE65D4',
   hover: '#F3A9DD'
-}
+};
 
 export const Theme = {
   colors: {
@@ -86,4 +86,4 @@ export const Theme = {
     plbl: 'linear-gradient(120deg, #835FBF, #835FBF, #30C5E8)', // Purple blue (e.g on competition page)
     plpi: 'linear-gradient(120deg, #623FA2 25%, #FE5982 100%)'
   }
-}
+};

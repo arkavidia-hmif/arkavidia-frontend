@@ -13,6 +13,6 @@ const Dates = {
     'Sabtu, 13 Februari 2021',
     'Sabtu, 20 Februari 2021'        
   ]
-}
+};
 
-export default Dates
+export default Dates;
