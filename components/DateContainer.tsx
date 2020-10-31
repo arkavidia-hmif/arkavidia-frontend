@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 type Props = {
-    color?: string,
-    dates: string[]
+  color?: string,
+  dates: string[]
 }
 
-const DateContainer : React.FC<Props> = ({dates, color}) => (
+const DateContainer: React.FC<Props> = ({ dates, color }) => (
   <div id="date-container">
-    <img src="/img/date1.svg" alt="calendar"/>
+    <img src="/img/date.svg" alt="calendar" />
     <div className="dates">
-      {dates.map((date, index) => 
+      {dates.map((date, index) =>
         <p key={index}>{date}</p>
       )}
     </div>
