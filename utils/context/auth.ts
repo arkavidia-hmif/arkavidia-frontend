@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthData } from "../../interfaces/index";
+import { AuthData } from "../../interfaces/auth";
 
 export type AuthContextType = {
   authenticated: boolean,
