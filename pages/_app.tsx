@@ -2,8 +2,21 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap-reboot.min.css'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
+import { AuthContext, AuthContextType } from '../utils/context/auth'
+import { useState } from 'react'
+import { AuthData } from '../interfaces'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [auth, setAuth] = useState<AuthData>();
+
+  const authContext: AuthContextType = {
+    authenticated,
+    auth,
+    setAuthenticated,
+    setAuth
+  }
+
   return (
     <>
       <Head>
@@ -12,7 +25,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
-      <Component {...pageProps} />
+      <AuthContext.Provider value={authContext}>
+        <Component {...pageProps} />
+      </AuthContext.Provider>
       <style global jsx>{`
         body {
           font-family: 'roboto';
