@@ -12,17 +12,17 @@ const Prasyarat: React.FC = () => {
     <Layout title="Prasyarat | Arkavidia 7.0" background="white">
       <DashboardWrapper />
       <div className="container">
-        <div className="row container">
-          <div className="col-sm-10 col-md-4 mt-5">
-            {active}
-            <SubmissionProgress setActive={setActive} />
+        <div className="row">
+          <div className="col-sm-10 col-md-3 mt-5">
+            <SubmissionProgress setActive={setActive} active={active}/>
           </div>
           <div
-            className="container-fluid mb-5 mt-5 col-sm-12 col-md-8"
+            className="container-fluid mb-5 mt-5 col-sm-12 col-md-9"
             id="main"
           >
             <div id="content-container">
               <div id="heading">Persyaratan Pendaftaran - (syarat)</div>
+              {active}
               <div id="ketentuan" className="mt-3">
                 <div className="title">Ketentuan:</div>
                 <div className="subtitle">
