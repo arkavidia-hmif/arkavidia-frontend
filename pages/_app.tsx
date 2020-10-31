@@ -12,8 +12,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [auth, setAuth] = useState<AuthData>();
 
-  const authenticatedKey = process.env['LOCAL_STORAGE_AUTHENTICATED'] || 'authenticated_dev';
-  const authKey = process.env['LOCAL_STORAGE_AUTH'] || 'auth_dev';
+  const authenticatedKey = process.env.LOCAL_STORAGE_AUTHENTICATED || 'authenticated_dev';
+  const authKey = process.env.LOCAL_STORAGE_AUTH || 'auth_dev';
 
   useEffect(() => {
     setAuthenticated(localStorage.getItem(authenticatedKey) === 'true');
