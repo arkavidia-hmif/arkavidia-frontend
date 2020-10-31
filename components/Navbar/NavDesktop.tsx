@@ -1,4 +1,4 @@
-import items from "../../utils/constants/nav-item"
+import items from "../../utils/constants/nav-items"
 import Link from 'next/link'
 import FilledButton from "../FilledButton";
 import { useRouter } from "next/dist/client/router";
