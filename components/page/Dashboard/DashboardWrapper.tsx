@@ -101,8 +101,16 @@ const DashboardWrapper: React.FC = () => {
               opacity: 1;
             }
 
-            hr.line {
-              border: 0.25rem solid #c4c4c4;
+            @media (max-width: 450px) {
+              li{
+                margin: 0 1rem;
+              }
+              #dashboard {
+                font-size: 1.5rem;
+              }
+              a {
+                font-size: 1.25rem;
+              }
             }
           `}
         </style>

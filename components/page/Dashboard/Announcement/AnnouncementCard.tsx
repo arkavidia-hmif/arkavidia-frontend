@@ -66,6 +66,18 @@ const AnnouncementCard: React.FC = () => {
         a {
           text-decoration: none;
         }
+
+        @media (max-width: 450px) {
+          .title {
+            font-size: 1.125rem;
+          }
+          .content {
+            font-size: 1rem;
+          }
+          .link {
+            font-size: 1rem;
+          }
+        }
       `}</style>
     </div>
   );
