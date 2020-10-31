@@ -30,7 +30,7 @@ const NavDesktop: React.FC = () => {
             return (
               <li key={index} className="mt-3">
                 <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""} onMouseEnter={() => setHover(!hover)}>
+                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover(!hover)}>
                     {link.text}
                   </a>
                 </Link>
@@ -42,7 +42,7 @@ const NavDesktop: React.FC = () => {
             return (
               <li key={index} className="mt-3">
                 <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""} onMouseEnter={() => setHover1(!hover1)}>
+                  <a className={router.pathname === link.path ? "current" : ""} onMouseOver={() => setHover1(!hover1)}>
                     {link.text}
                   </a>
                 </Link>
