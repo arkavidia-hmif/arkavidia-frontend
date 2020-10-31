@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { AuthData } from '../interfaces/auth';
 import { SWRConfig } from 'swr';
 import { useRouter } from 'next/dist/client/router';
+import ApiProvider from '../components/provider/ApiProvider';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -15,6 +16,20 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const authenticatedKey = process.env.LOCAL_STORAGE_AUTHENTICATED || 'authenticated_dev';
   const authKey = process.env.LOCAL_STORAGE_AUTH || 'auth_dev';
 
+  const setAndSaveAuthenticated = (newValue: boolean) => {
+    setAuthenticated(newValue);
+    localStorage.setItem(authenticatedKey, newValue ? 'true' : 'false');
+  };
+
+  const setAndSaveAuth = (newValue?: AuthData) => {
+    setAuth(newValue);
+    if (newValue) {
+      localStorage.setItem(authKey, JSON.stringify(newValue));
+    } else {
+      localStorage.removeItem(authKey);
+    }
+  };
+
   useEffect(() => {
     setAuthenticated(localStorage.getItem(authenticatedKey) === 'true');
     const savedAuth = localStorage.getItem(authKey);
@@ -22,16 +37,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       setAuth(JSON.parse(savedAuth));
     }
   }, []);
-
-  const setAndSaveAuthenticated = (newValue: boolean) => {
-    setAuthenticated(newValue);
-    localStorage.setItem(authenticatedKey, newValue ? 'true' : 'false');
-  };
-
-  const setAndSaveAuth = (newValue: AuthData) => {
-    setAuth(newValue);
-    localStorage.setItem(authKey, JSON.stringify(newValue));
-  };
 
   const authContext: AuthContextType = {
     authenticated,
@@ -48,7 +53,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     }
   }
 
-  const swrConfig = {};
 
   return (
     <>
@@ -59,9 +63,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
       <AuthContext.Provider value={authContext}>
-        <SWRConfig value={swrConfig}>
+        <ApiProvider>
           <Component {...pageProps} />
-        </SWRConfig>
+        </ApiProvider>
       </AuthContext.Provider>
       <style global jsx>{`
         body {
