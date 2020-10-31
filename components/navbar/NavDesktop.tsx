@@ -1,20 +1,62 @@
-import items from "../../utils/constants/nav-items";
-import Link from 'next/link';
+import items from "../../utils/constants/nav-items"
+import event from '../../utils/constants/event'
+import preevent from '../../utils/constants/preevent'
+import SubMenu from './SubMenu'
+import Link from 'next/link'
 import FilledButton from "../FilledButton";
+import { useState } from 'react'
 import { useRouter } from "next/dist/client/router";
 
 const NavDesktop: React.FC = () => {
   const router = useRouter();
+  const [hover, setHover] = useState(false);
+  const [hover1, setHover1] = useState(false);
+
+  const eventProps = {
+    hover: hover,
+    setHover: setHover
+  }
+
+  const preeventProps = {
+    hover: hover1,
+    setHover: setHover1
+  }
 
   return (
     <div className="items">
       <ul className="mr-3">
-        {items.map((link, index) => (
-          <li key={index} className="mt-3">
-            <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
-            <div className="indicator"></div>
-          </li>
-        ))}
+        {items.map((link, index) => {
+          if (link.text === 'EVENTS')
+            return (
+              <li key={index} className="mt-3">
+                <Link href={link.path}>
+                  <a className={router.pathname === link.path ? "current" : ""} onMouseEnter={() => setHover(!hover)}>
+                    {link.text}
+                  </a>
+                </Link>
+                <div className="indicator"></div>
+                <SubMenu items={event} {...eventProps}/>
+              </li>
+            )
+          else if (link.text === 'PRE-EVENTS')
+            return (
+              <li key={index} className="mt-3">
+                <Link href={link.path}>
+                  <a className={router.pathname === link.path ? "current" : ""} onMouseEnter={() => setHover1(!hover1)}>
+                    {link.text}
+                  </a>
+                </Link>
+                <div className="indicator"></div>
+                <SubMenu items={preevent} {...preeventProps}/>
+              </li>
+            )
+          return (
+            <li key={index} className="mt-3">
+              <Link href={link.path}><a className={router.pathname === link.path ? "current" : ""}>{link.text}</a></Link>
+              <div className="indicator"></div>
+            </li>
+          )
+        })}
       </ul>
       <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login"); }} />
 
