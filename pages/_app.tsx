@@ -26,6 +26,36 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           line-height: 1.2;
         }
 
+        h1 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h2 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h3 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h4 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h5 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
+        h6 {
+          font-family: 'Viga';
+          font-weight: 300;
+        }
+
         .max-content {
           max-width: 1440px;
         }
