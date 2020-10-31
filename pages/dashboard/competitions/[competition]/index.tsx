@@ -94,7 +94,11 @@ const StatusTim: React.FC = () => {
               font-size: 1.25rem;
             }
 
-            label {
+            .title{
+              font-size: 1rem;
+            }
+  
+            .subtitle{
               font-size: 1rem;
             }
           }
