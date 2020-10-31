@@ -9,7 +9,7 @@ const NavItems = [
   },
   {
     text: 'COMPETITIONS',
-    path: '/',
+    path: '#',
   },
   {
     text: 'PRE-EVENTS',
