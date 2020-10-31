@@ -4,10 +4,10 @@ const AGTSGallery: React.FC = () => (
   <div id="gallery-container">
     <div id="image-container">
       <div className="image-box1">
-        <img src="/img/pre-event/agts/agts2.png" alt="school"/>
+        <img src="/img/preevent/agts/agts2.png" alt="school" />
       </div>
       <div className="image-box2">
-        <img src="/img/pre-event/agts/agts1.png"  alt="speaker"/>
+        <img src="/img/preevent/agts/agts1.png" alt="speaker" />
       </div>
     </div>
     <style jsx>{`
