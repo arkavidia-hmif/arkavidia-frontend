@@ -13,11 +13,11 @@ const NavItems = [
   },
   {
     text: 'PRE-EVENTS',
-    path: '/',
+    path: 'javascript:void(0)',
   },
   {
     text: 'EVENTS',
-    path: '/',
+    path: 'javascript:void(0)',
   },
 ];
 
