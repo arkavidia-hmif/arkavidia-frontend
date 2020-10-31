@@ -51,7 +51,7 @@ const EventHeader: React.FC<Props> = ({ children, image, imageAlt, title, paragr
                 background: ${bg};
                 background-clip: text;
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent
+                -webkit-text-fill-color: transparent;
             }
 
             h3 {

@@ -17,8 +17,8 @@ const Technocamp: React.FC = () => (
       </EventHeader>
       <TechDesc/>
       <TechBenefits/>
+      <TechTimeline/>
     </div>
-    <TechTimeline/>
   </Layout>
 )
 

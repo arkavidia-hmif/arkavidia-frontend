@@ -25,7 +25,7 @@ const BenefitBox : React.FC<Props> = ({link, text, alt}) => (
             }
 
             .content h3 {
-                font-size: 1.5em;
+                font-size: 1.5rem;
                 font-weight: 700;
                 color: #094963;
             }

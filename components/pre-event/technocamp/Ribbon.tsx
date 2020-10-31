@@ -5,8 +5,10 @@ const Ribbon :React.FC = () => (
   <div id="ribbon-container">
     {items.map((item, index) => 
       <div className="ribbon" key={index} style={item.css}>
-        <h1>{item.date}</h1>
-        <p>{item.content}</p>
+        <div className="text">
+          <h1>{item.date}</h1>
+          <p>{item.content}</p>
+        </div>
       </div>
     )}
     <style jsx>{`
@@ -14,22 +16,29 @@ const Ribbon :React.FC = () => (
                 overflow: hidden;
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
             }    
 
             .ribbon:first-child {
                 clip-path: polygon(75% 0%, 90% 50%, 75% 100%, 0% 100%, 0% 0%);
             }
             
+            .text {
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                justify-content: center;
+            }
+
             .ribbon {
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 flex-wrap: wrap;
                 margin: 0 -6rem 1rem 0;
-                padding-right: 2%;
                 clip-path: polygon(75% 0%, 90% 50%, 75% 100%, 0% 100%, 15% 50%, 0% 0%);
-                background: red;
-                width: 450px;
-                text-align: center;
+                width: 430px;
             }
 
             h1 {
@@ -48,11 +57,11 @@ const Ribbon :React.FC = () => (
                     width: 350px;
                 }
                 h1 {
-                    font-size: 1rem;
+                    font-size: 1.2rem;
                 }
 
                 p {
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                 }
             }
 
