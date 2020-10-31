@@ -1,7 +1,7 @@
 import * as React from 'react';
-import FilledButton from "./FilledButton";
-import ColorfulHeader from '../components/ColorfulHeader';
-import { Theme } from '../styles/theme';
+import FilledButton from "../FilledButton";
+import ColorfulHeader from '../ColorfulHeader';
+import { Theme } from '../../styles/theme';
 
 type Props = {
   background?: string

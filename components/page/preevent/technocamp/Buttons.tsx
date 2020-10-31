@@ -1,14 +1,14 @@
 import * as React from 'react';
-import FilledButton from '../../FilledButton';
-import {Theme} from '../../../styles/theme';
+import FilledButton from '../../../FilledButton';
+import { Theme } from '../../../../styles/theme';
 
-const Buttons : React.FC = () => (
+const Buttons: React.FC = () => (
   <div id="buttons-container">
     <div className="button">
-      <FilledButton text="Download Guidebook" padding="0.75em 1.5em" color={Theme.buttonColors.blueButton}/>
+      <FilledButton text="Download Guidebook" padding="0.75em 1.5em" color={Theme.buttonColors.blueButton} />
     </div>
     <div className="button">
-      <FilledButton text="Daftar Sekarang" padding="0.75em 1.5em" color={Theme.buttonColors.darkPinkButton}/>
+      <FilledButton text="Daftar Sekarang" padding="0.75em 1.5em" color={Theme.buttonColors.darkPinkButton} />
     </div>
     <style jsx>{`
             #buttons-container {
@@ -24,7 +24,7 @@ const Buttons : React.FC = () => (
                     justify-content: center;
                 }
             }
-        `}</style>    
+        `}</style>
   </div>
 );
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import items from '../../../utils/constants/timeline-items';
+import items from '../../../../utils/constants/timeline-items';
 
-const Ribbon :React.FC = () => (
+const Ribbon: React.FC = () => (
   <div id="ribbon-container">
-    {items.map((item, index) => 
+    {items.map((item, index) =>
       <div className="ribbon" key={index} style={item.css}>
         <div className="text">
           <h1>{item.date}</h1>

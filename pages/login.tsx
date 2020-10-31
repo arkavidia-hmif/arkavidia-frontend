@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import Login from '../components/PartialPage/Login';
+import Login from '../components/page/Login';
 import { Theme } from '../styles/theme';
 
 const LoginPage: React.FC = () => (

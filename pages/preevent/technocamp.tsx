@@ -1,23 +1,23 @@
 import Layout from '../../components/Layout';
-import BackgroundProps  from '../../utils/constants/events-background';
+import BackgroundProps from '../../utils/constants/events-background';
 import EventItems from '../../utils/constants/event-items';
 import EventHeader from '../../components/EventHeader';
-import Buttons from '../../components/pre-event/technocamp/Buttons';
-import Pricing from '../../components/pre-event/technocamp/Pricing';
-import TechDesc from '../../components/pre-event/technocamp/TechDesc';
-import TechBenefits from '../../components/pre-event/technocamp/TechBenefits';
-import TechTimeline from '../../components/pre-event/technocamp/TechTimeline';
+import Buttons from '../../components/page/preevent/technocamp/Buttons';
+import Pricing from '../../components/page/preevent/technocamp/Pricing';
+import TechDesc from '../../components/page/preevent/technocamp/TechDesc';
+import TechBenefits from '../../components/page/preevent/technocamp/TechBenefits';
+import TechTimeline from '../../components/page/preevent/technocamp/TechTimeline';
 
 const Technocamp: React.FC = () => (
   <Layout {...BackgroundProps.technocamp}>
     <div className="container">
       <EventHeader {...EventItems.technocamp}>
-        <Pricing/>
-        <Buttons/>
+        <Pricing />
+        <Buttons />
       </EventHeader>
-      <TechDesc/>
-      <TechBenefits/>
-      <TechTimeline/>
+      <TechDesc />
+      <TechBenefits />
+      <TechTimeline />
     </div>
   </Layout>
 );
