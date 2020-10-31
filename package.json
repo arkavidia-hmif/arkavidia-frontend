@@ -39,7 +39,6 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:check",
       "pre-push": "npm run lint:check"
     }
   }
