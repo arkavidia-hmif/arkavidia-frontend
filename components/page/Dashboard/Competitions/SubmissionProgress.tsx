@@ -140,6 +140,18 @@ const SubmissionProgress: React.FC<Props> = ({ setActive }) => {
         a {
           text-decoration: none;
         }
+
+        @media (max-width: 450px) {
+          h2 {
+            font-size: 1.25rem;
+          }
+          .title {
+            font-size: 1.125rem;
+          }
+          .link {
+            font-size: 1rem;
+          }
+        }
       `}</style>
     </div>
   );

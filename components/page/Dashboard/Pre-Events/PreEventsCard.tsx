@@ -22,7 +22,7 @@ const PreEventsCard: React.FC = () => {
     <div className="container mb-3">
       <div className="container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col mr-4">
+          <div key={index} className="card mt-3 col-4 mr-4">
             <div className="title">
               {link.title}
             </div>
@@ -87,6 +87,18 @@ const PreEventsCard: React.FC = () => {
 
         a{
           text-decoration: none;
+        }
+
+        @media (max-width: 450px) {
+          .title {
+            font-size: 1.125rem;
+          }
+          .content {
+            font-size: 1rem;
+          }
+          .link {
+            font-size: 1rem;
+          }
         }
       `}</style>
     </div>

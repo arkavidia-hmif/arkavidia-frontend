@@ -94,12 +94,6 @@ const Prasyarat: React.FC = () => {
             display: flex;
           }
 
-          .name{
-            font-family: Roboto;
-            color: #646464;
-            font-size: 1.125rem;
-          }
-
           @media (max-width: 800px) {
             #bg-container {
               display: none;
@@ -115,12 +109,12 @@ const Prasyarat: React.FC = () => {
               font-size: 1.25rem;
             }
 
-            .name{
+            .title {
               font-size: 1rem;
             }
   
-            #subtitle{
-              font-size: 0.875rem;
+            .subtitle{
+              font-size: 0.9375rem;
             }
           }
         `}</style>
