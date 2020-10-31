@@ -1,31 +1,81 @@
+import Link from 'next/link';
+import { useContext, useState } from 'react';
+import { resetPassword } from '../api/auth';
+import Alert from '../components/Alert';
 import ColorfulHeader from '../components/ColorfulHeader';
 import FilledButton from '../components/FilledButton';
 import Layout from '../components/Layout';
 import { Theme } from '../styles/theme';
+import { ApiContext } from '../utils/context/api';
 
-const LoginPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whpipl} title="Login">
-    <div className="container mx-auto row mb-3">
-      <div className="col-md-6 px-4 px-md-5">
-        <br />
-        <br />
-        <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="3rem">Lupa Kata Sandi</ColorfulHeader>
-        <hr />
-        <br />
-        <p className="my-3">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
-        <form>
-          <label htmlFor="email">Alamat Email</label>
-          <input id="email" type="email" placeholder="johndoe@gmail.com" />
+const LoginPage: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
+
+  const apiContext = useContext(ApiContext);
+
+  const onSubmit = () => {
+    setError(null);
+
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const validEmail = re.test(String(email).toLowerCase());
+
+    if (!validEmail) {
+      setError('Alamat email invalid');
+    }
+
+    setLoading(true);
+
+    resetPassword(apiContext.axios, email)
+      .then(() => {
+        setSuccess(true);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  return (
+    <Layout background={Theme.bgColors.whpipl} title="Login">
+      <div className="container mx-auto row mb-3">
+        <div className="col-md-6 px-4 px-md-5">
           <br />
           <br />
-          <FilledButton text="KIRIM" padding="0.75em 1.5em" />
-        </form>
-      </div>
-      <div className="col-md-6">
-        <img src="/img/bg-white.png" />
-      </div>
-      <style jsx>
-        {`
+          <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="3rem">Lupa Kata Sandi</ColorfulHeader>
+          <hr />
+          <br />
+          {!success ?
+            <>
+              <Alert error={error} />
+              <p className="my-3">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
+              <form onSubmit={(evt) => {
+                evt.preventDefault();
+                onSubmit();
+              }}>
+                <label htmlFor="email">Alamat Email</label>
+                <input id="email" type="text" value={email} onChange={(evt) => { setEmail(evt.target.value); }} placeholder="johndoe@gmail.com" />
+                <br />
+                <br />
+                <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
+              </form>
+            </>
+            : <>
+              <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
+              <Link href="/login">
+                <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
+              </Link>
+            </>}
+        </div>
+        <div className="col-md-6">
+          <img src="/img/bg-white.png" />
+        </div>
+        <style jsx>
+          {`
           hr {
             width: 40%;
             height: 0.4rem;
@@ -93,9 +143,10 @@ const LoginPage: React.FC = () => (
             width: 100%;
           }
         `}
-      </style>
-    </div>
-  </Layout>
-);
+        </style>
+      </div>
+    </Layout>
+  );
+};
 
 export default LoginPage;
