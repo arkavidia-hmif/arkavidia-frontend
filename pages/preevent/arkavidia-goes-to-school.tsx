@@ -9,7 +9,7 @@ import AGTSGallery from '../../components/page/preevent/agts/AGTSGallery';
 
 const Agts: React.FC = () => (
   <Layout {...BackgroundProps.agts}>
-    <div className="container">
+    <div className="container pb-4">
       <EventHeader {...EventItems.agts}>
         <DateContainer dates={Dates.agts} color={DateColor.preevent} />
       </EventHeader>

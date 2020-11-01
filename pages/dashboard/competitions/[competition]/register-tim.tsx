@@ -89,7 +89,7 @@ const RegisterTim: React.FC = () => (
             display: none;
           }
           .mt-5 {
-            margin-top: 0rem;
+            margin-top: 0rem !important;
           }
         }
 

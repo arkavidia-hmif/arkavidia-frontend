@@ -8,7 +8,7 @@ import EventHeader from '../../components/EventHeader';
 
 const Academy: React.FC = () => (
   <Layout {...BackgroundProps.academy}>
-    <div className="container">
+    <div className="container pb-4">
       <EventHeader {...EventItems.academy}>
         <DateContainer dates={Dates.academy} color={DateColor.preevent}/>
       </EventHeader>

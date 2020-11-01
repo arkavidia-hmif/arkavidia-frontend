@@ -47,11 +47,6 @@ const Ribbon: React.FC = () => (
               width: 380px;
             }
 
-            h1 {
-                font-size: 1.5rem;
-                color: #FFFFFF;
-            }
-
             p {
                 font-size: 1.1rem;
                 color: #FFFFFF;
@@ -59,23 +54,26 @@ const Ribbon: React.FC = () => (
 
             @media (max-width: 1000px) {
                 .ribbon {
-                    margin-right: -4rem;
-                    width: 350px;
+                  height: 4rem;
                 }
-                h1 {
-                    font-size: 1.2rem;
+                .ribbon-date {
+                  font-size: 1.2rem;
                 }
-
                 p {
-                    font-size: 1rem;
+                    font-size: .9rem;
                 }
             }
 
             @media (max-width: 700px) {
                 .ribbon {
-                    margin-right: -3rem;
                     width: 250px;
                 }
+                .ribbon-date {
+                  font-size: 1rem;
+                }
+                p {
+                  font-size: .7rem;
+              }
             }
         `}</style>
   </div>

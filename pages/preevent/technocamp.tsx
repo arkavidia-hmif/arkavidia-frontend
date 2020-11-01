@@ -10,7 +10,7 @@ import TechTimeline from '../../components/page/preevent/technocamp/TechTimeline
 
 const Technocamp: React.FC = () => (
   <Layout {...BackgroundProps.technocamp}>
-    <div className="container">
+    <div className="container pb-4">
       <EventHeader {...EventItems.technocamp}>
         <Pricing />
         <Buttons />
