@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { AuthData, LoginStatus } from "../interfaces/auth";
+import { AuthData, EmailResetPasswordStatus, LoginStatus } from "../interfaces/auth";
 import { ApiError } from './error';
 import { StandardError } from "./error";
 
@@ -25,12 +25,28 @@ export async function login(axios: AxiosInstance, email: string, password: strin
   }
 }
 
-export async function resetPassword(axios: AxiosInstance, email: string): Promise<void> {
+export async function requestResetPassword(axios: AxiosInstance, email: string): Promise<void> {
   try {
     await axios.post('/auth/password-reset/', {
       email
     });
   } catch (e) {
     throw new ApiError<StandardError>(StandardError.ERROR, e);
+  }
+}
+
+export async function resetPassword(axios: AxiosInstance, token: string, newPassword: string): Promise<void> {
+  try {
+    await axios.post('/auth/confirm-password-reset/', {
+      token,
+      newPassword
+    });
+  } catch (e) {
+    if (e.response) {
+      if (e.response.data.code === 'invalid_token' || e.response.data.code === 'token_used') {
+        throw new ApiError<EmailResetPasswordStatus>(EmailResetPasswordStatus.INVALID_TOKEN, e.response.data.detail);
+      }
+    }
+    throw new ApiError<EmailResetPasswordStatus>(EmailResetPasswordStatus.ERROR, e);
   }
 }

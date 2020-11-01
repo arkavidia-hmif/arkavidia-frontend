@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useContext, useState } from 'react';
-import { resetPassword } from '../api/auth';
+import { requestResetPassword } from '../api/auth';
 import Alert from '../components/Alert';
 import GradientSeparator from '../components/auth/GradientSeparator';
 import InputField from '../components/auth/InputField';
@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
 
     setLoading(true);
 
-    resetPassword(apiContext.axios, email)
+    requestResetPassword(apiContext.axios, email)
       .then(() => {
         setSuccess(true);
       })
