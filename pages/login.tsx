@@ -69,7 +69,7 @@ const LoginPage: React.FC = () => {
         <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
         <InputField name="Kata Sandi" type="password" value={password} setValue={setPassword} placeholder="***********" />
         <br />
-        <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" onClick={handleSubmit} />
+        <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" />
         <p className="login-link mt-4 mb-0">Lupa kata sandi ? <a href="/forget-password"><b>Reset</b></a></p>
         <p className="login-link">Belum terdafar ? <a href="/register"><b>Daftar</b></a></p>
       </form>

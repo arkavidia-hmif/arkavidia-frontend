@@ -80,7 +80,7 @@ const RegisterPage: React.FC = () => {
             <br />
             <div className="row">
               <div className="col-6">
-                <FilledButton text="DAFTAR" padding="0.75em 1.5em" loading={loading} onClick={handleSubmit} />
+                <FilledButton text="DAFTAR" padding="0.75em 1.5em" loading={loading} />
               </div>
               <div className="col-6" style={{ textAlign: 'right' }}>
                 <a href="/login"><b>Sudah punya akun ?</b></a>
