@@ -35,13 +35,24 @@ const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
         .content-box {
           padding-bottom: 0;
         }
-        .content img {
-          width: 70%;
+        .content p {
+          font-size: 1.3rem;
         }
-
+        img {
+          width: 100px;
+        }        
         .content h3 {
           font-size: 1rem;
         }
+      }
+      @media (max-width: 500px) {
+        .content p {
+          font-size: .8rem;
+          margin-top: .5rem;
+        }
+        img {
+          width: 50px;
+        }  
       }
   `}</style>
   </div>

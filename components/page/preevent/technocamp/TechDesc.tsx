@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const TechDesc: React.FC = () => (
   <div id="desc-container">
-    <div className="text-container">
+    <div className="text-container col-md-6 col-sm-12">
       <p>
         Technocamp merupakan sebuah acara akademik IT
         untuk murid-murid SMA/Sederajat. Technocamp kali ini akan memberikan pembelajaran mengenai dasar-dasar
@@ -19,7 +19,7 @@ const TechDesc: React.FC = () => (
         awal bagi para peserta dalam mengenal dunia pemrograman.
       </p>
     </div>
-    <div className="image-container">
+    <div className="image-container col-md-6 col-sm-12">
       <img src="/img/preevent/technocamp/technocamp1.png" alt="camp" />
     </div>
     <style jsx>{`
@@ -27,11 +27,12 @@ const TechDesc: React.FC = () => (
         display: flex;
         margin-bottom: 10%;
       }
-
+      img {
+        width:100%;
+      }
       .text-container {
         font-size: 1.1rem;
-        align-self: center;
-        margin-right: 2rem;
+        align-self: center;        
       }    
 
       p {

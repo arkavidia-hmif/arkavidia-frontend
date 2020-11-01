@@ -5,7 +5,7 @@ import EventHeader from '../../components/EventHeader';
 
 const Aoa: React.FC = () => (
   <Layout {...BackgroundProps.aoa}>
-    <div className="container">
+    <div className="container pb-4">
       <EventHeader {...EventItems.aoa}/>
     </div>
   </Layout>

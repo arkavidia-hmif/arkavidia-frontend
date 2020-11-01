@@ -13,9 +13,8 @@ const IndexPage: React.FC = () => {
   return (
     <Layout title="Home">
       <div className="container">
-        <br />
         <Hero />
-        <div id="about" className="row mt-5">
+        <div id="about" className="row pt-5 pb-5">
           <div id="about-img" className="col-lg-6 mb-3 mb-lg-0">
             <div id="about-heading" className="d-block d-lg-none mb-3">
               <ColorfulHeader headingLevel={1} color={Theme.headerColors.plpi} size="1em">Tentang Arkavidia 7.0</ColorfulHeader>
@@ -30,7 +29,7 @@ const IndexPage: React.FC = () => {
             <FilledButton text="Baca lebih lanjut" onClick={() => { router.push("/about"); }} />
           </div>
         </div>
-        <div className="row mt-5">
+        <div className="row pt-5 pb-5">
           <div id="kompetisi" className="col-lg-6 order-lg-0 order-1">
             <h2>KOMPETISI</h2>
             <p className="mt-3">Asah logika, pengetahuan, dan talentamu lalu tunjukkan kemampuanmu di Arkavidia tahun ini. Arkavidia memiliki berbagai macam kompetisi bergengsi yang dapat membantu mengasah dan mempertajam kemampuanmu dengan bersaing menghadapi lawan dari seluruh Indonesia.</p>
@@ -45,7 +44,7 @@ const IndexPage: React.FC = () => {
             </Carousel>
           </div>
         </div>
-        <div className="row mt-5 mb-5">
+        <div className="row pt-5 pb-5 final-low">
           <div className="col-lg-6">
             <Carousel alignment="left" >
               <CarouselItem url="/event/it-festival" desc={"IT FEST"} backgroundImage={"/img/carousel/bg-itfest.png"} foregroundImage={"/img/carousel/itfest.png"} width={"170px"} type="event" />
@@ -64,8 +63,7 @@ const IndexPage: React.FC = () => {
         h2 {
           font-size: 3rem;
           margin: 3rem 0 0 0;
-        }
-
+        }        
         #kompetisi {
           text-align: right;
         }

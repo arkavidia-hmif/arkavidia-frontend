@@ -16,11 +16,15 @@ const TalksGallery: React.FC = () => (
       <img src="/img/event/talks/talks5.png" alt="speaker"/>
     </div>
     <style jsx>{`
-            #image-container {
-                display: flex;
-                margin-bottom: 10%;
+           #image-container {
+              display: flex;
+              width: 100%;
+              padding-bottom: 3rem;
+              overflow-x: scroll;
             }
-
+            ::-webkit-scrollbar {
+              width: 0px;
+            }
             .image-box2 {
                 padding: 0 1rem;
             }

@@ -16,11 +16,14 @@ const ItFestGallery: React.FC = () => (
     </div>
     <style jsx>{`
             #image-container {
-                display: flex;
-                width: 100%;
-                margin-bottom: 10%;
+              display: flex;
+              width: 100%;
+              padding-bottom: 3rem;
+              overflow-x: scroll;
             }
-
+            ::-webkit-scrollbar {
+              width: 0px;
+            }
             .image-box1 {
                 width: 100%;
                 height: auto;

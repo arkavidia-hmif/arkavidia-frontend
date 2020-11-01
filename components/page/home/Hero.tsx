@@ -23,7 +23,8 @@ const Hero: React.FC = () => {
           #main-container {
             position: relative;
             height: 85vh;
-            overflow: hidden
+            overflow: hidden;
+            padding-top: 3rem;
           }
 
           #content-container{
@@ -137,11 +138,14 @@ const Hero: React.FC = () => {
 
                 width: 100%;
             }
-            
+
             #bg-container{
                 align-items: flex-start;
                 justify-content: center;
                 padding-top: 5rem;
+            }
+            #main-container {
+              padding-top: 1rem;
             }
           }
 
@@ -149,12 +153,12 @@ const Hero: React.FC = () => {
             #main-container {
               height: 70vh;
             }
-  
+
             #bg-container {
               height: 70vh;
             }
           }
-          
+
           @media (max-width: 475px){
             #main-container {
               height: 50vh;
@@ -173,7 +177,6 @@ const Hero: React.FC = () => {
               font-size: 1.25rem;
             }
           }
-          
 
           @keyframes sky-fade{
             0%{opacity: 0;}
