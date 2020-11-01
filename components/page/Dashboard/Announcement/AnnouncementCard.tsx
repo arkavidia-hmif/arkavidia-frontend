@@ -1,7 +1,34 @@
-import * as React from "react";
+
 import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
+import { ApiContext } from "../../../../utils/context/api";
+import { AuthContext } from "../../../../utils/context/auth";
 
 const AnnouncementCard: React.FC = () => {
+  const authContext = useContext(AuthContext);
+  const apiContext = useContext(ApiContext);
+  const token = authContext.auth?.token; 
+
+  //fetch announcment list
+  const [announcement, setAnnouncement] = useState([]);
+
+  const getAnnouncement = () => {
+
+    const config = {
+      headers : {
+            "Content-type" : "application/json",
+            "Authorization" :  `Bearer ${token}`
+        }
+    }
+ 
+    apiContext.axios.get('/announcement/announcements/', config)
+    .then((data) => {setAnnouncement(data.data); })
+    .catch((err) => {console.log(err); });
+  }
+  useEffect(() => {
+    getAnnouncement();
+  }, [])
+  
   // example data
   const ex = [
     {
@@ -17,10 +44,10 @@ const AnnouncementCard: React.FC = () => {
   return (
     <div className="container mb-3" id='dashboard-area'>
       <div className="container-fluid">
-        {ex?.map((link, index) => (
+        {announcement?.map((link, index) => (
           <div key={index} className="card mt-3">
             <div className="title">{link.title}</div>
-            <div className="content">{link.content}</div>
+            <div className="content">{link.message}</div>
             <div className="link">
               <Link href="/">
                 <a>Upload bukti</a>
