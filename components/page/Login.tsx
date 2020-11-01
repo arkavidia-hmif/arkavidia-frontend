@@ -8,11 +8,13 @@ import { AuthContext } from '../../utils/context/auth';
 import { login } from '../../api/auth';
 import { LoginStatus } from "../../interfaces/auth";
 import Alert from '../Alert';
-import { ApiError, StandardError } from "../../api/error";
+import { ApiError } from "../../api/error";
 import InputField from '../auth/InputField';
 import GradientSeparator from '../auth/GradientSeparator';
+import { useRouter } from 'next/dist/client/router';
 
 const Login: React.FC = () => {
+  const router = useRouter();
 
   const authContext = React.useContext(AuthContext);
   const apiContext = React.useContext(ApiContext);
@@ -24,23 +26,34 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = () => {
-    if (!authContext.authenticated) {
-      setLoading(true);
-      login(apiContext.axios, email, password).then(() => { 
-        setError(null);
-      }).catch((e) => { 
-        if (e instanceof ApiError && e.code === LoginStatus.INVALID_CREDS) {
-          setError('Email atau password salah');
-        } else if (e instanceof ApiError && e.code === StandardError.ERROR) {
-          setError('Tidak boleh kosong');
-        } else if (e instanceof ApiError && e.code === LoginStatus.EMAIL_NOT_CONFIRMED) {
+    setError(null);
+    setLoading(true);
+
+    const redirectTarget = window.location.search;
+
+    login(apiContext.axios, email, password).then((data) => {
+      authContext.setAuthenticated(true);
+      authContext.setAuth(data);
+      if (redirectTarget.startsWith('?continue=')) {
+        router.push(redirectTarget.replace('?continue=', ''));
+      } else {
+        router.push('/dashboard');
+      }
+    }).catch((e) => {
+      if (e instanceof ApiError) {
+        if (e.code === LoginStatus.INVALID_CREDS) {
+          setError('Email dan/atau kata sandi salah');
+          return;
+        } else if (e.code === LoginStatus.EMAIL_NOT_CONFIRMED) {
           setError('Email belum dikonfirmasi');
+          return;
         }
-      }).finally(() => { setLoading(false); });
-    } else {
-      authContext.setAuthenticated(authContext.authenticated);
-      authContext.setAuth();
-    }
+
+        setError(e.message);
+      } else {
+        setError(e);
+      }
+    }).finally(() => { setLoading(false); });
   };
 
   return (
@@ -48,18 +61,18 @@ const Login: React.FC = () => {
       <div className="left">
         <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Login ke Dashboard</ColorfulHeader>
         <GradientSeparator />
+        <br />
+        <Alert error={error} />
         <form onSubmit={(evt) => {
           evt.preventDefault();
           handleSubmit();
         }}>
           <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
-          <Alert error={error} />
           <InputField name="Kata Sandi" type={"password"} value={password} setValue={setPassword} placeholder="***********" />
-          <Alert error={error} />
-          <div style={{width: "100%", margin: "1rem 0 1rem 0"}}></div>
-          <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" onClick={handleSubmit}/>
-          <p className="mt-3">Lupa kata sandi ? <a href="#">Reset</a></p>
-          <p className="mt-3">Belum terdafar ? <a href="/register">Daftar</a></p>
+          <br />
+          <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" onClick={handleSubmit} />
+          <p className="login-link mt-4">Lupa kata sandi ? <a href="/forget-password">Reset</a></p>
+          <p className="login-link mt-3">Belum terdafar ? <a href="/register">Daftar</a></p>
         </form>
       </div>
       <div className="right">
@@ -145,10 +158,7 @@ const Login: React.FC = () => {
             font-size: 1.2rem;
           }
 
-          .mt-3 {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
+          .login-link {
             font-size: 1.2rem;
             line-height: 0.5rem;
             color: #7446A1;
