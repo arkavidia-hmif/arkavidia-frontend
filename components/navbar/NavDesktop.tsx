@@ -34,9 +34,10 @@ const NavDesktop: React.FC = () => {
             return (
               <li key={index} className="mt-3">
                 <a
-                  href="javascript:;"
+                  role="button"
+                  tabIndex={0}
                   style={{ cursor: 'pointer' }}
-                  className={router.pathname.startsWith(link.path) ? "current" : ""}
+                  className={router.pathname.startsWith(link.path) ? 'current' : ''}
                   onFocus={() => setHover(true)}
                   onBlur={() => setHover(false)}
                   onMouseOver={() => setHover(true)}
@@ -58,12 +59,13 @@ const NavDesktop: React.FC = () => {
           }
         })}
       </ul>
-      {authContext.authenticated ?
-        <FilledButton text="LOGOUT" padding="0.75em 1.5em" onClick={() => {
-          authContext.setAuthenticated(false);
-          authContext.setAuth();
-        }} />
-        : <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push('/login'); }} />
+      {
+        authContext.authenticated ?
+          <FilledButton text="LOGOUT" padding="0.75em 1.5em" onClick={() => {
+            authContext.setAuthenticated(false);
+            authContext.setAuth();
+          }} />
+          : <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push('/login'); }} />
       }
 
       <style jsx>{`
@@ -118,7 +120,7 @@ const NavDesktop: React.FC = () => {
             }
           }
       `}</style>
-    </div>
+    </div >
   );
 };
 
