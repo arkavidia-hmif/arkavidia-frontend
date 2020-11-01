@@ -5,8 +5,9 @@ import { Theme } from '../../../styles/theme';
 
 const IndexPage: React.FC = () => (
   <Layout title="Events | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
-    <DashboardWrapper />
-    <EventsCard />
+    <DashboardWrapper>
+      <EventsCard />
+    </DashboardWrapper>
   </Layout>
 );
 

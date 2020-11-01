@@ -1,5 +1,5 @@
-import Layout from '../../components/Layout';
 import DashboardWrapper from '../../components/dashboard/DashboardWrapper';
+import Layout from '../../components/Layout';
 import AnnouncementCard from '../../components/page/Dashboard/Announcement/AnnouncementCard';
 import { Theme } from '../../styles/theme';
 
