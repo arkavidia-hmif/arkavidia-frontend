@@ -9,6 +9,7 @@ import FilledButton from '../components/FilledButton';
 import { LoginStatus } from '../interfaces/auth';
 import { ApiContext } from '../utils/context/api';
 import { AuthContext } from '../utils/context/auth';
+import { isValidEmail } from '../utils/validator';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -24,8 +25,13 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = () => {
     setError(null);
-    setLoading(true);
 
+    if (!isValidEmail(email)) {
+      setError('Alamat email invalid');
+      return;
+    }
+
+    setLoading(true);
     const redirectTarget = window.location.search;
 
     login(apiContext.axios, email, password).then((data) => {
@@ -61,7 +67,7 @@ const LoginPage: React.FC = () => {
         handleSubmit();
       }}>
         <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
-        <InputField name="Kata Sandi" type={"password"} value={password} setValue={setPassword} placeholder="***********" />
+        <InputField name="Kata Sandi" type="password" value={password} setValue={setPassword} placeholder="***********" />
         <br />
         <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" onClick={handleSubmit} />
         <p className="login-link mt-4 mb-0">Lupa kata sandi ? <a href="/forget-password"><b>Reset</b></a></p>
