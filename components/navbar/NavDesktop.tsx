@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useContext, useState } from 'react';
 import { useRouter } from "next/dist/client/router";
 import FilledButton from "../FilledButton";
-import items, { DashboardItem } from "../../utils/constants/nav-items";
+import items from "../../utils/constants/nav-items";
 import { AuthContext } from '../../utils/context/auth';
 import { Dimen } from '../../styles/dimen';
 import SubMenu from './SubMenu';
@@ -11,13 +11,7 @@ const NavDesktop: React.FC = () => {
   const router = useRouter();
   const authContext = useContext(AuthContext);
 
-  const menuItems = [...items];
-
-  if (authContext.authenticated) {
-    menuItems.push(DashboardItem);
-  }
-
-  const hoverState = menuItems.map((entry) => {
+  const hoverState = items.map((entry) => {
     if (entry.submenu) {
       return useState(false);
     } else {
@@ -28,7 +22,11 @@ const NavDesktop: React.FC = () => {
   return (
     <div className="items">
       <ul className="mr-3">
-        {menuItems.map((link, index) => {
+        {items.map((link, index) => {
+          if (link.protected && !authContext.authenticated) {
+            return;
+          }
+
           if (link.submenu) {
             const curentHover = hoverState[index];
             const setHover = curentHover[1];

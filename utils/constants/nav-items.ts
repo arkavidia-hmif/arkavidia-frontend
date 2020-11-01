@@ -2,14 +2,17 @@ const NavItems = [
   {
     text: "HOME",
     path: "/",
+    protected: false
   },
   {
     text: "ABOUT US",
     path: "/about",
+    protected: false
   },
   {
     text: 'COMPETITIONS',
     path: '/competition',
+    protected: false,
     submenu: [
       {
         text: 'COMPETITIVE PROGRAMMING',
@@ -36,6 +39,7 @@ const NavItems = [
   {
     text: 'PRE-EVENTS',
     path: '/preevent',
+    protected: false,
     submenu: [
       {
         text: 'TECHNOCAMP',
@@ -58,6 +62,7 @@ const NavItems = [
   {
     text: 'EVENTS',
     path: '/technocamp',
+    protected: false,
     submenu: [
       {
         text: 'IT FESTIVAL',
@@ -69,11 +74,12 @@ const NavItems = [
       }
     ]
   },
+  {
+    text: 'DASHBOARD',
+    path: '/dashboard',
+    protected: true,
+    submenu: []
+  }
 ];
-
-export const DashboardItem = {
-  text: 'DASHBOARD',
-  path: '/dashboard'
-};
 
 export default NavItems;

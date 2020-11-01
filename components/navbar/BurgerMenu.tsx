@@ -2,7 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { Fragment, useContext, useState } from 'react';
 import { Dimen } from '../../styles/dimen';
-import items, { DashboardItem } from '../../utils/constants/nav-items';
+import items from '../../utils/constants/nav-items';
 import { AuthContext } from '../../utils/context/auth';
 import BurgerSubMenu from './BurgerSubMenu';
 
@@ -14,13 +14,7 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
   const authContext = useContext(AuthContext);
   const router = useRouter();
 
-  const menuItems = [...items];
-
-  if (authContext.authenticated) {
-    menuItems.push(DashboardItem);
-  }
-
-  const toggleState = menuItems.map((entry) => {
+  const toggleState = items.map((entry) => {
     if (entry.submenu) {
       return useState(false);
     } else {
@@ -31,7 +25,11 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
   return (
     <div>
       <div className="burger-menu">
-        {menuItems.map((link, index) => {
+        {items.map((link, index) => {
+          if (link.protected && !authContext.authenticated) {
+            return;
+          }
+
           if (link.submenu) {
             const toggle = toggleState[index][0];
             const setToggle = toggleState[index][1];
