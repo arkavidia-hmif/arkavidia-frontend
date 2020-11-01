@@ -3,7 +3,8 @@ import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap-reboot.min.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import ApiProvider from '../components/provider/ApiProvider';
-import AuthProvider from '../components/provider/AuthProvider';
+import DashboardProvider from '../components/provider/DashboardProvider';
+// import AuthProvider from '../components/provider/AuthProvider';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -14,11 +15,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
-      <AuthProvider>
-        <ApiProvider>
+      {/* <AuthProvider> */}
+      <ApiProvider>
+        <DashboardProvider>
           <Component {...pageProps} />
-        </ApiProvider>
-      </AuthProvider>
+        </DashboardProvider>
+      </ApiProvider>
+      {/* </AuthProvider> */}
       <style global jsx>{`
         body {
           font-family: 'roboto';

@@ -22,7 +22,6 @@ const Layout: React.FC<Props> = ({ children, title = 'Arkavidia 7.0', background
     <Footer />
     <style jsx>{`
       #main-container {
-        overflow: auto;
         background: ${background};
       }
     `}
