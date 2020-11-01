@@ -24,3 +24,7 @@ export enum EmailResetPasswordStatus {
 export enum EmailVerifyStatus {
   ERROR, INVALID_TOKEN
 }
+
+export enum RegisterStatus {
+  EMAIL_USED
+}

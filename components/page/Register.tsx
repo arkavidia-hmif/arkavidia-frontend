@@ -1,29 +1,84 @@
 import * as React from 'react';
+import { useState } from 'react';
 import FilledButton from "../FilledButton";
 import ColorfulHeader from '../ColorfulHeader';
 import { Theme } from '../../styles/theme';
+import GradientSeparator from '../auth/GradientSeparator';
+import InputField from '../auth/InputField';
+import { ApiContext } from '../../utils/context/api';
+import { AuthContext } from '../../utils/context/auth';
+import { register } from '../../api/auth';
+import { ApiError } from "../../api/error";
+import { RegisterStatus } from "../../interfaces/auth";
+import Alert from '../Alert';
 
-type Props = {
-  background?: string
-}
+const Register: React.FC = () => {
 
-const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
+  const authContext = React.useContext(AuthContext);
+  const apiContext = React.useContext(ApiContext);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [emptyName, setEmptyName] = useState('');
+  const [emptyEmail, setEmptyEmail] = useState('');
+  const [emptyPassword, setEmptyPassword] = useState('');
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = () => {
+    if (!authContext.authenticated) {
+      if (name === '') {
+        setEmptyName("Nama tidak boleh kosong");
+        setEmptyPassword("");
+        setEmptyEmail("");
+      } else if (email === '') {
+        setEmptyEmail("Email tidak boleh kosong");
+        setEmptyPassword("");
+        setEmptyName("");
+      } else if (password === '') {
+        setEmptyPassword("Password tidak boleh kosong");
+        setEmptyEmail("");
+        setEmptyName("");
+      } else {
+        setEmptyPassword("");
+        setEmptyEmail("");
+        setEmptyName("");
+
+        setLoading(true);
+        register(apiContext.axios, name, email, password).then(() => {
+          setError(null);
+        }).catch((e) => { 
+          if (e instanceof ApiError && e.code === RegisterStatus.EMAIL_USED) {
+            setError('Email sudah digunakan');
+          }
+        }).finally(() => { setLoading(false); });
+      }
+    } else {
+      authContext.setAuthenticated(authContext.authenticated);
+      authContext.setAuth();
+    }
+  };
+
   return (
     <div className="flex-container">
       <div className="left">
         <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="4rem">Registrasi Akun</ColorfulHeader>
-        <hr />
-        <br />
-        <form>
-          <label>Nama Lengkap</label>
-          <input type="text" placeholder="John Doe" />
-          <label>Alamat Email</label>
-          <input type="text" placeholder="johndoe@gmail.com" />
-          <label>Kata Sandi</label>
-          <input type="password" placeholder="*********" />
-          <label>Ulangi Kata Sandi</label>
-          <input type="password" placeholder="*********" />
-          <FilledButton text="DAFTAR" padding="0.75em 1.5em" />
+        <GradientSeparator />
+        <form onSubmit={(evt) => {
+          evt.preventDefault();
+          handleSubmit();
+        }}>
+          <InputField name="Nama Lengkap" value={name} setValue={setName} placeholder="John Doe" />
+          <Alert error={emptyName}/>
+          <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="John Doe" />
+          <Alert error={error || emptyEmail}/>
+          <InputField type={"password"} name="Kata Sandi" value={password} setValue={setPassword} placeholder="********" />
+          <Alert error={emptyPassword}/>
+          <div style={{width: "100%", margin: "1rem 0 1rem 0"}}></div>
+          <FilledButton text="DAFTAR" padding="0.75em 1.5em" loading={loading} />
           <a href="/login">Sudah punya akun ? </a>
         </form>
       </div>
@@ -42,8 +97,9 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
             display: flex;
             flex-direction: row;
             height: auto;
-            background: ${background};
+            padding-bottom: 1rem;
           }
+
           .left {
             flex: 50%;
             padding-left: 3rem;
@@ -53,6 +109,7 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
             padding: 1rem;
             flex: 50%;
           }
+
           @media (max-width: 800px) {
             .flex-container {
               flex-direction: column;
@@ -61,62 +118,14 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
                 width: 75%;
             }
           }
-          hr {
-            width: 40%;
-            height: 0.4rem;
-            background: linear-gradient(90deg, #FE789A 0%, #623FA2 100%);
-            float: left;
-            margin-top: -0.05rem;
-            display: block;
-          }
+
           form {
             margin-top: 2rem;
             height: auto;
             width: 78%;
             display: block;
           }
-          label {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 1.4rem;
-            line-height: 1.2rem;
-            display: block;
-            color: #000000;
-            margin-top: 0.8rem;
-          }
-          input {
-            width: 100%;
-            border: none;
-            padding: 0.5rem 0 0.5rem 0;
-            border-bottom: 0.15rem solid black;
-            box-sizing: border-box;
-            background: none;
-            margin: 0.5rem 0 1rem 0;
-          }
-          input[type="text"], input[type="password"] {
-            font-size: 1.2rem;
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-          }
-          input:focus {
-            outline: none;
-          }
-          ::placeholder {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 1.2rem;
-          }
-          p {
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 1.3rem;
-            line-height: 0.2rem;
-            color: #7446A1;
-          }
+
           a {
             display: inline-block;
             font-family: Roboto;
@@ -127,6 +136,7 @@ const Register: React.FC<Props> = ({ background = Theme.bgColors.whblpl }) => {
             text-decoration: none;
             float: right;
           }
+
           img {
             width: 100%;
             float: right;

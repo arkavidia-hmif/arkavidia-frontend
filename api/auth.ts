@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { AuthData, EmailResetPasswordStatus, EmailVerifyStatus, LoginStatus } from "../interfaces/auth";
+import { AuthData, EmailResetPasswordStatus, EmailVerifyStatus, LoginStatus, RegisterStatus } from "../interfaces/auth";
 import { ApiError, StandardError } from './error';
 
 
@@ -18,6 +18,27 @@ export async function login(axios: AxiosInstance, email: string, password: strin
         throw new ApiError<LoginStatus>(LoginStatus.INVALID_CREDS, e.response.data.detail);
       } else if (errorCode === 'account_email_not_confirmed') {
         throw new ApiError<LoginStatus>(LoginStatus.EMAIL_NOT_CONFIRMED, e.response.data.detail);
+      }
+    }
+
+    throw new ApiError<StandardError>(StandardError.ERROR, e);
+  }
+}
+
+export async function register(axios: AxiosInstance, fullName: string, email: string, password: string): Promise<AuthData> {
+  try {
+    const response = await axios.post('/auth/register/', {
+      fullName,
+      email,
+      password
+    });
+
+    return response.data as AuthData;
+  } catch (e) {
+    if (e.response) {
+      const errorCode = e.response.data.code;
+      if (errorCode === 'registration_failed_email_used') {
+        throw new ApiError<RegisterStatus>(RegisterStatus.EMAIL_USED, e.response.data.detail);
       }
     }
 
