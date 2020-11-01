@@ -65,7 +65,7 @@ const EmailRecover: React.FC = () => {
             <InputField name="Kata Sandi" type="password" value={password} setValue={setPassword} placeholder="************" />
             <InputField name="Konfirmasi Kata Sandi" type="password" value={confirmPassword} setValue={setConfirmPassword} placeholder="************" />
             <br />
-            <FilledButton onClick={onSubmit} text="GANTI" loading={loading} padding="0.75em 1.5em" />
+            <FilledButton text="GANTI" loading={loading} padding="0.75em 1.5em" />
           </form>
         </>
         : <>

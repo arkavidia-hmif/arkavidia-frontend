@@ -50,7 +50,7 @@ const LoginPage: React.FC = () => {
           }}>
             <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
             <br />
-            <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
+            <FilledButton text="KIRIM" loading={loading} padding="0.75em 1.5em" />
           </form>
         </>
         : <>
