@@ -64,6 +64,7 @@ const AnnouncementCard: React.FC = () => {
         }
 
         a {
+          color: #623fa2;
           text-decoration: none;
         }
 

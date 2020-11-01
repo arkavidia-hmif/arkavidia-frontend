@@ -2,12 +2,13 @@ import { useState } from "react";
 import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
+import { Theme } from "../../../../styles/theme";
 
 const AnggotaTim: React.FC = () => {
   const [active, setActive] = useState(1);
 
   return (
-    <Layout title="Anggota Tim | Arkavidia 7.0" background="white">
+    <Layout title="Anggota Tim | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
       <DashboardWrapper />
       <div className="container">
         <div className="row container">

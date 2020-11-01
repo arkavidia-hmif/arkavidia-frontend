@@ -4,7 +4,7 @@ import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
-  <Layout title="Competitions | Arkavidia 7.0" background="white">
+  <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
     <DashboardWrapper />
     <div className="container">
       <div className="container-fluid mb-5 mt-5" id="main">
