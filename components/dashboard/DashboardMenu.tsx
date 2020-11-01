@@ -9,11 +9,9 @@ const DashboardMenu: React.FC = () => {
     <div id="menu">
       <ul>
         {DashboardItems.map((link, index) => (
-          <li key={index} className="item">
+          <li key={index} className={router.pathname === link.route ? 'items current' : 'items'}>
             <Link href={link.route}>
-              <a
-                className={router.pathname === link.route ? "current" : ""}
-              >
+              <a>
                 {link.title}
               </a>
             </Link>
@@ -60,6 +58,10 @@ const DashboardMenu: React.FC = () => {
         }
         
         li:hover {
+          border-bottom: 0.5rem solid;
+        }
+
+        li.current {
           border-bottom: 0.5rem solid;
         }
 
