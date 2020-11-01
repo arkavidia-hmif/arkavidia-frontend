@@ -1,14 +1,23 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useRouter } from "next/dist/client/router";
 import FilledButton from "../FilledButton";
-import items from "../../utils/constants/nav-items";
+import items, { DashboardItem } from "../../utils/constants/nav-items";
+import { AuthContext } from '../../utils/context/auth';
+import { Dimen } from '../../styles/dimen';
 import SubMenu from './SubMenu';
 
 const NavDesktop: React.FC = () => {
   const router = useRouter();
+  const authContext = useContext(AuthContext);
 
-  const hoverState = items.map((entry) => {
+  const menuItems = [...items];
+
+  if (authContext.authenticated) {
+    menuItems.push(DashboardItem);
+  }
+
+  const hoverState = menuItems.map((entry) => {
     if (entry.submenu) {
       return useState(false);
     } else {
@@ -19,7 +28,7 @@ const NavDesktop: React.FC = () => {
   return (
     <div className="items">
       <ul className="mr-3">
-        {items.map((link, index) => {
+        {menuItems.map((link, index) => {
           if (link.submenu) {
             const curentHover = hoverState[index];
             const setHover = curentHover[1];
@@ -48,7 +57,14 @@ const NavDesktop: React.FC = () => {
           }
         })}
       </ul>
-      <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push("/login"); }} />
+      {authContext.authenticated ?
+        <FilledButton text="LOGOUT" padding="0.75em 1.5em" onClick={() => {
+          router.push('/');
+          authContext.setAuthenticated(false);
+          authContext.setAuth();
+        }} />
+        : <FilledButton text="LOGIN" padding="0.75em 1.5em" onClick={() => { router.push('/login'); }} />
+      }
 
       <style jsx>{`
           ul {
@@ -96,7 +112,7 @@ const NavDesktop: React.FC = () => {
             opacity: 1;
           }
 
-          @media (max-width: 1300px) {
+          @media (max-width: ${Dimen.navbarBreakpoint}) {
             .items {
               display: none;
             }

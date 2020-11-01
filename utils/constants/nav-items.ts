@@ -71,4 +71,9 @@ const NavItems = [
   },
 ];
 
+export const DashboardItem = {
+  text: 'DASHBOARD',
+  path: '/dashboard'
+};
+
 export default NavItems;

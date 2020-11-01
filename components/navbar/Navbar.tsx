@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
             height: 60px;
           }
 
-          @media (max-width: 1300px) {
+          @media (max-width: ${Dimen.navbarBreakpoint}) {
             #spacer {
                 flex-grow: 1!important;
             }
