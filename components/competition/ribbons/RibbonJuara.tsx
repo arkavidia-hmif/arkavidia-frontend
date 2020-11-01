@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BigRibbon from './Ribbon_Big';
+import BigRibbon from './RibbonBig';
 
 type Props = {
     caption: string[]
@@ -9,13 +9,13 @@ const TripleRibbon : React.FC<Props> = ({caption}) => (
   <div>
     <div className="flex-row-center">
       <div className="margins">
-        <BigRibbon image="/Images/Medal Juara 2.png" title="Juara 2" caption={caption[0]}/>
+        <BigRibbon image="/img/competitions/secondmedal.png" title="Juara 2" caption={caption[0]}/>
       </div>
       <div className="margins-center">
-        <BigRibbon image="/Images/Medal Juara 1.png" title="Juara 1" caption={caption[1]}/>
+        <BigRibbon image="/img/competitions/firstmedal.png" title="Juara 1" caption={caption[1]}/>
       </div>
       <div className="margins">
-        <BigRibbon image="/Images/Medal Juara 3.png" title="Juara 3" caption={caption[2]}/>
+        <BigRibbon image="/img/competitions/thirdmedal.png" title="Juara 3" caption={caption[2]}/>
       </div>
     </div>
     <style jsx>{`

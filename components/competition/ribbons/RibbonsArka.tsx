@@ -1,6 +1,6 @@
 import * as React from 'react';
-import TripleRibbon from './Ribbon_Juara_3';
-import SmallRibbon from './Ribbons_Small';
+import TripleRibbon from './RibbonJuara';
+import SmallRibbon from './RibbonsSmall';
 
 const ArkaRibbon : React.FC = () => (
   <div>

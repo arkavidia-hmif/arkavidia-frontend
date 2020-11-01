@@ -9,7 +9,7 @@ const Question : React.FC<Props> = ({question}) => (
     <div style={{display: "flex", justifyContent: "center"}}>
       <div className="question-container">
         <p className="faq-question-container">{question}</p>
-        <img src={"/Images/Vector Arrow.png"} className="vector-arrow"/>
+        <img src={"/img/competitions/arrow-faq.png"} className="vector-arrow"/>
       </div>
     </div>
     <style jsx>{`

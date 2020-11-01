@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Question from './FAQ_Question';
-import Answer from './FAQ_Answer';
+import Question from './Question';
+import Answer from './Answer';
 
 const FAQ_GameJam : React.FC = () => (
   <div>

@@ -1,16 +1,16 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
-import Title from '../components/Competitions/Title_Competitions';
-import Category from '../components/Competitions/Category_Competitions';
-import Buttons from '../components/Competitions/Button_Competitions';
-import Ribbons from '../components/Competitions/Ribbons/Ribbons_Arka';
-import Timeline from '../components/Competitions/Timeline/GeneralTimeline';
+import Layout from '../../components/Layout';
+import Title from '../../components/competition/CompetitionTitle';
+import Category from '../../components/competition/CompetitionCategory';
+import Buttons from '../../components/competition/CompetitionButton';
+import Ribbons from '../../components/competition/ribbons/RibbonsArka';
+import Timeline from '../../components/competition/timeline/GeneralTimeline';
 
 const ArkaPage: React.FC = () => (
   <Layout>
     <div className="container">
       <div className="grid-container">
-        <div className="item1"><img className="logo-lomba" src={"/Images/Logo Arkalogica.png"}/></div>
+        <div className="item1"><img className="logo-lomba" src={"/img/competitions/arkalogica-logo.png"}/></div>
         <div className="item2"></div>
         <div className="item3">
           <Title title="ARKALOGICA" desc="Arkalogica adalah kompetisi yang mengasah kemampuan peserta dalam penggunaan logika dan menyelesaikan masalah secara logis. Jenis-jenis permasalahan yang diberikan antara lain berbagai soal logika dan game menarik."/>
@@ -45,6 +45,9 @@ const ArkaPage: React.FC = () => (
               grid-column-start: 8;
               grid-column-end: 12;
               grid-row-start: 2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
           }
       
           .item2 {
@@ -63,7 +66,7 @@ const ArkaPage: React.FC = () => (
           }
 
           .logo-lomba {
-            max-width: 130%;
+            max-width: 160%;
             height: auto;
         }
 

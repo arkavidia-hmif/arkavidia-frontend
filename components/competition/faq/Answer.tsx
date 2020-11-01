@@ -22,17 +22,17 @@ const Answer : React.FC<Props> = ({answer}) => (
                 background-color: white;
                 text-align: left;
                 padding: 1%;
-                font-size: 1.7vw;
+                font-size: 1.5rem;
                 border-radius: 10px;
                 padding-left: 3%;
-                width: 80%;
+                width: 60%;
             }
   
             @media only screen and (max-width: 1000px) {
                 .faq-answer {
-                    font-size: 1.9vw;
+                    font-size: 0.8rem;
                     border-radius: 3px;
-                    width: 80%;
+                    width: 70%;
                 }
             }
           `}</style>

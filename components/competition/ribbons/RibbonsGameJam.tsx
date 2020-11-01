@@ -1,6 +1,6 @@
 import * as React from 'react';
-import BigRibbon from './Ribbon_Big';
-import SmallRibbon from './Ribbons_Small';
+import BigRibbon from './RibbonBig';
+import SmallRibbon from './RibbonsSmall';
 
 const GameJamRibbon : React.FC = () => (
   <div>
@@ -17,7 +17,7 @@ const GameJamRibbon : React.FC = () => (
         </div>
       </div>
       <div className="margins">
-        <BigRibbon image="Images/Medal.png" title="Best Game" caption="Rp 2.000.000"/>
+        <BigRibbon image="/img/competitions/medal.png" title="Best Game" caption="Rp 2.000.000"/>
       </div>
       <div>
         <div className="margins-2">

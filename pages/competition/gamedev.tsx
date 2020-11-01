@@ -1,17 +1,17 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
-import Title from '../components/Competitions/Title_Competitions';
-import Category from '../components/Competitions/Category_Competitions';
-import Buttons from '../components/Competitions/Button_Competitions';
-import Ribbons from '../components/Competitions/Ribbons/Ribbons_GameJam';
-import Timeline from '../components/Competitions/Timeline/GameJamTimeline';
-import FAQ from '../components/Competitions/FAQs/FAQ_GameJam';
+import Layout from '../../components/Layout';
+import Title from '../../components/competition/CompetitionTitle';
+import Category from '../../components/competition/CompetitionCategory';
+import Buttons from '../../components/competition/CompetitionButton';
+import Ribbons from '../../components/competition/ribbons/RibbonsGameJam';
+import Timeline from '../../components/competition/timeline/GameJamTimeline';
+import FAQ from '../../components/competition/faq/GameJamFAQ';
 
 const GameJamPage : React.FC = () => (
   <Layout>
     <div className="container">
       <div className="grid-container">
-        <div className="item1"><img className="logo-lomba" src={"/Images/Logo GameDev.png"}/></div>
+        <div className="item1"><img className="logo-lomba" src={"/img/competitions/gamedev-logo.png"}/></div>
         <div className="item3">
           <Title title="ARKAV GAME JAM" desc="Arkav Game Jam adalah kompetisi pembuatan aplikasi permainan yang merupakan bagian dari acara Arkavidia 7.0. Dalam perlombaan ini, setiap tim peserta yang beranggotakan maksimal 5 orang membuat sebuah game dalam waktu 48 jam. Dengan tema yang baru akan diketahui saat lomba akan dimulai, tantangan terbesar bagi para peserta adalah bagaimana menemukan ide dan mengimplementasikan ide tersebut dari dasar dalam waktu singkat."/>
           <div className="settings-margin-1">

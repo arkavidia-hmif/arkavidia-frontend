@@ -1,21 +1,21 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
-import Title from '../components/Competitions/Title_Competitions';
-import Category from '../components/Competitions/Category_Competitions';
-import Buttons from '../components/Competitions/Button_Competitions';
-import Ribbons from '../components/Competitions/Ribbons/Ribbon_Juara_3';
-import Timeline from '../components/Competitions/Timeline/GeneralTimeline';
+import Layout from '../../components/Layout';
+import Title from '../../components/competition/CompetitionTitle';
+import Category from '../../components/competition/CompetitionCategory';
+import Buttons from '../../components/competition/CompetitionButton';
+import Ribbons from '../../components/competition/ribbons/RibbonJuara';
+import Timeline from '../../components/competition/timeline/GeneralTimeline';
 
-const CTFPage : React.FC = () => (
+const CPPage : React.FC = () => (
   <Layout>
     <div className="container">
       <div className="grid-container">
-        <div className="item1"><img className="logo-lomba" src={"/Images/Logo CTF.png"}/></div>
+        <div className="item1"><img className="logo-lomba" src={"/img/competitions/cp-logo.png"}/></div>
         <div className="item2"></div>
         <div className="item3">
-          <Title title="CAPTURE THE FLAG" desc="Capture the Flag adalah cabang lomba di bidang keamanan siber. Pada lomba ini, setiap peserta saling bersaing sebagai tim untuk mengumpulkan poin sebanyak mungkin dengan memecahkan persoalan yang diberikan. Dalam kurun waktu yang terbatas, setiap tim harus menggunakan kakas-kakas dan pengetahuan yang mereka miliki untuk mencari, mengakali, dan mengeksploitasi celah-celah keamanan untuk mendapatkan poin dalam bentuk flag tersembunyi dalam setiap soal."/>
+          <Title title="COMPETITIVE PROGRAMMING" desc="Kompetisi Competitive Programming (CP) menguji kemampuan analisis pemecahan masalah (problem solving) dan berpikir komputasional dengan cara menyelesaikan persoalan yang diberikan dengan bahasa pemrograman tertentu dalam batasan waktu dan memori yang telah ditentukan."/>
           <div className="settings-margin-1">
-            <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-"/>
+            <Category category="Mahasiswa" fee="Rp. 60.000,-"/>
           </div>
           <div className="settings-margin-2">
             <Buttons/>
@@ -42,12 +42,9 @@ const CTFPage : React.FC = () => (
         }
     
         .item1 {
-            grid-column-start: 8;
+            grid-column-start: 7;
             grid-column-end: 12;
-            grid-row-start: 2;  
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            grid-row-start: 2; 
         }
     
         .item2 {
@@ -58,15 +55,15 @@ const CTFPage : React.FC = () => (
         .item3 {   
             margin-bottom: 13%;
             grid-column-start: 1;
-            grid-column-end: 8;
+            grid-column-end: 7;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-top: 10%;
+            margin-top: 15%;
         }
 
         .logo-lomba {
-            max-width: 160%;
+            width: 140%;
             height: auto;
         }
 
@@ -119,7 +116,7 @@ const CTFPage : React.FC = () => (
             }
 
             .logo-lomba {
-                max-width: 80%;
+                width: 80%;
                 height: auto;
             }
         }
@@ -127,4 +124,5 @@ const CTFPage : React.FC = () => (
   </Layout>
 );
 
-export default CTFPage;
+export default CPPage;
+

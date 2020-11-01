@@ -1,21 +1,20 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
-import Title from '../components/Competitions/Title_Competitions';
-import Category from '../components/Competitions/Category_Competitions';
-import Buttons from '../components/Competitions/Button_Competitions';
-import Ribbons from '../components/Competitions/Ribbons/Ribbon_Juara_3';
-import Timeline from '../components/Competitions/Timeline/GeneralTimeline';
+import Layout from '../../components/Layout';
+import Title from '../../components/competition/CompetitionTitle';
+import Category from '../../components/competition/CompetitionCategory';
+import Buttons from '../../components/competition/CompetitionButton';
+import Ribbons from '../../components/competition/ribbons/RibbonJuara';
+import Timeline from '../../components/competition/timeline/DatavidiaTimeline';
 
-const CPPage : React.FC = () => (
+const DatavidiaPage : React.FC = () => (
   <Layout>
     <div className="container">
       <div className="grid-container">
-        <div className="item1"><img className="logo-lomba" src={"/Images/Logo CP.png"}/></div>
-        <div className="item2"></div>
+        <div className="item1"><img className="logo-lomba" src={"/img/competitions/datavidia-logo.png"}/></div>
         <div className="item3">
-          <Title title="COMPETITIVE PROGRAMMING" desc="Kompetisi Competitive Programming (CP) menguji kemampuan analisis pemecahan masalah (problem solving) dan berpikir komputasional dengan cara menyelesaikan persoalan yang diberikan dengan bahasa pemrograman tertentu dalam batasan waktu dan memori yang telah ditentukan."/>
+          <Title title="DATAVIDIA" desc="Data science merupakan bidang yang sedang mendapatkan sorotan belakangan ini karena kecanggihan dan keluasan aplikasinya. Data Arkavidia merupakan kompetisi untuk menilai kepiawaian peserta serta bertujuan untuk meningkatkan kompetensi peserta di bidang ini."/>
           <div className="settings-margin-1">
-            <Category category="Mahasiswa" fee="Rp. 60.000,-"/>
+            <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-"/>
           </div>
           <div className="settings-margin-2">
             <Buttons/>
@@ -44,7 +43,7 @@ const CPPage : React.FC = () => (
         .item1 {
             grid-column-start: 7;
             grid-column-end: 12;
-            grid-row-start: 2; 
+            grid-row-start: 1;  
         }
     
         .item2 {
@@ -59,11 +58,11 @@ const CPPage : React.FC = () => (
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-top: 15%;
+            margin-top: 10%;
         }
 
         .logo-lomba {
-            width: 140%;
+            max-width: 120%;
             height: auto;
         }
 
@@ -116,7 +115,7 @@ const CPPage : React.FC = () => (
             }
 
             .logo-lomba {
-                width: 80%;
+                max-width: 80%;
                 height: auto;
             }
         }
@@ -124,5 +123,4 @@ const CPPage : React.FC = () => (
   </Layout>
 );
 
-export default CPPage;
-
+export default DatavidiaPage;
