@@ -68,9 +68,9 @@ const DashboardWrapper: React.FC = () => {
               font-family: Viga;
               font-style: normal;
               font-weight: normal;
-              font-size: 1.5rem;
+              font-size: 1.25rem;
               color: #623fa2 !important;
-              word-break: keep-all;
+              white-space: nowrap;
             }
 
             .indicator {
@@ -88,7 +88,7 @@ const DashboardWrapper: React.FC = () => {
               margin-left: -30px;
               z-index: 0;
               position: absolute;
-              width: 260%;
+              width: 425%;
               height: 0.5rem;
               background: #c4c4c4;
             }

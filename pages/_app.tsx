@@ -14,11 +14,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
       </Head>
-      <AuthProvider>
-        <ApiProvider>
+      {/* <AuthProvider>
+        <ApiProvider> */}
           <Component {...pageProps} />
-        </ApiProvider>
-      </AuthProvider>
+        {/* </ApiProvider>
+      </AuthProvider> */}
       <style global jsx>{`
         body {
           font-family: 'roboto';
