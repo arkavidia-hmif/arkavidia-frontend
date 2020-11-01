@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useContext, useState } from 'react';
 import { register } from '../api/auth';
 import { ApiError } from '../api/error';
@@ -7,7 +8,6 @@ import InputField from '../components/auth/InputField';
 import FilledButton from '../components/FilledButton';
 import { RegisterStatus } from '../interfaces/auth';
 import { ApiContext } from '../utils/context/api';
-import { AuthContext } from '../utils/context/auth';
 
 const RegisterPage: React.FC = () => {
   const apiContext = useContext(ApiContext);
@@ -18,7 +18,7 @@ const RegisterPage: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(true);
 
   const handleSubmit = () => {
     setError(null);
@@ -59,33 +59,49 @@ const RegisterPage: React.FC = () => {
 
   return (
     <AuthWrapper title="Registrasi Akun">
-      <Alert error={error} />
-      <form className="my-5" onSubmit={(evt) => {
-        evt.preventDefault();
-        handleSubmit();
-      }}>
-        <InputField name="Nama Lengkap" value={name} setValue={setName} placeholder="John Doe" />
-        <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="John Doe" />
-        <InputField type={"password"} name="Kata Sandi" value={password} setValue={setPassword} placeholder="********" />
-        <br />
-        <div className="row">
-          <div className="col-6">
-            <FilledButton text="DAFTAR" padding="0.75em 1.5em" loading={loading} onClick={handleSubmit} />
-          </div>
-          <div className="col-6" style={{ textAlign: 'right' }}>
-            <a href="/login"><b>Sudah punya akun ?</b></a>
-          </div>
-        </div>
-      </form>
+      {success ?
+        <>
+          <br />
+          <p>Terima kasih telah mendaftar, silahkan cek email untuk tautan konfirmasi</p>
+          <Link href="/login">
+            <FilledButton text="LOGIN" padding="0.75em 1.5em" />
+          </Link>
+        </>
+        :
+        <>
+          <Alert error={error} />
+          <form className="my-5" onSubmit={(evt) => {
+            evt.preventDefault();
+            handleSubmit();
+          }}>
+            <InputField name="Nama Lengkap" value={name} setValue={setName} placeholder="John Doe" />
+            <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="John Doe" />
+            <InputField type={"password"} name="Kata Sandi" value={password} setValue={setPassword} placeholder="********" />
+            <br />
+            <div className="row">
+              <div className="col-6">
+                <FilledButton text="DAFTAR" padding="0.75em 1.5em" loading={loading} onClick={handleSubmit} />
+              </div>
+              <div className="col-6" style={{ textAlign: 'right' }}>
+                <a href="/login"><b>Sudah punya akun ?</b></a>
+              </div>
+            </div>
+          </form>
+        </>
+      }
       <style jsx>{`
-        .row {
-          align-items: center;
-        }
+      .row {
+        align-items: center;
+      }
 
-        a {
-          color: #7446A1;
-        }
-      `}</style>
+      a {
+        color: #7446A1;
+      }
+
+      p {
+        color: #7446A1;
+      }
+    `}</style>
     </AuthWrapper>
   );
 };
