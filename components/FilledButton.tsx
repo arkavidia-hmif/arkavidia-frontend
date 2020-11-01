@@ -58,6 +58,17 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color 
         100% { transform: rotate(360deg); }
       }
     `}</style>
+    <style jsx>{`
+      #loader {
+        ${loading ? 'display: block' : ''}
+      }
+      #container {
+        ${loading ? 'color: ' + color.main : ''}
+      }
+      #container:hover {
+        ${loading ? 'color: ' + color.hover : ''}
+      }
+    `}</style>
   </>
 );
 
