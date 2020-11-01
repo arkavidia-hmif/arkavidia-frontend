@@ -9,7 +9,11 @@ const StatusTim: React.FC = () => {
   const [active, setActive] = useState(1);
 
   return (
+<<<<<<< HEAD
     <Layout title="Informasi Tim | Arkavidia 7.0" background="white">
+=======
+    <Layout title="Informasi Tim | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+>>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
       <DashboardWrapper />
       <div className="container">
         <div className="row container">

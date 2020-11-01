@@ -45,7 +45,6 @@ const anggotaData = [
 const SubmissionProgress: React.FC<Props> = ({ active, setActive }) => {
   const handleClick = (num: number) => {
     setActive(num);
-    console.log('efrg');
   };
   return (
     <div className="container mb-3 card">

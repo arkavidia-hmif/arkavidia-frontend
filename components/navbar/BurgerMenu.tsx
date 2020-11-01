@@ -26,7 +26,6 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
             const setToggle = toggleState[index][1];
 
             const arrowClass = "arrow " + (toggle ? "up" : "down");
-            console.log(arrowClass);
 
             return (
               <>

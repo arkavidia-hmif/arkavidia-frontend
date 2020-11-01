@@ -9,12 +9,20 @@ const Prasyarat: React.FC = () => {
   const [active, setActive] = useState(1);
 
   return (
+<<<<<<< HEAD
     <Layout title="Prasyarat | Arkavidia 7.0" background="white">
+=======
+    <Layout title="Prasyarat | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+>>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
       <DashboardWrapper />
       <div className="container">
         <div className="row">
           <div className="col-sm-10 col-md-3 mt-5">
+<<<<<<< HEAD
             <SubmissionProgress setActive={setActive} active={active}/>
+=======
+            <SubmissionProgress setActive={setActive}/>
+>>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
           </div>
           <div
             className="container-fluid mb-5 mt-5 col-sm-12 col-md-9"

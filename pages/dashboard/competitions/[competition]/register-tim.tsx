@@ -4,7 +4,11 @@ import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
+<<<<<<< HEAD
   <Layout title="Competitions | Arkavidia 7.0" background="white">
+=======
+  <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+>>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
     <DashboardWrapper />
     <div className="container">
       <div className="container-fluid mb-5 mt-5" id="main">

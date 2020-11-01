@@ -5,7 +5,7 @@ import { StandardError } from "./error";
 
 export async function login(axios: AxiosInstance, email: string, password: string): Promise<AuthData> {
   try {
-    const response = await axios.post("/auth/login", {
+    const response = await axios.post('/auth/login/', {
       email,
       password
     });
@@ -21,6 +21,16 @@ export async function login(axios: AxiosInstance, email: string, password: strin
       }
     }
 
+    throw new ApiError<StandardError>(StandardError.ERROR, e);
+  }
+}
+
+export async function resetPassword(axios: AxiosInstance, email: string): Promise<void> {
+  try {
+    await axios.post('/auth/password-reset/', {
+      email
+    });
+  } catch (e) {
     throw new ApiError<StandardError>(StandardError.ERROR, e);
   }
 }

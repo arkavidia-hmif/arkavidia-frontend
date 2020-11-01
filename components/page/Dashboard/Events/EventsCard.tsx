@@ -14,9 +14,9 @@ const EventsCard: React.FC = () => {
 
   return (
     <div className="container mb-3">
-      <div className="container-fluid">
+      <div className="row container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col-4 mr-4">
+          <div key={index} className="card mt-3 col-md-4 col-xs-6 mr-4">
             <div className="title">{link.title}</div>
             <div className="content">{link.content}</div>
             <br />
@@ -43,8 +43,6 @@ const EventsCard: React.FC = () => {
           max-height: auto;
           border-radius: 10px;
           background-color: white;
-
-          float: left;
         }
 
         .title {
@@ -72,6 +70,10 @@ const EventsCard: React.FC = () => {
         }
 
         a {
+<<<<<<< HEAD
+=======
+          color: #623fa2;
+>>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
           text-decoration: none;
         }
 
