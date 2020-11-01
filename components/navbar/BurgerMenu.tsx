@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Dimen } from '../../styles/dimen';
 import { Fragment, useState } from 'react';
+import { Dimen } from '../../styles/dimen';
 import menuItem from '../../utils/constants/nav-items';
 import BurgerSubMenu from './BurgerSubMenu';
 

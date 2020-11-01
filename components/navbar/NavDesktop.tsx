@@ -1,9 +1,9 @@
-import items from "../../utils/constants/nav-items";
-import SubMenu from './SubMenu';
 import Link from 'next/link';
-import FilledButton from "../FilledButton";
 import { useState } from 'react';
 import { useRouter } from "next/dist/client/router";
+import FilledButton from "../FilledButton";
+import items from "../../utils/constants/nav-items";
+import SubMenu from './SubMenu';
 
 const NavDesktop: React.FC = () => {
   const router = useRouter();

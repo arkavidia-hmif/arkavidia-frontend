@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios";
 import { AuthData, EmailResetPasswordStatus, LoginStatus } from "../interfaces/auth";
-import { ApiError } from './error';
-import { StandardError } from "./error";
+import { ApiError , StandardError } from './error';
+
 
 export async function login(axios: AxiosInstance, email: string, password: string): Promise<AuthData> {
   try {
