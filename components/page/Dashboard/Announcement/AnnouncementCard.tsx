@@ -24,7 +24,7 @@ const AnnouncementCard: React.FC = () => {
     };
  
     apiContext.axios.get('/announcement/announcements/', config)
-      .then((data: any) => {setAnnouncement(data.data); })
+      .then((data) => {setAnnouncement(data.data); })
       .catch((err: any) => {setError(err.code); });
   };
   useEffect(() => {
