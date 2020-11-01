@@ -1,30 +1,31 @@
-import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
   <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
-    <DashboardWrapper />
-    <div className="container" id='dashboard-area'>
-      <div className="container-fluid mb-5 mt-5" id="main">
-        <div id="content-container">
-          <div id="heading">Buat Tim</div>
-          <form className="mt-4">
-            <label htmlFor="nama-tim">Nama tim</label>
-            <input id="nama-tim" type="nama-tim" />
-            <label htmlFor="asal">Asal universitas/sekolah</label>
-            <input id="asal" type="asal" />
-            <br />
-            <br />
-            <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton}/>
-          </form>
+    <DashboardWrapper>
+
+      <div className="container" id='dashboard-area'>
+        <div className="container-fluid mb-5 mt-5" id="main">
+          <div id="content-container">
+            <div id="heading">Buat Tim</div>
+            <form className="mt-4">
+              <label htmlFor="nama-tim">Nama tim</label>
+              <input id="nama-tim" type="nama-tim" />
+              <label htmlFor="asal">Asal universitas/sekolah</label>
+              <input id="asal" type="asal" />
+              <br />
+              <br />
+              <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} />
+            </form>
+          </div>
+          <div id="bg-container">
+            <img src="../../../img/competitions/ctf.png" />
+          </div>
         </div>
-        <div id="bg-container">
-          <img src="../../../img/competitions/ctf.png" />
-        </div>
-      </div>
-      <style jsx>{`
+        <style jsx>{`
         #dashboard-area {
           min-height: 60vh;
         }
@@ -107,7 +108,8 @@ const RegisterTim: React.FC = () => (
           }
         }
       `}</style>
-    </div>
+      </div>
+    </DashboardWrapper>
   </Layout>
 );
 
