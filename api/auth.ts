@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
-import { AuthData, EmailResetPasswordStatus, LoginStatus } from "../interfaces/auth";
-import { ApiError , StandardError } from './error';
+import { AuthData, EmailResetPasswordStatus, EmailVerifyStatus, LoginStatus } from "../interfaces/auth";
+import { ApiError, StandardError } from './error';
 
 
 export async function login(axios: AxiosInstance, email: string, password: string): Promise<AuthData> {
@@ -48,5 +48,20 @@ export async function resetPassword(axios: AxiosInstance, token: string, newPass
       }
     }
     throw new ApiError<EmailResetPasswordStatus>(EmailResetPasswordStatus.ERROR, e);
+  }
+}
+
+export async function confirmEmailAddress(axios: AxiosInstance, token: string): Promise<void> {
+  try {
+    await axios.post('/auth/confirm-registration/', { token });
+  }
+  catch (e) {
+    if (e.response) {
+      if (e.response.data.code === 'invalid_token') {
+        throw new ApiError<EmailVerifyStatus>(EmailVerifyStatus.INVALID_TOKEN, e.response.data.detail);
+      }
+    }
+
+    throw new ApiError<EmailVerifyStatus>(EmailVerifyStatus.ERROR, e);
   }
 }
