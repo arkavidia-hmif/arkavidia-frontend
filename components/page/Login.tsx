@@ -38,7 +38,7 @@ const Login: React.FC = () => {
         }
       }).finally(() => { setLoading(false); });
     } else {
-      authContext.setAuthenticated(!authContext.authenticated);
+      authContext.setAuthenticated(authContext.authenticated);
       authContext.setAuth();
     }
   };
