@@ -3,8 +3,10 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../../../utils/context/api";
 import { AuthContext } from "../../../../utils/context/auth";
+import Alert from "../../../Alert";
 
 const AnnouncementCard: React.FC = () => {
+  const [error, setError] = useState<string | null>(null);
   const authContext = useContext(AuthContext);
   const apiContext = useContext(ApiContext);
   const token = authContext.auth?.token; 
@@ -23,7 +25,7 @@ const AnnouncementCard: React.FC = () => {
  
     apiContext.axios.get('/announcement/announcements/', config)
       .then((data) => {setAnnouncement(data.data); })
-      .catch((err) => {console.log(err); });
+      .catch((err) => {setError(err.code); });
   };
   useEffect(() => {
     getAnnouncement();
@@ -43,6 +45,7 @@ const AnnouncementCard: React.FC = () => {
 
   return (
     <div className="container mb-3" id='dashboard-area'>
+      <Alert error={error} />
       <div className="container-fluid">
         {announcement?.map((link, index) => (
           <div key={index} className="card mt-3">
