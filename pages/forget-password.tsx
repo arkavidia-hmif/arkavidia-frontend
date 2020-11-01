@@ -21,6 +21,7 @@ const LoginPage: React.FC = () => {
 
     if (!isValidEmail(email)) {
       setError('Alamat email invalid');
+      return;
     }
 
     setLoading(true);
