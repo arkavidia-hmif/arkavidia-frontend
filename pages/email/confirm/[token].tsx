@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { confirmEmailAddress } from "../../../api/auth";
 import { ApiError } from "../../../api/error";
 import Alert from "../../../components/Alert";
+import AuthWrapper from "../../../components/auth/AuthWrapper";
 import GradientSeparator from "../../../components/auth/GradientSeparator";
 import ColorfulHeader from "../../../components/ColorfulHeader";
 import FilledButton from "../../../components/FilledButton";
@@ -43,41 +44,27 @@ const ConfirmEmail: React.FC = () => {
 
 
   return (
-    <Layout background={Theme.bgColors.whpipl} title="Konfirmasi Email">
-      <div className="container mx-auto row mb-3">
-        <div className="col-md-6 px-4 px-md-5 mt-5" >
-          <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="3rem">Konfirmasi Email</ColorfulHeader>
-          <GradientSeparator />
-          <br />
-          {!success ?
-            <>
-              <Alert error={error} />
-              <p className="my-3">Tunggu sebentar, kami sedang mengkonfirmasi email Anda</p>
-            </>
-            : <>
-              <p className="my-3">Sukses, silahkan login dengan email dan kata sandi yang sudah didaftarkan</p>
-              <Link href="/login">
-                <FilledButton text="LOGIN" padding="0.75em 1.5em" />
-              </Link>
-            </>}
-        </div>
-        <div className="col-md-6">
-          <img src="/img/bg-white.png" />
-        </div>
-        <style jsx>
-          {`
+    <AuthWrapper title="Konfirmasi Email">
+      {!success ?
+        <>
+          <Alert error={error} />
+          <p className="my-3">Tunggu sebentar, kami sedang mengkonfirmasi email Anda</p>
+        </>
+        : <>
+          <p className="my-3">Sukses, silahkan login dengan email dan kata sandi yang sudah didaftarkan</p>
+          <Link href="/login">
+            <FilledButton text="LOGIN" padding="0.75em 1.5em" />
+          </Link>
+        </>}
+
+      <style jsx>
+        {`
           p {
-            font-size: 1.1rem;
             color: #7446A1;
           }
-
-          img {
-            width: 100%;
-          }
         `}
-        </style>
-      </div>
-    </Layout>
+      </style>
+    </AuthWrapper>
   );
 };
 
