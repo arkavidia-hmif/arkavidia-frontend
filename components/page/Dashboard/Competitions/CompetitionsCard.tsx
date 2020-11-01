@@ -1,35 +1,42 @@
 import * as React from "react";
 import Link from "next/link";
 
+const baseUrl = "/dashboard/competitions/";
+
 const CompetitionsCard: React.FC = () => {
   // example data
   const ex = [
     {
       title: "COMPETITIVE PROGRAMMING",
+      slug: "competitive-programming",
       content: "Untuk Mahasiswa",
       isRegistered: true,
       isRegistrationOpen: true,
     },
     {
       title: "CAPTURE THE FLAG",
+      slug: "capture-the-flag",
       content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
       title: "DATAVIDIA",
+      slug: "datavidia",
       content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
       title: "GAMEDEV",
+      slug: "gamedev",
       content: "Untuk SMA & Mahasiswa",
       isRegistered: false,
       isRegistrationOpen: true,
     },
     {
       title: "ARKALOGICA",
+      slug: "arkalogica",
       content: "Untuk SMA",
       isRegistered: false,
       isRegistrationOpen: false,
@@ -37,7 +44,7 @@ const CompetitionsCard: React.FC = () => {
   ];
 
   return (
-    <div className="container mb-3">
+    <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="card col-md-4 col-xs-6 mt-3 mr-4">
@@ -47,7 +54,7 @@ const CompetitionsCard: React.FC = () => {
             <hr />
             <div className="link">
               {link.isRegistrationOpen ? (
-                <Link href="/">
+                <Link href={`${baseUrl}${link.slug}`}>
                   <a>{link.isRegistered ? "View Application" : "Register"}</a>
                 </Link>
               ) : (
@@ -60,6 +67,10 @@ const CompetitionsCard: React.FC = () => {
         ))}
       </div>
       <style jsx>{`
+        #dashboard-area {
+          min-height: 60vh;
+        }
+
         .card {
           padding: 0.625rem;
           border: 1px solid #431785;

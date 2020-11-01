@@ -1,9 +1,7 @@
+import Link from "next/link";
 import * as React from "react";
+import { useDashboard } from "../../../provider/DashboardProvider";
 
-type Props = {
-  setActive: (integer: number) => void;
-  active?: number;
-};
 // type ClickableProps = {
 //   icon: string;
 // };
@@ -15,37 +13,46 @@ type Props = {
 const timData = [
   {
     text: "Informasi Tim",
-    link: "../../../img/dashboard/submission/tim.png"
+    image: "../../../img/dashboard/submission/tim.png",
+    link: "/dashboard/competitions/datavidia/",
   },
   {
     text: "Anggota Tim",
-    link: "../../../img/dashboard/submission/anggota.png"
+    image: "../../../img/dashboard/submission/anggota.png",
+    link: "/dashboard/competitions/datavidia/anggota-tim"
   }
 ];
 
 const anggotaData = [
   {
     text: "Foto Diri",
-    link: "../../../img/dashboard/submission/lingkaran.png"
+    image: "../../../img/dashboard/submission/lingkaran.png",
+    link: "/dashboard/competitions/datavidia/status-tim"
   },
   {
     text: "KTP/KTM",
-    link: "../../../img/dashboard/submission/jampasir.png"
+    image: "../../../img/dashboard/submission/jampasir.png",
+    link: "/dashboard/competitions/datavidia/status-tim"
   },
   {
     text: "SKMA",
-    link: "../../../img/dashboard/submission/check.png"
+    image: "../../../img/dashboard/submission/check.png",
+    link: "/dashboard/competitions/datavidia/status-tim"
   },
   {
     text: "Bukti Pembayaran",
-    link: "../../../img/dashboard/submission/lingkaran.png"
+    image: "../../../img/dashboard/submission/lingkaran.png",
+    link: "/dashboard/competitions/datavidia/status-tim"
   },  
 ];
 
-const SubmissionProgress: React.FC<Props> = ({ active, setActive }) => {
+const SubmissionProgress: React.FC = () => {
+  const { active, setActive } = useDashboard();
+  
   const handleClick = (num: number) => {
-    setActive(num);
-  };
+    setActive(num);    
+  };  
+
   return (
     <div className="container mb-3 card">
       <h2>Nama Tim </h2>
@@ -57,14 +64,16 @@ const SubmissionProgress: React.FC<Props> = ({ active, setActive }) => {
         <ul className="list">
           {
             timData.map((datum, i) => 
-              <li onClick={() => handleClick(i)} key={datum.text} className={active === i ? "active" : ""}>
-                {active === i && <span id='right-roller'></span>}
-                <img src={datum.link} className="mr-3"/>
-                {datum.text}
-              </li>
+              <Link href={datum.link} key={datum.text}><a>
+                <li onClick={() => handleClick(i)} className={active === i ? "active" : ""}>
+                  {active === i && <span id='right-roller'></span>}
+                  <img src={datum.image} className="mr-3"/>
+                  {datum.text} {i}
+                </li>
+              </a></Link>
             )
           }
-          
+
         </ul>
       </div>
       <div className="not-dropdown">
@@ -74,11 +83,13 @@ const SubmissionProgress: React.FC<Props> = ({ active, setActive }) => {
         <ul className="list">
           {
             anggotaData.map((datum, i) => 
-              <li onClick={() => handleClick(i + 2)} key={datum.text} className={active === (i + 2) ? "active" : ""}>
-                {active === i + 2 && <span id='right-roller'></span>}
-                <img src={datum.link} className="mr-3"/>
-                {datum.text}
-              </li>
+              <Link href={datum.link} key={datum.text}><a>
+                <li onClick={() => handleClick(i + 2)}  className={active === (i + 2) ? "active" : ""}>
+                  {active === i + 2 && <span id='right-roller'></span>}
+                  <img src={datum.image} className="mr-3"/>
+                  {datum.text}
+                </li>
+              </a></Link>
             )
           }          
         </ul>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
@@ -6,31 +5,21 @@ import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const Prasyarat: React.FC = () => {
-  const [active, setActive] = useState(1);
 
   return (
-<<<<<<< HEAD
-    <Layout title="Prasyarat | Arkavidia 7.0" background="white">
-=======
     <Layout title="Prasyarat | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
       <DashboardWrapper />
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-10 col-md-3 mt-5">
-<<<<<<< HEAD
-            <SubmissionProgress setActive={setActive} active={active}/>
-=======
-            <SubmissionProgress setActive={setActive}/>
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
+      <div className="container" id='dashboard-area'>
+        <div className="row container">
+          <div className="col-sm-10 col-md-4 mt-5">
+            <SubmissionProgress />
           </div>
           <div
-            className="container-fluid mb-5 mt-5 col-sm-12 col-md-9"
+            className="container-fluid mb-5 mt-5 col-sm-12 col-md-8"
             id="main"
           >
             <div id="content-container">
               <div id="heading">Persyaratan Pendaftaran - (syarat)</div>
-              {active}
               <div id="ketentuan" className="mt-3">
                 <div className="title">Ketentuan:</div>
                 <div className="subtitle">
@@ -62,6 +51,10 @@ const Prasyarat: React.FC = () => {
           </div>
         </div>
         <style jsx>{`
+          #dashboard-area {
+            min-height: 60vh;
+          }
+          
           #main {
             display: flex;
           }
@@ -105,6 +98,9 @@ const Prasyarat: React.FC = () => {
           @media (max-width: 800px) {
             #bg-container {
               display: none;
+            }
+            .mt-5 {
+              margin-top: 0rem !important;
             }
           }
 

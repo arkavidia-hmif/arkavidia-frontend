@@ -3,6 +3,7 @@ import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap-reboot.min.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import ApiProvider from '../components/provider/ApiProvider';
+import DashboardProvider from '../components/provider/DashboardProvider';
 // import AuthProvider from '../components/provider/AuthProvider';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -16,7 +17,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       {/* <AuthProvider> */}
       <ApiProvider>
-        <Component {...pageProps} />
+        <DashboardProvider>
+          <Component {...pageProps} />
+        </DashboardProvider>
       </ApiProvider>
       {/* </AuthProvider> */}
       <style global jsx>{`

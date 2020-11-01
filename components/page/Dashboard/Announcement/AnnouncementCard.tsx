@@ -15,7 +15,7 @@ const AnnouncementCard: React.FC = () => {
   ];
 
   return (
-    <div className="container mb-3">
+    <div className="container mb-3" id='dashboard-area'>
       <div className="container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="card mt-3">
@@ -30,6 +30,10 @@ const AnnouncementCard: React.FC = () => {
         ))}
       </div>
       <style jsx>{`
+        #dashboard-area {
+          min-height: 60vh;
+        }
+
         .card {
           padding: 0.625rem;
           border: 1px solid #431785;
@@ -64,10 +68,7 @@ const AnnouncementCard: React.FC = () => {
         }
 
         a {
-<<<<<<< HEAD
-=======
           color: #623fa2;
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
           text-decoration: none;
         }
 

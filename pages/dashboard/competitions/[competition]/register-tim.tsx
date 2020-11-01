@@ -4,13 +4,9 @@ import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
-<<<<<<< HEAD
-  <Layout title="Competitions | Arkavidia 7.0" background="white">
-=======
   <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
     <DashboardWrapper />
-    <div className="container">
+    <div className="container" id='dashboard-area'>
       <div className="container-fluid mb-5 mt-5" id="main">
         <div id="content-container">
           <div id="heading">Buat Tim</div>
@@ -29,6 +25,10 @@ const RegisterTim: React.FC = () => (
         </div>
       </div>
       <style jsx>{`
+        #dashboard-area {
+          min-height: 60vh;
+        }
+        
         #main {
           display: flex;
           margin-left: 4rem;
@@ -87,6 +87,9 @@ const RegisterTim: React.FC = () => (
         @media (max-width: 800px) {
           #bg-container {
             display: none;
+          }
+          .mt-5 {
+            margin-top: 0rem;
           }
         }
 

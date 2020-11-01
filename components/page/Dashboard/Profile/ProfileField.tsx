@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ModalProfile from './ModalProfile';
 
 const ProfileField: React.FC = () => {
   // example data
@@ -34,12 +35,8 @@ const ProfileField: React.FC = () => {
   ];
   
   return (
-    <div className="container mb-3">
-<<<<<<< HEAD
-      <div className="container-fluid">
-=======
+    <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
         {ex?.map((link, index) => (
           <div key={index} className="field col-6 mt-3">
             <div className="title">
@@ -49,15 +46,16 @@ const ProfileField: React.FC = () => {
               {link.content}
             </div>
           </div>
-        ))}
+        ))}        
       </div>
+      <ModalProfile/>
       <style jsx>{`
+        #dashboard-area {
+          min-height: 60vh;
+        }
+
         .field{
           max-width: 27rem;
-<<<<<<< HEAD
-          float: left;
-=======
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
         }
 
         .title{
@@ -86,8 +84,4 @@ const ProfileField: React.FC = () => {
   );
 };
 
-<<<<<<< HEAD
 export default ProfileField;
-=======
-export default ProfileField;
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e

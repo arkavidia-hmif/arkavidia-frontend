@@ -19,16 +19,10 @@ const PreEventsCard: React.FC = () => {
   ];
   
   return (
-    <div className="container mb-3">
-<<<<<<< HEAD
-      <div className="container-fluid">
-        {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col-4 mr-4">
-=======
+    <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="card mt-3 col-md-4 col-xs-6 mr-4">
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
             <div className="title">
               {link.title}
             </div>
@@ -56,6 +50,10 @@ const PreEventsCard: React.FC = () => {
         ))}
       </div>
       <style jsx>{`
+        #dashboard-area {
+          min-height: 60vh;
+        }
+        
         .card {
           padding: 0.625rem;
           border: 1px solid #431785;
@@ -63,11 +61,6 @@ const PreEventsCard: React.FC = () => {
           max-height: auto;
           border-radius: 10px;
           background-color: white;
-<<<<<<< HEAD
-
-          float:left;
-=======
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
         }
 
         .title{
@@ -95,10 +88,7 @@ const PreEventsCard: React.FC = () => {
         }
 
         a{
-<<<<<<< HEAD
-=======
           color: #623fa2;
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
           text-decoration: none;
         }
 
@@ -118,8 +108,4 @@ const PreEventsCard: React.FC = () => {
   );
 };
 
-<<<<<<< HEAD
 export default PreEventsCard;
-=======
-export default PreEventsCard;
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
