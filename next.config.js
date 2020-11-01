@@ -15,7 +15,7 @@ module.exports = {
 
     const filteredPathMap = {};
     for (const key in defaultPathMap) {
-      if (!key.startsWith('/dashboard')) {
+      if (!key.startsWith('/dashboard') && !key.startsWith('/email')) {
         filteredPathMap[key] = defaultPathMap[key];
       }
     }

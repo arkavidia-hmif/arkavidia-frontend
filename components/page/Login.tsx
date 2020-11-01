@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 import FilledButton from "../FilledButton";
 import ColorfulHeader from '../ColorfulHeader';
 import { Theme } from '../../styles/theme';
@@ -11,7 +12,6 @@ import Alert from '../Alert';
 import { ApiError } from "../../api/error";
 import InputField from '../auth/InputField';
 import GradientSeparator from '../auth/GradientSeparator';
-import { useRouter } from 'next/dist/client/router';
 
 const Login: React.FC = () => {
   const router = useRouter();

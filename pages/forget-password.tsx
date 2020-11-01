@@ -3,12 +3,8 @@ import { useContext, useState } from 'react';
 import { requestResetPassword } from '../api/auth';
 import Alert from '../components/Alert';
 import AuthWrapper from '../components/auth/AuthWrapper';
-import GradientSeparator from '../components/auth/GradientSeparator';
 import InputField from '../components/auth/InputField';
-import ColorfulHeader from '../components/ColorfulHeader';
 import FilledButton from '../components/FilledButton';
-import Layout from '../components/Layout';
-import { Theme } from '../styles/theme';
 import { ApiContext } from '../utils/context/api';
 import { isValidEmail } from '../utils/validator';
 

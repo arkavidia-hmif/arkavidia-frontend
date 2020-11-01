@@ -5,13 +5,9 @@ import { resetPassword } from "../../../api/auth";
 import { ApiError } from "../../../api/error";
 import Alert from "../../../components/Alert";
 import AuthWrapper from "../../../components/auth/AuthWrapper";
-import GradientSeparator from "../../../components/auth/GradientSeparator";
 import InputField from "../../../components/auth/InputField";
-import ColorfulHeader from "../../../components/ColorfulHeader";
 import FilledButton from "../../../components/FilledButton";
-import Layout from "../../../components/Layout";
 import { EmailResetPasswordStatus } from "../../../interfaces/auth";
-import { Theme } from "../../../styles/theme";
 import { ApiContext } from "../../../utils/context/api";
 
 const EmailRecover: React.FC = () => {
@@ -19,6 +15,8 @@ const EmailRecover: React.FC = () => {
 
   const router = useRouter();
   const { token } = router.query;
+
+  if (!token) return null;
 
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,11 +35,6 @@ const EmailRecover: React.FC = () => {
 
     if (password !== confirmPassword) {
       setError('Pengulangan kata sandi harus sama');
-      return;
-    }
-
-    if (!token) {
-      setError('Tautan ini salah, silakan coba lakukan reset password lagi');
       return;
     }
 

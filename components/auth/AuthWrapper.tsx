@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 import { Theme } from "../../styles/theme";
 import ColorfulHeader from "../ColorfulHeader";
 import Layout from "../Layout";
