@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
@@ -28,8 +28,8 @@ const StatusTim: React.FC = () => {
                 <div className="subtitle">SMA 1 Bandung</div>
               </div>
               <div className="mt-5" id="button">
-                <div className="mr-5"><FilledButton text="Hapus Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem"/></div>
-                <div><FilledButton text="Edit Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem"/></div>
+                <div className="mr-5"><FilledButton text="Hapus Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem" /></div>
+                <div><FilledButton text="Edit Tim" color={Theme.buttonColors.purpleButton} padding="0.5rem 1.5rem" /></div>
               </div>
             </div>
             <div id="bg-container">

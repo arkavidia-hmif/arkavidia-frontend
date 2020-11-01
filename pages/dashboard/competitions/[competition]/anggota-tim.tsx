@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import { Theme } from "../../../../styles/theme";

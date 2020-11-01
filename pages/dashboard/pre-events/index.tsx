@@ -1,4 +1,4 @@
-import DashboardWrapper from '../../../components/page/Dashboard/DashboardWrapper';
+import DashboardWrapper from '../../../components/dashboard/DashboardWrapper';
 import PreEventsCard from '../../../components/page/Dashboard/Pre-Events/PreEventsCard';
 import Layout from '../../../components/Layout';
 import { Theme } from '../../../styles/theme';

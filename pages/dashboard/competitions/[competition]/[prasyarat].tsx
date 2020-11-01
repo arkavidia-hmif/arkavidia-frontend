@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
@@ -33,7 +33,7 @@ const Prasyarat: React.FC = () => {
               <div id="upload" className="mt-3">
                 <div className="title">Upload:</div>
                 <div id="upload-field" className="mt-3">
-                  <FilledButton text="Pilih file" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem"/>
+                  <FilledButton text="Pilih file" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem" />
                   <div className="subtitle ml-3 mt-1">Fotosaya.jpg</div>
                 </div>
               </div>
@@ -42,7 +42,7 @@ const Prasyarat: React.FC = () => {
                 <div className="subtitle">Belum diverivikasi</div>
               </div>
               <div id="simpan" className="mt-5">
-                <FilledButton text="Simpan" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem"/>
+                <FilledButton text="Simpan" color={Theme.buttonColors.purpleButton} padding="0.5rem 2rem" />
               </div>
             </div>
             <div id="bg-container">

@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout';
-import DashboardWrapper from '../../components/page/Dashboard/DashboardWrapper';
+import DashboardWrapper from '../../components/dashboard/DashboardWrapper';
 import ProfileField from '../../components/page/Dashboard/Profile/ProfileField';
 import { Theme } from '../../styles/theme';
 

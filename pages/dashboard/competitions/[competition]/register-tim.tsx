@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/page/Dashboard/DashboardWrapper";
+import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
@@ -17,7 +17,7 @@ const RegisterTim: React.FC = () => (
             <input id="asal" type="asal" />
             <br />
             <br />
-            <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton}/>
+            <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} />
           </form>
         </div>
         <div id="bg-container">

@@ -16,24 +16,18 @@ const AnnouncementCard: React.FC = () => {
 
   return (
     <div className="container mb-3" id='dashboard-area'>
-      <div className="container-fluid">
-        {ex?.map((link, index) => (
-          <div key={index} className="card mt-3">
-            <div className="title">{link.title}</div>
-            <div className="content">{link.content}</div>
-            <div className="link">
-              <Link href="/">
-                <a>Upload bukti</a>
-              </Link>
-            </div>
+      {ex?.map((link, index) => (
+        <div key={index} className="card mt-3">
+          <div className="title">{link.title}</div>
+          <div className="content">{link.content}</div>
+          <div className="link">
+            <Link href="/">
+              <a>Upload bukti</a>
+            </Link>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
       <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-
         .card {
           padding: 0.625rem;
           border: 1px solid #431785;

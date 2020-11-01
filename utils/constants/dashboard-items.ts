@@ -1,4 +1,4 @@
-const DashItems = [
+const DashboardItems = [
   {
     title: "ANNOUNCEMENT",
     route: "/dashboard",
@@ -21,4 +21,4 @@ const DashItems = [
   },
 ];
 
-export default DashItems;
+export default DashboardItems;
