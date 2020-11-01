@@ -12,7 +12,7 @@ const AnnouncementCard: React.FC = () => {
   const token = authContext.auth?.token; 
 
   //fetch announcment list
-  const [announcement, setAnnouncement] = useState([]);
+  const [announcement, setAnnouncement] = useState<any[]>([]);
 
   const getAnnouncement = () => {
 
@@ -24,8 +24,8 @@ const AnnouncementCard: React.FC = () => {
     };
  
     apiContext.axios.get('/announcement/announcements/', config)
-      .then((data) => {setAnnouncement(data.data); })
-      .catch((err) => {setError(err.code); });
+      .then((data: any) => {setAnnouncement(data.data); })
+      .catch((err: any) => {setError(err.code); });
   };
   useEffect(() => {
     getAnnouncement();
