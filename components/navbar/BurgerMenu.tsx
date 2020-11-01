@@ -1,7 +1,9 @@
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { Dimen } from '../../styles/dimen';
-import menuItem from '../../utils/constants/nav-items';
+import items from '../../utils/constants/nav-items';
+import { AuthContext } from '../../utils/context/auth';
 import BurgerSubMenu from './BurgerSubMenu';
 
 type Props = {
@@ -9,7 +11,10 @@ type Props = {
 }
 
 const BurgerMenu: React.FC<Props> = ({ open }) => {
-  const toggleState = menuItem.map((entry) => {
+  const authContext = useContext(AuthContext);
+  const router = useRouter();
+
+  const toggleState = items.map((entry) => {
     if (entry.submenu) {
       return useState(false);
     } else {
@@ -20,7 +25,11 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
   return (
     <div>
       <div className="burger-menu">
-        {menuItem.map((link, index) => {
+        {items.map((link, index) => {
+          if (link.protected && !authContext.authenticated) {
+            return;
+          }
+
           if (link.submenu) {
             const toggle = toggleState[index][0];
             const setToggle = toggleState[index][1];
@@ -41,7 +50,14 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
             );
           }
         })}
-        <Link href="/login"><a>Login</a></Link>
+        {authContext.authenticated
+          ? <a onClick={() => {
+            router.push('/');
+            authContext.setAuthenticated(false);
+            authContext.setAuth();
+          }}>Logout</a>
+          : <Link href="/login"><a>Login</a></Link>}
+
       </div>
 
       <style jsx>{`
@@ -89,7 +105,7 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
           transition: color 0.3s linear;
         }
 
-        @media (max-width: 1300px) {
+        @media (max-width: ${Dimen.navbarBreakpoint}) {
           .burger-menu {
             display: flex;
           }

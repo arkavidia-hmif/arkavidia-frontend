@@ -21,6 +21,8 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color 
         outline: 0;
       }
       #container {
+        border: 0;
+
         display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 10px;

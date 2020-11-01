@@ -20,3 +20,7 @@ export enum LoginStatus {
 export enum EmailResetPasswordStatus {
   ERROR, INVALID_TOKEN
 }
+
+export enum EmailVerifyStatus {
+  ERROR, INVALID_TOKEN
+}

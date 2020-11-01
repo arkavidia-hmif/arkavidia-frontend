@@ -1,3 +1,5 @@
+import { Dimen } from "../../styles/dimen";
+
 type Props = {
   open: boolean,
   setOpen: (input: boolean) => void
@@ -38,7 +40,7 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
         transform-origin: 1px;
       }
 
-      @media (max-width: 1300px) {
+      @media (max-width: ${Dimen.navbarBreakpoint}) {
         .burger {
           display: flex;
         }
