@@ -35,7 +35,7 @@ const ProfileField: React.FC = () => {
   
   return (
     <div className="container mb-3">
-      <div className="container-fluid">
+      <div className="row container-fluid">
         {ex?.map((link, index) => (
           <div key={index} className="field col-6 mt-3">
             <div className="title">
@@ -50,7 +50,6 @@ const ProfileField: React.FC = () => {
       <style jsx>{`
         .field{
           max-width: 27rem;
-          float: left;
         }
 
         .title{

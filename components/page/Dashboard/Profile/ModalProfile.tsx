@@ -8,9 +8,7 @@ const ModalProfile: React.FC = () => {
         <FilledButton text="Edit Profile" padding="0.75rem 3rem" />
       </div>
       <style jsx>{`
-        #main{
-            float: none;
-        }
+       
       `}</style>
     </div>
   );
