@@ -82,6 +82,7 @@ const NavDesktop: React.FC = () => {
             font-weight: normal;
             font-size: 1.5rem;
             text-decoration: none;
+            outline: none;
           }
 
           li {

@@ -45,22 +45,22 @@ const SmallRibbon : React.FC<Props> = ({title, caption}) => (
   
             @media only screen and (max-width: 1000px) {
                 .background-no-ribbon {
-                    height: "auto";
+                    height: auto;
                     width: 10rem;
                     background: rgba(219, 205, 255, 0.72);
                     border-radius: 10px;
                     margin-right: 3%;
-                    padding: 2%;
+                    padding: 1rem;
                 }
 
                 .juara-text {
-                    font-size: 1.2rem;
+                    font-size: .9rem;
                     margin-block-start: 0em;
                     margin-block-end: 0em;
                 }
 
                 .hadiah-text {
-                    font-size: 1.2rem;
+                    font-size: .8rem;
                     color: #431785;
                     margin-block-start: 0em;
                     margin-block-end: 0em;

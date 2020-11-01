@@ -37,6 +37,7 @@ const GameJamRibbon : React.FC = () => (
                 flex-direction: row;
                 margin-top: 2%;
                 justify-content: center;
+                max-width: 100%;
             }
 
             .margins {

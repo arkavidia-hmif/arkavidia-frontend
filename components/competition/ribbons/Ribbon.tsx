@@ -1,7 +1,14 @@
 import * as React from 'react';
-import items from '../../../../utils/constants/timeline-items';
 
-const Ribbon: React.FC = () => (
+type Props = {
+  items : {
+    date: string;
+    content: string;
+    css: { background: string; };
+  }[];
+}
+
+const Ribbon: React.FC<Props> = ({ items }) => (
   <div id="ribbon-container">
     {items.map((item, index) =>
       <div className="ribbon" key={index} style={item.css}>

@@ -80,6 +80,7 @@ export const Theme = {
   bgColors: {
     whblpi: 'linear-gradient(to bottom, #FFFFFF 4%, #DAFFFF 44%, #FFDFF2 93%)', // White blue pink
     whpipl: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.26) 0.19%, rgba(255, 163, 186, 0.38) 59.95%, rgba(168, 142, 215, 0.56) 100%);', // White pink purple
+    whblplc: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 255, 255, 0.03) 46.78%, rgba(179, 149, 255, 0.659) 100%);',
     whblpl: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 17.32%, rgba(0, 255, 255, 0.21) 56.34%, rgba(218, 125, 218, 0.58) 100%);', // White blue purple
     whtogr: 'linear-gradient(0deg, rgba(168, 142, 215, 0.39) 2.49%, rgba(196, 196, 196, 0) 48.34%)' // white to grey
   },

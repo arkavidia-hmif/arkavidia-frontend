@@ -28,6 +28,7 @@ const BigRibbon : React.FC<Props> = ({image, title, caption}) => (
             }
 
             .ribbon {
+                max-width: 100%;
                 width: 8rem;
                 height: "auto";
                 opacity: 0.8;
@@ -36,13 +37,13 @@ const BigRibbon : React.FC<Props> = ({image, title, caption}) => (
             .juara-text {
                 font-family: Roboto;
                 font-size: 2rem;
-                text-align: center;       
+                text-align: center;
                 color: #000000;
                 margin-block-start: 0em;
                 margin-block-end: 0em;
             }
 
-            .hadiah-text {       
+            .hadiah-text {
                 font-family: 'Roboto';
                 font-size: 2rem;
                 text-align: center;
@@ -53,13 +54,12 @@ const BigRibbon : React.FC<Props> = ({image, title, caption}) => (
                 margin-inline-start: 0.25em;
                 margin-inline-end: 0.25em;
             }
-  
             @media only screen and (max-width: 1000px) {
                 .background-ribbon {
-                    width: 10rem;
-                    height: 11rem;
+                    width: auto;
+                    height: auto;
                     border-radius: 10px;
-                    padding: 4%;
+                    padding: 2rem;
                     margin-right: 2%;
                 }
                 
@@ -68,13 +68,13 @@ const BigRibbon : React.FC<Props> = ({image, title, caption}) => (
                 }
 
                 .juara-text {
-                    font-size: 1.3rem;
+                    font-size: 1rem;
                     margin-block-start: 0em;
                     margin-block-end: 0em;
                 }
 
                 .hadiah-text {
-                    font-size: 1.3rem;
+                    font-size: 1rem;
                     color: #431785;
                     margin-block-start: 0em;
                     margin-block-end: 0em;
@@ -82,6 +82,25 @@ const BigRibbon : React.FC<Props> = ({image, title, caption}) => (
                     margin-inline-end: 0.5em;
                 }
             }
+            @media only screen and (max-width: 500px) {
+                .background-ribbon {
+                    width: auto;
+                    padding: 1rem;
+                    height: auto;
+                }
+                .ribbon {
+                    width: 3rem;
+                }
+                .juara-text {
+                    font-size: .9rem;
+                    margin-block-start: 0em;
+                    margin-block-end: 0em;
+                }
+                .hadiah-text {
+                    font-size: .8rem;
+                }
+            }
+            
           `}</style>
   </div>
 );

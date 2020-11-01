@@ -6,90 +6,65 @@ type Props = {
   }
 
 const Category : React.FC<Props> = ({category, fee}) => (
-  <div>
-    <div className="flex-row-category">
-      <p className="category"><strong>Kategori</strong></p>
-      <p className="category-text"><span className="category-bubble">{category}</span></p>
+  <div id="pricing">
+    <div className="wrapper">
+      <div className="text">
+        <p>Kategori</p>
+      </div>
+      <div className="coloredText">
+        <p>{category}</p>
+      </div>
     </div>
-    <div className="flex-row-category">
-      <p className="category"><strong>Biaya Pendaftaran</strong></p>
-      <p className="category-text"><span className="category-bubble">{fee}</span></p>
+    <div className="wrapper">
+      <div className="text">
+        <p>Biaya Pendaftaran</p>
+      </div>
+      <div className="coloredText">
+        <p>{fee}</p>
+      </div>
     </div>
     <style jsx>{`
-            .flex-row-category {
+            p {
+                margin: 0;
+            }
+
+            #pricing {
+                margin-bottom: 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .wrapper {
+                margin: 1rem 0;
                 display: flex;
-                flex-direction: row;
+                align-items: center
+            }
+
+            .text {
+                padding-right: 1rem;
+                font-weight: 700;
+            }
+
+            .coloredText {
+                display: flex;
                 align-items: center;
-            }
-  
-            .category {
-                font-family: 'Roboto';
-                font-weight: bold;
-                font-size: 1.3rem;
-                text-align: center;
-                color: #000000;
-                margin-block-start: 0em;
-                margin-block-end: 0em;
-            }
-
-            .category-text {
-                font-size: 1.5rem;
-                text-align: left;
-                margin-block-start: 0.5vw;
-                margin-block-end: 0.5vw;
-                min-width: 58%;
-                margin-left: 2%;
-            }
-
-            .category-bubble {
+                justify-content: center;
+                color: #FFFF;
                 background: #906AF7;
-                border-radius: 2vw;
-                min-width: 110%;
-                font-family: Roboto;
-                font-size: 1.3rem;
-                color: #FFFFFF;
-
-                padding: 1%;
-                padding-left: 3%;
-                padding-right: 3%;
-                margin-block-start: 0em;
-                margin-block-end: 0;
+                border-radius: 15px;
+                padding: 0.3rem 0.5rem;
             }
-  
-            @media only screen and (max-width: 1000px) {
-                .flex-row-category {
-                    display: flex;
+
+            @media (max-width: 1000px) {
+                .wrapper {
                     flex-direction: column;
-                    align-items: center;
-                }
-                
-                .category {
-                    font-size: 1.2rem;
-                    margin-block-start: 1em;
-                    margin-block-end: 0.5em;
                 }
 
-                .category-text {
-                    font-size: 1.2rem;
-                    width: 100%;
-                    margin-block-start: 0.5vw;
-                    margin-block-end: 0.5vw;
-                    text-align: center;
-                    margin-left: 0;
-                }
-            
-                .category-bubble {
-                    border-radius: 0.8rem;
-                    min-width: 130%;
-                    font-family: Roboto;
-                    font-size: 1.2rem;
-                    margin-left: 1%;
-                    padding: 1.2%;
-                    margin-block-end: 3vw;
+                .coloredText {
+                    margin-top: 2%;
                 }
             }
-          `}</style>
-  </div>
+        `}</style>
+  </div> 
 );
   
 export default Category;
