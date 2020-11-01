@@ -11,12 +11,14 @@ type Props = {
 
 const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color = Theme.buttonColors.pinkButton }) => (
   <>
-    <div id="container" onClick={onClick} style={{ padding }}>
+    <button id="container" onClick={onClick} style={{ padding }}>
       <div id="loader"></div>
       <b>{text}</b>
-    </div>
+    </button>
     <style jsx>{`
       #container {
+        border: 0;
+
         display: inline-block;
         padding: 0.5rem 1rem;
         border-radius: 10px;
