@@ -34,8 +34,11 @@ const NavDesktop: React.FC = () => {
             return (
               <li key={index} className="mt-3">
                 <a
+                  href="javascript:;"
                   style={{ cursor: 'pointer' }}
                   className={router.pathname.startsWith(link.path) ? "current" : ""}
+                  onFocus={() => setHover(true)}
+                  onBlur={() => setHover(false)}
                   onMouseOver={() => setHover(true)}
                   onMouseLeave={() => setHover(false)}
                 >
@@ -57,7 +60,6 @@ const NavDesktop: React.FC = () => {
       </ul>
       {authContext.authenticated ?
         <FilledButton text="LOGOUT" padding="0.75em 1.5em" onClick={() => {
-          router.push('/');
           authContext.setAuthenticated(false);
           authContext.setAuth();
         }} />

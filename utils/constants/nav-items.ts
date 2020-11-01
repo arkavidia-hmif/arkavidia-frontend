@@ -77,8 +77,7 @@ const NavItems = [
   {
     text: 'DASHBOARD',
     path: '/dashboard',
-    protected: true,
-    submenu: []
+    protected: true
   }
 ];
 
