@@ -16,30 +16,30 @@ const AnnouncementCard: React.FC = () => {
 
     const config = {
       headers : {
-            "Content-type" : "application/json",
-            "Authorization" :  `Bearer ${token}`
-        }
-    }
+        "Content-type" : "application/json",
+        "Authorization" :  `Bearer ${token}`
+      }
+    };
  
     apiContext.axios.get('/announcement/announcements/', config)
-    .then((data) => {setAnnouncement(data.data); })
-    .catch((err) => {console.log(err); });
-  }
+      .then((data) => {setAnnouncement(data.data); })
+      .catch((err) => {console.log(err); });
+  };
   useEffect(() => {
     getAnnouncement();
-  }, [])
+  }, []);
   
   // example data
-  const ex = [
-    {
-      title: "COMPETITIVE PROGRAMMING",
-      content: "BATAS waktu",
-    },
-    {
-      title: "ARKALOGICA",
-      content: "BATAS waktu",
-    },
-  ];
+  // const ex = [
+  //   {
+  //     title: "COMPETITIVE PROGRAMMING",
+  //     content: "BATAS waktu",
+  //   },
+  //   {
+  //     title: "ARKALOGICA",
+  //     content: "BATAS waktu",
+  //   },
+  // ];
 
   return (
     <div className="container mb-3" id='dashboard-area'>
