@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Axios from 'axios';
+import { SWRConfig } from 'swr';
 import { ApiContext, ApiContextType } from '../../utils/context/api';
 import { AuthContext } from '../../utils/context/auth';
-import { SWRConfig } from 'swr';
 
 type Props = {
   children: React.ReactNode

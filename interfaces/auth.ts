@@ -16,3 +16,7 @@ export type AuthData = {
 export enum LoginStatus {
   ERROR, INVALID_CREDS, EMAIL_NOT_CONFIRMED
 }
+
+export enum EmailResetPasswordStatus {
+  ERROR, INVALID_TOKEN
+}

@@ -7,17 +7,21 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    "plugin:react/recommended"
+    'plugin:react/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript'
   ],
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/order': ['error'],
     'indent': ['error', 2],
     'semi': ['warn'],
     'no-var': 'error',
     'eqeqeq': 'error',
     'no-console': 'warn',
-    'curly': ['error', 'multi-line']
+    'curly': ['error', 'multi-line'],
   },
   settings: {
     react: {

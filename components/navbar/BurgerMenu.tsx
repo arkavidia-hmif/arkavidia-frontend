@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { Fragment, useState } from 'react';
 import { Dimen } from '../../styles/dimen';
-import { useState } from 'react';
 import menuItem from '../../utils/constants/nav-items';
 import BurgerSubMenu from './BurgerSubMenu';
 
@@ -28,16 +28,16 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
             const arrowClass = "arrow " + (toggle ? "up" : "down");
 
             return (
-              <>
+              <Fragment key={index}>
                 <a onClick={() => setToggle(!toggle)}>{link.text} <i className={arrowClass}></i></a>
                 <BurgerSubMenu items={link.submenu} toggle={toggle} />
-              </>
+              </Fragment>
             );
           } else {
             return (
-              <>
+              <Fragment key={index}>
                 <Link key={index} href={link.path}><a>{link.text}</a></Link>
-              </>
+              </Fragment>
             );
           }
         })}
