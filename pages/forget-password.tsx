@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useContext, useState } from 'react';
 import { requestResetPassword } from '../api/auth';
 import Alert from '../components/Alert';
+import AuthWrapper from '../components/auth/AuthWrapper';
 import GradientSeparator from '../components/auth/GradientSeparator';
 import InputField from '../components/auth/InputField';
 import ColorfulHeader from '../components/ColorfulHeader';
@@ -42,54 +43,32 @@ const LoginPage: React.FC = () => {
 
   return (
     <Layout background={Theme.bgColors.whpipl} title="Lupa Kata Sandi">
-      <div className="container mx-auto row mb-3">
-        <div className="col-md-6 px-4 px-md-5 mt-5">
-          <ColorfulHeader color={Theme.headerColors.plpi} headingLevel={6} size="3rem">Lupa Kata Sandi</ColorfulHeader>
-          <GradientSeparator />
-          <br />
-          {!success ?
-            <>
-              <Alert error={error} />
-              <p className="my-3">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
-              <form onSubmit={(evt) => {
-                evt.preventDefault();
-                onSubmit();
-              }}>
-                <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
-                <br />
-                <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
-              </form>
-            </>
-            : <>
-              <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
-              <Link href="/login">
-                <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
-              </Link>
-            </>}
-        </div>
-        <div className="col-md-6">
-          <img src="/img/bg-white.png" />
-        </div>
-        <style jsx>
-          {`
-          form {
-            margin-top: 2rem;
-            height: auto;
-            width: 78%;
-            display: block;
-          }
-
-          p {
-            font-size: 1.1rem;
-            color: #7446A1;
-          }
-
-          img {
-            width: 100%;
-          }
-        `}
-        </style>
-      </div>
+      <AuthWrapper title="Lupa Kata Sandi">
+        {!success ?
+          <>
+            <Alert error={error} />
+            <p className="my-3 mb-4">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
+            <form onSubmit={(evt) => {
+              evt.preventDefault();
+              onSubmit();
+            }}>
+              <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
+              <br />
+              <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
+            </form>
+          </>
+          : <>
+            <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
+            <Link href="/login">
+              <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
+            </Link>
+          </>}
+      </AuthWrapper>
+      <style jsx>{`
+        p {
+          color: #7446A1;
+        }
+      `}</style>
     </Layout>
   );
 };
