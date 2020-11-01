@@ -42,34 +42,32 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Layout background={Theme.bgColors.whpipl} title="Lupa Kata Sandi">
-      <AuthWrapper title="Lupa Kata Sandi">
-        {!success ?
-          <>
-            <Alert error={error} />
-            <p className="my-3 mb-4">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
-            <form onSubmit={(evt) => {
-              evt.preventDefault();
-              onSubmit();
-            }}>
-              <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
-              <br />
-              <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
-            </form>
-          </>
-          : <>
-            <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
-            <Link href="/login">
-              <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
-            </Link>
-          </>}
-      </AuthWrapper>
+    <AuthWrapper title="Lupa Kata Sandi">
+      {!success ?
+        <>
+          <Alert error={error} />
+          <p className="my-3 mb-4">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
+          <form onSubmit={(evt) => {
+            evt.preventDefault();
+            onSubmit();
+          }}>
+            <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
+            <br />
+            <FilledButton onClick={onSubmit} text="KIRIM" loading={loading} padding="0.75em 1.5em" />
+          </form>
+        </>
+        : <>
+          <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
+          <Link href="/login">
+            <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
+          </Link>
+        </>}
       <style jsx>{`
         p {
           color: #7446A1;
         }
       `}</style>
-    </Layout>
+    </AuthWrapper>
   );
 };
 
