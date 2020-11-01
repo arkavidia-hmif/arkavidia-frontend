@@ -22,7 +22,7 @@ const PreEventsCard: React.FC = () => {
     <div className="container mb-3">
       <div className="row container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col-4 mr-4">
+          <div key={index} className="card mt-3 col-md-4 col-xs-6 mr-4">
             <div className="title">
               {link.title}
             </div>

@@ -40,7 +40,7 @@ const CompetitionsCard: React.FC = () => {
     <div className="container mb-3">
       <div className="row container-fluid">
         {ex?.map((link, index) => (
-          <div key={index} className="card col-4 mt-3 mr-4">
+          <div key={index} className="card col-md-4 col-xs-6 mt-3 mr-4">
             <div className="title">{link.title}</div>
             <div className="content">{link.content}</div>
             <br />
