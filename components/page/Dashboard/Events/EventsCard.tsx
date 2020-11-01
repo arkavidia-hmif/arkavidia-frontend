@@ -51,14 +51,12 @@ const EventsCard: React.FC = () => {
         .title {
           font-family: Viga;
           font-size: 1.25rem;
-
           color: #05058d;
         }
 
         .content {
           font-family: Roboto;
           font-size: 1.125rem;
-
           color: #646464;
         }
 
@@ -73,10 +71,7 @@ const EventsCard: React.FC = () => {
         }
 
         a {
-<<<<<<< HEAD
-=======
           color: #623fa2;
->>>>>>> 21f06938466dc25b65da732b6cab103fec2ad99e
           text-decoration: none;
         }
 

@@ -22,7 +22,7 @@ const DashboardWrapper: React.FC = () => {
           </ColorfulHeader>
         </div>
 
-        <div id="menu" className="mt-3">
+        <div id="menu">
           <ul>
             {DashItems.map((link, index) => (
               <li key={index} className="item">
@@ -33,15 +33,17 @@ const DashboardWrapper: React.FC = () => {
                     {link.title}
                   </a>
                 </Link>
-                <div className="indicator mt-5"></div>
-                <div className="indicator-2 mt-5"></div>
+                <div className="indicator"></div>
+                <div className="indicator-2"></div>
               </li>
             ))}
           </ul>
-          <br />
         </div>
         <style jsx>
           {`
+          ::-webkit-scrollbar {
+            width: 0px;
+          }
             #dashboard {
               font-family: Viga;
               font-style: normal;
@@ -49,7 +51,11 @@ const DashboardWrapper: React.FC = () => {
               font-size: 2rem;
               color: #431785;
             }
-
+            #menu {
+              overflow-x: scroll;
+              overflow-y: hidden;
+              margin-top: 1rem;
+            }
             ul {
               display: flex;
               flex-direction: row;
@@ -58,7 +64,7 @@ const DashboardWrapper: React.FC = () => {
             }
 
             li {
-              margin: 0 2rem;
+              margin: 0 2rem 2rem;
               position: relative;
               display: flex;
             }
@@ -82,6 +88,7 @@ const DashboardWrapper: React.FC = () => {
               background: linear-gradient(90deg, #623fa2 0%, #f25785 100%);
               transition: opacity 0.2s ease-in;
               transform-origin: 1px;
+              bottom: -15px;
             }
 
             .indicator-2 {
@@ -91,6 +98,7 @@ const DashboardWrapper: React.FC = () => {
               width: 425%;
               height: 0.5rem;
               background: #c4c4c4;
+              bottom: -15px;
             }
 
             a:hover + .indicator {
@@ -109,7 +117,7 @@ const DashboardWrapper: React.FC = () => {
 
             @media (max-width: 450px) {
               li{
-                margin: 0 1rem;
+                margin: 0 1rem 2rem;
               }
               #dashboard {
                 font-size: 1.5rem;
