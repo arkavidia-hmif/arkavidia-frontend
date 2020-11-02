@@ -4,7 +4,7 @@ import { AuthData } from "../../interfaces/auth";
 import { AuthContext, AuthContextType } from "../../utils/context/auth";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
