@@ -1,15 +1,21 @@
-import * as React from 'react';
-import { ButtonColor, Theme } from '../styles/theme';
+import * as React from "react";
+import { ButtonColor, Theme } from "../styles/theme";
 
 type Props = {
-  onClick?: () => void,
-  text: string,
-  padding?: string,
-  color?: ButtonColor,
-  loading?: boolean
-}
+  onClick?: () => void;
+  text: string;
+  padding?: string;
+  color?: ButtonColor;
+  loading?: boolean;
+};
 
-const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color = Theme.buttonColors.pinkButton }) => (
+const FilledButton: React.FC<Props> = ({
+  onClick,
+  text,
+  padding,
+  loading,
+  color = Theme.buttonColors.pinkButton,
+}) => (
   <>
     <button id="container" onClick={onClick} style={{ padding }}>
       <div id="loader"></div>
@@ -53,21 +59,25 @@ const FilledButton: React.FC<Props> = ({ onClick, text, padding, loading, color 
         top: 0;
         bottom: 0;
       }
-      
+
       @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     `}</style>
     <style jsx>{`
       #loader {
-        ${loading ? 'display: block' : ''}
+        ${loading ? "display: block" : ""}
       }
       #container {
-        ${loading ? 'color: ' + color.main : ''}
+        ${loading ? "color: " + color.main : ""}
       }
       #container:hover {
-        ${loading ? 'color: ' + color.hover : ''}
+        ${loading ? "color: " + color.hover : ""}
       }
     `}</style>
   </>

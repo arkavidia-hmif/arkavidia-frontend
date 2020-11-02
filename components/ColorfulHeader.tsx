@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Theme } from '../styles/theme';
+import * as React from "react";
+import { Theme } from "../styles/theme";
 
 type Props = {
   children: React.ReactNode;

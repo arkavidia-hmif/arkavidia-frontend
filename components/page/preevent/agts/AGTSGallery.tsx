@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 const AGTSGallery: React.FC = () => (
   <div id="gallery-container">
@@ -11,36 +11,35 @@ const AGTSGallery: React.FC = () => (
       </div>
     </div>
     <style jsx>{`
-            #image-container {
-                display: flex;
-                margin-bottom: 10%;
-            }
+      #image-container {
+        display: flex;
+        margin-bottom: 10%;
+      }
 
-            .image-box1 img {
-                width: 100%;
-                padding-right: 1rem;
-            }
+      .image-box1 img {
+        width: 100%;
+        padding-right: 1rem;
+      }
 
-            .image-box2 img{
-                width: 100%;
-                padding: 0 1rem;
-            }
+      .image-box2 img {
+        width: 100%;
+        padding: 0 1rem;
+      }
 
-            @media (max-width: 1000px) {
-                .image-box1 {
-                    margin-right: 5%;
-                }
-                
-                .image-box1 img {
-                    padding: 0;
-                }
+      @media (max-width: 1000px) {
+        .image-box1 {
+          margin-right: 5%;
+        }
 
-                .image-box2 img {
-                    padding: 0;
-                }
-            }
+        .image-box1 img {
+          padding: 0;
+        }
 
-        `}</style>
+        .image-box2 img {
+          padding: 0;
+        }
+      }
+    `}</style>
   </div>
 );
 
