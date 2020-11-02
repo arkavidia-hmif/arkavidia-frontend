@@ -46,7 +46,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     setAuth: setAndSaveAuth,
   };
 
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     const router = useRouter();
 
     if (router.pathname.startsWith('/dashboard') && !authenticated && loaded) {
@@ -54,9 +54,14 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     }
   }
 
-  return (
-    <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
-  );
+  if (loaded || typeof window === 'undefined') {
+    return (
+      <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
+    );
+  } else {
+    return (<></>);
+  }
+
 };
 
 export default AuthProvider;
