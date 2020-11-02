@@ -22,9 +22,11 @@ export const createTeam = async (
     });
 };
 
-export const getTeam = async (axios: AxiosInstance): Promise<TeamData> => {
+export const getTeam = async (
+  axios: AxiosInstance
+): Promise<Array<TeamData>> => {
   return axios
-    .get<TeamData>(LIST_TEAM_URL)
+    .get<Array<TeamData>>(LIST_TEAM_URL)
     .then((response) => {
       return response.data;
     })
