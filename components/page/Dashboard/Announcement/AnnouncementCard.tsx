@@ -1,32 +1,33 @@
-import * as React from "react";
-import Link from "next/link";
+import { useContext} from "react";
+import useSWR from "swr";
+import { getAnnouncement, LIST_ANNOUNCEMENT_URL } from "../../../../api/announcement";
+import { ApiContext } from "../../../../utils/context/api";
+import Alert from "../../../Alert";
+import DashboardCard from "../../../dashboard/DashboardCard";
 
 const AnnouncementCard: React.FC = () => {
-  // example data
-  const ex = [
-    {
-      title: "COMPETITIVE PROGRAMMING",
-      content: "BATAS waktu",
-    },
-    {
-      title: "ARKALOGICA",
-      content: "BATAS waktu",
-    },
-  ];
+  const apiContext = useContext(ApiContext);
+
+  const {
+    data : announcement,
+    error : errorAnnouncement,
+  } = useSWR(LIST_ANNOUNCEMENT_URL, () => getAnnouncement(apiContext.axios));
 
   return (
     <div className="container mb-3" id='dashboard-area'>
-      {ex?.map((link, index) => (
-        <div key={index} className="card mt-3">
-          <div className="title">{link.title}</div>
-          <div className="content">{link.content}</div>
-          <div className="link">
-            <Link href="/">
-              <a>Upload bukti</a>
-            </Link>
-          </div>
-        </div>
-      ))}
+      <Alert error={errorAnnouncement} />
+      <div className="container-fluid">
+        {announcement?.map((link, index) => (
+          <DashboardCard
+            key={index}
+            className=""
+            title={link.title}
+            body={link.message}
+            buttonLink={"/"}
+            buttonText={"Upload bukti"}
+          />
+        ))}
+      </div>
       <style jsx>{`
         .card {
           padding: 0.625rem;
