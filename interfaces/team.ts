@@ -1,6 +1,5 @@
 import { Competition, Stage } from "./competition";
 import { TaskResponse } from "./task";
-import { TeamMember } from "./teamMember";
 
 export interface TeamRegistrationForm {
   competitionId: number;
@@ -34,6 +33,13 @@ export interface TeamDetailData {
   createdAt: string;
 }
 
-// export enum TeamRegistrationStatus {
-//   ERROR, INVALID_CREDS, EMAIL_NOT_CONFIRMED
+export interface TeamMember {
+  id: number;
+  fullName: string;
+  email: string;
+  hasAccount: string;
+  isTeamleader: string;
+  createdAt: string;
+}
+
 // }
