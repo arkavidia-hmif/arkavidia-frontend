@@ -14,7 +14,7 @@ const AnnouncementCard: React.FC = () => {
     getAnnouncement(apiContext.axios).then((data) => {
       setAnnouncement(data);
     }).catch((e) => {
-      setError(e)
+      setError(e);
     });
   }, []);
   
