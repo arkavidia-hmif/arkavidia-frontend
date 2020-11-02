@@ -3,12 +3,12 @@ export class ApiError<E> extends Error {
   public msg: string;
 
   constructor(code: E, message?: string) {
-    super(message || '');
+    super(message || "");
     this.code = code;
-    this.msg = message || '';
+    this.msg = message || "";
   }
 }
 
 export enum StandardError {
-  ERROR
+  ERROR,
 }

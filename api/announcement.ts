@@ -9,9 +9,8 @@ export async function getAnnouncement(
 ): Promise<AnnouncementData> {
   try {
     const response = await axios.get(LIST_ANNOUNCEMENT_URL);
-
     return response.data as AnnouncementData;
   } catch (e) {
-    throw new ApiError<StandardError>(StandardError.ERROR, e);
+    throw new ApiError<StandardError>(StandardError.ERROR, e.message);
   }
 }

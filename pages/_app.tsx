@@ -12,19 +12,25 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Viga"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto"
+          rel="stylesheet"
+        />
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon.ico" />
       </Head>
-      <AuthProvider>
-        <ApiProvider>
-          <DashboardProvider>
-            <Component {...pageProps} />
-          </DashboardProvider>
-        </ApiProvider>
-      </AuthProvider>
+      {/* <AuthProvider> */}
+      <ApiProvider>
+        <DashboardProvider>
+          <Component {...pageProps} />
+        </DashboardProvider>
+      </ApiProvider>
+      {/* </AuthProvider> */}
       <style global jsx>
         {`
           body {

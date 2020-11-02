@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import { getAnnouncement, LIST_ANNOUNCEMENT_URL } from "../../../../api/announcement";
+import {
+  getAnnouncement,
+  LIST_ANNOUNCEMENT_URL,
+} from "../../../../api/announcement";
 import { ApiContext } from "../../../../utils/context/api";
 import Alert from "../../../Alert";
 import DashboardCard from "../../../dashboard/DashboardCard";
@@ -14,7 +17,7 @@ const AnnouncementCard: React.FC = () => {
     error: errorAnnouncement,
   } = useSWR(LIST_ANNOUNCEMENT_URL, () => getAnnouncement(apiContext.axios));
 
-  if (errorAnnouncement) return (<Alert error={errorAnnouncement} />);
+  if (errorAnnouncement) return <Alert error={String(errorAnnouncement)} />;
   if (!announcement) return <Spinner height="200px" />;
 
   if (announcement.length === 0) {
@@ -27,15 +30,10 @@ const AnnouncementCard: React.FC = () => {
     return (
       <div className="mb-3">
         {announcement?.map((link, index) => (
-          <DashboardCard
-            key={index}
-            title={link.title}
-            body={link.message}
-          />
+          <DashboardCard key={index} title={link.title} body={link.message} />
         ))}
       </div>
     );
-
   }
 };
 
