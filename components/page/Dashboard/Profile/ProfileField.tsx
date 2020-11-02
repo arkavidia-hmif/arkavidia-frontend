@@ -1,9 +1,24 @@
 import { useContext } from 'react';
-import { AuthContext } from "../../../../utils/context/auth";
+import useSWR from "swr";
+import {
+  getProfile,
+  PROFILE_URL,
+} from "../../../../api/profile";
+import { ApiContext } from "../../../../utils/context/api";
 import ModalProfile from './ModalProfile';
+import Alert from "../../../Alert";
+import Spinner from "../../../Spinner";
 
 const ProfileField: React.FC = () => {
-  const authContext = useContext(AuthContext);
+  const apiContext = useContext(ApiContext);
+
+  const {
+    data: profile,
+    error: errorProfile,
+  } = useSWR(PROFILE_URL, () => getProfile(apiContext.axios));
+
+  if (errorProfile) return <Alert error="Masalah koneksi" />;
+  if (!profile ) return <Spinner height="200px" />;
 
   return (
     <div className="container mb-3" id='dashboard-area'>
@@ -11,43 +26,43 @@ const ProfileField: React.FC = () => {
         <div className="field col-6 mt-3">
           <div className="title"><h1>Nama</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.fullName || '-'}</p>
+            <p>{profile.fullName || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Nomor Telepon</h1></div>
+          <div className="title"><h1>Nomor Telefon</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.phoneNumber || '-'}</p>
+            <p>{profile.phoneNumber || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
           <div className="title"><h1>Email</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.email || '-'}</p>
+            <p>{profile.email || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
           <div className="title"><h1>Tanggal Lahir</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.birthDate || '-'}</p>
+            <p>{profile.birthDate || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
           <div className="title"><h1>Status</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.currentEducation || '-'}</p>
+            <p>{profile.currentEducation || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
           <div className="title"><h1>Alamat</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.address || '-'}</p>
+            <p>{profile.address || '-'}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Institusi</h1></div>
+          <div className="title"><h1>Universitas</h1></div>
           <div className="content">
-            <p>{authContext.auth?.user.institution || '-'}</p>
+            <p>{profile.institution|| '-'}</p>
           </div>
         </div>     
       </div>
