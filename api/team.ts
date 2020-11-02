@@ -37,7 +37,7 @@ export const getTeam = async (
 
 export const getTeamDetail = async (
   axios: AxiosInstance,
-  teamId: number
+  teamId: string
 ): Promise<TeamDetailData> => {
   return axios
     .get<TeamDetailData>(`/competition/teams/${teamId}/`)
@@ -52,7 +52,7 @@ export const getTeamDetail = async (
 export const putTeam = async (
   axios: AxiosInstance,
   teamForm: TeamRegistrationForm,
-  teamId: number
+  teamId: string
 ): Promise<TeamData> => {
   return axios
     .put<TeamData>(`/competition/teams/${teamId}`, teamForm)
@@ -67,7 +67,7 @@ export const putTeam = async (
 export const editTeam = async (
   axios: AxiosInstance,
   teamForm: Partial<TeamRegistrationForm>,
-  teamId: number
+  teamId: string
 ): Promise<TeamData> => {
   return axios
     .put<TeamData>(`/competition/teams/${teamId}`, teamForm)
@@ -81,7 +81,7 @@ export const editTeam = async (
 
 export const deleteTeam = async (
   axios: AxiosInstance,
-  teamId: number
+  teamId: string
 ): Promise<void> => {
   return axios
     .delete(`/competition/teams/${teamId}`)
