@@ -65,6 +65,7 @@ const CompetitionHeader: React.FC<Props> = ({
 
       p {
         font-size: 1.2rem;
+        line-height: 1.3;
       }
 
       @media (max-width: 1000px) {
@@ -83,12 +84,10 @@ const CompetitionHeader: React.FC<Props> = ({
         }
 
         h1 {
-          font-size: 3rem;
-        }
-      }
-      @media (max-width: 1000px) {
-        h1 {
           font-size: 2.5rem;
+        }
+        p {
+          line-height: 1.2;
         }
       }
     `}</style>

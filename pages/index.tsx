@@ -189,12 +189,16 @@ const IndexPage: React.FC = () => {
         #about-heading {
           font-size: 1.5rem;
         }
-
+        p {
+          line-height: 1.5;
+        }
         @media (max-width: 992px) {
           #about {
             text-align: center;
           }
-
+          p {
+            line-height: 1.2;
+          }
           h2 {
             margin: 1rem 0 0 0;
             font-size: 2rem;

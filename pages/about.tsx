@@ -25,7 +25,7 @@ const AboutPage: React.FC = () => {
               >
                 Arkavidia 7.0
               </ColorfulHeader>
-              <p className="p-1 p-md-0">
+              <p className="p-1 p-md-0 mt-2">
                 Arkavidia 7.0 adalah acara prestisius tahunan yang
                 diselenggarakan oleh Himpunan Mahasiswa Informatika Institut
                 Teknologi Bandung (HMIF ITB). Bertemakan &quot;Establishing
@@ -108,6 +108,7 @@ const AboutPage: React.FC = () => {
       <style jsx>{`
         p {
           font-size: 1.1rem;
+          line-height: 1.5;
         }
 
         img {
@@ -151,6 +152,7 @@ const AboutPage: React.FC = () => {
 
           p {
             font-size: 1rem;
+            line-height: 1.2;
           }
         }
       `}</style>
