@@ -1,3 +1,5 @@
+import { Task } from "./task";
+
 export interface Competition {
   id: number;
   name: string;
@@ -6,4 +8,11 @@ export interface Competition {
   minTeamMembers: number;
   isRegistrationOpen: boolean;
   viewIcon: string;
+}
+
+export interface Stage {
+  id: number;
+  name: string;
+  order: number;
+  tasks: Array<Task>;
 }

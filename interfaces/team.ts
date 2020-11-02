@@ -1,4 +1,6 @@
-import { Competition } from "./competition";
+import { Competition, Stage } from "./competition";
+import { TaskResponse } from "./task";
+import { TeamMember } from "./teamMember";
 
 export interface TeamRegistrationForm {
   competitionId: number;
@@ -14,6 +16,22 @@ export interface TeamData {
   institution: string;
   isParticipating: boolean;
   category: string;
+}
+
+export interface TeamDetailData {
+  id: number;
+  competition: Competition;
+  category: string;
+  name: string;
+  teamLeaderemail: string;
+  institution: string;
+  isParticipating: boolean;
+  teamMembers: Array<TeamMember>;
+  activeStageId: number;
+  stages: Array<Stage>;
+  taskResponses: Array<TaskResponse>;
+  userTaskResponses: Array<TaskResponse>;
+  createdAt: string;
 }
 
 // export enum TeamRegistrationStatus {

@@ -15,3 +15,16 @@ export const createTeam = async (
       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };
+
+export const getTeam = async (axios: AxiosInstance): Promise<TeamData> => {
+  return axios
+    .post<TeamData>("/competition/teams/")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+    });
+};
+
+// export const getTeamDetail
