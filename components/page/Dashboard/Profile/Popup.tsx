@@ -30,11 +30,12 @@ const Popup: React.FC<Props> = ({content, handleClose}) => {
           height: auto;
           max-height: 70vh;
           margin-top: calc(100vh - 85vh - 20px);
-          background: #fff;
+          background: #FFFF;
           border-radius: 4px;
           padding: 20px;
           border: 1px solid #999;
           overflow: auto;
+          z-index: 3;
         }
         
         .close-icon {

@@ -57,7 +57,6 @@ const DashboardMenu: React.FC = () => {
 
           position: relative;
           display: flex;
-          z-index: 1;
         }
 
         li:hover {
