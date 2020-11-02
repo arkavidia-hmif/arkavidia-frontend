@@ -1,4 +1,5 @@
 import { AxiosError, AxiosInstance } from "axios";
+import { Task, TaskResponse } from "../interfaces/task";
 import { TeamMember } from "../interfaces/team";
 import { AddTeamMemberForm, TeamMemberDetail } from "../interfaces/teamMember";
 import { ApiError, StandardError } from "./error";
@@ -73,6 +74,22 @@ export const deleteTeamMember = async (
     .delete(`/competition/teams/${team_id}/members/${team_member_id}/`)
     .then(() => {
       return;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+    });
+};
+
+export const submitTask = async (
+  axios: AxiosInstance,
+  task_response: TaskResponse,
+  task_id: string,
+  team_id: string
+): Promise<Task> => {
+  return axios
+    .post<Task>(`/competition/teams/${team_id}/tasks/${task_id}/`, task_response)
+    .then((response) => {
+      return response.data;
     })
     .catch((error: AxiosError) => {
       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
