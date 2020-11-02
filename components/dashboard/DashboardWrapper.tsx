@@ -45,6 +45,12 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
             font-size: 2rem;
             color: #431785;
           }
+
+          @media(max-width: 1000px) {
+            .container {
+              margin-top: 2rem;
+            }
+          }
         `}
       </style>
     </div>

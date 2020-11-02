@@ -1,52 +1,55 @@
-import * as React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from "../../../../utils/context/auth";
 import ModalProfile from './ModalProfile';
 
 const ProfileField: React.FC = () => {
-  // example data
-  const ex = [
-    {
-      title:'Nama',
-      content: 'John Doe'
-    },
-    {
-      title:'Nomor Telefon',
-      content: '0'
-    },
-    {
-      title:'Email',
-      content: 'a@gmail.com'
-    },
-    {
-      title:'Tanggal lahir',
-      content: '1 Januari 2001'
-    },
-    {
-      title:'Status',
-      content: 'Mahasiswa'
-    },
-    {
-      title:'Alamat',
-      content: 'Cisitu Indah'
-    },
-    {
-      title:'Universitas',
-      content: 'Institut Teknologi Bandung'
-    },
-  ];
-  
+  const authContext = useContext(AuthContext);
+
   return (
     <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
-        {ex?.map((link, index) => (
-          <div key={index} className="field col-6 mt-3">
-            <div className="title">
-              {link.title}
-            </div>
-            <div className="content">
-              {link.content}
-            </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Nama</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.fullName || '-'}</p>
           </div>
-        ))}        
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Nomor Telepon</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.phoneNumber || '-'}</p>
+          </div>
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Email</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.email || '-'}</p>
+          </div>
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Tanggal Lahir</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.birthDate || '-'}</p>
+          </div>
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Status</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.currentEducation || '-'}</p>
+          </div>
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Alamat</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.address || '-'}</p>
+          </div>
+        </div>
+        <div className="field col-6 mt-3">
+          <div className="title"><h1>Institusi</h1></div>
+          <div className="content">
+            <p>{authContext.auth?.user.institution || '-'}</p>
+          </div>
+        </div>     
       </div>
       <ModalProfile/>
       <style jsx>{`
@@ -58,7 +61,7 @@ const ProfileField: React.FC = () => {
           max-width: 27rem;
         }
 
-        .title{
+        .title h1{
           font-family: Roboto;
           font-size: 1.125rem;
           font-weight: bold;
