@@ -1,2 +1,2 @@
 # Netlify redirect rules
-/dashboard/*    /index.html   200
+/dashboard/*    /dynamic-redirector.html   200
