@@ -5,13 +5,12 @@ import {
   LIST_EVENT_URL,
 } from "../../../../api/event";
 import { ApiContext } from "../../../../utils/context/api";
-import DashboardCard from "../../../../components/dashboard/DashboardCard";
+import DashboardCard from "../../../dashboard/DashboardCard";
 import { Event } from "../../../../interfaces/event";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
 
 const EventsCard: React.FC = () => {
-
   const baseUrl = "/dashboard/events/";
 
   const apiContext = useContext(ApiContext);
@@ -37,8 +36,8 @@ const EventsCard: React.FC = () => {
   };
 
   return (
-    <div className="container mb-3" id='dashboard-area'>
-      <div className="row container-fluid">
+    <div className="mb-3">
+      <div className="row">
         {event.map((entry, index) => (
           <DashboardCard
             key={index}
@@ -50,60 +49,8 @@ const EventsCard: React.FC = () => {
             }
             buttonText={generateCardText(entry)}
           />
-        ))}  
+        ))}
       </div>
-      <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-        .card {
-          padding: 0.625rem;
-          border: 1px solid #431785;
-          max-width: 320px;
-          max-height: auto;
-          border-radius: 10px;
-          background-color: white;
-        }
-
-        .title {
-          font-family: Viga;
-          font-size: 1.25rem;
-          color: #05058d;
-        }
-
-        .content {
-          font-family: Roboto;
-          font-size: 1.125rem;
-          color: #646464;
-        }
-
-        .link {
-          display: flex;
-          justify-content: flex-end;
-          font-family: Roboto;
-          font-size: 1.125rem;
-          font-weight: bold;
-
-          color: #623fa2;
-        }
-
-        a {
-          color: #623fa2;
-          text-decoration: none;
-        }
-
-        @media (max-width: 450px) {
-          .title {
-            font-size: 1.125rem;
-          }
-          .content {
-            font-size: 1rem;
-          }
-          .link {
-            font-size: 1rem;
-          }
-        }
-      `}</style>
     </div>
   );
 };
