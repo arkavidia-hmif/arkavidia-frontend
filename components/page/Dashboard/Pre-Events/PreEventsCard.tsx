@@ -1,52 +1,55 @@
-import * as React from 'react';
-import Link from 'next/link';
+import { useContext } from "react";
+import useSWR from "swr";
+import {
+  getPreevent,
+  LIST_PREEVENT_URL,
+} from "../../../../api/preevent";
+import { ApiContext } from "../../../../utils/context/api";
+import DashboardCard from "../../../../components/dashboard/DashboardCard";
+import { Preevent } from "../../../../interfaces/preevent";
+import Alert from "../../../Alert";
+import Spinner from "../../../Spinner";
 
 const PreEventsCard: React.FC = () => {
-  // example data
-  const ex = [
-    {
-      title:'ARKAVIDIA ACADEMY',
-      content: 'Untuk Mahasiswa',
-      isRegistered: false,
-      isRegistrationOpen: true,
-    },
-    {
-      title:'TECHNOCAMP',
-      content: 'Untuk SMA & Mahasiswa',
-      isRegistered: false,
-      isRegistrationOpen: true,
-    },
-  ];
+
+  const baseUrl = "/dashboard/pre-events/";
+
+  const apiContext = useContext(ApiContext);
+
+  const {
+    data: preevent,
+    error: errorPreevent,
+  } = useSWR(LIST_PREEVENT_URL, () => getPreevent(apiContext.axios));
+
+  if (errorPreevent) return <Alert error="Masalah koneksi" />;
+  if (!preevent) return <Spinner height="200px" />;
+
+  const generateCardBody = (subtitle: string): string => {
+    return subtitle;
+  };
+
+  const generateCardText = (entry: Preevent): string => {
+    if (!entry.isRegistrationOpen) {
+      return "Pendaftaran ditutup";
+    } else {
+      return "Daftar";
+    }
+  };
   
   return (
     <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
-        {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col-md-4 col-xs-6 mr-4">
-            <div className="title">
-              {link.title}
-            </div>
-            <div className="content">
-              {link.content}
-            </div>
-            <br />
-            <hr />
-            <div className="link">
-              {link.isRegistrationOpen? 
-                (<Link href="/"><a>{link.isRegistered? 
-                  ("View Application")
-                  :(
-                    "Register"
-                  )
-                }</a></Link>)
-                :(
-                  <div className="content">
-                  Anda tidak bisa mendaftar lomba ini
-                  </div>
-                )
-              }
-            </div>
-          </div>
+        {preevent.map((entry, index) => (
+          <DashboardCard
+            key={index}
+            className="col-md-6 col-lg-4"
+            title={entry.name}
+            body={generateCardBody(entry.subtitle)}
+            buttonLink={
+              entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null
+            }
+            buttonText={generateCardText(entry)}
+          />
         ))}
       </div>
       <style jsx>{`
