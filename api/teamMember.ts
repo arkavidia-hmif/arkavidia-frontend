@@ -25,10 +25,10 @@ export const getTeamMemberDetail = async (
   return axios
     .get<TeamMemberDetail>(`/competition/teams/${team_id}/members/${team_member_id}/`)
     .then((response) => {
-    return response.data;
+      return response.data;
     })
     .catch((error: AxiosError) => {
-    throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };
 
