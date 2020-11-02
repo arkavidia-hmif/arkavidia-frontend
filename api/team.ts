@@ -5,7 +5,7 @@ import { ApiError, StandardError } from "./error";
 export const createTeam = async (
   axios: AxiosInstance,
   teamForm: TeamRegistrationForm
-) => {
+): Promise<TeamData> => {
   return axios
     .post<TeamData>("/competition/register-team/", teamForm)
     .then((response) => {

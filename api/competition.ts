@@ -2,7 +2,9 @@ import { AxiosError, AxiosInstance } from "axios";
 import { Competition } from "../interfaces/competition";
 import { ApiError, StandardError } from "./error";
 
-export const getCompetitions = async (axios: AxiosInstance) => {
+export const getCompetitions = async (
+  axios: AxiosInstance
+): Promise<Array<Competition>> => {
   return axios
     .get<Array<Competition>>("/competition")
     .then((response) => {
