@@ -74,3 +74,17 @@ export const editTeam = async (
       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };
+
+export const deleteTeam = async (
+  axios: AxiosInstance,
+  teamId: number
+): Promise<void> => {
+  return axios
+    .delete(`/competition/teams/${teamId}`)
+    .then(() => {
+      return;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+    });
+};
