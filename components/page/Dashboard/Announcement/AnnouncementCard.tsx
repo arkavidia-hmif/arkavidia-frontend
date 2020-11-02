@@ -32,7 +32,7 @@ const AnnouncementCard: React.FC = () => {
               </Link>
             </div>
           </div>
-      ))}
+        ))}
       </div>
       <style jsx>{`
         .card {
