@@ -11,7 +11,7 @@ const AnnouncementCard: React.FC = () => {
   const {
     data : announcement,
     error : errorAnnouncement,
-  } = useSWR(LIST_ANNOUNCEMENT_URL, () => getAnnouncement(apiContext.axios))
+  } = useSWR(LIST_ANNOUNCEMENT_URL, () => getAnnouncement(apiContext.axios));
 
   return (
     <div className="container mb-3" id='dashboard-area'>
