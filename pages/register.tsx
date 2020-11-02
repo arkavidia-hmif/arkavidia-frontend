@@ -78,7 +78,6 @@ const RegisterPage: React.FC = () => {
         <>
           <Alert error={error} />
           <form
-            className="my-5"
             onSubmit={(evt) => {
               evt.preventDefault();
               handleSubmit();
@@ -125,7 +124,9 @@ const RegisterPage: React.FC = () => {
         .row {
           align-items: center;
         }
-
+        form {
+          margin-bottom: 3.5rem;
+        }
         a {
           color: #7446a1;
         }
