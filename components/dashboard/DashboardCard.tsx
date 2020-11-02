@@ -3,14 +3,13 @@ import Link from "next/link";
 type Props = {
   title: string,
   body: string,
-  buttonLink: string | null,
-  buttonText: string,
+  buttonLink?: string | null,
+  buttonText?: string | null,
   className?: string
 }
 
-const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, className }) => {
-  // <div key={index} className="card col-md-4 col-xs-6 mt-3 mr-4">
-
+const DashboardCard: React.FC<Props> = ({ title, body, buttonLink = null, buttonText = null, className }) => {
+  const showLink = !!(buttonLink || buttonText);
 
   return (
     <div className={`card-container ${className}`}>
@@ -46,7 +45,7 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, c
           width: 100%;
           display: flex;
           flex-direction: column;
-          padding: 0.625rem;
+          padding: 1rem;
           border: 1px solid #431785;
           border-radius: 10px;
           background-color: white;
@@ -91,6 +90,15 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, c
           .link {
             font-size: 1rem;
           }
+        }
+      `}</style>
+      <style jsx>{`
+        hr {
+          ${!showLink ? 'display: none;' : ''}
+        }
+
+        .link {
+          ${!showLink ? 'display: none;' : ''}
         }
       `}</style>
     </div>
