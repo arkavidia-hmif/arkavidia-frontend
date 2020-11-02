@@ -24,13 +24,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="alternate icon" href="/favicon.ico" />
       </Head>
-      {/* <AuthProvider> */}
-      <ApiProvider>
-        <DashboardProvider>
-          <Component {...pageProps} />
-        </DashboardProvider>
-      </ApiProvider>
-      {/* </AuthProvider> */}
+      <AuthProvider>
+        <ApiProvider>
+          <DashboardProvider>
+            <Component {...pageProps} />
+          </DashboardProvider>
+        </ApiProvider>
+      </AuthProvider>
       <style global jsx>
         {`
           body {
