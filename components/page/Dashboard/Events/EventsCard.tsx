@@ -1,39 +1,56 @@
-import * as React from "react";
-import Link from "next/link";
+import { useContext } from "react";
+import useSWR from "swr";
+import {
+  getEvent,
+  LIST_EVENT_URL,
+} from "../../../../api/event";
+import { ApiContext } from "../../../../utils/context/api";
+import DashboardCard from "../../../../components/dashboard/DashboardCard";
+import { Event } from "../../../../interfaces/event";
+import Alert from "../../../Alert";
+import Spinner from "../../../Spinner";
 
 const EventsCard: React.FC = () => {
-  // example data
-  const ex = [
-    {
-      title: "ARKAVIDIA TALKS",
-      content: "Advance Talk",
-      isRegistered: false,
-      isRegistrationOpen: true,
-    },
-  ];
+
+  const baseUrl = "/dashboard/events/";
+
+  const apiContext = useContext(ApiContext);
+
+  const {
+    data: event,
+    error: errorEvent,
+  } = useSWR(LIST_EVENT_URL, () => getEvent(apiContext.axios));
+
+  if (errorEvent) return <Alert error="Masalah koneksi" />;
+  if (!event) return <Spinner height="200px" />;
+
+  const generateCardBody = (shortDesc: string): string => {
+    return shortDesc;
+  };
+
+  const generateCardText = (entry: Event): string => {
+    if (!entry.isRegistrationOpen) {
+      return "Pendaftaran ditutup";
+    } else {
+      return "Daftar";
+    }
+  };
 
   return (
     <div className="container mb-3" id='dashboard-area'>
       <div className="row container-fluid">
-        {ex?.map((link, index) => (
-          <div key={index} className="card mt-3 col-md-4 col-xs-6 mr-4">
-            <div className="title">{link.title}</div>
-            <div className="content">{link.content}</div>
-            <br />
-            <hr />
-            <div className="link">
-              {link.isRegistrationOpen ? (
-                <Link href="/">
-                  <a>{link.isRegistered ? "View Application" : "Register"}</a>
-                </Link>
-              ) : (
-                <div className="content">
-                  Anda tidak bisa mendaftar lomba ini
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
+        {event.map((entry, index) => (
+          <DashboardCard
+            key={index}
+            className="col-md-6 col-lg-4"
+            title={entry.name}
+            body={generateCardBody(entry.shortDesc)}
+            buttonLink={
+              entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null
+            }
+            buttonText={generateCardText(entry)}
+          />
+        ))}  
       </div>
       <style jsx>{`
         #dashboard-area {
