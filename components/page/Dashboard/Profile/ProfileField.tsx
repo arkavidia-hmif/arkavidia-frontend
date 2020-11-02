@@ -5,9 +5,9 @@ import {
   PROFILE_URL,
 } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
-import ModalProfile from './ModalProfile';
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
+import ModalProfile from './ModalProfile';
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
