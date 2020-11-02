@@ -6,6 +6,8 @@ import {
 } from "../interfaces/team";
 import { ApiError, StandardError } from "./error";
 
+export const LIST_TEAM_URL = "/competition/teams/";
+
 export const createTeam = async (
   axios: AxiosInstance,
   teamForm: TeamRegistrationForm
@@ -22,7 +24,7 @@ export const createTeam = async (
 
 export const getTeam = async (axios: AxiosInstance): Promise<TeamData> => {
   return axios
-    .post<TeamData>("/competition/teams/")
+    .get<TeamData>(LIST_TEAM_URL)
     .then((response) => {
       return response.data;
     })
