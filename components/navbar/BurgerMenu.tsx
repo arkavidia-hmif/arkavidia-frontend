@@ -1,14 +1,14 @@
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
-import { Fragment, useContext, useState } from 'react';
-import { Dimen } from '../../styles/dimen';
-import items from '../../utils/constants/nav-items';
-import { AuthContext } from '../../utils/context/auth';
-import BurgerSubMenu from './BurgerSubMenu';
+import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
+import { Fragment, useContext, useState } from "react";
+import { Dimen } from "../../styles/dimen";
+import items from "../../utils/constants/nav-items";
+import { AuthContext } from "../../utils/context/auth";
+import BurgerSubMenu from "./BurgerSubMenu";
 
 type Props = {
-  open: boolean
-}
+  open: boolean;
+};
 
 const BurgerMenu: React.FC<Props> = ({ open }) => {
   const authContext = useContext(AuthContext);
@@ -38,26 +38,37 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
 
             return (
               <Fragment key={index}>
-                <a onClick={() => setToggle(!toggle)}>{link.text} <i className={arrowClass}></i></a>
+                <a onClick={() => setToggle(!toggle)}>
+                  {link.text} <i className={arrowClass}></i>
+                </a>
                 <BurgerSubMenu items={link.submenu} toggle={toggle} />
               </Fragment>
             );
           } else {
             return (
               <Fragment key={index}>
-                <Link key={index} href={link.path}><a>{link.text}</a></Link>
+                <Link key={index} href={link.path}>
+                  <a>{link.text}</a>
+                </Link>
               </Fragment>
             );
           }
         })}
-        {authContext.authenticated
-          ? <a onClick={() => {
-            router.push('/');
-            authContext.setAuthenticated(false);
-            authContext.setAuth();
-          }}>Logout</a>
-          : <Link href="/login"><a>Login</a></Link>}
-
+        {authContext.authenticated ? (
+          <a
+            onClick={() => {
+              router.push("/");
+              authContext.setAuthenticated(false);
+              authContext.setAuth();
+            }}
+          >
+            Logout
+          </a>
+        ) : (
+          <Link href="/login">
+            <a>Login</a>
+          </Link>
+        )}
       </div>
 
       <style jsx>{`
@@ -77,12 +88,12 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
         .arrow.down {
           transform: rotate(45deg);
         }
-        
+
         .burger-menu {
           display: none;
           flex-direction: column;
           justify-content: center;
-          background:  #FE789A;
+          background: #fe789a;
           height: auto;
           width: 100%;
           text-align: center;
@@ -112,9 +123,9 @@ const BurgerMenu: React.FC<Props> = ({ open }) => {
         }
       `}</style>
       <style jsx>{`
-          .burger-menu {
-            transform: ${open ? 'translateY(0)' : 'translateY(-200%)'};
-          }
+        .burger-menu {
+          transform: ${open ? "translateY(0)" : "translateY(-200%)"};
+        }
       `}</style>
     </div>
   );

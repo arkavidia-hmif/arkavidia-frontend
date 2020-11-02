@@ -2,83 +2,83 @@ const NavItems = [
   {
     text: "HOME",
     path: "/",
-    protected: false
+    protected: false,
   },
   {
     text: "ABOUT US",
     path: "/about",
-    protected: false
+    protected: false,
   },
   {
-    text: 'COMPETITIONS',
-    path: '/competition',
+    text: "COMPETITIONS",
+    path: "/competition",
     protected: false,
     submenu: [
       {
-        text: 'COMPETITIVE PROGRAMMING',
-        path: '/competition/competitive-programming'
+        text: "COMPETITIVE PROGRAMMING",
+        path: "/competition/competitive-programming",
       },
       {
-        text: 'CAPTURE THE FLAG',
-        path: '/competition/capture-the-flag'
+        text: "CAPTURE THE FLAG",
+        path: "/competition/capture-the-flag",
       },
       {
-        text: 'GAMEDEV',
-        path: '/competition/gamedev'
+        text: "GAMEDEV",
+        path: "/competition/gamedev",
       },
       {
-        text: 'DATAVIDIA',
-        path: '/competition/datavidia'
+        text: "DATAVIDIA",
+        path: "/competition/datavidia",
       },
       {
-        text: 'ARKALOGICA',
-        path: '/competition/arkalogica'
-      }
-    ]
+        text: "ARKALOGICA",
+        path: "/competition/arkalogica",
+      },
+    ],
   },
   {
-    text: 'PRE-EVENTS',
-    path: '/preevent',
+    text: "PRE-EVENTS",
+    path: "/preevent",
     protected: false,
     submenu: [
       {
-        text: 'TECHNOCAMP',
-        path: '/preevent/technocamp'
+        text: "TECHNOCAMP",
+        path: "/preevent/technocamp",
       },
       {
-        text: 'ARKAVIDIA GOES TO SCHOOL',
-        path: '/preevent/arkavidia-goes-to-school'
+        text: "ARKAVIDIA GOES TO SCHOOL",
+        path: "/preevent/arkavidia-goes-to-school",
       },
       {
-        text: 'ARKAVIDIA ACADEMY',
-        path: '/preevent/arkavidia-academy'
+        text: "ARKAVIDIA ACADEMY",
+        path: "/preevent/arkavidia-academy",
       },
       {
-        text: 'ARKAVIDIA ON AIR',
-        path: '/preevent/arkavidia-on-air'
-      }
-    ]
+        text: "ARKAVIDIA ON AIR",
+        path: "/preevent/arkavidia-on-air",
+      },
+    ],
   },
   {
-    text: 'EVENTS',
-    path: '/technocamp',
+    text: "EVENTS",
+    path: "/technocamp",
     protected: false,
     submenu: [
       {
-        text: 'IT FESTIVAL',
-        path: '/event/it-festival'
+        text: "IT FESTIVAL",
+        path: "/event/it-festival",
       },
       {
-        text: 'ARKAVIDIA TALKS',
-        path: '/event/arkavidia-talks'
-      }
-    ]
+        text: "ARKAVIDIA TALKS",
+        path: "/event/arkavidia-talks",
+      },
+    ],
   },
   {
-    text: 'DASHBOARD',
-    path: '/dashboard',
-    protected: true
-  }
+    text: "DASHBOARD",
+    path: "/dashboard",
+    protected: true,
+  },
 ];
 
 export default NavItems;

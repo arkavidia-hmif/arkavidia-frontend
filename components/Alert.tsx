@@ -1,10 +1,10 @@
 type Props = {
-  error: string | null
-}
+  error: string | null;
+};
 
 const Alert: React.FC<Props> = ({ error }) => {
   if (!error) {
-    return (<></>);
+    return <></>;
   } else {
     return (
       <>

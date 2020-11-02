@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Link from 'next/link';
+import * as React from "react";
+import Link from "next/link";
 
 type ArrayType = {
-  path: string,
-  text: string
-}
+  path: string;
+  text: string;
+};
 
 type Props = {
-  items: ArrayType[],
-  hover: boolean,
-  setHover: (input: boolean) => void,
-}
+  items: ArrayType[];
+  hover: boolean;
+  setHover: (input: boolean) => void;
+};
 
 const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
   return (
@@ -19,25 +19,28 @@ const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onFocus={() => setHover(true)}
-      onBlur={() => setHover(false)}>
+      onBlur={() => setHover(false)}
+    >
       <ul className="mr-3">
         {items.map((item, index) => (
           <li key={index}>
-            <Link href={item.path}><a>{item.text}</a></Link>
+            <Link href={item.path}>
+              <a>{item.text}</a>
+            </Link>
           </li>
         ))}
       </ul>
       <style jsx>{`
         .sub-menu {
-          background: #FFFF;
+          background: #ffff;
           width: 250px;
           position: absolute;
           top: 2.5rem;
           left: -1rem;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           transition: visibility 0.2s, opacity 0.2s linear;
         }
-        
+
         ul {
           display: flex;
           flex-direction: column;
@@ -50,7 +53,7 @@ const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
         }
 
         a {
-          color: #623FA2;
+          color: #623fa2;
           font-family: Viga;
           font-style: normal;
           font-weight: normal;
@@ -64,7 +67,7 @@ const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
       `}</style>
       <style jsx>{`
         .sub-menu {
-          visibility: ${hover ? 'visible' : 'hidden'};
+          visibility: ${hover ? "visible" : "hidden"};
           opacity: ${hover ? 1 : 0};
         }
       `}</style>

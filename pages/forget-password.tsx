@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { useContext, useState } from 'react';
-import { requestResetPassword } from '../api/auth';
-import Alert from '../components/Alert';
-import AuthWrapper from '../components/auth/AuthWrapper';
-import InputField from '../components/auth/InputField';
-import FilledButton from '../components/FilledButton';
-import { ApiContext } from '../utils/context/api';
-import { isValidEmail } from '../utils/validator';
+import Link from "next/link";
+import { useContext, useState } from "react";
+import { requestResetPassword } from "../api/auth";
+import Alert from "../components/Alert";
+import AuthWrapper from "../components/auth/AuthWrapper";
+import InputField from "../components/auth/InputField";
+import FilledButton from "../components/FilledButton";
+import { ApiContext } from "../utils/context/api";
+import { isValidEmail } from "../utils/validator";
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
     setError(null);
 
     if (!isValidEmail(email)) {
-      setError('Alamat email invalid');
+      setError("Alamat email invalid");
       return;
     }
 
@@ -40,28 +40,46 @@ const LoginPage: React.FC = () => {
 
   return (
     <AuthWrapper title="Lupa Kata Sandi">
-      {!success ?
+      {!success ? (
         <>
           <Alert error={error} />
-          <p className="my-3 mb-4">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
-          <form onSubmit={(evt) => {
-            evt.preventDefault();
-            onSubmit();
-          }}>
-            <InputField name="Alamat Email" value={email} setValue={setEmail} placeholder="johndoe@email.com" />
+          <p className="my-3 mb-4">
+            Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan
+            kata sandi
+          </p>
+          <form
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onSubmit();
+            }}
+          >
+            <InputField
+              name="Alamat Email"
+              value={email}
+              setValue={setEmail}
+              placeholder="johndoe@email.com"
+            />
             <br />
-            <FilledButton text="KIRIM" loading={loading} padding="0.75em 1.5em" />
+            <FilledButton
+              text="KIRIM"
+              loading={loading}
+              padding="0.75em 1.5em"
+            />
           </form>
         </>
-        : <>
-          <p className="my-3">Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi</p>
+      ) : (
+        <>
+          <p className="my-3">
+            Silahkan cek emailmu untuk menemukan tautan perubahan kata sandi
+          </p>
           <Link href="/login">
             <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
           </Link>
-        </>}
+        </>
+      )}
       <style jsx>{`
         p {
-          color: #7446A1;
+          color: #7446a1;
         }
       `}</style>
     </AuthWrapper>

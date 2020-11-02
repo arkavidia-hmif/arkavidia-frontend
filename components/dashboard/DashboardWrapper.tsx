@@ -5,8 +5,8 @@ import { AuthContext } from "../../utils/context/auth";
 import DashboardMenu from "./DashboardMenu";
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 const DashboardWrapper: React.FC<Props> = ({ children }) => {
   const authContext = useContext(AuthContext);
@@ -21,7 +21,7 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
             headingLevel={6}
             size="2rem"
           >
-            Halo, {authContext.auth?.user.fullName || 'Selamat Datang'}
+            Halo, {authContext.auth?.user.fullName || "Selamat Datang"}
           </ColorfulHeader>
           <br />
           <br />
@@ -29,9 +29,7 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
         </div>
       </div>
       <div className="row pt-3">
-        <div className="col-12">
-          {children}
-        </div>
+        <div className="col-12">{children}</div>
       </div>
 
       <style jsx>

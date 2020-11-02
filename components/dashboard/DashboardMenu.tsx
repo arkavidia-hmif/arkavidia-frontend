@@ -9,11 +9,14 @@ const DashboardMenu: React.FC = () => {
     <div id="menu">
       <ul>
         {DashboardItems.map((link, index) => (
-          <li key={index} className={router.pathname === link.route ? 'items current' : 'items'}>
+          <li
+            key={index}
+            className={
+              router.pathname === link.route ? "items current" : "items"
+            }
+          >
             <Link href={link.route}>
-              <a>
-                {link.title}
-              </a>
+              <a>{link.title}</a>
             </Link>
           </li>
         ))}
@@ -34,7 +37,7 @@ const DashboardMenu: React.FC = () => {
         }
 
         #menu:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: calc(100% - 2rem);
@@ -45,17 +48,17 @@ const DashboardMenu: React.FC = () => {
 
         li {
           height: 3rem;
-          
+
           margin: 0 2rem;
 
           border-bottom: 0rem solid;
           border-image-slice: 1;
           border-image-source: linear-gradient(90deg, #623fa2 0%, #f25785 100%);
-          
+
           position: relative;
           display: flex;
         }
-        
+
         li:hover {
           border-bottom: 0.5rem solid;
         }

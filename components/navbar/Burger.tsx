@@ -1,9 +1,9 @@
 import { Dimen } from "../../styles/dimen";
 
 type Props = {
-  open: boolean,
-  setOpen: (input: boolean) => void
-}
+  open: boolean;
+  setOpen: (input: boolean) => void;
+};
 
 const Burger: React.FC<Props> = ({ open, setOpen }) => (
   <div>
@@ -34,7 +34,7 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
       .lines {
         width: 1.5rem;
         height: 0.25rem;
-        background: #FE789A;
+        background: #fe789a;
         border-radius: 10px;
         transition: all 0.3s linear;
         transform-origin: 1px;
@@ -48,16 +48,16 @@ const Burger: React.FC<Props> = ({ open, setOpen }) => (
     `}</style>
     <style jsx>{`
       .lines:first-child {
-        transform: ${open ? 'rotate(45deg)' : 'rotate(0)'};
+        transform: ${open ? "rotate(45deg)" : "rotate(0)"};
       }
 
       .lines:nth-child(2) {
-        opacity: ${open ? '0' : '1'};
-        transform: ${open ? 'translateX(20px)' : 'translateX(0)'};
+        opacity: ${open ? "0" : "1"};
+        transform: ${open ? "translateX(20px)" : "translateX(0)"};
       }
 
       .lines:nth-child(3) {
-        transform: ${open ? 'rotate(-45deg)' : 'rotate(0)'};
+        transform: ${open ? "rotate(-45deg)" : "rotate(0)"};
       }
     `}</style>
   </div>

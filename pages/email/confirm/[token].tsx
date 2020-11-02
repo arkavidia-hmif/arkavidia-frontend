@@ -26,34 +26,44 @@ const ConfirmEmail: React.FC = () => {
     confirmEmailAddress(apiContext.axios, token as string)
       .then(() => {
         setSuccess(true);
-      }).catch((e) => {
-        if (e instanceof ApiError && e.code === EmailVerifyStatus.INVALID_TOKEN) {
-          setError('Tautan ini salah, silakan coba lagi atau hubungi panitia');
+      })
+      .catch((e) => {
+        if (
+          e instanceof ApiError &&
+          e.code === EmailVerifyStatus.INVALID_TOKEN
+        ) {
+          setError("Tautan ini salah, silakan coba lagi atau hubungi panitia");
         } else {
           setError(e.message);
         }
       });
   }, []);
 
-
   return (
     <AuthWrapper title="Konfirmasi Email">
-      {!success ?
+      {!success ? (
         <>
           <Alert error={error} />
-          <p className="my-3">Tunggu sebentar, kami sedang mengkonfirmasi email Anda</p>
+          <p className="my-3">
+            Tunggu sebentar, kami sedang mengkonfirmasi email Anda
+          </p>
         </>
-        : <>
-          <p className="my-3">Sukses, silahkan login dengan email dan kata sandi yang sudah didaftarkan</p>
+      ) : (
+        <>
+          <p className="my-3">
+            Sukses, silahkan login dengan email dan kata sandi yang sudah
+            didaftarkan
+          </p>
           <Link href="/login">
             <FilledButton text="LOGIN" padding="0.75em 1.5em" />
           </Link>
-        </>}
+        </>
+      )}
 
       <style jsx>
         {`
           p {
-            color: #7446A1;
+            color: #7446a1;
           }
         `}
       </style>

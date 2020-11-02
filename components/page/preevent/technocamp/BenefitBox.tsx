@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
 type Props = {
-  link: string,
-  text: string,
-  alt?: string
-}
+  link: string;
+  text: string;
+  alt?: string;
+};
 
 const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
   <div className="content-box">
@@ -40,21 +40,21 @@ const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
         }
         img {
           width: 100px;
-        }        
+        }
         .content h3 {
           font-size: 1rem;
         }
       }
       @media (max-width: 500px) {
         .content p {
-          font-size: .8rem;
-          margin-top: .5rem;
+          font-size: 0.8rem;
+          margin-top: 0.5rem;
         }
         img {
           width: 50px;
-        }  
+        }
       }
-  `}</style>
+    `}</style>
   </div>
 );
 

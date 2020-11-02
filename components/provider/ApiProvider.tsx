@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Axios from 'axios';
-import { SWRConfig } from 'swr';
-import { ApiContext, ApiContextType } from '../../utils/context/api';
-import { AuthContext } from '../../utils/context/auth';
+import * as React from "react";
+import Axios from "axios";
+import { SWRConfig } from "swr";
+import { ApiContext, ApiContextType } from "../../utils/context/api";
+import { AuthContext } from "../../utils/context/auth";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const ApiProvider: React.FC<Props> = ({ children }) => {
   const authContext = React.useContext(AuthContext);
@@ -16,8 +16,8 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
 
     withCredentials: false,
 
-    xsrfCookieName: 'csrftoken',
-    xsrfHeaderName: 'X-CSRFToken'
+    xsrfCookieName: "csrftoken",
+    xsrfHeaderName: "X-CSRFToken",
   });
 
   apiClient.interceptors.request.use((config) => {
@@ -25,7 +25,9 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
 
     if (authContext.authenticated && authContext.auth) {
       if (authContext.auth.exp > currentEpoch) {
-        config.headers.common['Authorization'] = `Bearer ${authContext.auth.token}`;
+        config.headers.common[
+          "Authorization"
+        ] = `Bearer ${authContext.auth.token}`;
       } else {
         authContext.setAuthenticated(false);
         authContext.setAuth();
@@ -36,16 +38,14 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
   });
 
   const contextValue: ApiContextType = {
-    axios: apiClient
+    axios: apiClient,
   };
 
   const swrConfig = {};
 
   return (
     <ApiContext.Provider value={contextValue}>
-      <SWRConfig value={swrConfig}>
-        {children}
-      </SWRConfig>
+      <SWRConfig value={swrConfig}>{children}</SWRConfig>
     </ApiContext.Provider>
   );
 };

@@ -1,80 +1,95 @@
-import React from 'react';
+import React from "react";
 
 type CarouselItemProps = {
-  backgroundImage?: string,
-  width: string,
-  foregroundImage?: string,
-  desc: string,
-  type: 'event' | 'competition',
-  url: string
-}
+  backgroundImage?: string;
+  width: string;
+  foregroundImage?: string;
+  desc: string;
+  type: "event" | "competition";
+  url: string;
+};
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, foregroundImage, desc, type, url }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({
+  backgroundImage,
+  width,
+  foregroundImage,
+  desc,
+  type,
+  url,
+}) => {
   const background = {
-    backgroundImage: `url(${backgroundImage})`
+    backgroundImage: `url(${backgroundImage})`,
   };
 
   const competitionStyle = {
     img: {
       width: `${width}`,
-      left: "30px"
+      left: "30px",
     },
     infoBox: {
       right: "0px",
       padding: "0.5rem 0.5rem 0.5rem 1rem",
-      marginLeft: "85px"
+      marginLeft: "85px",
     },
     title: {
       color: "#623FA2",
-      textAlign: "right" as const
+      textAlign: "right" as const,
     },
     gradient: {
       transform: `rotate(0deg)`,
-      backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`
+      backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`,
     },
     infoBtn: {
-      textAlign: "right" as const
-    }
+      textAlign: "right" as const,
+    },
   };
 
   const eventStyle = {
     gradient: {
       transform: `rotate(180deg)`,
-      backgroundImage: `linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)`
+      backgroundImage: `linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)`,
     },
     img: {
       width: `${width}`,
-      right: "30px"
+      right: "30px",
     },
     infoBox: {
       left: "0px",
       padding: "0.5rem 1rem 0.5rem 0.5rem",
-      marginRight: "85px"
+      marginRight: "85px",
     },
     title: {
       color: "#B41A83",
-      textAlign: "left" as const
+      textAlign: "left" as const,
     },
     infoBtn: {
-      textAlign: "left" as const
-    }
+      textAlign: "left" as const,
+    },
   };
 
-  const choosenStyle = type === 'event' ? eventStyle : competitionStyle;
+  const choosenStyle = type === "event" ? eventStyle : competitionStyle;
 
   return (
     <div className="item-carousel" style={background}>
       <div className="gradient" style={choosenStyle.gradient}></div>
-      <img className="img-ctg d-none d-md-block" src={foregroundImage} style={choosenStyle.img}></img>
+      <img
+        className="img-ctg d-none d-md-block"
+        src={foregroundImage}
+        style={choosenStyle.img}
+      ></img>
       <div className="content-p" style={choosenStyle.infoBox}>
-        <p className="p-desc" style={choosenStyle.title}>{desc}</p>
+        <p className="p-desc" style={choosenStyle.title}>
+          {desc}
+        </p>
         <a href={url}>
-          <p className="p-info" style={choosenStyle.infoBtn}>more info</p>
+          <p className="p-info" style={choosenStyle.infoBtn}>
+            more info
+          </p>
         </a>
       </div>
 
       <style jsx>
-        {`        
+        {`
           * {
             box-sizing: border-box;
           }
@@ -114,7 +129,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
           }
 
           p {
-            font-family: 'Viga';
+            font-family: "Viga";
             text-align: right;
             margin: 0px;
             padding: 0px;
@@ -128,7 +143,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ backgroundImage, width, for
             margin-top: -5px;
             font-size: 1rem;
             font-family: Roboto;
-            color: #22A8C4;
+            color: #22a8c4;
             cursor: pointer;
           }
 
