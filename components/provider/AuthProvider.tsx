@@ -1,15 +1,16 @@
-import * as React from "react";
 import { useRouter } from "next/dist/client/router";
+import { ReactNode, useEffect, useState } from "react";
 import { AuthData } from "../../interfaces/auth";
 import { AuthContext, AuthContextType } from "../../utils/context/auth";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [authenticated, setAuthenticated] = React.useState(false);
-  const [auth, setAuth] = React.useState<AuthData>();
+  const [authenticated, setAuthenticated] = useState(false);
+  const [auth, setAuth] = useState<AuthData>();
+  const [loaded, setLoaded] = useState(false);
 
   const authenticatedKey =
     process.env.LOCAL_STORAGE_AUTHENTICATED || "authenticated_dev";
@@ -29,12 +30,13 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
-  React.useEffect(() => {
-    setAuthenticated(localStorage.getItem(authenticatedKey) === "true");
+  useEffect(() => {
+    setAuthenticated(localStorage.getItem(authenticatedKey) === 'true');
     const savedAuth = localStorage.getItem(authKey);
     if (savedAuth) {
       setAuth(JSON.parse(savedAuth));
     }
+    setLoaded(true);
   }, []);
 
   const authContext: AuthContextType = {
@@ -47,7 +49,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   if (typeof window !== "undefined") {
     const router = useRouter();
 
-    if (router.pathname.startsWith("/dashboard") && !authenticated) {
+    if (router.pathname.startsWith('/dashboard') && !authenticated && loaded) {
       router.replace(`/login?continue=${router.pathname}`);
     }
   }
