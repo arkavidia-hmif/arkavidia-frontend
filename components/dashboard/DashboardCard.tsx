@@ -3,7 +3,7 @@ import Link from "next/link";
 type Props = {
   title: string,
   body: string,
-  buttonLink: string,
+  buttonLink: string | null,
   buttonText: string,
   className?: string
 }
@@ -20,9 +20,12 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, c
         <br />
         <hr />
         <div className="link">
-          <Link href={buttonLink}>
-            <a>{buttonText}</a>
-          </Link>
+          {buttonLink ?
+            <Link href={buttonLink}>
+              <a>{buttonText}</a>
+            </Link>
+            : <span>{buttonText}</span>
+          }
         </div>
       </div>
       <style jsx>{`
@@ -58,6 +61,7 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, c
         .content {
           flex-grow: 1;
           font-size: 1.125rem;
+          color: #646464
         }
 
         .link {
@@ -66,12 +70,15 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink, buttonText, c
           align-items: flex-end;
           font-size: 1.125rem;
           font-weight: bold;
-          color: #623fa2;
         }
 
         a {
           color: #623fa2;
           text-decoration: none;
+        }
+
+        span {
+          color: #646464;
         }
 
         @media (max-width: 576px) {

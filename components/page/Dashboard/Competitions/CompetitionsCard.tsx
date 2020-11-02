@@ -48,7 +48,7 @@ const CompetitionsCard: React.FC = () => {
             className="col-md-6 col-lg-4"
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
-            buttonLink={entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : ''}
+            buttonLink={entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null}
             buttonText={generateCardText(entry)}
           />
         ))}
