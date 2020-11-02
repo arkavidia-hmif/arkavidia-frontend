@@ -1,48 +1,23 @@
-
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
+import { getAnnouncement } from "../../../../api/announcement";
+import { AnnouncementData } from "../../../../interfaces/announcement";
 import { ApiContext } from "../../../../utils/context/api";
-import { AuthContext } from "../../../../utils/context/auth";
 import Alert from "../../../Alert";
 
 const AnnouncementCard: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
-  const authContext = useContext(AuthContext);
   const apiContext = useContext(ApiContext);
-  const token = authContext.auth?.token; 
+  const [announcement, setAnnouncement] = useState<AnnouncementData>([]);
 
-  //fetch announcment list
-  const [announcement, setAnnouncement] = useState([]);
-
-  const getAnnouncement = () => {
-
-    const config = {
-      headers : {
-        "Content-type" : "application/json",
-        "Authorization" :  `Bearer ${token}`
-      }
-    };
- 
-    apiContext.axios.get('/announcement/announcements/', config)
-      .then((data) => {setAnnouncement(data.data); })
-      .catch((err) => {setError(err.code); });
-  };
   useEffect(() => {
-    getAnnouncement();
+    getAnnouncement(apiContext.axios).then((data) => {
+      setAnnouncement(data);
+    }).catch((e) => {
+      setError(e)
+    });
   }, []);
   
-  // example data
-  // const ex = [
-  //   {
-  //     title: "COMPETITIVE PROGRAMMING",
-  //     content: "BATAS waktu",
-  //   },
-  //   {
-  //     title: "ARKALOGICA",
-  //     content: "BATAS waktu",
-  //   },
-  // ];
-
   return (
     <div className="container mb-3" id='dashboard-area'>
       <Alert error={error} />
