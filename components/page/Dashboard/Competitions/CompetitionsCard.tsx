@@ -5,6 +5,8 @@ import { ApiContext } from "../../../../utils/context/api";
 import DashboardCard from "../../../../components/dashboard/DashboardCard";
 import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/competition";
 import { CompetitionData } from "../../../../interfaces/competition";
+import Alert from "../../../Alert";
+import Spinner from "../../../Spinner";
 
 
 const CompetitionsCard: React.FC = () => {
@@ -15,8 +17,8 @@ const CompetitionsCard: React.FC = () => {
   const { data: competition, error: errorCompetiton } = useSWR(LIST_COMPETITION_URL, () => listCompetition(apiContext.axios));
   const { data: team, error: errorTeam } = useSWR(LIST_TEAM_URL, () => listTeam(apiContext.axios));
 
-  if (errorCompetiton || errorTeam) return (<div>Fail</div>);
-  if (!competition || !team) return (<div>Loading</div>);
+  if (errorCompetiton || errorTeam) return (<Alert error="Masalah koneksi" />);
+  if (!competition || !team) return (<Spinner height='200px' />);
 
 
   const teamBySlug = groupTeamByCompetitionSlug(team);
@@ -38,7 +40,7 @@ const CompetitionsCard: React.FC = () => {
   };
 
   return (
-    <div className="container mb-3" id='dashboard-area'>
+    <div className="container mb-3">
       <div className="row">
         {competition.map((entry, index) => (
           <DashboardCard
@@ -51,11 +53,6 @@ const CompetitionsCard: React.FC = () => {
           />
         ))}
       </div>
-      <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-      `}</style>
     </div>
   );
 };
