@@ -54,9 +54,14 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     }
   }
 
-  return (
-    <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
-  );
+  if (loaded) {
+    return (
+      <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
+    );
+  } else {
+    return (<></>);
+  }
+
 };
 
 export default AuthProvider;
