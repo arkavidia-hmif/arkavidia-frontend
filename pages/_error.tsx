@@ -4,8 +4,8 @@ import FilledButton from "../components/FilledButton";
 import Layout from "../components/Layout";
 
 type Props = {
-  statusCode: number
-}
+  statusCode: number;
+};
 
 const Error: NextPage<Props> = ({ statusCode }) => {
   return (
@@ -13,7 +13,9 @@ const Error: NextPage<Props> = ({ statusCode }) => {
       <div className="container">
         <p>Waduh error :(</p>
         <h1>{statusCode}</h1>
-        <Link href="/"><FilledButton text="Kembali ke homepage" /></Link>
+        <Link href="/">
+          <FilledButton text="Kembali ke homepage" />
+        </Link>
       </div>
       <style jsx>{`
         div {
@@ -28,7 +30,7 @@ const Error: NextPage<Props> = ({ statusCode }) => {
           font-size: 2rem;
         }
 
-        h1{
+        h1 {
           font-size: 10rem;
         }
       `}</style>

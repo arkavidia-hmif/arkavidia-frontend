@@ -1,94 +1,89 @@
-import * as React from 'react';
+import * as React from "react";
+import { useRouter } from "next/dist/client/router";
+import { Theme } from "../../styles/theme";
+import FilledButton from "../FilledButton";
 
-const Button : React.FC = () => (
-  <div>
-    <div className="flex-row-center">
-      <button className="guidebook-button"><p className="tulisan-button">Download guidebook</p></button>
-      <button className="daftar-sekarang-button"><p className="tulisan-button">Daftar Sekarang</p></button>
+type Props = {
+  guidebookLink: string;
+  registerLink: string;
+};
+
+const Button: React.FC<Props> = ({ guidebookLink, registerLink }) => {
+  const router = useRouter();
+  return (
+    <div>
+      <div className="flex-row-center">
+        <div className="guidebook-button">
+          <FilledButton
+            color={Theme.buttonColors.lightBlueButton}
+            text="Download guidebook"
+            padding="0.75em 1.5em"
+            onClick={() => {
+              router.push(guidebookLink);
+            }}
+          />
+        </div>
+        <div className="daftar-sekarang-button">
+          <FilledButton
+            color={Theme.buttonColors.purpleButton}
+            text="Daftar sekarang"
+            padding="0.75em 1.5em"
+            onClick={() => {
+              router.push(registerLink);
+            }}
+          />
+        </div>
+      </div>
+      <style jsx>{`
+        .flex-row-center {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .guidebook-button {
+          border-radius: 10px;
+          font-family: "Roboto";
+          font-weight: bold;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          color: #ffffff;
+          text-align: center;
+          border-color: transparent;
+        }
+
+        .daftar-sekarang-button {
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          color: #ffffff;
+          margin-left: 2%;
+          padding: 0.8%;
+          text-align: center;
+          border-color: transparent;
+        }
+
+        @media only screen and (max-width: 1000px) {
+          .flex-row-center {
+            justify-content: center;
+          }
+          .guidebook-button,
+          .daftar-sekarang-button {
+            font-size: 1rem;
+            min-width: 30%;
+            margin-block-start: 1vw;
+          }
+        }
+        @media only screen and (max-width: 500px) {
+          .guidebook-button,
+          .daftar-sekarang-button {
+            font-size: 0.8rem;
+          }
+        }
+      `}</style>
     </div>
-    <style jsx>{`
-            .flex-row-center {
-                display: flex;
-                flex-direction: row;
-                margin-top: 2%;
-            }
+  );
+};
 
-            .guidebook-button {
-                background: #5FE6EA;
-                border-radius: 10px;
-                font-family: 'Roboto';
-                font-weight: bold;
-                font-size: 2.5em;
-                display: flex;
-                align-items: center;
-                color: #FFFFFF;
-                padding-left: 2%;
-                padding-right: 2%;
-                text-align: center;
-                border-color: transparent;
-            }
-  
-            .daftar-sekarang-button {
-                background: #623FA2;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                font-size: 2.5em;
-                color: #FFFFFF;
-                margin-left: 2%;
-                padding: 0.8%;
-                padding-left: 2%;
-                padding-right: 2%;
-                text-align: center;
-                border-color: transparent;
-            }
-
-            .tulisan-button {
-                margin-block-start: 0.2em;
-                margin-block-end: 0.2em;
-                font-family: 'Roboto';
-                font-weight: bold;
-                font-size: 0.5em;
-                color: #FFFFFF;
-                text-align: center;
-            }
-  
-            @media only screen and (max-width: 1000px) {
-                .flex-row-center {
-                    margin-top: 2%;
-                    justify-content: center;
-                }
-
-                .guidebook-button {
-                    border-radius: 10px;
-                    font-size: 2rem;
-                    min-width: 30%
-                    padding-left: 1%;
-                    padding-right: 2%;
-                    margin-block-start: 1vw;
-                    text-align: center;
-                    
-                }
-            
-                .daftar-sekarang-button {
-                    border-radius: 10px;
-                    min-width: 30%
-                    margin-left: 2%;
-                    padding: 0.8%;
-                    padding-left: 1%;
-                    padding-right: 2%;
-                    margin-block-start: 1vw;
-                    text-align: center;
-                }
-
-                .tulisan-button {
-                    font-size: 1.2rem;
-                    text-align: center;
-                    margin-inline-start: 1.2vw;
-                }
-            }
-          `}</style>
-  </div>
-);
-  
 export default Button;

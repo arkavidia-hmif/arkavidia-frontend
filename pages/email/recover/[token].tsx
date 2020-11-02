@@ -18,8 +18,8 @@ const EmailRecover: React.FC = () => {
 
   if (!token) return null;
 
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -29,52 +29,90 @@ const EmailRecover: React.FC = () => {
     setError(null);
 
     if (password.length < 8) {
-      setError('Kata sandi minimal 8 karakter');
+      setError("Kata sandi minimal 8 karakter");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError('Pengulangan kata sandi harus sama');
+      setError("Pengulangan kata sandi harus sama");
       return;
     }
 
     setLoading(true);
 
     resetPassword(apiContext.axios, token as string, password)
-      .then(() => { setSuccess(true); })
+      .then(() => {
+        setSuccess(true);
+      })
       .catch((e) => {
-        if (e instanceof ApiError && e.code === EmailResetPasswordStatus.INVALID_TOKEN) {
-          setError('Tautan ini salah, silakan coba lakukan reset password lagi');
+        if (
+          e instanceof ApiError &&
+          e.code === EmailResetPasswordStatus.INVALID_TOKEN
+        ) {
+          setError(
+            "Tautan ini salah, silakan coba lakukan reset password lagi"
+          );
         } else {
           setError(e.message);
         }
       })
-      .finally(() => { setLoading(false); });
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
     <AuthWrapper title="Ganti Kata Sandi">
-      {!success ?
+      {!success ? (
         <>
           <Alert error={error} />
-          <p className="my-3 mb-4">Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan kata sandi</p>
-          <form onSubmit={(evt) => {
-            evt.preventDefault();
-            onSubmit();
-          }}>
-            <InputField name="Kata Sandi" type="password" value={password} setValue={setPassword} placeholder="************" />
-            <InputField name="Konfirmasi Kata Sandi" type="password" value={confirmPassword} setValue={setConfirmPassword} placeholder="************" />
+          <p className="my-3 mb-4">
+            Jangan khawatir, masukkan emailmu untuk mendapatkan tautan perubahan
+            kata sandi
+          </p>
+          <form
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onSubmit();
+            }}
+          >
+            <InputField
+              name="Kata Sandi"
+              type="password"
+              value={password}
+              setValue={setPassword}
+              placeholder="************"
+            />
+            <InputField
+              name="Konfirmasi Kata Sandi"
+              type="password"
+              value={confirmPassword}
+              setValue={setConfirmPassword}
+              placeholder="************"
+            />
             <br />
-            <FilledButton onClick={onSubmit} text="GANTI" loading={loading} padding="0.75em 1.5em" />
+            <FilledButton
+              text="GANTI"
+              loading={loading}
+              padding="0.75em 1.5em"
+            />
           </form>
         </>
-        : <>
-          <p className="my-3">Sukses, silahkan login dengan kata sandi barumu</p>
+      ) : (
+        <>
+          <p className="my-3">
+            Sukses, silahkan login dengan kata sandi barumu
+          </p>
           <Link href="/login">
             <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
           </Link>
-        </>}
-      <style jsx>{`p {color: #7446A1}`}</style>
+        </>
+      )}
+      <style jsx>{`
+        p {
+          color: #7446a1;
+        }
+      `}</style>
     </AuthWrapper>
   );
 };

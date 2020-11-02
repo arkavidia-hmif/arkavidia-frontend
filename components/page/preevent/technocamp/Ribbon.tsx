@@ -17,20 +17,19 @@ const Ribbon: React.FC = () => (
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-            }    
-
+            }
             .ribbon-date {
-              font-size: 1.5rem;
+              font-size: 1.4rem;
             }
 
             .ribbon:first-child {
-                clip-path: polygon(75% 0%, 90% 50%, 75% 100%, 0% 100%, 0% 0%);
+                clip-path: polygon(75% 0%, 90% 50%, 75% 100%, 0% 100%, 0% 0%);                
             }
             
             .text {
                 display: flex;
                 width: 65%;
-                padding: 1rem 0;
+                padding: .5rem 0;
                 flex-direction: column;
                 justify-content: center;
             }
@@ -44,7 +43,7 @@ const Ribbon: React.FC = () => (
               height: 6rem;
               margin: 0 -5.5rem 1rem 0;
               clip-path: polygon(75% 0%, 90% 50%, 75% 100%, 0% 100%, 15% 50%, 0% 0%);
-              width: 380px;
+              width: 370px;
             }
 
             p {
@@ -52,9 +51,9 @@ const Ribbon: React.FC = () => (
                 color: #FFFFFF;
             }
 
-            @media (max-width: 1000px) {
+            @media (max-width: 1100px) {
                 .ribbon {
-                  height: 4rem;
+                  height: 5rem;
                 }
                 .ribbon-date {
                   font-size: 1.2rem;
@@ -65,14 +64,29 @@ const Ribbon: React.FC = () => (
             }
 
             @media (max-width: 700px) {
+              #ribbon-container {
+                justify-content: flex-start;
+              }
                 .ribbon {
-                    width: 250px;
+                    width: 310px;
+                    height: 4rem;
                 }
                 .ribbon-date {
                   font-size: 1rem;
                 }
                 p {
-                  font-size: .7rem;
+                  font-size: .8rem;
+              }
+            }
+            @media (max-width: 700px) {             
+                .ribbon {
+                    width: 340px;
+                }
+                .ribbon-date {
+                  font-size: 1.15rem;
+                }
+                p {
+                  font-size: .95  rem;
               }
             }
         `}</style>

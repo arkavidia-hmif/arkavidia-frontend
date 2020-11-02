@@ -23,6 +23,7 @@ const TripleRibbon : React.FC<Props> = ({caption}) => (
                 display: flex;
                 flex-direction: row;
                 margin-top: 2%;
+                justify-content: center;
             }
 
             .margins {

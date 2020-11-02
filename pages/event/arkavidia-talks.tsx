@@ -1,8 +1,8 @@
-import Layout from '../../components/Layout';
-import BackgroundProps from '../../utils/constants/events-background';
-import EventItems from '../../utils/constants/event-items';
-import EventHeader from '../../components/EventHeader';
-import TalksGallery from '../../components/page/event/talks/TalksGallery';
+import Layout from "../../components/Layout";
+import BackgroundProps from "../../utils/constants/events-background";
+import EventItems from "../../utils/constants/event-items";
+import EventHeader from "../../components/EventHeader";
+import TalksGallery from "../../components/page/event/talks/TalksGallery";
 
 const Talks: React.FC = () => (
   <Layout {...BackgroundProps.talks}>

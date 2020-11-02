@@ -1,9 +1,8 @@
-import ColorfulHeader from '../components/ColorfulHeader';
-import Layout from '../components/Layout';
-import { Theme } from '../styles/theme';
+import ColorfulHeader from "../components/ColorfulHeader";
+import Layout from "../components/Layout";
+import { Theme } from "../styles/theme";
 
 const AboutPage: React.FC = () => {
-
   return (
     <Layout title="About Arkavidia 7.0">
       <br />
@@ -14,10 +13,29 @@ const AboutPage: React.FC = () => {
             <div className="col-12 col-md-6 offset-md-3">
               <img src="/img/about/hero.png" />
               <br />
-              <img src="/img/about/photo-1-mobile.png" className="d-block d-md-none mt-3 mt-md-0" />
+              <img
+                src="/img/about/photo-1-mobile.png"
+                className="d-block d-md-none mt-3 mt-md-0"
+              />
               <br />
-              <ColorfulHeader color={Theme.headerColors.plpi} size="3rem" headingLevel={1}>Arkavidia 7.0</ColorfulHeader>
-              <p className="p-1 p-md-0">Arkavidia 7.0 adalah acara prestisius tahunan yang diselenggarakan oleh Himpunan Mahasiswa Informatika Institut Teknologi Bandung (HMIF ITB). Bertemakan &quot;Establishing Digital Independence,&quot; Arkavidia hadir untuk memberikan kesadaran bagi setiap individu akan hak dan kewajibannya di dunia digital, sehingga mereka dapat mewujudkan kemerdekaan digital bagi dirinya. Dengan pengalaman lebih dari 6 tahun dan 2000 peserta, Arkavidia berkembang lebih jauh lagi untuk memajukan pemahaman teknologi Indonesia.</p>
+              <ColorfulHeader
+                color={Theme.headerColors.plpi}
+                size="3rem"
+                headingLevel={1}
+              >
+                Arkavidia 7.0
+              </ColorfulHeader>
+              <p className="p-1 p-md-0 mt-2">
+                Arkavidia 7.0 adalah acara prestisius tahunan yang
+                diselenggarakan oleh Himpunan Mahasiswa Informatika Institut
+                Teknologi Bandung (HMIF ITB). Bertemakan &quot;Establishing
+                Digital Independence,&quot; Arkavidia hadir untuk memberikan
+                kesadaran bagi setiap individu akan hak dan kewajibannya di
+                dunia digital, sehingga mereka dapat mewujudkan kemerdekaan
+                digital bagi dirinya. Dengan pengalaman lebih dari 6 tahun dan
+                2000 peserta, Arkavidia berkembang lebih jauh lagi untuk
+                memajukan pemahaman teknologi Indonesia.
+              </p>
             </div>
           </div>
           <br />
@@ -30,8 +48,20 @@ const AboutPage: React.FC = () => {
           <div id="vision-section" className="row">
             <div className="col-12 col-md-8 offset-md-2">
               <h2 className="blue-text">Vision Statement</h2>
-              <ColorfulHeader headingLevel={6} size="4em" color="linear-gradient(180deg, #4583BC, #8382C6)">Establishing Digital</ColorfulHeader>
-              <ColorfulHeader headingLevel={6} size="4em" color="linear-gradient(180deg, #9D82CB, #DE81D6)">Independence</ColorfulHeader>
+              <ColorfulHeader
+                headingLevel={6}
+                size="4em"
+                color="linear-gradient(180deg, #4583BC, #8382C6)"
+              >
+                Establishing Digital
+              </ColorfulHeader>
+              <ColorfulHeader
+                headingLevel={6}
+                size="4em"
+                color="linear-gradient(180deg, #9D82CB, #DE81D6)"
+              >
+                Independence
+              </ColorfulHeader>
             </div>
           </div>
           <br />
@@ -43,26 +73,42 @@ const AboutPage: React.FC = () => {
           <br />
           <div className="row mb-5 mt-3">
             <div className="col-md-4 mb-5 mb-md-0">
-              <ColorfulHeader headingLevel={6} size="6rem">1</ColorfulHeader>
-              <p>Mengadakan kegiatan untuk mengedukasi masyarakat umum mengenai isu di bidang IT</p>
+              <ColorfulHeader headingLevel={6} size="6rem">
+                1
+              </ColorfulHeader>
+              <p>
+                Mengadakan kegiatan untuk mengedukasi masyarakat umum mengenai
+                isu di bidang IT
+              </p>
             </div>
             <div className="col-md-4 mb-5 mb-md-0">
-              <ColorfulHeader headingLevel={6} size="6rem">2</ColorfulHeader>
-              <p>Menyediakan wadah kolaborasi dengan instansi dan komunitas terkait isu di bidang IT</p>
+              <ColorfulHeader headingLevel={6} size="6rem">
+                2
+              </ColorfulHeader>
+              <p>
+                Menyediakan wadah kolaborasi dengan instansi dan komunitas
+                terkait isu di bidang IT
+              </p>
             </div>
             <div className="col-md-4 mb-5 mb-md-0">
-              <ColorfulHeader headingLevel={6} size="6rem">3</ColorfulHeader>
-              <p>Mengadakan kompetisi sebagai sarana pengembagan ilmu pengetahuan di bidang IT</p>
+              <ColorfulHeader headingLevel={6} size="6rem">
+                3
+              </ColorfulHeader>
+              <p>
+                Mengadakan kompetisi sebagai sarana pengembagan ilmu pengetahuan
+                di bidang IT
+              </p>
             </div>
           </div>
           <br />
           <br />
           <br />
-        </div >
+        </div>
       </div>
       <style jsx>{`
         p {
           font-size: 1.1rem;
+          line-height: 1.5;
         }
 
         img {
@@ -74,7 +120,8 @@ const AboutPage: React.FC = () => {
         }
 
         .container-fluid {
-          background: url('/img/about/bg-right.png') right bottom no-repeat, url('/img/about/bg-left.png') left top no-repeat;
+          background: url("/img/about/bg-right.png") right bottom no-repeat,
+            url("/img/about/bg-left.png") left top no-repeat;
         }
 
         #vision-section {
@@ -83,11 +130,11 @@ const AboutPage: React.FC = () => {
         }
 
         .blue-text {
-          color: #22A8C4;
+          color: #22a8c4;
           font-size: 2.5rem;
           margin-bottom: 0;
         }
-        
+
         @media (max-width: 768px) {
           .blue-text {
             font-size: 1.5rem;
@@ -98,15 +145,19 @@ const AboutPage: React.FC = () => {
           }
 
           .container-fluid {
-            background: url('/img/about/bg-right-mobile.png') right 250px no-repeat, url('/img/about/bg-left-mobile.png') left 300px no-repeat;
+            background: url("/img/about/bg-right-mobile.png") right 250px
+                no-repeat,
+              url("/img/about/bg-left-mobile.png") left 300px no-repeat;
           }
 
           p {
             font-size: 1rem;
+            line-height: 1.2;
           }
         }
       `}</style>
-    </Layout >);
+    </Layout>
+  );
 };
 
 export default AboutPage;

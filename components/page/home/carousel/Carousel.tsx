@@ -1,12 +1,9 @@
-import React, { ReactNode, useState } from 'react';
-
-// const arLeft = require('../../public/img/carousel/ar-left.png');
-// const arRight = require('../../public/img/carousel/ar-right.png');
+import React, { ReactNode, useState } from "react";
 
 type CarouselProps = {
-  children: ReactNode[],
-  alignment: 'left' | 'right'
-}
+  children: ReactNode[];
+  alignment: "left" | "right";
+};
 
 const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
   const [position, setPosition] = useState(0);
@@ -28,23 +25,37 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
     }
   };
 
-  const prevButtonStyle = alignment === 'right' ? { left: "10px" } : { right: "45px" };
-  const nextButtonStyle = alignment === 'right' ? { left: "45px" } : { right: "10px" };
+  const prevButtonStyle =
+    alignment === "right" ? { left: "10px" } : { right: "45px" };
+  const nextButtonStyle =
+    alignment === "right" ? { left: "45px" } : { right: "10px" };
 
   return (
     <div className="carousels">
-      {
-        children.map((item: ReactNode, index: number) => {
-          return (
-            <div key={index} className="carousels-content" style={{ transform: `translateX(${position}%)` }}>
-              {item}
-            </div>
-          );
-        })
-      }
+      {children.map((item: ReactNode, index: number) => {
+        return (
+          <div
+            key={index}
+            className="carousels-content"
+            style={{ transform: `translateX(${position}%)` }}
+          >
+            {item}
+          </div>
+        );
+      })}
 
-      <img className="navigation-button" onClick={goLeft} src="/img/carousel/ar-left.png" style={prevButtonStyle} />
-      <img className="navigation-button" onClick={goRight} src="/img/carousel/ar-right.png" style={nextButtonStyle} />
+      <img
+        className="navigation-button"
+        onClick={goLeft}
+        src="/img/carousel/ar-left.png"
+        style={prevButtonStyle}
+      />
+      <img
+        className="navigation-button"
+        onClick={goRight}
+        src="/img/carousel/ar-right.png"
+        style={nextButtonStyle}
+      />
 
       <style jsx>
         {`
@@ -59,13 +70,13 @@ const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
             position: relative;
             overflow: hidden;
           }
-          
+
           .carousels-content {
             min-width: 100%;
             height: 300px;
             transition: 0.5s;
           }
-          
+
           .navigation-button {
             position: absolute;
             bottom: 0;

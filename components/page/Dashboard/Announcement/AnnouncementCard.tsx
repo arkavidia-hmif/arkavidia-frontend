@@ -32,13 +32,9 @@ const AnnouncementCard: React.FC = () => {
               </Link>
             </div>
           </div>
-        ))}
+      ))}
       </div>
       <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-
         .card {
           padding: 0.625rem;
           border: 1px solid #431785;
