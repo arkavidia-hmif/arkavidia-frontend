@@ -1,7 +1,9 @@
-import { TeamParticipationData } from "../../interfaces/competition";
+import { TeamData } from "../../interfaces/team";
 
-export function groupTeamByCompetitionSlug(response: TeamParticipationData[]): { [slug: string]: TeamParticipationData } {
-  const output: { [slug: string]: TeamParticipationData } = {};
+export function groupTeamByCompetitionSlug(
+  response: TeamData[]
+): { [slug: string]: TeamData } {
+  const output: { [slug: string]: TeamData } = {};
   response.forEach((entry) => {
     output[entry.competition.slug] = entry;
   });

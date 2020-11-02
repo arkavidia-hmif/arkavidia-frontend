@@ -1,25 +1,32 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import { listCompetition, listTeam, LIST_COMPETITION_URL, LIST_TEAM_URL } from "../../../../api/competition";
+import {
+  getCompetitions,
+  LIST_COMPETITION_URL,
+} from "../../../../api/competition";
+import { LIST_TEAM_URL, getTeam } from "../../../../api/team";
 import { ApiContext } from "../../../../utils/context/api";
 import DashboardCard from "../../../../components/dashboard/DashboardCard";
 import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/competition";
-import { CompetitionData } from "../../../../interfaces/competition";
+import { Competition } from "../../../../interfaces/competition";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
-
 
 const CompetitionsCard: React.FC = () => {
   const baseUrl = "/dashboard/competitions/";
 
   const apiContext = useContext(ApiContext);
 
-  const { data: competition, error: errorCompetiton } = useSWR(LIST_COMPETITION_URL, () => listCompetition(apiContext.axios));
-  const { data: team, error: errorTeam } = useSWR(LIST_TEAM_URL, () => listTeam(apiContext.axios));
+  const {
+    data: competition,
+    error: errorCompetiton,
+  } = useSWR(LIST_COMPETITION_URL, () => getCompetitions(apiContext.axios));
+  const { data: team, error: errorTeam } = useSWR(LIST_TEAM_URL, () =>
+    getTeam(apiContext.axios)
+  );
 
-  if (errorCompetiton || errorTeam) return (<Alert error="Masalah koneksi" />);
-  if (!competition || !team) return (<Spinner height='200px' />);
-
+  if (errorCompetiton || errorTeam) return <Alert error="Masalah koneksi" />;
+  if (!competition || !team) return <Spinner height="200px" />;
 
   const teamBySlug = groupTeamByCompetitionSlug(team);
 
@@ -31,11 +38,13 @@ const CompetitionsCard: React.FC = () => {
     }
   };
 
-  const generateCardText = (entry: CompetitionData): string => {
+  const generateCardText = (entry: Competition): string => {
     if (!entry.isRegistrationOpen) {
-      return 'Pendaftaran ditutup';
+      return "Pendaftaran ditutup";
     } else {
-      return teamBySlug[entry.slug]?.isParticipating ? 'Lihat Pendaftaran' : 'Daftar';
+      return teamBySlug[entry.slug]?.isParticipating
+        ? "Lihat Pendaftaran"
+        : "Daftar";
     }
   };
 
@@ -48,7 +57,9 @@ const CompetitionsCard: React.FC = () => {
             className="col-md-6 col-lg-4"
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
-            buttonLink={entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null}
+            buttonLink={
+              entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null
+            }
             buttonText={generateCardText(entry)}
           />
         ))}
