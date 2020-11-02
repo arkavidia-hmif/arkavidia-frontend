@@ -43,7 +43,7 @@ const CompetitionsCard: React.FC = () => {
         {competition.map((entry, index) => (
           <DashboardCard
             key={index}
-            className="col-md-4"
+            className="col-md-6 col-lg-4"
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
             buttonLink={entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : ''}
