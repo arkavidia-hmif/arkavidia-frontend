@@ -70,7 +70,7 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
                 >
                   {active === i && <span id="right-roller"></span>}
                   <img src={datum.image} className="mr-3" />
-                  {datum.text} {i}
+                  {datum.text}
                 </li>
               </a>
             </Link>
