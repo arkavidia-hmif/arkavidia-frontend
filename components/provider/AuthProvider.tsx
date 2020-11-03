@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { ReactNode, useEffect, useState } from "react";
 import { AuthData } from "../../interfaces/auth";
+import { DynamicRoute } from "../../utils/constants/dynamic-route";
 import { AuthContext, AuthContextType } from "../../utils/context/auth";
 
 type Props = {
@@ -49,7 +50,10 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   if (typeof window !== 'undefined') {
     const router = useRouter();
 
-    if (router.pathname.startsWith('/dashboard') && !authenticated && loaded) {
+    const isSecure = DynamicRoute.some((entry) => {
+      return router.pathname.startsWith(entry.url) && entry.secure;
+    });
+    if (loaded && isSecure && !authenticated) {
       router.replace(`/login?continue=${router.pathname}`);
     }
   }

@@ -23,7 +23,7 @@ const CompetitionHeader: React.FC<Props> = ({
       <img src={image} alt={imageAlt} />
     </div>
     <div id="content-container">
-      <h1>{title}</h1>
+      <h1>{title.toUpperCase()}</h1>
       <p>{paragraph}</p>
       {children}
     </div>

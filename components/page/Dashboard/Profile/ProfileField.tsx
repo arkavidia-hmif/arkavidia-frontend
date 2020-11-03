@@ -1,101 +1,107 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 import useSWR from "swr";
-import {
-  getProfile,
-  PROFILE_URL,
-} from "../../../../api/profile";
+import { getProfile, PROFILE_URL } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
-import ModalProfile from './ModalProfile';
+import ModalProfile from "./ModalProfile";
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
-  const {
-    data: profile,
-    error: errorProfile,
-  } = useSWR(PROFILE_URL, () => getProfile(apiContext.axios));
+  const { data: profile, error: errorProfile } = useSWR(PROFILE_URL, () =>
+    getProfile(apiContext.axios)
+  );
 
   if (errorProfile) return <Alert error="Masalah koneksi" />;
-  if (!profile ) return <Spinner height="200px" />;
+  if (!profile) return <Spinner height="200px" />;
 
   return (
-    <div className="container mb-3" id='dashboard-area'>
-      <div className="row container-fluid">
+    <div className="mb-3">
+      <div className="row">
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Nama</h1></div>
+          <div className="title">
+            <h1>Nama</h1>
+          </div>
           <div className="content">
-            <p>{profile.fullName || '-'}</p>
+            <p>{profile.fullName || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Nomor Telepon</h1></div>
+          <div className="title">
+            <h1>Nomor Telepon</h1>
+          </div>
           <div className="content">
-            <p>{profile.phoneNumber || '-'}</p>
+            <p>{profile.phoneNumber || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Email</h1></div>
+          <div className="title">
+            <h1>Email</h1>
+          </div>
           <div className="content">
-            <p>{profile.email || '-'}</p>
+            <p>{profile.email || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Tanggal Lahir</h1></div>
+          <div className="title">
+            <h1>Tanggal Lahir</h1>
+          </div>
           <div className="content">
-            <p>{profile.birthDate || '-'}</p>
+            <p>{profile.birthDate || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Status</h1></div>
+          <div className="title">
+            <h1>Status</h1>
+          </div>
           <div className="content">
-            <p>{profile.currentEducation || '-'}</p>
+            <p>{profile.currentEducation || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Alamat</h1></div>
+          <div className="title">
+            <h1>Alamat</h1>
+          </div>
           <div className="content">
-            <p>{profile.address || '-'}</p>
+            <p>{profile.address || "-"}</p>
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Universitas</h1></div>
-          <div className="content">
-            <p>{profile.institution|| '-'}</p>
+          <div className="title">
+            <h1>Universitas</h1>
           </div>
-        </div>     
+          <div className="content">
+            <p>{profile.institution || "-"}</p>
+          </div>
+        </div>
       </div>
-      <ModalProfile/>
+      <ModalProfile />
       <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-
-        .field{
+        .field {
           max-width: 27rem;
         }
 
-        .title h1{
+        .title h1 {
           font-family: Roboto;
           font-size: 1.125rem;
           font-weight: bold;
-  
+
           color: #646464;
         }
 
-        .content{
+        .content {
           font-family: Roboto;
           font-size: 1.125rem;
 
           color: #646464;
         }
 
-        #update{
-          display:block;
+        #update {
+          display: block;
         }
-        form{
-          display:block;
+        form {
+          display: block;
         }
       `}</style>
     </div>

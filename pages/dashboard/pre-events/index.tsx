@@ -4,7 +4,7 @@ import Layout from '../../../components/Layout';
 import { Theme } from '../../../styles/theme';
 
 const IndexPage: React.FC = () => (
-  <Layout title="Pre-Events | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+  <Layout title="Pre-Events" background={Theme.bgColors.whtogr}>
     <DashboardWrapper >
       <PreEventsCard />
     </DashboardWrapper>

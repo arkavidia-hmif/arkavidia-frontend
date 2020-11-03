@@ -1,12 +1,47 @@
-import type { AppProps } from "next/app";
+import type { AppProps, NextWebVitalsMetric } from "next/app";
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
+import { useEffect } from "react";
+import * as ReactGA from "react-ga";
 import ApiProvider from "../components/provider/ApiProvider";
 import DashboardProvider from "../components/provider/DashboardProvider";
 import AuthProvider from "../components/provider/AuthProvider";
 
+let gaLoaded = false;
+
+export function reportWebVitals({
+  name,
+  label,
+  value,
+}: NextWebVitalsMetric): void {
+  if (gaLoaded) {
+    ReactGA.timing({
+      category: label,
+      variable: name,
+      value,
+    });
+  }
+}
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  useEffect(() => {
+    if (
+      process.env.GA_ID &&
+      process.env.NODE_ENV === "production" &&
+      typeof window !== undefined &&
+      !gaLoaded
+    ) {
+      ReactGA.initialize(process.env.GA_ID);
+      ReactGA.pageview(window.location.pathname + window.location.search);
+      gaLoaded = true;
+    }
+  }, []);
+
+  if (gaLoaded) {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+
   return (
     <>
       <Head>
@@ -21,8 +56,28 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
 
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="alternate icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe5981" />
+        <meta name="msapplication-TileColor" content="#fe5981" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <AuthProvider>
         <ApiProvider>

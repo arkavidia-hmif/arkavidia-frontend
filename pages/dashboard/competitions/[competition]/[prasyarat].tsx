@@ -7,7 +7,7 @@ import { Theme } from "../../../../styles/theme";
 const Prasyarat: React.FC = () => {
 
   return (
-    <Layout title="Prasyarat | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+    <Layout title="Prasyarat" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
         <div className="container" id='dashboard-area'>
           <div className="row container">
