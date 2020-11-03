@@ -14,7 +14,7 @@ const DatavidiaPage: React.FC = () => (
       <CompetitionHeader {...competitionItems.datavidia}>
         <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Rp. 60.000,-" />
         <Buttons
-          guidebookLink="https://drive.google.com/file/d/1A3Gdl8sGNV2l4bTuzRPE-s2NbXaMPzyA/view?usp=sharing"
+          guidebookLink="https://link.arkavidia.id/guidebook_datavidia"
           registerLink="/dashboard/competition/gamedev"
         />
       </CompetitionHeader>
