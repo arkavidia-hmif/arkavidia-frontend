@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
-import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 import { ApiContext } from "../../../../utils/context/api";
 import Spinner from "../../../../components/Spinner";
