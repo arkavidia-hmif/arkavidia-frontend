@@ -1,0 +1,6 @@
+{
+  "extends": "tslint:latest",
+  "linterOptions": {
+    "exclude": ["./components/page/Dashboard/Profile/ProfileField.tsx"]
+  }
+}
