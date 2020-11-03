@@ -15,12 +15,12 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
   const getTeamDashboardData = (slug: string) => [
     {
       text: "Informasi Tim",
-      image: "../../../img/dashboard/submission/tim.png",
+      image: "/img/dashboard/submission/tim.png",
       link: `/dashboard/competitions/${slug}/`,
     },
     {
       text: "Anggota Tim",
-      image: "../../../img/dashboard/submission/anggota.png",
+      image: "/img/dashboard/submission/anggota.png",
       link: `/dashboard/competitions/${slug}/anggota-tim`,
     },
   ];
