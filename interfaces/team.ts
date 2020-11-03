@@ -22,7 +22,7 @@ export interface TeamDetailData {
   competition: Competition;
   category: string;
   name: string;
-  teamLeaderemail: string;
+  teamLeaderEmail: string;
   institution: string;
   isParticipating: boolean;
   teamMembers: Array<TeamMember>;
