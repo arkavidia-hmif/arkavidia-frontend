@@ -64,33 +64,34 @@ const ProfileField: React.FC = () => {
     <div className="mb-3">
       <div className="row">
         {[
-          [fullName, "fullName"],
-          [email, "email"],
-          [phoneNumber, "phoneNumber"],
-          [birthDate, "birthDate"],
-          [address, "address"],
-          [currentEducation, "currentEducation"],
-          [institution, "institution"],
+          { state: fullName, key: "fullName" },
+          { state: email, key: "email" },
+          { state: phoneNumber, key: "phoneNumber" },
+          { state: birthDate, key: "birthDate" },
+          { state: address, key: "address" },
+          { state: currentEducation, key: "currentEducation" },
+          { state: institution, key: "institution" },
         ].map((data, index) => {
-          const label = profileAttributes[data[1]];
-          const value = profile[data[1]];
+
+          const label = profileAttributes[data.key];
+          const value = (profile as any)[data.key]; // :(
 
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">
               <div className="title">{label}</div>
               <div className="content">
-                {!(isEdit && data[1] !== "email") ? (
+                {!(isEdit && data.key !== "email") ? (
                   <div className="value">{value ?? "-"}</div>
                 ) : (
-                  <InputField
-                    shouldRef={index === 0}
-                    type={data[1] === "birthDate" ? "date" : "text"}
-                    value={
-                      String(data[0]?.value) !== "" ? data[0]?.value : value
-                    }
-                    setValue={data[0].setValue}
-                  />
-                )}
+                    <InputField
+                      shouldRef={index === 0}
+                      type={data.key === "birthDate" ? "date" : "text"}
+                      value={
+                        String(data.state.value) !== "" ? data.state.value : value
+                      }
+                      setValue={data.state.setValue}
+                    />
+                  )}
               </div>
             </div>
           );
@@ -121,13 +122,13 @@ const ProfileField: React.FC = () => {
               </div>
             </div>
           ) : (
-            <FilledButton
-              text="Edit Profile"
-              color={Theme.buttonColors.purpleButton}
-              padding="0.75rem 3rem"
-              onClick={() => setIsEdit(true)}
-            />
-          )}
+              <FilledButton
+                text="Edit Profile"
+                color={Theme.buttonColors.purpleButton}
+                padding="0.75rem 3rem"
+                onClick={() => setIsEdit(true)}
+              />
+            )}
         </div>
       </div>
 
