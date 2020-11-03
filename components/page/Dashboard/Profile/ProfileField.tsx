@@ -18,11 +18,11 @@ const ProfileField: React.FC = () => {
   } = useSWR(PROFILE_URL, () => getProfile(apiContext.axios));
 
   if (errorProfile) return <Alert error="Masalah koneksi" />;
-  if (!profile ) return <Spinner height="200px" />;
+  if (!profile) return <Spinner height="200px" />;
 
   return (
-    <div className="container mb-3" id='dashboard-area'>
-      <div className="row container-fluid">
+    <div className="mb-3">
+      <div className="row">
         <div className="field col-6 mt-3">
           <div className="title"><h1>Nama</h1></div>
           <div className="content">
@@ -62,16 +62,12 @@ const ProfileField: React.FC = () => {
         <div className="field col-6 mt-3">
           <div className="title"><h1>Universitas</h1></div>
           <div className="content">
-            <p>{profile.institution|| '-'}</p>
+            <p>{profile.institution || '-'}</p>
           </div>
-        </div>     
+        </div>
       </div>
-      <ModalProfile/>
+      <ModalProfile />
       <style jsx>{`
-        #dashboard-area {
-          min-height: 60vh;
-        }
-
         .field{
           max-width: 27rem;
         }
