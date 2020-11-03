@@ -7,9 +7,6 @@ const GameJamRibbon : React.FC = () => (
     <div className="flex-row-center">
       <div>
         <div className="margins-2">
-          <SmallRibbon title="Best Art" caption="Rp 1.000.000"/>
-        </div>
-        <div className="margins-2">
           <SmallRibbon title="Best Audio" caption="Rp 1.000.000"/>
         </div>
         <div className="margins-2">
@@ -17,7 +14,7 @@ const GameJamRibbon : React.FC = () => (
         </div>
       </div>
       <div className="margins">
-        <BigRibbon image="/img/competitions/medal.png" title="Best Game" caption="Rp 2.000.000"/>
+        <BigRibbon image="/img/competitions/medal.png" title="Best Game" caption="Rp 1.500.000"/>
       </div>
       <div>
         <div className="margins-2">
