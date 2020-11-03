@@ -15,7 +15,7 @@ const ArkaPage: React.FC = () => (
         <Category category="SMA/Sederajat" fee="Rp. 40.000,-" />
         <Buttons
           guidebookLink="https://link.arkavidia.id/guidebook_arkalogica"
-          registerLink="/dashboard/competition/arkalogica"
+          registerLink="/dashboard/competitions/arkalogica"
         />
       </CompetitionHeader>
       <Ribbons />
