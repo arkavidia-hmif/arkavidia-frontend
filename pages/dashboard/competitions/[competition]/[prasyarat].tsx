@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
-import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
+import CompetitionSidebar from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
@@ -45,7 +45,7 @@ const Prasyarat: React.FC = () => {
         <div className="container" id="dashboard-area">
           <div className="row container">
             <div className="col-sm-10 col-md-4 mt-5">
-              <SubmissionProgress
+              <CompetitionSidebar
                 selection={0}
                 setSelection={(val) => { val + 1; }}
                 team={currentTeam}

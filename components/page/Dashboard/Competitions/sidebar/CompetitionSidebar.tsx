@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Competition } from "../../../../interfaces/competition";
-import { SidebarEntry } from "../../../../interfaces/sidebar";
-import { TeamData } from "../../../../interfaces/team";
-import SidebarSection from "./sidebar/SidebarSection";
+import { Competition } from "../../../../../interfaces/competition";
+import { SidebarEntry } from "../../../../../interfaces/sidebar";
+import { TeamData } from "../../../../../interfaces/team";
+import SidebarSection from "./SidebarSection";
 
 interface SubmissionProgressProps {
   team: TeamData;
@@ -11,7 +11,7 @@ interface SubmissionProgressProps {
   setSelection: (selection: number) => void;
 }
 
-const SubmissionProgress: React.FC<SubmissionProgressProps> = ({ team, competition, selection, setSelection }) => {
+const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({ team, competition, selection, setSelection }) => {
   const sidebarData = [
     {
       name: "TIM",
@@ -78,4 +78,4 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = ({ team, competiti
   );
 };
 
-export default SubmissionProgress;
+export default CompetitionSidebar;
