@@ -6,7 +6,6 @@ import Popup from './Popup';
 const ModalProfile: React.FC= () => {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [address, setAddress] = useState("");
@@ -17,9 +16,9 @@ const ModalProfile: React.FC= () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSubmit = () => {
+  // const handleSubmit = () => {
     
-  };
+  // };
   
   return (
     <div className="my-3">
@@ -33,7 +32,7 @@ const ModalProfile: React.FC= () => {
                 className="row container-fluid" 
                 onSubmit={(evt) => {
                   evt.preventDefault();
-                  handleSubmit();
+                  // handleSubmit();
                 }}>
                 <label className="field col-6 mt-3">
                   <p>Nama</p>
@@ -42,17 +41,8 @@ const ModalProfile: React.FC= () => {
                     name="nama" 
                     placeholder="Nama" 
                     value={name}
-                    onChange={(evt) => setName(evt.target.value)} 
-                  />
-                </label>
-                <label className="field col-6 mt-3">
-                  <p>Email</p>
-                  <input 
-                    type="text" 
-                    name="email" 
-                    placeholder="Email" 
-                    value={email}
-                    onChange={(evt) => setEmail(evt.target.value)} 
+                    onChange={(evt) => setName(evt.target.value)}
+                    required 
                   />
                 </label>
                 <label className="field col-6 mt-3">
@@ -62,7 +52,8 @@ const ModalProfile: React.FC= () => {
                     name="telepon" 
                     placeholder="Nomor Telepon" 
                     value={phoneNumber}
-                    onChange={(evt) => setPhoneNumber(evt.target.value)} 
+                    onChange={(evt) => setPhoneNumber(evt.target.value)}
+                    required  
                   />
                 </label>
                 <label className="field col-6 mt-3">
@@ -72,7 +63,8 @@ const ModalProfile: React.FC= () => {
                     name="ttl" 
                     placeholder="Tanggal Lahir" 
                     value={birthDate}
-                    onChange={(evt) => setBirthDate(evt.target.value)} 
+                    onChange={(evt) => setBirthDate(evt.target.value)}
+                    required  
                   />
                 </label>
                 <label className="field col-6 mt-3">
@@ -82,7 +74,8 @@ const ModalProfile: React.FC= () => {
                     name="alamat" 
                     placeholder="Alamat" 
                     value={address}
-                    onChange={(evt) => setAddress(evt.target.value)}  
+                    onChange={(evt) => setAddress(evt.target.value)}
+                    required   
                   />
                 </label>
                 <label className="field col-6 mt-3">
@@ -92,7 +85,8 @@ const ModalProfile: React.FC= () => {
                     name="status" 
                     placeholder="Status" 
                     value={currentEducation}
-                    onChange={(evt) => setCurrentEducation(evt.target.value)} 
+                    onChange={(evt) => setCurrentEducation(evt.target.value)}
+                    required  
                   />
                 </label>
                 <label className="field col-6 mt-3">
@@ -102,11 +96,12 @@ const ModalProfile: React.FC= () => {
                     name="universitas" 
                     placeholder="Universitas" 
                     value={institution}
-                    onChange={(evt) => setInstitution(evt.target.value)}  
+                    onChange={(evt) => setInstitution(evt.target.value)}
+                    required   
                   />
                 </label>
                 <div className="field col-12 mt-3 mb-3">
-                  <FilledButton text="Edit" padding="0.75rem 50%"/>
+                  <FilledButton text="EDIT" padding="0.75rem 4rem"/>
                 </div>
               </form>
             </div>}
@@ -123,8 +118,8 @@ const ModalProfile: React.FC= () => {
           flex-direction: column;
           font-style: normal;
           font-weight: bold;
-          font-size: 1.2rem;
-          line-height: 1.2rem;
+          font-size: 1.1rem;
+          line-height: 1.1rem;
           color: #000000;
           margin-top: 0.8rem;
         }
@@ -133,7 +128,7 @@ const ModalProfile: React.FC= () => {
           width: 100%;
           border: none;
           padding: 0.5rem 0 0.5rem 0;
-          border-bottom: 0.15rem solid black;
+          border-bottom: 0.15rem solid #000000;
           box-sizing: border-box;
           background: none;
           margin: 0.5rem 0 1rem 0;

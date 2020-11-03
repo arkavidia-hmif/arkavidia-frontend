@@ -16,3 +16,28 @@ export const getProfile = async (
       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };
+
+// export async function editProfile(
+//   axios: AxiosInstance,
+//   fullName: string,
+//   currentEducation: string,
+//   institution: string,
+//   phoneNumber: string,
+//   birthDate: string,
+//   address: string
+// ): Promise<AuthData> {
+//   try {
+//     const response = await axios.patch("/auth/edit-user/", {
+//       fullName,
+//       currentEducation,
+//       institution,
+//       phoneNumber,
+//       birthDate,
+//       address
+//     });
+
+//     return response.data as AuthData;
+//   } catch (e) {
+//     throw new ApiError<StandardError>(StandardError.ERROR, e);
+//   }
+// }
