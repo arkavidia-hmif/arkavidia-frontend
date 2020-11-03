@@ -14,7 +14,7 @@ type Props = {
 
 }
 
-const CompetitionWrapper: React.FC<Props> = ({ teamInfo, teamMember }) => {
+const CompetitionWrapper: React.FC<Props> = ({ teamInfo }) => {
   const apiContext = useContext(ApiContext);
 
   const {

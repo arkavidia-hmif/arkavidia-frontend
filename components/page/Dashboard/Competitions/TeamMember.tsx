@@ -1,5 +1,5 @@
 import { Competition } from "../../../../interfaces/competition";
-import { TeamData } from "../../../../interfaces/team"
+import { TeamData } from "../../../../interfaces/team";
 
 type Props = {
   team: TeamData;
