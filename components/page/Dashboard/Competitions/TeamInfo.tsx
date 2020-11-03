@@ -18,8 +18,10 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
 
   const [edit, setEdit] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [teamName, setTeamName] = useState<string>("");
-  const [institutionName, setInstitutionName] = useState<string>("");
+  const [teamName, setTeamName] = useState<string>(props.currentTeam.name);
+  const [institutionName, setInstitutionName] = useState<string>(
+    props.currentCompetition.name
+  );
 
   if (edit) {
     return (
