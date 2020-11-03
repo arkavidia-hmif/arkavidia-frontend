@@ -46,6 +46,8 @@ const Prasyarat: React.FC = () => {
           <div className="row container">
             <div className="col-sm-10 col-md-4 mt-5">
               <SubmissionProgress
+                selection={0}
+                setSelection={(val) => { val + 1; }}
                 team={currentTeam}
                 competition={currentCompetition}
               />
