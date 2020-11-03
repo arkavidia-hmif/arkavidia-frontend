@@ -1,17 +1,55 @@
+import { useContext } from "react";
+import { useRouter } from "next/dist/client/router";
+import { ApiContext } from "../../../../utils/context/api";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import { Theme } from "../../../../styles/theme";
+import Alert from "../../../../components/Alert";
+import Spinner from "../../../../components/Spinner";
+import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
 
 const AnggotaTim: React.FC = () => {
+  const apiContext = useContext(ApiContext);
 
+  const {
+    getCompetitionBySlug,
+    getTeamBySlug,
+    isLoaded,
+    isError,
+  } = useTeamCompetition(apiContext.axios);
+
+  const router = useRouter();
+  const { competition } = router.query;
+  if (!competition) return null;
+
+  if (isError) return <Alert error="Masalah koneksi" />;
+  if (!isLoaded) return <Spinner height="200px" />;
+
+  const currentTeam = getTeamBySlug(competition as string);
+  const currentCompetition = getCompetitionBySlug(competition as string);
+
+  if (!currentCompetition) {
+    return <Alert error="Invalid slug." />;
+  }
+
+  if (!currentTeam) {
+    router.push(`/dashboard/competitions/${competition}/register-tim`);
+    return <Spinner height="200px" />;
+  }
   return (
-    <Layout title="Anggota Tim | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+    <Layout
+      title="Anggota Tim | Arkavidia 7.0"
+      background={Theme.bgColors.whtogr}
+    >
       <DashboardWrapper>
         <div className="container">
           <div className="row container">
             <div className="col-sm-10 col-md-4 mt-5">
-              <SubmissionProgress />
+              <SubmissionProgress
+                team={currentTeam}
+                competition={currentCompetition}
+              />
             </div>
             <div
               className="container-fluid mb-5 mt-5 col-sm-12 col-md-8"
@@ -19,7 +57,10 @@ const AnggotaTim: React.FC = () => {
             >
               <div id="content-container">
                 <div id="heading">Arkalogica - Anggota Tim</div>
-                <div id="subtitle">Jumlah peserta tim untuk [nama lomba] maksimal adalah [n] orang</div>
+                <div id="subtitle">
+                  Jumlah peserta tim untuk [nama lomba] maksimal adalah [n]
+                  orang
+                </div>
                 <div className="mt-5" id="team">
                   <div className="member">
                     <img src="../../../img/competitions/member.png" />
@@ -52,17 +93,17 @@ const AnggotaTim: React.FC = () => {
               color: #05058d;
             }
 
-            #subtitle{
+            #subtitle {
               font-family: Roboto;
               color: #646464;
               font-size: 1rem;
             }
 
-            .member{
+            .member {
               display: flex;
             }
 
-            .name{
+            .name {
               font-family: Roboto;
               color: #646464;
               font-size: 1.125rem;
@@ -86,11 +127,11 @@ const AnggotaTim: React.FC = () => {
                 font-size: 1.25rem;
               }
 
-              .name{
+              .name {
                 font-size: 1rem;
               }
-    
-              #subtitle{
+
+              #subtitle {
                 font-size: 0.875rem;
               }
             }
