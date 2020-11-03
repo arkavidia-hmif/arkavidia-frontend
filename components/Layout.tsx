@@ -14,22 +14,28 @@ const Layout: React.FC<Props> = ({
   children,
   title = "Arkavidia 7.0",
   background = Theme.bgColors.whblpi,
-}) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-    </Head>
-    <Navbar />
-    <div id="main-container">{children}</div>
-    <Footer />
-    <style jsx>
-      {`
-        #main-container {
-          background: ${background};
-        }
-      `}
-    </style>
-  </div>
-);
+}) => {
+  return (
+    <div id="parent-container">
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <Navbar />
+      <div id="main-container">{children}</div>
+      <Footer />
+      <style jsx>{`
+          #parent-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+          }
+          #main-container {
+            background: ${background};
+            flex: 1;
+          }
+        `}</style>
+    </div>
+  );
+};
 
 export default Layout;
