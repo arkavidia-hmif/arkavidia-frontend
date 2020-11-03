@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
-import CompetitionSidebar from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
+import CompetitionSidebar from "../../../../components/page/Dashboard/Competitions/sidebar/CompetitionSidebar";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
