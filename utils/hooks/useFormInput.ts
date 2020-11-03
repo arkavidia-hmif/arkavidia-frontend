@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 
-export default (
+const useFormInput = (
   initialValue: string
 ): {
   value: string;
@@ -16,3 +16,5 @@ export default (
       setValue(e.target.value),
   };
 };
+
+export default useFormInput;
