@@ -1,25 +1,40 @@
+import { useRouter } from "next/dist/client/router";
 import React, { useContext, useState } from "react";
 import { mutate } from "swr";
-import { editTeam, LIST_TEAM_URL } from "../../../../api/team";
-import { Competition } from "../../../../interfaces/competition";
-import { TeamData } from "../../../../interfaces/team";
-import { Theme } from "../../../../styles/theme";
-import { ApiContext } from "../../../../utils/context/api";
-import Alert from "../../../Alert";
-import FilledButton from "../../../FilledButton";
+import { editTeam, LIST_TEAM_URL } from "../../api/team";
+import { Theme } from "../../styles/theme";
+import { ApiContext } from "../../utils/context/api";
+import { useTeamCompetition } from "../../utils/hooks/useTeamCompetition";
+import Alert from "../Alert";
+import FilledButton from "../FilledButton";
 
-type TeamInfoProps = {
-  currentTeam: TeamData;
-  currentCompetition: Competition;
-};
-
-const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
+export const DashboardTeamProfile: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
+  const {
+    getTeamBySlug,
+    getCompetitionBySlug,
+    isLoaded,
+    isError,
+  } = useTeamCompetition(apiContext.axios);
+  const router = useRouter();
   const [edit, setEdit] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [teamName, setTeamName] = useState<string>("");
   const [institutionName, setInstitutionName] = useState<string>("");
+  const { competition } = router.query;
+
+  if (!competition) return null;
+
+  if (isError) return <Alert error="Masalah koneksi" />;
+  if (!isLoaded) return null;
+
+  const currentTeam = getTeamBySlug(competition as string);
+  const currentCompetition = getCompetitionBySlug(competition as string);
+
+  if (!currentCompetition || !currentTeam) {
+    return <Alert error="Invalid slug." />;
+  }
 
   if (edit) {
     return (
@@ -34,7 +49,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
                 name: teamName,
                 institution: institutionName,
               },
-              props.currentTeam.id.toString()
+              currentTeam.id.toString()
             )
               .then(() => {
                 mutate(`${LIST_TEAM_URL}`);
@@ -45,14 +60,12 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
               });
           }}
         >
-          <div id="heading">
-            {props.currentCompetition.name} - Informasi Tim
-          </div>
+          <div id="heading">{currentCompetition.name} - Informasi Tim</div>
           <div className="mt-4">
             <div className="title">Nama Tim</div>
             <input
               value={teamName}
-              placeholder={props.currentTeam.name}
+              placeholder={currentTeam.name}
               onChange={(event) => {
                 setTeamName(event.target.value);
               }}
@@ -62,7 +75,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
             <div className="title">Asal Sekolah/Universitas</div>
             <input
               value={institutionName}
-              placeholder={props.currentTeam.institution}
+              placeholder={currentTeam.institution}
               onChange={(event) => {
                 setInstitutionName(event.target.value);
               }}
@@ -172,14 +185,14 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
   } else {
     return (
       <>
-        <div id="heading">{props.currentCompetition.name} - Informasi Tim</div>
+        <div id="heading">{currentCompetition.name} - Informasi Tim</div>
         <div className="mt-4">
           <div className="title">Nama Tim</div>
-          <div className="subtitle">{props.currentTeam.name}</div>
+          <div className="subtitle">{currentTeam.name}</div>
         </div>
         <div className="mt-4">
           <div className="title">Asal Sekolah/Universitas</div>
-          <div className="subtitle">{props.currentTeam.institution}</div>
+          <div className="subtitle">{currentTeam.institution}</div>
         </div>
         <div className="mt-5" id="button">
           <div className="mr-5">
@@ -269,5 +282,3 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
     );
   }
 };
-
-export default TeamInfo;

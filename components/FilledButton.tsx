@@ -2,8 +2,11 @@ import * as React from "react";
 import { ButtonColor, Theme } from "../styles/theme";
 
 type Props = {
-  onClick?: () => void;
+  onClick?:
+    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+    | undefined;
   text: string;
+  submit?: boolean;
   padding?: string;
   color?: ButtonColor;
   loading?: boolean;
@@ -14,10 +17,16 @@ const FilledButton: React.FC<Props> = ({
   text,
   padding,
   loading,
+  submit,
   color = Theme.buttonColors.pinkButton,
 }) => (
   <>
-    <button id="container" onClick={onClick} style={{ padding }}>
+    <button
+      id="container"
+      onClick={onClick}
+      style={{ padding }}
+      type={submit ? "submit" : "button"}
+    >
       <div id="loader"></div>
       <b>{text}</b>
     </button>
