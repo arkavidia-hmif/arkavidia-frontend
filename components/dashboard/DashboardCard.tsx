@@ -1,14 +1,20 @@
 import Link from "next/link";
 
 type Props = {
-  title: string,
-  body: string,
-  buttonLink?: string | null,
-  buttonText?: string | null,
-  className?: string
-}
+  title: string;
+  body: string;
+  buttonLink?: string | null;
+  buttonText?: string | null;
+  className?: string;
+};
 
-const DashboardCard: React.FC<Props> = ({ title, body, buttonLink = null, buttonText = null, className }) => {
+const DashboardCard: React.FC<Props> = ({
+  title,
+  body,
+  buttonLink = null,
+  buttonText = null,
+  className,
+}) => {
   const showLink = !!(buttonLink || buttonText);
 
   return (
@@ -19,12 +25,13 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink = null, button
         <br />
         <hr />
         <div className="link">
-          {buttonLink ?
+          {buttonLink ? (
             <Link href={buttonLink}>
               <a>{buttonText}</a>
             </Link>
-            : <span>{buttonText}</span>
-          }
+          ) : (
+            <span>{buttonText}</span>
+          )}
         </div>
       </div>
       <style jsx>{`
@@ -60,7 +67,7 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink = null, button
         .content {
           flex-grow: 1;
           font-size: 1.125rem;
-          color: #646464
+          color: #646464;
         }
 
         .link {
@@ -94,11 +101,11 @@ const DashboardCard: React.FC<Props> = ({ title, body, buttonLink = null, button
       `}</style>
       <style jsx>{`
         hr {
-          ${!showLink ? 'display: none;' : ''}
+          ${!showLink ? "display: none;" : ""}
         }
 
         .link {
-          ${!showLink ? 'display: none;' : ''}
+          ${!showLink ? "display: none;" : ""}
         }
       `}</style>
     </div>
