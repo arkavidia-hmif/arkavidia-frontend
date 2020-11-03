@@ -63,14 +63,9 @@ const RegisterTim: React.FC = () => {
     await createTeam (apiContext.axios, {competitionId, name, institution})
       .then(() => {
         router.push(`/dashboard/competitions/${competition}`);
-      })
-      .catch((e) => {
-        setError(e);
-      })
-      .finally(() => {
         setLoading(false);
-      })
-  }
+      });
+  };
 
   return (
     <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
@@ -82,8 +77,8 @@ const RegisterTim: React.FC = () => {
               <Alert error={error} />
               <div id="heading">Buat Tim {currentCompetition.name} </div>
               <form className="mt-4" onSubmit={(evt) => {
-              evt.preventDefault();
-              handleSubmit();
+                evt.preventDefault();
+                handleSubmit();
               }}>
                 <label htmlFor="name">Nama tim</label>
                 <input id="name" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }}/>
