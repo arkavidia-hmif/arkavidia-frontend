@@ -6,6 +6,7 @@ import {
 } from "../interfaces/team";
 import { ApiError, StandardError } from "./error";
 
+export const REGISTER_TEAM_URL = "/competition/register-team/";
 export const LIST_TEAM_URL = "/competition/teams/";
 
 export const createTeam = async (
@@ -13,7 +14,7 @@ export const createTeam = async (
   teamForm: TeamRegistrationForm
 ): Promise<TeamData> => {
   return axios
-    .post<TeamData>("/competition/register-team/", teamForm)
+    .post<TeamData>(REGISTER_TEAM_URL, teamForm)
     .then((response) => {
       return response.data;
     })

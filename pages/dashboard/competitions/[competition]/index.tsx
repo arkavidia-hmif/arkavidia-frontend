@@ -1,48 +1,40 @@
 import { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
-import useSWR from "swr";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
-import { getTeam, LIST_TEAM_URL } from "../../../../api/team";
 import { ApiContext } from "../../../../utils/context/api";
 import Spinner from "../../../../components/Spinner";
-import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/competition";
 import Alert from "../../../../components/Alert";
-import {
-  getCompetitions,
-  LIST_COMPETITION_URL,
-} from "../../../../api/competition";
-import { getCompetitionSlugs } from "../../../../utils/transformer/slug";
+import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
 
 const StatusTim: React.FC = () => {
   const apiContext = useContext(ApiContext);
-  const router = useRouter();
-  const { competition } = router.query;
-
-  if (!competition) return null;
 
   const {
-    data: competitions,
-    error: errorCompetitons,
-  } = useSWR(LIST_COMPETITION_URL, () => getCompetitions(apiContext.axios));
-  const { data: team, error: errorTeam } = useSWR(LIST_TEAM_URL, () =>
-    getTeam(apiContext.axios)
-  );
+    getCompetitionBySlug,
+    getTeamBySlug,
+    isLoaded,
+    isError,
+  } = useTeamCompetition(apiContext.axios);
 
-  if (errorTeam || errorCompetitons) return <Alert error="Masalah koneksi" />;
-  if (!team || !competitions) return <Spinner height="200px" />;
+  const router = useRouter();
+  const { competition } = router.query;
+  if (!competition) return null;
 
-  const teamBySlug = groupTeamByCompetitionSlug(team);
-  const validSlugs = getCompetitionSlugs(competitions);
+  if (isError) return <Alert error="Masalah koneksi" />;
+  if (!isLoaded) return <Spinner height="200px" />;
 
-  if (validSlugs.filter((slug) => slug === competition).length === 0) {
+  const currentTeam = getTeamBySlug(competition as string);
+  const currentCompetition = getCompetitionBySlug(competition as string);
+
+  if (!currentCompetition) {
     return <Alert error="Invalid slug." />;
   }
 
-  if (!teamBySlug[competition as string]) {
+  if (!currentTeam) {
     router.push(`/dashboard/competitions/${competition}/register-tim`);
     return <Spinner height="200px" />;
   }
@@ -56,21 +48,26 @@ const StatusTim: React.FC = () => {
         <div className="container">
           <div className="row container">
             <div className="col-sm-10 col-md-4 mt-5">
-              <SubmissionProgress />
+              <SubmissionProgress
+                team={currentTeam}
+                competition={currentCompetition}
+              />
             </div>
             <div
               className="container-fluid mb-5 mt-5 col-sm-12 col-md-8"
               id="main"
             >
               <div id="content-container">
-                <div id="heading">Arkalogica - Informasi Tim</div>
+                <div id="heading">
+                  {currentCompetition.name} - Informasi Tim
+                </div>
                 <div className="mt-4">
                   <div className="title">Nama Tim</div>
-                  <div className="subtitle">Lorem ipsum</div>
+                  <div className="subtitle">{currentTeam.name}</div>
                 </div>
                 <div className="mt-4">
                   <div className="title">Asal Sekolah/Universitas</div>
-                  <div className="subtitle">SMA 1 Bandung</div>
+                  <div className="subtitle">{currentTeam.institution}</div>
                 </div>
                 <div className="mt-5" id="button">
                   <div className="mr-5">
