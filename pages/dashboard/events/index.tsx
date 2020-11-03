@@ -4,7 +4,7 @@ import Layout from '../../../components/Layout';
 import { Theme } from '../../../styles/theme';
 
 const IndexPage: React.FC = () => (
-  <Layout title="Events | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+  <Layout title="Events" background={Theme.bgColors.whtogr}>
     <DashboardWrapper>
       <EventsCard />
     </DashboardWrapper>

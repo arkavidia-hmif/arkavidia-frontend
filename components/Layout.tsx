@@ -12,9 +12,16 @@ type Props = {
 
 const Layout: React.FC<Props> = ({
   children,
-  title = "Arkavidia 7.0",
+  title,
   background = Theme.bgColors.whblpi,
 }) => {
+
+  if (!title) {
+    title = 'Arkavidia 7.0';
+  } else {
+    title = title + ' | Arkavidia 7.0';
+  }
+
   return (
     <div id="parent-container">
       <Head>

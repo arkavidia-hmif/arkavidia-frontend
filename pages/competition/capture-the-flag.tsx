@@ -9,7 +9,7 @@ import { Theme } from "../../styles/theme";
 import TripleRibbon from "../../components/competition/ribbons/RibbonJuara";
 
 const CTFPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whblplc}>
+  <Layout title={competitionItems.ctf.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.ctf}>
         <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />

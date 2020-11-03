@@ -9,10 +9,10 @@ import { Theme } from "../../styles/theme";
 import TripleRibbon from "../../components/competition/ribbons/RibbonJuara";
 
 const DatavidiaPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whblplc}>
+  <Layout title={competitionItems.datavidia.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.datavidia}>
-        <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />
+        <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Rp. 60.000,-" />
         <Buttons
           guidebookLink="https://drive.google.com/file/d/1A3Gdl8sGNV2l4bTuzRPE-s2NbXaMPzyA/view?usp=sharing"
           registerLink="/dashboard/competition/gamedev"

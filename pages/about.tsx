@@ -4,7 +4,7 @@ import { Theme } from "../styles/theme";
 
 const AboutPage: React.FC = () => {
   return (
-    <Layout title="About Arkavidia 7.0">
+    <Layout title="About Us">
       <br />
       <div className="container-fluid">
         <div className="container">
