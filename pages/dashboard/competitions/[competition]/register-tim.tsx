@@ -9,6 +9,7 @@ import { createTeam } from "../../../../api/team";
 import Alert from "../../../../components/Alert";
 import Spinner from "../../../../components/Spinner";
 import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
+import { AuthContext } from "../../../../utils/context/auth";
 
 
 const RegisterTim: React.FC = () => {
@@ -19,12 +20,14 @@ const RegisterTim: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const {
     getCompetitionBySlug,
     getTeamBySlug,
     isLoaded,
     isError,
+    teams,
   } = useTeamCompetition(apiContext.axios);
 
   const router = useRouter();
@@ -46,6 +49,15 @@ const RegisterTim: React.FC = () => {
 
   const competitionId = currentCompetition?.id;
 
+  const isLeader = () => {
+    teams?.forEach(t => {
+      if (t.teamLeaderEmail === authContext.auth?.user.email){
+        return true;
+      }
+    });
+    return false;
+  };
+
   const handleSubmit = async () => {
     setError(null);
 
@@ -58,11 +70,11 @@ const RegisterTim: React.FC = () => {
       setError("Nama tim minimal 3 karakter");
       return;
     }
-
-    // kurang kalau leader gabisa leader lagi
-    // for (teams as teams) {
-    //   if (AuthContext.)
-    // }
+    
+    if (isLeader()){
+      setError("Kamu hanya boleh menjadi leader satu kali");
+      return;
+    }
 
     if (institution === "") {
       setError("Institusi tidak boleh kosong");
