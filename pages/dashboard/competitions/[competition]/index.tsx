@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
@@ -9,6 +9,7 @@ import { ApiContext } from "../../../../utils/context/api";
 import Spinner from "../../../../components/Spinner";
 import Alert from "../../../../components/Alert";
 import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
+import { DashboardTeamProfile } from "../../../../components/dashboard/DashboardTeamProfile";
 
 const StatusTim: React.FC = () => {
   const apiContext = useContext(ApiContext);
@@ -22,6 +23,7 @@ const StatusTim: React.FC = () => {
 
   const router = useRouter();
   const { competition } = router.query;
+
   if (!competition) return null;
 
   if (isError) return <Alert error="Masalah koneksi" />;
@@ -55,33 +57,7 @@ const StatusTim: React.FC = () => {
               id="main"
             >
               <div id="content-container">
-                <div id="heading">
-                  {currentCompetition.name} - Informasi Tim
-                </div>
-                <div className="mt-4">
-                  <div className="title">Nama Tim</div>
-                  <div className="subtitle">{currentTeam.name}</div>
-                </div>
-                <div className="mt-4">
-                  <div className="title">Asal Sekolah/Universitas</div>
-                  <div className="subtitle">{currentTeam.institution}</div>
-                </div>
-                <div className="mt-5" id="button">
-                  <div className="mr-5">
-                    <FilledButton
-                      text="Hapus Tim"
-                      color={Theme.buttonColors.purpleButton}
-                      padding="0.5rem 1.5rem"
-                    />
-                  </div>
-                  <div>
-                    <FilledButton
-                      text="Edit Tim"
-                      color={Theme.buttonColors.purpleButton}
-                      padding="0.5rem 1.5rem"
-                    />
-                  </div>
-                </div>
+                <DashboardTeamProfile />
               </div>
               <div id="bg-container">
                 <img

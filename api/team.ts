@@ -52,11 +52,11 @@ export const getTeamDetail = async (
 
 export const putTeam = async (
   axios: AxiosInstance,
-  teamForm: TeamRegistrationForm,
+  teamForm: TeamData,
   teamId: string
 ): Promise<TeamData> => {
   return axios
-    .put<TeamData>(`/competition/teams/${teamId}`, teamForm)
+    .put<TeamData>(`/competition/teams/${teamId}/`, teamForm)
     .then((response) => {
       return response.data;
     })
@@ -67,11 +67,11 @@ export const putTeam = async (
 
 export const editTeam = async (
   axios: AxiosInstance,
-  teamForm: Partial<TeamRegistrationForm>,
+  teamForm: Partial<TeamData>,
   teamId: string
 ): Promise<TeamData> => {
   return axios
-    .put<TeamData>(`/competition/teams/${teamId}`, teamForm)
+    .patch<TeamData>(`/competition/teams/${teamId}/`, teamForm)
     .then((response) => {
       return response.data;
     })
