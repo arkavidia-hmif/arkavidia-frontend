@@ -2,26 +2,23 @@ import Link from "next/link";
 import * as React from "react";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
-import { useDashboard } from "../../../provider/DashboardProvider";
 
 interface SubmissionProgressProps {
   team: TeamData;
   competition: Competition;
+  selection: number;
+  setSelection: (selection: number) => void;
 }
 
 const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
-  const { active, setActive } = useDashboard();
-
   const getTeamDashboardData = (slug: string) => [
     {
       text: "Informasi Tim",
       image: "/img/dashboard/submission/tim.png",
-      link: `/dashboard/competitions/${slug}/`,
     },
     {
       text: "Anggota Tim",
       image: "/img/dashboard/submission/anggota.png",
-      link: `/dashboard/competitions/${slug}/anggota-tim`,
     },
   ];
 
@@ -48,10 +45,6 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
     },
   ];
 
-  const handleClick = (num: number) => {
-    setActive(num);
-  };
-
   return (
     <div className="container mb-3 card">
       <h2>{props.team.name || "Nama Tim"}</h2>
@@ -62,18 +55,16 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
       <div className="dropdown">
         <ul className="list">
           {getTeamDashboardData(props.competition.slug).map((datum, i) => (
-            <Link href={datum.link} key={datum.text}>
-              <a>
-                <li
-                  onClick={() => handleClick(i)}
-                  className={active === i ? "active" : ""}
-                >
-                  {active === i && <span id="right-roller"></span>}
-                  <img src={datum.image} className="mr-3" />
-                  {datum.text}
-                </li>
-              </a>
-            </Link>
+            <a key={i}>
+              <li
+                onClick={() => props.setSelection(i)}
+                className={props.selection === i ? "active" : ""}
+              >
+                {props.selection === i && <span id="right-roller"></span>}
+                <img src={datum.image} className="mr-3" />
+                {datum.text}
+              </li>
+            </a>
           ))}
         </ul>
       </div>
@@ -83,18 +74,16 @@ const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
       <div className="dropdown">
         <ul className="list">
           {getTeamMemberData(props.competition.slug).map((datum, i) => (
-            <Link href={datum.link} key={datum.text}>
-              <a>
-                <li
-                  onClick={() => handleClick(i + 2)}
-                  className={active === i + 2 ? "active" : ""}
-                >
-                  {active === i + 2 && <span id="right-roller"></span>}
-                  <img src={datum.image} className="mr-3" />
-                  {datum.text}
-                </li>
-              </a>
-            </Link>
+            <a key={i}>
+              <li
+                onClick={() => props.setSelection(i + 2)}
+                className={props.selection === i + 2 ? "active" : ""}
+              >
+                {props.selection === i + 2 && <span id="right-roller"></span>}
+                <img src={datum.image} className="mr-3" />
+                {datum.text}
+              </li>
+            </a>
           ))}
         </ul>
       </div>

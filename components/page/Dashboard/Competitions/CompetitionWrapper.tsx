@@ -1,5 +1,5 @@
 import { useRouter } from "next/dist/client/router";
-import { ReactNode, useContext } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import { ApiContext } from "../../../../utils/context/api";
@@ -14,7 +14,7 @@ type Props = {
 
 }
 
-const CompetitionWrapper: React.FC<Props> = ({ teamInfo }) => {
+const CompetitionWrapper: React.FC<Props> = ({ teamInfo, teamMember }) => {
   const apiContext = useContext(ApiContext);
 
   const {
@@ -23,6 +23,8 @@ const CompetitionWrapper: React.FC<Props> = ({ teamInfo }) => {
     isLoaded,
     isError,
   } = useTeamCompetition(apiContext.axios);
+
+  const [selection, setSelection] = useState(0);
 
   const router = useRouter();
 
@@ -44,14 +46,20 @@ const CompetitionWrapper: React.FC<Props> = ({ teamInfo }) => {
     return <Spinner height="200px" />;
   }
 
+  const getComponent = () => {
+    if (selection === 0) return teamInfo(currentTeam, currentCompetition);
+    if (selection === 1) return teamMember(currentTeam, currentCompetition);
+  };
+
+
   return (
     <div className="mb-3">
       <div className="row">
         <div className="col-md-3">
-          <SubmissionProgress team={currentTeam} competition={currentCompetition} />
+          <SubmissionProgress team={currentTeam} competition={currentCompetition} setSelection={setSelection} selection={selection} />
         </div>
         <div className="col-md-9">
-          {teamInfo(currentTeam, currentCompetition)}
+          {getComponent()}
         </div>
       </div>
     </div>
