@@ -34,12 +34,11 @@ const RegisterTim: React.FC = () => {
   if (!isLoaded) return <Spinner height="200px" />;
 
   const currentCompetition = getCompetitionBySlug(competition as string);
-  // masih belom bener karna competitionId mungin undefined
-  const competitionId = currentCompetition?.id;
-
   if (!currentCompetition) {
     return <Alert error="Invalid slug." />;
   }
+
+  const competitionId = currentCompetition?.id;
 
   const handleSubmit = async () => {
     setError(null);
@@ -54,6 +53,8 @@ const RegisterTim: React.FC = () => {
       return;
     }
 
+    // kurang kalau leader gabisa leader lagi
+
     if (institution === "") {
       setError("Institusi tidak boleh kosong");
       return;
@@ -64,6 +65,11 @@ const RegisterTim: React.FC = () => {
     await createTeam (apiContext.axios, {competitionId, name, institution})
       .then(() => {
         router.push(`/dashboard/competitions/${competition}`);
+      })
+      .catch((e) => {
+        setError(e);
+      })
+      .finally(() => {
         setLoading(false);
       });
   };
