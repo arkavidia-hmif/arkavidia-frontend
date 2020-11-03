@@ -13,7 +13,10 @@ const CPPage: React.FC = () => (
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.cp}>
         <Category category="Mahasiswa" fee="Rp. 60.000,-" />
-        <Buttons guidebookLink="https://link.arkavidia.id/guidebook_cp" registerLink="/dashboard/competitions/cp" />
+        <Buttons
+          guidebookLink="https://link.arkavidia.id/guidebook_cp"
+          registerLink="/dashboard/competitions/cp"
+        />
       </CompetitionHeader>
       <div className="container">
         <TripleRibbon

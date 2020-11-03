@@ -14,16 +14,19 @@ import AuthProvider from "../components/provider/AuthProvider";
 let gaLoaded = false;
 
 // Setup web vitals Google Analytics
-export function reportWebVitals({ name, label, value }: NextWebVitalsMetric): void {
+export function reportWebVitals({
+  name,
+  label,
+  value,
+}: NextWebVitalsMetric): void {
   if (gaLoaded) {
     ReactGA.timing({
       category: label,
       variable: name,
-      value
+      value,
     });
   }
 }
-
 
 // Setup Sentry
 if (process.env.SENTRY_ENABLED && typeof window !== undefined) {
@@ -32,12 +35,12 @@ if (process.env.SENTRY_ENABLED && typeof window !== undefined) {
 
   Sentry.init({
     environment: process.env.SENTRY_ENV,
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: process.env.NODE_ENV === "production",
     integrations: [
       new RewriteFrames({
         iteratee: (frame) => {
           if (frame.filename) {
-            frame.filename = frame.filename.replace(distDir, 'app:///_next');
+            frame.filename = frame.filename.replace(distDir, "app:///_next");
           }
           return frame;
         },
@@ -48,9 +51,12 @@ if (process.env.SENTRY_ENABLED && typeof window !== undefined) {
 }
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-
   useEffect(() => {
-    if (process.env.GA_ENABLED && process.env.NODE_ENV === 'production' && !gaLoaded) {
+    if (
+      process.env.GA_ENABLED &&
+      process.env.NODE_ENV === "production" &&
+      !gaLoaded
+    ) {
       // Dont run without valid id
       if (!process.env.GA_ID) return;
       // Dont run outside browser
@@ -80,11 +86,24 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
 
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe5981" />
         <meta name="msapplication-TileColor" content="#fe5981" />

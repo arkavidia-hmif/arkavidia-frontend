@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { ReactNode } from 'react';
 
 type Props = {
   handleClose: () => void;
-  content?: unknown;
+  content?: ReactNode;
 };
 
 const Popup: React.FC<Props> = ({content, handleClose}) => {
@@ -24,18 +24,17 @@ const Popup: React.FC<Props> = ({content, handleClose}) => {
         }
         
         .box {
+          text-align: center;
           position: relative;
           width: 70%;
           margin: 0 auto;
           height: auto;
-          max-height: 70vh;
           margin-top: calc(100vh - 85vh - 20px);
           background: #FFFF;
           border-radius: 4px;
           padding: 20px;
           border: 1px solid #999;
           overflow: auto;
-          z-index: 3;
         }
         
         .close-icon {
