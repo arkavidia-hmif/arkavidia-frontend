@@ -24,10 +24,13 @@ export const useTeamCompetition = (
   const {
     data: competitions,
     error: errorCompetitions,
+    isValidating: loadingCompetitions,
   } = useSWR(LIST_COMPETITION_URL, () => getCompetitions(axios));
-  const { data: teams, error: errorTeams } = useSWR(LIST_TEAM_URL, () =>
-    getTeam(axios)
-  );
+  const {
+    data: teams,
+    error: errorTeams,
+    isValidating: loadingTeams,
+  } = useSWR(LIST_TEAM_URL, () => getTeam(axios));
 
   const getTeamBySlug = (slug: string) => {
     const team = teams?.filter((t) => t.competition.slug === slug);
@@ -39,9 +42,23 @@ export const useTeamCompetition = (
   };
 
   useEffect(() => {
-    setLoaded(!!competitions && !!teams);
+    setLoaded(!(loadingCompetitions || loadingTeams));
     setError(errorCompetitions || errorTeams);
-  }, [competitions, teams, errorCompetitions, errorTeams, setError, setLoaded]);
+  }, [
+    loadingCompetitions,
+    loadingTeams,
+    errorCompetitions,
+    errorTeams,
+    setError,
+    setLoaded,
+  ]);
 
-  return { getTeamBySlug, getCompetitionBySlug, isLoaded, isError, teams, competitions };
+  return {
+    getTeamBySlug,
+    getCompetitionBySlug,
+    isLoaded,
+    isError,
+    teams,
+    competitions,
+  };
 };
