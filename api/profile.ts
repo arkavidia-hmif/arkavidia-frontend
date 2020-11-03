@@ -1,5 +1,5 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { AuthData, ProfileData } from "../interfaces/auth";
+import { ProfileData, UserData } from "../interfaces/auth";
 import { ApiError, StandardError } from "./error";
 
 export const PROFILE_URL = "/auth";
@@ -7,9 +7,9 @@ export const EDIT_USER_URL = "/auth/edit-user/";
 
 export const getProfile = async (
   axios: AxiosInstance
-): Promise<AuthData["user"]> => {
+): Promise<UserData> => {
   return axios
-    .get<AuthData["user"]>(PROFILE_URL)
+    .get<UserData>(PROFILE_URL)
     .then((response) => {
       return response.data;
     })
@@ -21,19 +21,11 @@ export const getProfile = async (
 export const editProfile = async (
   axios: AxiosInstance,
   truth: ProfileData
-): Promise<AuthData["user"]> => {
+): Promise<UserData> => {
   try {
     const response = await axios.patch(EDIT_USER_URL, truth);
-    return response.data as AuthData["user"];
+    return response.data as UserData;
   } catch (e) {
     throw new ApiError<StandardError>(StandardError.ERROR, e?.message ?? e);
   }
 };
-// {
-//   fullName,
-//   currentEducation,
-//   institution,
-//   phoneNumber,
-//   birthDate,
-//   address,
-// }

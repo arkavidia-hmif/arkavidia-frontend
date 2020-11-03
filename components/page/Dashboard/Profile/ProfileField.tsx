@@ -12,7 +12,7 @@ import FilledButton from "../../../FilledButton";
 import { Theme } from "../../../../styles/theme";
 import Success from "../../../Success";
 import InputField from "./InputField";
-import { AuthData } from "../../../../interfaces/auth";
+import { UserData } from "../../../../interfaces/auth";
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
@@ -75,7 +75,7 @@ const ProfileField: React.FC = () => {
         ].map((data, index) => {
 
           const label = profileAttributes[data.key];
-          const value = profile[data.key as keyof AuthData['user']] || '';
+          const value = profile[data.key as keyof UserData] || '';
 
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">

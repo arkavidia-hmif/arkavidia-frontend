@@ -1,5 +1,5 @@
 // export const getLabelByProfileAttribute = (key: string): string => {};
-import { AuthData, ProfileData } from "../../interfaces/auth";
+import { ProfileData, UserData } from "../../interfaces/auth";
 import { isValidDate, isValidString, isEmpty } from "../validator";
 
 export const checkTruth = async (
@@ -9,7 +9,7 @@ export const checkTruth = async (
   phoneNumber: string,
   birthDate: string,
   address: string,
-  profile: AuthData["user"]
+  profile: UserData
 ): Promise<ProfileData> => {
   const data: ProfileData = {
     fullName: "",
