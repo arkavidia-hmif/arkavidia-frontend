@@ -1,15 +1,19 @@
 import type { AppProps, NextWebVitalsMetric } from "next/app";
+import getConfig from "next/config";
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import { useEffect } from "react";
 import * as ReactGA from "react-ga";
+import * as Sentry from "@sentry/react";
+import { RewriteFrames } from "@sentry/integrations";
 import ApiProvider from "../components/provider/ApiProvider";
 import DashboardProvider from "../components/provider/DashboardProvider";
 import AuthProvider from "../components/provider/AuthProvider";
 
 let gaLoaded = false;
 
+// Setup web vitals Google Analytics
 export function reportWebVitals({
   name,
   label,
@@ -24,14 +28,40 @@ export function reportWebVitals({
   }
 }
 
+// Setup Sentry
+if (process.env.SENTRY_ENABLED && typeof window !== undefined) {
+  const config = getConfig();
+  const distDir = `${config.serverRuntimeConfig.rootDir}/.next`;
+
+  Sentry.init({
+    environment: process.env.SENTRY_ENV,
+    enabled: process.env.NODE_ENV === "production",
+    integrations: [
+      new RewriteFrames({
+        iteratee: (frame) => {
+          if (frame.filename) {
+            frame.filename = frame.filename.replace(distDir, "app:///_next");
+          }
+          return frame;
+        },
+      }),
+    ],
+    dsn: process.env.SENTRY_DSN,
+  });
+}
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     if (
-      process.env.GA_ID &&
+      process.env.GA_ENABLED &&
       process.env.NODE_ENV === "production" &&
-      typeof window !== undefined &&
       !gaLoaded
     ) {
+      // Dont run without valid id
+      if (!process.env.GA_ID) return;
+      // Dont run outside browser
+      if (typeof window === undefined) return;
+
       ReactGA.initialize(process.env.GA_ID);
       ReactGA.pageview(window.location.pathname + window.location.search);
       gaLoaded = true;

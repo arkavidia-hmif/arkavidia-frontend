@@ -72,8 +72,8 @@ const ProfileField: React.FC = () => {
           [currentEducation, "currentEducation"],
           [institution, "institution"],
         ].map((data, index) => {
-          const label = profileAttributes[data[1]]; // eslint-disable-line no-eval
-          const value = profile[data[1]]; // eslint-disable-line no-eval
+          const label = profileAttributes[data[1]];
+          const value = profile[data[1]];
 
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">

@@ -54,7 +54,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
       return router.pathname.startsWith(entry.url) && entry.secure;
     });
     if (loaded && isSecure && !authenticated) {
-      router.replace(`/login?continue=${router.pathname}`);
+      router.replace(`/login?continue=${router.asPath}`);
     }
   }
 

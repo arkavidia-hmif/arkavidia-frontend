@@ -48,6 +48,14 @@ const CompetitionsCard: React.FC = () => {
     }
   };
 
+  const generateUrl = (entry: Competition): string => {
+    if (teamBySlug[entry.slug]?.isParticipating) {
+      return `${baseUrl}${entry.slug}`;
+    } else {
+      return `${baseUrl}${entry.slug}/register-tim`;
+    }
+  };
+
   return (
     <div className="mb-3">
       <div className="row">
@@ -58,7 +66,7 @@ const CompetitionsCard: React.FC = () => {
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
             buttonLink={
-              entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null
+              entry.isRegistrationOpen ? generateUrl(entry) : null
             }
             buttonText={generateCardText(entry)}
           />

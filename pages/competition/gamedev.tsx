@@ -15,8 +15,8 @@ const GamedevPage: React.FC = () => (
       <CompetitionHeader {...competitionItems.gamedev}>
         <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Free" />
         <Buttons
-          guidebookLink="/"
-          registerLink="/dashboard/competition/gamedev"
+          guidebookLink="https://link.arkavidia.id/guidebook_gamejam"
+          registerLink="/dashboard/competitions/gamedev"
         />
       </CompetitionHeader>
       <Ribbons />
