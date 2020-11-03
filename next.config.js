@@ -9,7 +9,11 @@ module.exports = {
     API_BASE_URL: parsed.API_BASE_URL,
     LOCAL_STORAGE_AUTHENTICATED: parsed.LOCAL_STORAGE_AUTHENTICATED,
     LOCAL_STORAGE_AUTH: parsed.LOCAL_STORAGE_AUTH,
-    GA_ID: parsed.GA_ID || ''
+    GA_ID: parsed.GA_ID || '',
+    GA_ENABLED: !!parsed.GA_ID,
+    SENTRY_DSN: parsed.SENTRY_DSN || '',
+    SENTRY_ENV: parsed.SENTRY_ENV || '',
+    SENTRY_ENABLED: !!(parsed.SENTRY_DSN && parsed.SENTRY_ENV)
   },
   basePath: parsed.BASE_PATH || '',
   exportPathMap: (defaultPathMap) => {
