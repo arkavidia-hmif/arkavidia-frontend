@@ -12,7 +12,7 @@ const CPPage: React.FC = () => (
   <Layout title={competitionItems.cp.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.cp}>
-        <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />
+        <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Rp. 60.000,-" />
         <Buttons guidebookLink="https://link.arkavidia.id/guidebook_cp" registerLink="/dashboard/competition/cp" />
       </CompetitionHeader>
       <div className="container">

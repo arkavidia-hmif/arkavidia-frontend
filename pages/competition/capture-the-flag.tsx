@@ -12,7 +12,7 @@ const CTFPage: React.FC = () => (
   <Layout title={competitionItems.ctf.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.ctf}>
-        <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />
+        <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Rp. 60.000,-" />
         <Buttons guidebookLink="https://link.arkavidia.id/guidebook_ctf" registerLink="/dashboard/competition/ctf" />
       </CompetitionHeader>
       <div className="container">
