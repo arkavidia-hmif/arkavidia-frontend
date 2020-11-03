@@ -1,12 +1,12 @@
+import { useContext } from "react";
+import { useRouter } from "next/dist/client/router";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import SubmissionProgress from "../../../../components/page/Dashboard/Competitions/SubmissionProgress";
 import Layout from "../../../../components/Layout";
 import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
-import { useContext } from "react";
 import { ApiContext } from "../../../../utils/context/api";
 import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
-import { useRouter } from "next/dist/client/router";
 import Alert from "../../../../components/Alert";
 import Spinner from "../../../../components/Spinner";
 
