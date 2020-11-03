@@ -2,9 +2,7 @@ import * as React from "react";
 import { ButtonColor, Theme } from "../styles/theme";
 
 type Props = {
-  onClick?:
-    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
-    | undefined;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   text: string;
   submit?: boolean;
   padding?: string;
@@ -19,18 +17,26 @@ const FilledButton: React.FC<Props> = ({
   loading,
   submit,
   color = Theme.buttonColors.pinkButton,
-}) => (
-  <>
-    <button
-      id="container"
-      onClick={onClick}
-      style={{ padding }}
-      type={submit ? "submit" : "button"}
-    >
-      <div id="loader"></div>
-      <b>{text}</b>
-    </button>
-    <style jsx>{`
+}) => {
+
+  const clickHandler = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (!loading && onClick) {
+      onClick(evt);
+    }
+  };
+
+  return (
+    <>
+      <button
+        id="container"
+        onClick={clickHandler}
+        style={{ padding }}
+        type={submit ? "submit" : "button"}
+      >
+        <div id="loader"></div>
+        <b>{text}</b>
+      </button>
+      <style jsx>{`
       button {
         border: 0;
         outline: 0;
@@ -78,7 +84,7 @@ const FilledButton: React.FC<Props> = ({
         }
       }
     `}</style>
-    <style jsx>{`
+      <style jsx>{`
       #loader {
         ${loading ? "display: block" : ""}
       }
@@ -89,7 +95,8 @@ const FilledButton: React.FC<Props> = ({
         ${loading ? "color: " + color.hover : ""}
       }
     `}</style>
-  </>
-);
+    </>
+  );
+};
 
 export default FilledButton;
