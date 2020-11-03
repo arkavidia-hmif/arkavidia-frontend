@@ -1,7 +1,8 @@
-import Link from "next/link";
 import * as React from "react";
 import { Competition } from "../../../../interfaces/competition";
+import { SidebarEntry } from "../../../../interfaces/sidebar";
 import { TeamData } from "../../../../interfaces/team";
+import SidebarSection from "./sidebar/SidebarSection";
 
 interface SubmissionProgressProps {
   team: TeamData;
@@ -10,181 +11,67 @@ interface SubmissionProgressProps {
   setSelection: (selection: number) => void;
 }
 
-const SubmissionProgress: React.FC<SubmissionProgressProps> = (props) => {
-  const getTeamDashboardData = (slug: string) => [
+const SubmissionProgress: React.FC<SubmissionProgressProps> = ({ team, competition, selection, setSelection }) => {
+  const sidebarData = [
     {
-      text: "Informasi Tim",
-      image: "/img/dashboard/submission/tim.png",
+      name: "TIM",
+      item: [
+        {
+          text: "Informasi Tim",
+          image: "/img/dashboard/submission/tim.png",
+        },
+        {
+          text: "Anggota Tim",
+          image: "/img/dashboard/submission/anggota.png",
+        }
+      ] as SidebarEntry[]
     },
     {
-      text: "Anggota Tim",
-      image: "/img/dashboard/submission/anggota.png",
-    },
-  ];
-
-  const getTeamMemberData = (slug: string) => [
-    {
-      text: "Foto Diri",
-      image: "../../../img/dashboard/submission/lingkaran.png",
-      link: `/dashboard/competitions/${slug}/status-tim`,
-    },
-    {
-      text: "KTP/KTM",
-      image: "../../../img/dashboard/submission/jampasir.png",
-      link: `/dashboard/competitions/${slug}/status-tim`,
-    },
-    {
-      text: "SKMA",
-      image: "../../../img/dashboard/submission/check.png",
-      link: `/dashboard/competitions/${slug}/status-tim`,
-    },
-    {
-      text: "Bukti Pembayaran",
-      image: "../../../img/dashboard/submission/lingkaran.png",
-      link: `/dashboard/competitions/${slug}/status-tim`,
-    },
+      name: "Stage 1 (name)",
+      item: [
+        {
+          text: "Foto Diri",
+          image: "/img/dashboard/submission/lingkaran.png",
+        },
+        {
+          text: "KTP/KTM",
+          image: "/img/dashboard/submission/jampasir.png",
+        },
+        {
+          text: "SKMA",
+          image: "/img/dashboard/submission/check.png",
+        },
+        {
+          text: "Bukti Pembayaran",
+          image: "/img/dashboard/submission/lingkaran.png",
+        },
+      ] as SidebarEntry[]
+    }
   ];
 
   return (
     <div className="container mb-3 card">
-      <h2>{props.team.name || "Nama Tim"}</h2>
-      <p className="">{props.competition.name || "Nama Lomba"}</p>
-      <div className="not-dropdown">
-        <div className="title">TIM</div>
-      </div>
-      <div className="dropdown">
-        <ul className="list">
-          {getTeamDashboardData(props.competition.slug).map((datum, i) => (
-            <a key={i}>
-              <li
-                onClick={() => props.setSelection(i)}
-                className={props.selection === i ? "active" : ""}
-              >
-                {props.selection === i && <span id="right-roller"></span>}
-                <img src={datum.image} className="mr-3" />
-                {datum.text}
-              </li>
-            </a>
-          ))}
-        </ul>
-      </div>
-      <div className="not-dropdown">
-        <div className="title">PRASYARAT PENDAFTARAN</div>
-      </div>
-      <div className="dropdown">
-        <ul className="list">
-          {getTeamMemberData(props.competition.slug).map((datum, i) => (
-            <a key={i}>
-              <li
-                onClick={() => props.setSelection(i + 2)}
-                className={props.selection === i + 2 ? "active" : ""}
-              >
-                {props.selection === i + 2 && <span id="right-roller"></span>}
-                <img src={datum.image} className="mr-3" />
-                {datum.text}
-              </li>
-            </a>
-          ))}
-        </ul>
-      </div>
+      <h2>{team.name || "Nama Tim"}</h2>
+      <p className="">{competition.name || "Nama Lomba"}</p>
+      <SidebarSection data={sidebarData} selection={selection} setSelection={setSelection} />
       <style jsx>{`
         h2 {
           margin-bottom: 0;
           margin-top: 1rem;
-          font-family: Viga;
-          font-size: 23.4375px;
+          font-size: 1.5rem;
           line-height: 31px;
         }
-        a {
-          text-decoration: none;
-        }
-        img {
-          max-width: 17px;
-        }
-        ul {
-          list-style: none;
-        }
-
-        .dropdown li {
-          color: #161f24;
-          min-height: 2.4rem;
-          line-height: 2.4rem;
-          cursor: pointer;
-          padding: 0.5rem;
-          position: relative;
-          font-size: 0.875rem;
-        }
-        .dropdown li.active {
-          background: rgba(251, 188, 200, 0.3);
-          margin: 0 -10px 0 -15px;
-          padding: 0.5rem calc(0.5rem + 15px);
-        }
-        #right-roller {
-          position: absolute;
-          background: #fe94ab;
-          opacity: 0.5;
-          border-radius: 10.3125px;
-          width: 10px;
-          height: 3.4rem;
-          top: 0;
-          right: -5px;
-        }
-        .dropdown {
-          padding: 0;
-        }
-        .list {
-          padding: 0;
-        }
+        
         p {
           font-size: 0.8rem;
         }
-        .title {
-          color: rgba(0, 0, 0, 0.6);
-          font-size: 1.2rem;
-          line-height: 1.4rem;
-        }
+
         .card {
-          background: linear-gradient(
-              180deg,
-              #ffffff 0%,
-              rgba(255, 255, 255, 0) 100%
-            ),
-            linear-gradient(180deg, #ffbdea 0%, rgba(255, 255, 255, 0) 100%),
-            #f3a9dd;
+          background: linear-gradient(180deg,#ffffff 0%, transparent 100%),
+            linear-gradient(180deg, #ffbdea 0%, transparent 100%),#f3a9dd;
           border: 0.46875px solid #05058d;
           box-sizing: border-box;
           border-radius: 10px;
-        }
-
-        .content {
-          font-family: Roboto;
-          font-size: 1rem;
-          color: #646464;
-        }
-
-        .link {
-          display: flex;
-          justify-content: flex-end;
-          font-family: Roboto;
-          font-size: 1.125rem;
-          font-weight: bold;
-          color: #623fa2;
-        }
-
-        a {
-          text-decoration: none;
-        }
-
-        @media (max-width: 450px) {
-          h2 {
-            font-size: 1.25rem;
-          }
-          .title {
-            font-size: 1.125rem;
-          }
-          .link {
-            font-size: 1rem;
-          }
         }
       `}</style>
     </div>
