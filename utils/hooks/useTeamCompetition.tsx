@@ -11,6 +11,8 @@ export interface UseTeamCompetitionInterface {
   getCompetitionBySlug: (slug: string) => Competition | undefined;
   isLoaded: boolean;
   isError: boolean;
+  teams: Array<TeamData> | undefined;
+  competitions: Array<Competition> | undefined;
 }
 
 export const useTeamCompetition = (
@@ -41,5 +43,5 @@ export const useTeamCompetition = (
     setError(errorCompetitions || errorTeams);
   }, [competitions, teams, errorCompetitions, errorTeams, setError, setLoaded]);
 
-  return { getTeamBySlug, getCompetitionBySlug, isLoaded, isError };
+  return { getTeamBySlug, getCompetitionBySlug, isLoaded, isError, teams, competitions };
 };
