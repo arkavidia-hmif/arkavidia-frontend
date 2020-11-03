@@ -34,7 +34,8 @@ const RegisterTim: React.FC = () => {
   if (!isLoaded) return <Spinner height="200px" />;
 
   const currentCompetition = getCompetitionBySlug(competition as string);
-  const competitionId = currentCompetition?.id!;
+  // masih belom bener karna competitionId mungin undefined
+  const competitionId = currentCompetition?.id;
 
   if (!currentCompetition) {
     return <Alert error="Invalid slug." />;
