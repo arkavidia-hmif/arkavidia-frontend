@@ -1,10 +1,11 @@
 const dotenv = require('dotenv');
+const withSourceMaps = require('@zeit/next-source-maps')
 
 const { parsed } = dotenv.config({
   path: `./.env.${process.env.DOTENV_FILE || 'development'}`
 });
 
-module.exports = {
+module.exports = withSourceMaps({
   env: {
     API_BASE_URL: parsed.API_BASE_URL,
     LOCAL_STORAGE_AUTHENTICATED: parsed.LOCAL_STORAGE_AUTHENTICATED,
@@ -27,4 +28,4 @@ module.exports = {
 
     return filteredPathMap;
   }
-}
+});

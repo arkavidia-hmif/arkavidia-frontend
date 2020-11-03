@@ -19,6 +19,7 @@
   "dependencies": {
     "@sentry/integrations": "^5.27.2",
     "@sentry/react": "^5.27.2",
+    "@zeit/next-source-maps": "0.0.3",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "dotenv": "^8.2.0",
