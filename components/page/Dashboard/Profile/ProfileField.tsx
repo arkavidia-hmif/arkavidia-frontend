@@ -30,7 +30,7 @@ const ProfileField: React.FC = () => {
           </div>
         </div>
         <div className="field col-6 mt-3">
-          <div className="title"><h1>Nomor Telefon</h1></div>
+          <div className="title"><h1>Nomor Telepon</h1></div>
           <div className="content">
             <p>{profile.phoneNumber || '-'}</p>
           </div>
