@@ -4,7 +4,7 @@ import FilledButton from "../../../../components/FilledButton";
 import { Theme } from "../../../../styles/theme";
 
 const RegisterTim: React.FC = () => (
-  <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+  <Layout title="Competitions" background={Theme.bgColors.whtogr}>
     <DashboardWrapper>
 
       <div className="container" id='dashboard-area'>

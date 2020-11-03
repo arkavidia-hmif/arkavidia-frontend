@@ -4,7 +4,7 @@ import Layout from '../../../components/Layout';
 import { Theme } from '../../../styles/theme';
 
 const IndexPage: React.FC = () => (
-  <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+  <Layout title="Competitions" background={Theme.bgColors.whtogr}>
     <DashboardWrapper>
       <CompetitionsCard />
     </DashboardWrapper>

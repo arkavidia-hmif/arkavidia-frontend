@@ -18,7 +18,7 @@ const Layout: React.FC<Props> = ({
   return (
     <div id="parent-container">
       <Head>
-        <title>{title}</title>
+        <title>{title} | Arkavidia 7.0</title>
       </Head>
       <Navbar />
       <div id="main-container">{children}</div>
