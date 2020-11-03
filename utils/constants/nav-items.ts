@@ -61,7 +61,7 @@ const NavItems = [
   },
   {
     text: "EVENTS",
-    path: "/technocamp",
+    path: "/event",
     protected: false,
     submenu: [
       {
