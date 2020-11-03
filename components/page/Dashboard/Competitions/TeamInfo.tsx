@@ -1,6 +1,7 @@
+import { useRouter } from "next/dist/client/router";
 import React, { useContext, useState } from "react";
 import { mutate } from "swr";
-import { editTeam, LIST_TEAM_URL } from "../../../../api/team";
+import { deleteTeam, editTeam, LIST_TEAM_URL } from "../../../../api/team";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import { Theme } from "../../../../styles/theme";
@@ -15,12 +16,13 @@ type TeamInfoProps = {
 
 const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
   const apiContext = useContext(ApiContext);
+  const router = useRouter();
 
   const [edit, setEdit] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [teamName, setTeamName] = useState<string>(props.currentTeam.name);
   const [institutionName, setInstitutionName] = useState<string>(
-    props.currentCompetition.name
+    props.currentTeam.institution
   );
 
   if (edit) {
@@ -189,6 +191,14 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
               text="Hapus Tim"
               color={Theme.buttonColors.purpleButton}
               padding="0.5rem 1.5rem"
+              onClick={async () => {
+                await deleteTeam(
+                  apiContext.axios,
+                  props.currentTeam.id.toString()
+                ).then(() => {
+                  router.push("/dashboard/competitions");
+                });
+              }}
             />
           </div>
           <div>
