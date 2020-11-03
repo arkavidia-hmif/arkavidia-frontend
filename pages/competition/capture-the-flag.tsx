@@ -13,7 +13,7 @@ const CTFPage: React.FC = () => (
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.ctf}>
         <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />
-        <Buttons guidebookLink="/" registerLink="/dashboard/competition/ctf" />
+        <Buttons guidebookLink="https://drive.google.com/file/d/12TXAyHFfoO7_4NlCWWEsKA27j35Zf0Fd/view?usp=sharing" registerLink="/dashboard/competition/ctf" />
       </CompetitionHeader>
       <div className="container">
         <TripleRibbon
