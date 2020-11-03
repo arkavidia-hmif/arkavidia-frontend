@@ -10,13 +10,13 @@ import Ribbons from "../../components/competition/ribbons/RibbonsGameJam";
 import FAQ_GameJam from "../../components/competition/faq/GameJamFAQ";
 
 const GamedevPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whblplc}>
+  <Layout title={competitionItems.gamedev.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.gamedev}>
-        <Category category="Mahasiswa & SMA/Sederajat" fee="Free" />
+        <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Free" />
         <Buttons
-          guidebookLink="/"
-          registerLink="/dashboard/competition/gamedev"
+          guidebookLink="https://link.arkavidia.id/guidebook_gamejam"
+          registerLink="/dashboard/competitions/gamedev"
         />
       </CompetitionHeader>
       <Ribbons />

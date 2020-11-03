@@ -1,85 +1,40 @@
-import * as React from "react";
-import Link from "next/link";
+import { useContext } from "react";
+import useSWR from "swr";
+import {
+  getAnnouncement,
+  LIST_ANNOUNCEMENT_URL,
+} from "../../../../api/announcement";
+import { ApiContext } from "../../../../utils/context/api";
+import Alert from "../../../Alert";
+import DashboardCard from "../../../dashboard/DashboardCard";
+import Spinner from "../../../Spinner";
 
 const AnnouncementCard: React.FC = () => {
-  // example data
-  const ex = [
-    {
-      title: "COMPETITIVE PROGRAMMING",
-      content: "BATAS waktu",
-    },
-    {
-      title: "ARKALOGICA",
-      content: "BATAS waktu",
-    },
-  ];
+  const apiContext = useContext(ApiContext);
 
-  return (
-    <div className="container mb-3" id='dashboard-area'>
-      {ex?.map((link, index) => (
-        <div key={index} className="card mt-3">
-          <div className="title">{link.title}</div>
-          <div className="content">{link.content}</div>
-          <div className="link">
-            <Link href="/">
-              <a>Upload bukti</a>
-            </Link>
-          </div>
-        </div>
-      ))}
-      <style jsx>{`
-        .card {
-          padding: 0.625rem;
-          border: 1px solid #431785;
-          max-width: auto;
-          max-height: auto;
-          border-radius: 10px;
-          background-color: white;
-        }
+  const {
+    data: announcement,
+    error: errorAnnouncement,
+  } = useSWR(LIST_ANNOUNCEMENT_URL, () => getAnnouncement(apiContext.axios));
 
-        .title {
-          font-family: Viga;
-          font-size: 1.25rem;
+  if (errorAnnouncement) return <Alert error={String(errorAnnouncement)} />;
+  if (!announcement) return <Spinner height="200px" />;
 
-          color: #05058d;
-        }
-
-        .content {
-          font-family: Roboto;
-          font-size: 1.125rem;
-
-          color: #646464;
-        }
-
-        .link {
-          display: flex;
-          justify-content: flex-end;
-          font-family: Roboto;
-          font-size: 1.125rem;
-          font-weight: bold;
-
-          color: #623fa2;
-        }
-
-        a {
-          color: #623fa2;
-          text-decoration: none;
-        }
-
-        @media (max-width: 450px) {
-          .title {
-            font-size: 1.125rem;
-          }
-          .content {
-            font-size: 1rem;
-          }
-          .link {
-            font-size: 1rem;
-          }
-        }
-      `}</style>
-    </div>
-  );
+  if (announcement.length === 0) {
+    return (
+      <div className="mb-3">
+        <p>Belum ada pengumuman</p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="mb-3">
+        {announcement?.map((link, index) => (
+          <DashboardCard key={index} title={link.title} body={link.message} />
+        ))}
+      </div>
+    );
+  }
 };
 
 export default AnnouncementCard;

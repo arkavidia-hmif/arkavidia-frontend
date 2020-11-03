@@ -9,13 +9,13 @@ import competitionItems from "../../utils/constants/competition-items";
 import { Theme } from "../../styles/theme";
 
 const ArkaPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whblplc}>
+  <Layout title={competitionItems.arkalogica.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.arkalogica}>
         <Category category="SMA/Sederajat" fee="Rp. 40.000,-" />
         <Buttons
-          guidebookLink="/"
-          registerLink="/dashboard/competition/arkalogica"
+          guidebookLink="https://link.arkavidia.id/guidebook_arkalogica"
+          registerLink="/dashboard/competitions/arkalogica"
         />
       </CompetitionHeader>
       <Ribbons />

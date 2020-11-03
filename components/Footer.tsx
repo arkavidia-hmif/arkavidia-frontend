@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="http://line.me/ti/p/@aab5143y">
+              <Link href="http://line.me/ti/p/@arkavidia">
                 <a>
                   <img src="/img/social/line.png"></img>
                 </a>

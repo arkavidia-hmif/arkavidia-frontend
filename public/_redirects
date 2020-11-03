@@ -1,2 +1,3 @@
 # Netlify redirect rules
 /dashboard/*    /dynamic-redirector.html   200
+/email/*    /dynamic-redirector.html   200

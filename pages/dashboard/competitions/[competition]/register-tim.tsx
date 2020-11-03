@@ -51,7 +51,7 @@ const RegisterTim: React.FC = () => {
 
   const isLeader = () => {
     teams?.forEach(t => {
-      if (t.teamLeaderEmail === authContext.auth?.user.email){
+      if (t.teamLeaderEmail === authContext.auth?.user.email) {
         return true;
       }
     });
@@ -70,8 +70,8 @@ const RegisterTim: React.FC = () => {
       setError("Nama tim minimal 3 karakter");
       return;
     }
-    
-    if (isLeader()){
+
+    if (isLeader()) {
       setError("Kamu hanya boleh menjadi leader satu kali");
       return;
     }
@@ -82,8 +82,8 @@ const RegisterTim: React.FC = () => {
     }
 
     setLoading(true);
-    
-    await createTeam (apiContext.axios, {competitionId, name, institution})
+
+    await createTeam(apiContext.axios, { competitionId, name, institution })
       .then(() => {
         router.push(`/dashboard/competitions/${competition as string}`);
       })
@@ -96,7 +96,7 @@ const RegisterTim: React.FC = () => {
   };
 
   return (
-    <Layout title="Competitions | Arkavidia 7.0" background={Theme.bgColors.whtogr}>
+    <Layout title="Competitions" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
 
         <div className="container" id='dashboard-area'>
@@ -109,23 +109,19 @@ const RegisterTim: React.FC = () => {
                 handleSubmit();
               }}>
                 <label htmlFor="name">Nama tim</label>
-                <input id="name" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }}/>
+                <input id="name" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }} />
                 <label htmlFor="institution">Asal universitas/sekolah</label>
-                <input id="institution" type="text" value={institution} onChange={(evt) => { setInstitution(evt.target.value); }}/>
+                <input id="institution" type="text" value={institution} onChange={(evt) => { setInstitution(evt.target.value); }} />
                 <br />
                 <br />
-                <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading}/>
+                <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} />
               </form>
             </div>
             <div id="bg-container">
               <img src={`../../../img/competitions/${competition}-logo.png`} />
             </div>
           </div>
-          <style jsx>{`
-          #dashboard-area {
-            min-height: 60vh;
-          }
-          
+          <style jsx>{`          
           #main {
             display: flex;
             margin-left: 4rem;

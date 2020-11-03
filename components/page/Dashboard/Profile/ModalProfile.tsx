@@ -4,15 +4,15 @@ import Popup from './Popup';
 
 const ModalProfile: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
- 
+
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-  
+
   return (
     <div className="my-3">
-      <div className="container-fluid main">
-        <FilledButton text="Edit Profile" padding="0.75rem 3rem" onClick={togglePopup}/>
+      <div className="main">
+        <FilledButton text="Edit Profile" padding="0.75rem 3rem" onClick={togglePopup} />
         {isOpen && <Popup
           content={<div>
             <form>

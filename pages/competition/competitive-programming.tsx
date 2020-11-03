@@ -9,11 +9,11 @@ import { Theme } from "../../styles/theme";
 import TripleRibbon from "../../components/competition/ribbons/RibbonJuara";
 
 const CPPage: React.FC = () => (
-  <Layout background={Theme.bgColors.whblplc}>
+  <Layout title={competitionItems.cp.title} background={Theme.bgColors.whblplc}>
     <div className="container pb-4">
       <CompetitionHeader {...competitionItems.cp}>
-        <Category category="Mahasiswa & SMA/Sederajat" fee="Rp. 60.000,-" />
-        <Buttons guidebookLink="/" registerLink="/dashboard/competition/cp" />
+        <Category category="Mahasiswa &amp; SMA/Sederajat" fee="Rp. 60.000,-" />
+        <Buttons guidebookLink="https://link.arkavidia.id/guidebook_cp" registerLink="/dashboard/competitions/cp" />
       </CompetitionHeader>
       <div className="container">
         <TripleRibbon

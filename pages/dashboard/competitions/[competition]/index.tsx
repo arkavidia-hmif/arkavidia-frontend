@@ -40,10 +40,7 @@ const StatusTim: React.FC = () => {
   }
 
   return (
-    <Layout
-      title="Informasi Tim | Arkavidia 7.0"
-      background={Theme.bgColors.whtogr}
-    >
+    <Layout title="Informasi Tim" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
         <div className="container">
           <div className="row container">

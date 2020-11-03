@@ -57,7 +57,7 @@ const CompetitionsCard: React.FC = () => {
   };
 
   return (
-    <div className="container mb-3">
+    <div className="mb-3">
       <div className="row">
         {competition.map((entry, index) => (
           <DashboardCard
@@ -72,7 +72,7 @@ const CompetitionsCard: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </div >
   );
 };
 

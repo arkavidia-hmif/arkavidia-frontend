@@ -15,7 +15,7 @@ const Technocamp: React.FC = () => (
         <Pricing />
         <Buttons
           guidebookLink="/"
-          registerLink="/dashboard/competition/arkalogica"
+          registerLink="/dashboard/competitions/arkalogica"
         />
       </EventHeader>
       <TechDesc />

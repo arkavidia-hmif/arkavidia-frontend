@@ -38,10 +38,7 @@ const AnggotaTim: React.FC = () => {
     return <Spinner height="200px" />;
   }
   return (
-    <Layout
-      title="Anggota Tim | Arkavidia 7.0"
-      background={Theme.bgColors.whtogr}
-    >
+    <Layout title="Anggota Tim" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
         <div className="container">
           <div className="row container">
