@@ -23,8 +23,8 @@ const NavItems = [
         path: "/competition/capture-the-flag",
       },
       {
-        text: "GAMEDEV",
-        path: "/competition/gamedev",
+        text: "ARKAV GAME JAM",
+        path: "/competition/gamejam",
       },
       {
         text: "DATAVIDIA",

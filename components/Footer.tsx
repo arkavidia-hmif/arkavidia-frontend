@@ -62,8 +62,8 @@ const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/competition/gamedev">
-                    <a>Gamedev</a>
+                  <Link href="/competition/gamejam">
+                    <a>Arkav Game Jam</a>
                   </Link>
                 </li>
                 <li>
@@ -130,96 +130,95 @@ const Footer: React.FC = () => {
       </div>
 
       <style jsx>{`
-          #bottom-footer{
-            font-size: 1rem;
-            background-color: black;
-            color: white;
-            justify-content: center;
-            font-family: Viga;
-          }
+        #bottom-footer{
+          font-size: 1rem;
+          background-color: black;
+          color: white;
+          justify-content: center;
+          font-family: Viga;
+        }
 
-          ul {
-            list-style-type: none;
-          }
+        ul {
+          list-style-type: none;
+        }
 
+        #footer-logo {
+          width: 100%;
+          max-width: 400px;
+        }
+
+        #social-link {
+          justify-content: flex-end;
+          display: flex;
+          padding: 0px;
+          flex-direction: row;
+          max-width: 400px;
+        }
+        
+        #social-link li {
+          margin-right: 10px;
+        }
+
+        #social-link li img{
+          width: 40px;
+          transition: filter 0.1s;
+        }
+
+        #social-link li img:hover {
+          filter: contrast(75%);
+        }
+        
+        #footer-link {
+          display: flex;
+          flex-direction: row;
+
+          justify-content: space-around;
+        }
+
+        #footer-link ul {
+          padding: 0;
+        }
+
+        #footer-link ul li {
+          padding-top: 0.5rem;
+        }
+
+        #footer-link ul li a {
+          font-size: 1rem;
+          text-decoration: none;
+          color: #000000;
+        }
+
+        #footer-link ul h3 {
+          font-family: Viga;
+          font-weight: 500;
+          font-size: 1.5rem;
+          color: ${Theme.colors.purple.dark};
+          margin: 0;
+        }
+
+        @media (max-width: 992px) {
           #footer-logo {
-            width: 100%;
-            max-width: 400px;
+            max-width: 250px;
           }
-
           #social-link {
-            justify-content: flex-end;
-            display: flex;
-            padding: 0px;
-            flex-direction: row;
-            max-width: 400px;
+            justify-content: center;
+            max-width: 100%;
           }
-          
-          #social-link li {
-            margin-right: 10px;
+          #footer-social {
+            text-align: center;
           }
+        }
 
-          #social-link li img{
-            width: 40px;
-            transition: filter 0.1s;
-          }
-
-          #social-link li img:hover {
-            filter: contrast(75%);
-          }
-          
+        @media (max-width: 800px) {
           #footer-link {
-            display: flex;
-            flex-direction: row;
-
-            justify-content: space-around;
+            flex-direction: column;
           }
-
-          #footer-link ul {
-            padding: 0;
+          #social-link {
+            justify-content: flex-start;
           }
-
-          #footer-link ul li {
-            padding-top: 0.5rem;
-          }
-
-          #footer-link ul li a {
-            font-size: 1rem;
-            text-decoration: none;
-            color: #000000;
-          }
-
-          #footer-link ul h3 {
-            font-family: Viga;
-            font-weight: 500;
-            font-size: 1.5rem;
-            color: ${Theme.colors.purple.dark};
-            margin: 0;
-          }
-
-          @media (max-width: 992px) {
-            #footer-logo {
-              max-width: 250px;
-            }
-            #social-link {
-              justify-content: center;
-              max-width: 100%;
-            }
-            #footer-social {
-              text-align: center;
-            }
-          }
-
-          @media (max-width: 800px) {
-            #footer-link {
-              flex-direction: column;
-            }
-            #social-link {
-              justify-content: flex-start;
-            }
-            #footer-social {
-              text-align: left;
-            }
+          #footer-social {
+            text-align: left;
           }
         }
       `}</style>
