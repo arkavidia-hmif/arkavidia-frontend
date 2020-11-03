@@ -9,10 +9,12 @@ import Spinner from "../../../Spinner";
 import SubmissionProgress from "./SubmissionProgress";
 
 type Props = {
-  children: (team: TeamData, competition: Competition) => ReactNode;
+  teamInfo: (team: TeamData, competition: Competition) => ReactNode;
+  teamMember: (team: TeamData, competition: Competition) => ReactNode;
+
 }
 
-const CompetitionWrapper: React.FC<Props> = ({ children }) => {
+const CompetitionWrapper: React.FC<Props> = ({ teamInfo, teamMember }) => {
   const apiContext = useContext(ApiContext);
 
   const {
@@ -49,7 +51,7 @@ const CompetitionWrapper: React.FC<Props> = ({ children }) => {
           <SubmissionProgress team={currentTeam} competition={currentCompetition} />
         </div>
         <div className="col-md-9">
-          {children(currentTeam, currentCompetition)}
+          {teamInfo(currentTeam, currentCompetition)}
         </div>
       </div>
     </div>

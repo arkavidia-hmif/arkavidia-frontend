@@ -1,27 +1,29 @@
-import { useContext } from "react";
-import { useRouter } from "next/dist/client/router";
-import FilledButton from "../../../../components/FilledButton";
+import { ReactNode } from "react";
 import { Theme } from "../../../../styles/theme";
-import { ApiContext } from "../../../../utils/context/api";
-import Spinner from "../../../../components/Spinner";
-import Alert from "../../../../components/Alert";
-import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
 import CompetitionWrapper from "../../../../components/page/Dashboard/Competitions/CompetitionWrapper";
 import Layout from "../../../../components/Layout";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import TeamInfo from "../../../../components/page/Dashboard/Competitions/TeamInfo";
+import { Competition } from "../../../../interfaces/competition";
+import { TeamData } from "../../../../interfaces/team";
+import TeamMember from "../../../../components/page/Dashboard/Competitions/TeamMember";
 
 const StatusTim: React.FC = () => {
 
+  const getTeamInfoComponent = (team: TeamData, competition: Competition): ReactNode => {
+    return (<TeamInfo currentTeam={team} currentCompetition={competition} />);
+  };
+  const getTeamMemberComponent = (team: TeamData, competition: Competition): ReactNode => {
+    return (<TeamMember team={team} competition={competition} />);
+  };
 
   return (
     <Layout title="Informati Tim" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
-        <CompetitionWrapper>
-          {(team, competition) => {
-            return (<TeamInfo currentTeam={team} currentCompetition={competition} />);
-          }}
-        </CompetitionWrapper >
+        <CompetitionWrapper
+          teamInfo={getTeamInfoComponent}
+          teamMember={getTeamMemberComponent}
+        />
       </DashboardWrapper>
     </Layout>
   );
