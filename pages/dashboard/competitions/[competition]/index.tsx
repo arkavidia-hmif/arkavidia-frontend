@@ -9,12 +9,17 @@ import { TeamData } from "../../../../interfaces/team";
 import TeamMember from "../../../../components/page/Dashboard/Competitions/TeamMember";
 
 const StatusTim: React.FC = () => {
-
-  const getTeamInfoComponent = (team: TeamData, competition: Competition): ReactNode => {
-    return (<TeamInfo currentTeam={team} currentCompetition={competition} />);
+  const getTeamInfoComponent = (
+    team: TeamData,
+    competition: Competition
+  ): ReactNode => {
+    return <TeamInfo currentTeam={team} currentCompetition={competition} />;
   };
-  const getTeamMemberComponent = (team: TeamData, competition: Competition): ReactNode => {
-    return (<TeamMember team={team} competition={competition} />);
+  const getTeamMemberComponent = (
+    team: TeamData,
+    competition: Competition
+  ): ReactNode => {
+    return <TeamMember team={team} competition={competition} />;
   };
 
   return (
