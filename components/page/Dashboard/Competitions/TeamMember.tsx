@@ -47,6 +47,10 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
   };
 
   const getAddSection = () => {
+    if (teamDetail.teamMembers.length >= competition.maxTeamMembers) {
+      return;
+    }
+
     if (onAdd) {
       return (
         <InsertMemberDialog
