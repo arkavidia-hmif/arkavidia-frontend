@@ -8,15 +8,14 @@ export const RETRIVE_FILE_URL = (file_id: string): string =>
 
 export const uploadFile = async (
   axios: AxiosInstance,
-  file: string,
-  description: string
+  file: File,
+  description?: string
 ): Promise<FileResponse> => {
   try {
-    const response = await axios.post(UPLOAD_FILE_URL, {
-      file,
-      description,
-    });
-
+    const data = new FormData();
+    data.append("file", file);
+    if (description) data.append("description", description);
+    const response = await axios.post(UPLOAD_FILE_URL, data);
     return response.data as FileResponse;
   } catch (e) {
     throw new ApiError<StandardError>(StandardError.ERROR, e.message);

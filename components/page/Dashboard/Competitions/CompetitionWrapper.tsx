@@ -11,14 +11,18 @@ import CompetitionSidebar from "./sidebar/CompetitionSidebar";
 type Props = {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
   teamMember: (team: TeamData, competition: Competition) => ReactNode;
-  photoInput: (competition: Competition, selection: number) => ReactNode;
+  stageTask: (
+    team: TeamData,
+    competition: Competition,
+    selection: number
+  ) => ReactNode;
   // choiceInput: (competition: Competition, selection: number) => ReactNode;
 };
 
 const CompetitionWrapper: React.FC<Props> = ({
   teamInfo,
   teamMember,
-  photoInput,
+  stageTask,
 }) => {
   const apiContext = useContext(ApiContext);
 
@@ -54,7 +58,15 @@ const CompetitionWrapper: React.FC<Props> = ({
   const getComponent = () => {
     if (selection === 0) return teamInfo(currentTeam, currentCompetition);
     if (selection === 1) return teamMember(currentTeam, currentCompetition);
-    if (selection === 2) return photoInput(currentCompetition, selection);
+    if (selection === 2) {
+      return stageTask(currentTeam, currentCompetition, selection);
+    }
+    if (selection === 3) {
+      return stageTask(currentTeam, currentCompetition, selection);
+    }
+    if (selection === 4) {
+      return stageTask(currentTeam, currentCompetition, selection);
+    }
     // if (selection === 3) return choiceInput(currentCompetition, selection);
     // if (selection === 4) return photoInput(currentCompetition, selection);
     // if (selection === 5) return photoInput(currentCompetition, selection);
@@ -77,24 +89,22 @@ const CompetitionWrapper: React.FC<Props> = ({
       </div>
       <style jsx>{`
         #main-content::after {
-          content: '';
+          content: "";
           background: url(/img/competitions/${competition}-logo.png);
           background-repeat: no-repeat;
-          background-position-y: center; 
-          background-position-x: right; 
+          background-position-y: center;
+          background-position-x: right;
           background-size: contain;
-
           z-index: -1;
-
           position: absolute;
           left: 0;
           top: 0;
           opacity: 0.5;
           width: min(calc(100% + 50px), 100vw);
           height: 100%;
-        }  
+        }
 
-        @media (max-width: 992px){
+        @media (max-width: 992px) {
           #main-content::after {
             display: none;
           }

@@ -7,7 +7,7 @@ import TeamInfo from "../../../../components/page/Dashboard/Competitions/TeamInf
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import TeamMember from "../../../../components/page/Dashboard/Competitions/TeamMember";
-import PhotoInput from "../../../../components/page/Dashboard/Competitions/PhotoInput";
+import StageTask from "../../../../components/page/Dashboard/Competitions/stagetask/index";
 
 const StatusTim: React.FC = () => {
   const getTeamInfoComponent = (
@@ -23,11 +23,12 @@ const StatusTim: React.FC = () => {
     return <TeamMember team={team} competition={competition} />;
   };
 
-  const getPhotoInputComponent = (
+  const getStageTaskComponent = (
+    team: TeamData,
     competition: Competition,
     selection: number
   ): ReactNode => (
-    <PhotoInput competition={competition} selection={selection} />
+    <StageTask team={team} competition={competition} selection={selection} />
   );
 
   return (
@@ -36,7 +37,7 @@ const StatusTim: React.FC = () => {
         <CompetitionWrapper
           teamInfo={getTeamInfoComponent}
           teamMember={getTeamMemberComponent}
-          photoInput={getPhotoInputComponent}
+          stageTask={getStageTaskComponent}
         />
       </DashboardWrapper>
     </Layout>

@@ -4,6 +4,7 @@ import { TaskResponse } from "../interfaces/task";
 import { ApiError, StandardError } from "./error";
 
 export const LIST_COMPETITION_URL = "/competition";
+
 export const SUBMIT_TASK_REPONSE_COMPETITION_URL = (
   team_id: string,
   task_id: string
