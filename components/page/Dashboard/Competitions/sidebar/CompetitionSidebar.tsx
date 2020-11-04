@@ -54,7 +54,7 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
         item.push({
           text: task.name,
           widget: task.widget,
-          param: task.widgetParameters,
+          param: JSON.stringify(task.widgetParameters),
         });
       }
       sidebarData.push({

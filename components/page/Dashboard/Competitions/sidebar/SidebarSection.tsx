@@ -5,8 +5,8 @@ import SidebarItem from "./SidebarItem";
 type Props = {
   selection: number;
   setSelection: (value: number) => void;
-  data: SidebarGroup[]
-}
+  data: SidebarGroup[];
+};
 
 const SidebarSection: React.FC<Props> = ({ data, selection, setSelection }) => {
   let i = -1;
@@ -22,7 +22,15 @@ const SidebarSection: React.FC<Props> = ({ data, selection, setSelection }) => {
               <ul className="list">
                 {entry.item.map((item) => {
                   i += 1;
-                  return <SidebarItem key={i} entry={item} index={i} selection={selection} setSelection={setSelection} />;
+                  return (
+                    <SidebarItem
+                      key={i}
+                      entry={item}
+                      index={i}
+                      selection={selection}
+                      setSelection={setSelection}
+                    />
+                  );
                 })}
               </ul>
             </div>
