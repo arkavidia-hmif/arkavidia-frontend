@@ -74,7 +74,7 @@ const CompetitionWrapper: React.FC<Props> = ({
 
   return (
     <div className="mb-3">
-      <div className="row">
+      <div className="row" id="main-content">
         <div className="col-lg-3 col-md-4">
           <CompetitionSidebar
             team={currentTeam}
@@ -83,7 +83,7 @@ const CompetitionWrapper: React.FC<Props> = ({
             selection={selection}
           />
         </div>
-        <div className="col-lg-9 col-md-8" id="main-content">
+        <div className="col-lg-6 col-md-6 mt-5 mt-md-0">
           {getComponent()}
         </div>
       </div>
