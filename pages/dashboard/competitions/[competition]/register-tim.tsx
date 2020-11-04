@@ -10,6 +10,8 @@ import Alert from "../../../../components/Alert";
 import Spinner from "../../../../components/Spinner";
 import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
 import { AuthContext } from "../../../../utils/context/auth";
+import { ApiError } from "../../../../api/error";
+import { TeamRegistrationStatus } from "../../../../interfaces/team";
 
 
 const RegisterTim: React.FC = () => {
@@ -88,7 +90,17 @@ const RegisterTim: React.FC = () => {
         router.push(`/dashboard/competitions/${competition as string}`);
       })
       .catch((e) => {
-        setError(e);
+        if (e instanceof ApiError) {
+          if (e.code === TeamRegistrationStatus.NAME_TAKEN) {
+            setError("Nama tim sudah ada");
+            return;
+          } else if (e.code === TeamRegistrationStatus.CANNOT_CREATE_ANOTHER_TEAM) {
+            setError("1 orang hanya boleh menjadi ketua 1 tim");
+            return;
+          }
+        }
+
+        setError(e.message);
       })
       .finally(() => {
         setLoading(false);
@@ -98,55 +110,31 @@ const RegisterTim: React.FC = () => {
   return (
     <Layout title="Competitions" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
-
-        <div className="container" id='dashboard-area'>
-          <div className="container-fluid mb-5 mt-5" id="main">
-            <div id="content-container">
-              <Alert error={error} />
-              <div id="heading">Buat Tim {currentCompetition.name} </div>
-              <form className="mt-4" onSubmit={(evt) => {
-                evt.preventDefault();
-                handleSubmit();
-              }}>
-                <label htmlFor="name">Nama tim</label>
-                <input id="name" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }} />
-                <label htmlFor="institution">Asal universitas/sekolah</label>
-                <input id="institution" type="text" value={institution} onChange={(evt) => { setInstitution(evt.target.value); }} />
-                <br />
-                <br />
-                <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} />
-              </form>
-            </div>
-            <div id="bg-container">
-              <img src={`../../../img/competitions/${competition}-logo.png`} />
-            </div>
+        <div className="row">
+          <div className="col-12 col-md-8 col-lg-6">
+            <h2>Buat Tim {currentCompetition.name}</h2>
+            <Alert error={error} />
+            <form className="mt-4" onSubmit={(evt) => {
+              evt.preventDefault();
+              handleSubmit();
+            }}>
+              <label htmlFor="name">Nama tim</label>
+              <input id="name" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }} />
+              <label htmlFor="institution">Asal universitas/sekolah</label>
+              <input id="institution" type="text" value={institution} onChange={(evt) => { setInstitution(evt.target.value); }} />
+              <br />
+              <br />
+              <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} submit />
+            </form>
           </div>
-          <style jsx>{`          
-          #main {
-            display: flex;
-            margin-left: 4rem;
-          }
-
-          #content-container {
-            flex: 60%;
-          }
-
-          #bg-container {
-            flex: 40%;
-            max-width: auto;
-          }
-
-          #heading {
-            font-family: Viga;
+          <div id="bg-container" className="d-none d-md-block col-md-4 col-lg-6">
+            <img src={`/img/competitions/${competition}-logo.png`} />
+          </div>
+        </div>
+        <style jsx>{`          
+          h2 {
             font-size: 2.25rem;
-
             color: #05058d;
-          }
-
-          form {
-            height: auto;
-            width: 90%;
-            display: block;
           }
 
           input {
@@ -160,44 +148,29 @@ const RegisterTim: React.FC = () => {
           }
 
           label {
-            font-family: Roboto;
             font-size: 1.125rem;
 
             color: #696969;
           }
 
           img {
-            max-width: 25rem;
+            max-width: 25vw;
+          }
+
+          #bg-container {
+            text-align: center;
           }
 
           input:focus {
             outline: none;
           }
 
-          @media (max-width: 800px) {
-            #bg-container {
-              display: none;
-            }
-            .mt-5 {
-              margin-top: 0rem !important;
-            }
-          }
-
-          @media (max-width: 450px) {
-            #main {
-              margin-left: auto;
-            }
-
-            #heading {
-              font-size: 1.25rem;
-            }
-
-            label {
-              font-size: 1rem;
+          @media (max-width: 576px) {
+            h2 {
+              font-size: 1.5rem;
             }
           }
         `}</style>
-        </div>
       </DashboardWrapper>
     </Layout>
   );
