@@ -70,7 +70,6 @@ const CompetitionWrapper: React.FC<Props> = ({
         <div className="col-lg-9 col-md-6" id="main-content">
           {getComponent()}
         </div>
-        <div className="col-lg-9 col-md-6">{getComponent()}</div>
       </div>
       <style jsx>{`
         #main-content::after {
