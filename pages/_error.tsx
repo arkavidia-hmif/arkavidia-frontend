@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import * as Sentry from "@sentry/react";
 import FilledButton from "../components/FilledButton";
 import Layout from "../components/Layout";
 
@@ -8,6 +9,7 @@ type Props = {
 };
 
 const Error: NextPage<Props> = ({ statusCode }) => {
+  Sentry.captureMessage('404');
   return (
     <Layout>
       <div className="container">

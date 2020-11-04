@@ -71,8 +71,29 @@ const CompetitionWrapper: React.FC<Props> = ({
             selection={selection}
           />
         </div>
-        <div className="col-lg-9 col-md-6">{getComponent()}</div>
+        <div className="col-lg-9 col-md-6" id="main-content">
+          {getComponent()}
+        </div>
       </div>
+      <style jsx>{`
+        #main-content::after {
+          content: '';
+          background: url(/img/competitions/${competition}-logo.png);
+          background-repeat: no-repeat;
+          background-position-y: center; 
+          background-position-x: right; 
+          background-size: contain;
+
+          z-index: -1;
+
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0.5;
+          width: calc(100% + 50px);
+          height: 100%;
+        }  
+      `}</style>
     </div>
   );
 };
