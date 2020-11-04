@@ -47,7 +47,7 @@ const MemberCard: React.FC<Props> = ({ member, teamDetail, mutate, setError }) =
         <p className="email">{member.email}</p>
       </div>
       <div style={{ flex: 1 }} />
-      {member.id !== -99 && <FilledButton text="Hapus" loading={loading} onClick={deleteHandler} />}
+      {member.id !== -99 && !member.isTeamLeader && <FilledButton text="Hapus" loading={loading} onClick={deleteHandler} />}
       <style jsx>{`
         #member-container {
           display: flex;
