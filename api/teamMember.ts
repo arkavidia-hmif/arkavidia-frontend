@@ -25,6 +25,8 @@ export const addTeamMember = async (
 
         if (code === 'team_full') {
           throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.TEAM_FULL, detail);
+        } else if (code === 'team_has_selected_member') {
+          throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ALREADY_EXISTS, detail);
         }
       }
       throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ERROR, error.message);

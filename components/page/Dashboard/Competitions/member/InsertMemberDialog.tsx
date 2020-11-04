@@ -61,6 +61,10 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
           setError('Tim sudah penuh');
           return;
         }
+        if (err instanceof ApiError && err.code === AddTeamMemberStatus.ALREADY_EXISTS) {
+          setError('Anggota tim ini sudah terdaftar');
+          return;
+        }
         setError(err.message);
       }).finally(() => {
         setLoading(false);
