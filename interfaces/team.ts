@@ -41,3 +41,9 @@ export interface TeamMember {
   isTeamLeader: boolean;
   createdAt: string;
 }
+
+export enum TeamRegistrationStatus {
+  ERROR,
+  NAME_TAKEN,
+  CANNOT_CREATE_ANOTHER_TEAM
+}
