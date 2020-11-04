@@ -1,4 +1,4 @@
-import * as MD5 from "crypto-js/md5";
+import MD5 from "crypto-js/md5";
 import { TeamMember } from "../../../../../interfaces/team";
 import { defaultProfileUrl } from "../../../../../utils/constants/profile-picture";
 
