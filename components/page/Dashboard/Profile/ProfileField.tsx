@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
 import useFormInput from "../../../../utils/hooks/useFormInput";
+import useStringFormInput from "../../../../utils/hooks/useStringFormInput";
 import profileAttributes, {
   currentEducationList,
 } from "../../../../utils/constants/profile-attributes";
@@ -19,7 +20,7 @@ const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
   const [isEdit, setIsEdit] = useState(false);
-  const fullName = useFormInput("");
+  const fullName = useStringFormInput("");
   const email = useFormInput("");
   const phoneNumber = useFormInput("");
   const birthDate = useFormInput("");
@@ -38,6 +39,33 @@ const ProfileField: React.FC = () => {
     PROFILE_URL,
     () => getProfile(apiContext.axios)
   );
+
+  useEffect(() => {
+    if (profile !== undefined) {
+      if (profile?.fullName !== "") fullName.setValue(profile.fullName);
+      if (profile?.email !== "") email.setValue(profile.email);
+      if (profile?.phoneNumber !== "") {
+        phoneNumber.setValue(profile.phoneNumber);
+      }
+      if (profile?.birthDate !== "") birthDate.setValue(profile.birthDate);
+      if (profile?.address !== "") address.setValue(profile.address);
+      if (profile?.currentEducation !== "") {
+        currentEducation.setValue(profile.currentEducation);
+      }
+      if (profile?.institution !== "") {
+        institution.setValue(profile.institution);
+      }
+    }
+  }, [
+    profile,
+    fullName.setValue,
+    email.setValue,
+    phoneNumber.setValue,
+    birthDate.setValue,
+    address.setValue,
+    currentEducation.setValue,
+    institution.setValue,
+  ]);
 
   if (errorProfile) return <Alert error="Masalah koneksi" />;
   if (!profile) return <Spinner height="200px" />;
@@ -84,7 +112,6 @@ const ProfileField: React.FC = () => {
         ].map((data, index) => {
           const label = profileAttributes[data.key];
           const value = profile[data.key as keyof UserData] || "";
-
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">
               <div className="title">{label}</div>
@@ -95,9 +122,7 @@ const ProfileField: React.FC = () => {
                   <InputField
                     shouldRef={index === 0}
                     type={data.key === "birthDate" ? "date" : "text"}
-                    value={
-                      String(data.state.value) !== "" ? data.state.value : value
-                    }
+                    value={String(data.state.value)}
                     choices={data.choices ?? []}
                     setValue={data.state.setValue}
                   />

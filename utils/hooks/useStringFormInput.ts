@@ -1,14 +1,14 @@
 import * as React from "react";
 import { useState } from "react";
 
-const useFormInput = (
+const useStringFormInput = (
   initialValue: string
 ): {
-  value: string | null;
-  setValue: (newValue: string | null) => void;
+  value: string;
+  setValue: (newValue: string) => void;
   onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void;
 } => {
-  const [value, setValue] = useState<string | null>(initialValue);
+  const [value, setValue] = useState<string>(initialValue);
   return {
     value,
     setValue,
@@ -17,4 +17,4 @@ const useFormInput = (
   };
 };
 
-export default useFormInput;
+export default useStringFormInput;

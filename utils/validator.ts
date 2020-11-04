@@ -15,4 +15,5 @@ export const isValidDate = (date: string | null): boolean => {
   return parseInt(element[0]) < 2017;
 };
 
-export const isEmpty = (string: string): boolean => String(string).length === 0;
+export const isEmpty = (string: string | null): boolean =>
+  string !== null && String(string).length === 0;
