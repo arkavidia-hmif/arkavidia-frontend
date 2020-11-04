@@ -1,10 +1,8 @@
-export interface AddTeamMemberForm {
-  team_id: string;
-  fullName: string;
-  email: string;
+export enum AddTeamMemberStatus {
+  ERROR, TEAM_FULL
 }
 
-export interface TeamMemberDetail{
+export interface TeamMemberDetail {
   id: number;
   fullName: string;
   email: string;

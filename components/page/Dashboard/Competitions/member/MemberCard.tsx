@@ -11,7 +11,7 @@ const MemberCard: React.FC<Props> = ({ team }) => {
   const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?d=${defaultProfileUrl}`;
 
   return (
-    <div id="member-container">
+    <div id="member-container" className="my-3">
       <img src={gravatarUrl} />
       <p className="m-0 ml-3">
         {team.fullName} {team.isTeamLeader ? "(ketua)" : ""}

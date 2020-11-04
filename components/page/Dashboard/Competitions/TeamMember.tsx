@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useSWR from "swr";
 import { getTeamDetail } from "../../../../api/team";
 import { Competition } from "../../../../interfaces/competition";
@@ -7,6 +7,7 @@ import { Theme } from "../../../../styles/theme";
 import { ApiContext } from "../../../../utils/context/api";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
+import InsertMemberDialog from "./member/InsertMemberDialog";
 import MemberCard from "./member/MemberCard";
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 
 const TeamMember: React.FC<Props> = ({ team, competition }) => {
   const apiContext = useContext(ApiContext);
+  const [onAdd, setOnAdd] = useState(false);
 
   const { data: teamDetail, error } = useSWR(
     `/competition/teams/${team.id}/`,
@@ -44,6 +46,34 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
     }
   };
 
+  const getAddSection = () => {
+    if (onAdd) {
+      return (
+        <InsertMemberDialog
+          teamId={team.id}
+          closeAdd={() => { setOnAdd(false); }}
+        />
+      );
+    } else {
+      return (
+        <div className="my-3" onClick={() => { setOnAdd(true); }}>
+          <img src="/img/dashboard/add-member.png" />
+          <style jsx>{`
+            img {
+              border-radius: 50%;
+              width: 60px;
+            }
+
+            img:hover {
+              filter: brightness(75%);
+            }  
+          `}</style>
+        </div>
+      );
+    }
+  }
+
+
   return (
     <div>
       <h2>{competition.name} - Anggota Tim</h2>
@@ -51,10 +81,11 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
         Jumlah peserta tim untuk {competition.name} {getParticipantCountText()}
       </p>
       {getWarning()}
-      <div className="mt-5">
+      <div className="mt-4">
         {teamDetail.teamMembers.map((entry) => (
           <MemberCard key={entry.id} team={entry} />
         ))}
+        {getAddSection()}
       </div>
       <style jsx>{`
         h2 {

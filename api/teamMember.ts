@@ -1,20 +1,33 @@
 import { AxiosError, AxiosInstance } from "axios";
 import { Task, TaskResponse } from "../interfaces/task";
 import { TeamMember } from "../interfaces/team";
-import { AddTeamMemberForm, TeamMemberDetail } from "../interfaces/teamMember";
+import { AddTeamMemberForm, AddTeamMemberStatus, TeamMemberDetail } from "../interfaces/teamMember";
 import { ApiError, StandardError } from "./error";
 
 export const addTeamMember = async (
   axios: AxiosInstance,
-  addTeamMember: AddTeamMemberForm
+  teamId: number,
+  fullName: string,
+  email: string
 ): Promise<TeamMember> => {
   return axios
-    .post<TeamMember>("/competition/teams/{team_id}/members/", addTeamMember)
+    .post<TeamMember>(`/competition/teams/${teamId}/members/`, {
+      fullName,
+      email
+    })
     .then((response) => {
       return response.data;
     })
     .catch((error: AxiosError) => {
-      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+      if (error.response) {
+        const code = error.response.data.code;
+        const detail = error.response.data.detail;
+
+        if (code === 'team_full') {
+          throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.TEAM_FULL, detail);
+        }
+      }
+      throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ERROR, error.message);
     });
 };
 
