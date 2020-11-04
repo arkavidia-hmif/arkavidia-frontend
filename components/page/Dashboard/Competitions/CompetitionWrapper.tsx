@@ -67,9 +67,6 @@ const CompetitionWrapper: React.FC<Props> = ({
     if (selection === 4) {
       return stageTask(currentTeam, currentCompetition, selection);
     }
-    // if (selection === 3) return choiceInput(currentCompetition, selection);
-    // if (selection === 4) return photoInput(currentCompetition, selection);
-    // if (selection === 5) return photoInput(currentCompetition, selection);
   };
 
   return (

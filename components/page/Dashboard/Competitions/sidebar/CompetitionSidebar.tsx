@@ -1,7 +1,11 @@
-import * as React from "react";
+import { useContext } from "react";
+import useSWR from "swr";
+import { getTeamDetail } from "../../../../../api/team";
 import { Competition } from "../../../../../interfaces/competition";
 import { SidebarEntry } from "../../../../../interfaces/sidebar";
 import { TeamData } from "../../../../../interfaces/team";
+import { ApiContext } from "../../../../../utils/context/api";
+import Alert from "../../../../Alert";
 import SidebarSection from "./SidebarSection";
 
 interface SubmissionProgressProps {
@@ -11,42 +15,19 @@ interface SubmissionProgressProps {
   setSelection: (selection: number) => void;
 }
 
-const sidebarData = [
-  {
-    name: "TIM",
-    item: [
-      {
-        text: "Informasi Tim",
-        image: "/img/dashboard/submission/tim.png",
-      },
-      {
-        text: "Anggota Tim",
-        image: "/img/dashboard/submission/anggota.png",
-      },
-    ] as SidebarEntry[],
-  },
-  {
-    name: "Stage 1 (name)",
-    item: [
-      {
-        text: "Foto Diri",
-        image: "/img/dashboard/submission/lingkaran.png",
-      },
-      {
-        text: "KTP/KTM",
-        image: "/img/dashboard/submission/jampasir.png",
-      },
-      {
-        text: "SKMA",
-        image: "/img/dashboard/submission/check.png",
-      },
-      {
-        text: "Bukti Pembayaran",
-        image: "/img/dashboard/submission/lingkaran.png",
-      },
-    ] as SidebarEntry[],
-  },
-];
+const sidebarTop = {
+  name: "TIM",
+  item: [
+    {
+      text: "Informasi Tim",
+      image: "/img/dashboard/submission/tim.png",
+    },
+    {
+      text: "Anggota Tim",
+      image: "/img/dashboard/submission/anggota.png",
+    },
+  ] as SidebarEntry[],
+};
 
 const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   team,
@@ -54,6 +35,34 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   selection,
   setSelection,
 }) => {
+  const apiContext = useContext(ApiContext);
+
+  const { data: teamDetail, error: teamDetailError } = useSWR(
+    `/competition/teams/${team.id}/`,
+    () => getTeamDetail(apiContext.axios, team.id)
+  );
+
+  if (teamDetailError) return <Alert error="Masalah koneksi" />;
+
+  const sidebarData = [sidebarTop];
+  if (teamDetail) {
+    for (const stage of teamDetail.stages) {
+      const item = [];
+      for (const task of stage.tasks) {
+        item.push({
+          text: task.name,
+          widget: task.widget,
+          param: task.widgetParameters
+        });
+      }
+      sidebarData.push({
+        name: stage.name,
+        item
+      });
+    }
+  }
+
+
   return (
     <div className="container mb-3 card">
       <h2>{team.name || "Nama Tim"}</h2>

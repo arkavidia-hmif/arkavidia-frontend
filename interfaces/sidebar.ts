@@ -1,6 +1,8 @@
 export interface SidebarEntry {
   text: string;
-  image: string;
+  image?: string;
+  widget?: string;
+  param?: string;
 }
 
 export interface SidebarGroup {
