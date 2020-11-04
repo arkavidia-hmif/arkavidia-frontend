@@ -93,4 +93,7 @@ export const Theme = {
     plpi: "linear-gradient(120deg, #623FA2 25%, #FE5982 100%)",
     pipl: "linear-gradient(110deg, #FE789A 0%, #623FA2 100%)",
   },
+  competitionColors: {
+    subHeadingColor: "#05058d"
+  }
 };

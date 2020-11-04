@@ -95,6 +95,7 @@ const EmailRecover: React.FC = () => {
               text="GANTI"
               loading={loading}
               padding="0.75em 1.5em"
+              submit
             />
           </form>
         </>

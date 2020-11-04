@@ -109,6 +109,7 @@ const RegisterPage: React.FC = () => {
                   text="DAFTAR"
                   padding="0.75em 1.5em"
                   loading={loading}
+                  submit
                 />
               </div>
               <div className="col-6" style={{ textAlign: "right" }}>

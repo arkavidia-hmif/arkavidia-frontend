@@ -38,7 +38,7 @@ export const getTeam = async (
 
 export const getTeamDetail = async (
   axios: AxiosInstance,
-  teamId: string
+  teamId: number
 ): Promise<TeamDetailData> => {
   return axios
     .get<TeamDetailData>(`/competition/teams/${teamId}/`)
