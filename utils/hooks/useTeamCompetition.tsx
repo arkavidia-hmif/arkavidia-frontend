@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import useSWR from "swr";
 import { getCompetitions, LIST_COMPETITION_URL } from "../../api/competition";
 import { getTeam, LIST_TEAM_URL } from "../../api/team";
@@ -38,10 +38,10 @@ export const useTeamCompetition = (
     return competition ? competition[0] : undefined;
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setLoaded(!!(competitions && teams));
     setError(errorCompetitions || errorTeams);
-  }, [errorCompetitions, errorTeams, setError, setLoaded]);
+  }, [errorCompetitions, errorTeams, teams, competitions, setError, setLoaded]);
 
   return {
     getTeamBySlug,

@@ -1,5 +1,5 @@
-import { useRouter } from "next/dist/client/router";
 import { ReactNode, useContext, useState } from "react";
+import { useRouter } from "next/dist/client/router";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import { ApiContext } from "../../../../utils/context/api";
@@ -11,10 +11,14 @@ import CompetitionSidebar from "./sidebar/CompetitionSidebar";
 type Props = {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
   teamMember: (team: TeamData, competition: Competition) => ReactNode;
+  selfPhoto: (competition: Competition) => ReactNode;
+};
 
-}
-
-const CompetitionWrapper: React.FC<Props> = ({ teamInfo, teamMember }) => {
+const CompetitionWrapper: React.FC<Props> = ({
+  teamInfo,
+  teamMember,
+  selfPhoto,
+}) => {
   const apiContext = useContext(ApiContext);
 
   const {
@@ -49,18 +53,21 @@ const CompetitionWrapper: React.FC<Props> = ({ teamInfo, teamMember }) => {
   const getComponent = () => {
     if (selection === 0) return teamInfo(currentTeam, currentCompetition);
     if (selection === 1) return teamMember(currentTeam, currentCompetition);
+    if (selection === 2) return selfPhoto(currentCompetition);
   };
-
 
   return (
     <div className="mb-3">
       <div className="row">
         <div className="col-md-3">
-          <CompetitionSidebar team={currentTeam} competition={currentCompetition} setSelection={setSelection} selection={selection} />
+          <CompetitionSidebar
+            team={currentTeam}
+            competition={currentCompetition}
+            setSelection={setSelection}
+            selection={selection}
+          />
         </div>
-        <div className="col-md-9">
-          {getComponent()}
-        </div>
+        <div className="col-md-9">{getComponent()}</div>
       </div>
     </div>
   );
