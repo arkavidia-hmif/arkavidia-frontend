@@ -11,13 +11,14 @@ import CompetitionSidebar from "./sidebar/CompetitionSidebar";
 type Props = {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
   teamMember: (team: TeamData, competition: Competition) => ReactNode;
-  selfPhoto: (competition: Competition) => ReactNode;
+  photoInput: (competition: Competition, selection: number) => ReactNode;
+  // choiceInput: (competition: Competition, selection: number) => ReactNode;
 };
 
 const CompetitionWrapper: React.FC<Props> = ({
   teamInfo,
   teamMember,
-  selfPhoto,
+  photoInput,
 }) => {
   const apiContext = useContext(ApiContext);
 
@@ -53,7 +54,10 @@ const CompetitionWrapper: React.FC<Props> = ({
   const getComponent = () => {
     if (selection === 0) return teamInfo(currentTeam, currentCompetition);
     if (selection === 1) return teamMember(currentTeam, currentCompetition);
-    if (selection === 2) return selfPhoto(currentCompetition);
+    if (selection === 2) return photoInput(currentCompetition, selection);
+    // if (selection === 3) return choiceInput(currentCompetition, selection);
+    // if (selection === 4) return photoInput(currentCompetition, selection);
+    // if (selection === 5) return photoInput(currentCompetition, selection);
   };
 
   return (
