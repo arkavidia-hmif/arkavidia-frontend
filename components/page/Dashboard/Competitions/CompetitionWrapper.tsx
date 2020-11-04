@@ -71,7 +71,7 @@ const CompetitionWrapper: React.FC<Props> = ({
             selection={selection}
           />
         </div>
-        <div className="col-lg-9 col-md-6" id="main-content">
+        <div className="col-lg-9 col-md-8" id="main-content">
           {getComponent()}
         </div>
       </div>
@@ -90,9 +90,15 @@ const CompetitionWrapper: React.FC<Props> = ({
           left: 0;
           top: 0;
           opacity: 0.5;
-          width: calc(100% + 50px);
+          width: min(calc(100% + 50px), 100vw);
           height: 100%;
         }  
+
+        @media (max-width: 992px){
+          #main-content::after {
+            display: none;
+          }
+        }
       `}</style>
     </div>
   );
