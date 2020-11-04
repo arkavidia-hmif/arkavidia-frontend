@@ -8,4 +8,9 @@ const profileAttributes: { [slug: string]: string } = {
   address: "Alamat",
 };
 
+const SMA = "SMA";
+const KULIAH = "Kuliah";
+
+export const currentEducationList = [SMA, KULIAH];
+
 export default profileAttributes;

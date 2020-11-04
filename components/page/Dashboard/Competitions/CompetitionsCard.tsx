@@ -65,14 +65,12 @@ const CompetitionsCard: React.FC = () => {
             className="col-md-6 col-lg-4"
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
-            buttonLink={
-              entry.isRegistrationOpen ? generateUrl(entry) : null
-            }
+            buttonLink={entry.isRegistrationOpen ? generateUrl(entry) : null}
             buttonText={generateCardText(entry)}
           />
         ))}
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -10,6 +10,7 @@ import FilledButton from "../FilledButton";
 
 export const DashboardTeamProfile: React.FC = () => {
   const apiContext = useContext(ApiContext);
+  const router = useRouter();
 
   const {
     getTeamBySlug,
@@ -17,7 +18,7 @@ export const DashboardTeamProfile: React.FC = () => {
     isLoaded,
     isError,
   } = useTeamCompetition(apiContext.axios);
-  const router = useRouter();
+
   const [edit, setEdit] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [teamName, setTeamName] = useState<string>("");

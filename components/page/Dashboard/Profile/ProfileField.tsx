@@ -3,7 +3,9 @@ import useSWR from "swr";
 import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
 import useFormInput from "../../../../utils/hooks/useFormInput";
-import profileAttributes from "../../../../utils/constants/profile-attributes";
+import profileAttributes, {
+  currentEducationList,
+} from "../../../../utils/constants/profile-attributes";
 import { checkTruth } from "../../../../utils/transformer/profile";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
@@ -73,7 +75,11 @@ const ProfileField: React.FC = () => {
           { state: phoneNumber, key: "phoneNumber" },
           { state: birthDate, key: "birthDate" },
           { state: address, key: "address" },
-          { state: currentEducation, key: "currentEducation" },
+          {
+            state: currentEducation,
+            key: "currentEducation",
+            choices: currentEducationList,
+          },
           { state: institution, key: "institution" },
         ].map((data, index) => {
           const label = profileAttributes[data.key];
@@ -92,6 +98,7 @@ const ProfileField: React.FC = () => {
                     value={
                       String(data.state.value) !== "" ? data.state.value : value
                     }
+                    choices={data.choices ?? []}
                     setValue={data.state.setValue}
                   />
                 )}

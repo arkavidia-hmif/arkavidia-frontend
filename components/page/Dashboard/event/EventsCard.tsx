@@ -1,9 +1,6 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import {
-  getEvent,
-  LIST_EVENT_URL,
-} from "../../../../api/event";
+import { getEvent, LIST_EVENT_URL } from "../../../../api/event";
 import { ApiContext } from "../../../../utils/context/api";
 import DashboardCard from "../../../dashboard/DashboardCard";
 import { Event } from "../../../../interfaces/event";
@@ -15,10 +12,9 @@ const EventsCard: React.FC = () => {
 
   const apiContext = useContext(ApiContext);
 
-  const {
-    data: event,
-    error: errorEvent,
-  } = useSWR(LIST_EVENT_URL, () => getEvent(apiContext.axios));
+  const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
+    getEvent(apiContext.axios)
+  );
 
   if (errorEvent) return <Alert error="Masalah koneksi" />;
   if (!event) return <Spinner height="200px" />;
