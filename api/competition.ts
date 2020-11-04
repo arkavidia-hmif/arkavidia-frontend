@@ -7,7 +7,7 @@ export const LIST_COMPETITION_URL = "/competition";
 export const SUBMIT_TASK_REPONSE_COMPETITION_URL = (
   team_id: string,
   task_id: string
-) => `/competition/teams/${team_id}/tasks/${task_id}`;
+): string => `/competition/teams/${team_id}/tasks/${task_id}`;
 
 export const getCompetitions = async (
   axios: AxiosInstance

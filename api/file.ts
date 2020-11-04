@@ -3,7 +3,7 @@ import { FileResponse } from "../interfaces/file";
 import { ApiError, StandardError } from "./error";
 
 export const UPLOAD_FILE_URL = "/uploader/uploaded-file/";
-export const RETRIVE_FILE_URL = (file_id: string) =>
+export const RETRIVE_FILE_URL = (file_id: string): string =>
   `/uploader/uploaded-file/${file_id}`;
 
 export const uploadFile = async (
