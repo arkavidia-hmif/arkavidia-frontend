@@ -99,8 +99,8 @@ const RegisterTim: React.FC = () => {
     <Layout title="Competitions" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
 
-        <div className="container" id='dashboard-area'>
-          <div className="container-fluid mb-5 mt-5" id="main">
+        <div id='dashboard-area'>
+          <div className="mb-5 mt-5" id="main">
             <div id="content-container">
               <Alert error={error} />
               <div id="heading">Buat Tim {currentCompetition.name} </div>
@@ -114,11 +114,11 @@ const RegisterTim: React.FC = () => {
                 <input id="institution" type="text" value={institution} onChange={(evt) => { setInstitution(evt.target.value); }} />
                 <br />
                 <br />
-                <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} />
+                <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} submit />
               </form>
             </div>
             <div id="bg-container">
-              <img src={`../../../img/competitions/${competition}-logo.png`} />
+              <img src={`/img/competitions/${competition}-logo.png`} />
             </div>
           </div>
           <style jsx>{`          
