@@ -19,12 +19,9 @@ const FileUploader: React.FC<Props> = ({
         <input type="file" onChange={data.onChange} />
         {data?.value ? "File diterima" : "Pilih file"}
       </label>
-      <div className="file-name">
-        {data?.value && data.value?.name.slice(1, 6)}
-      </div>
+      <div className="file-name">{data?.value && data.value?.name}</div>
       <style jsx>{`
         .file-name {
-          display: block;
           color: red;
           word-wrap: break-word;
         }
