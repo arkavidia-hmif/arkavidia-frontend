@@ -10,6 +10,12 @@ export interface ButtonColor {
   hover: string;
 }
 
+export interface AlertColor {
+  main: string;
+  text: string;
+}
+
+
 const blue: StandardColor = {
   superlight: "#CAF1F1",
   light: "#5EE6E9",
@@ -63,6 +69,16 @@ const darkPinkButton: ButtonColor = {
   hover: "#F3A9DD",
 };
 
+const redAlert: AlertColor = {
+  main: "#ff5252",
+  text: "white"
+};
+
+const yellowAlert: AlertColor = {
+  main: "#FDB43C",
+  text: "white"
+};
+
 export const Theme = {
   colors: {
     blue,
@@ -95,5 +111,9 @@ export const Theme = {
   },
   competitionColors: {
     subHeadingColor: "#05058d"
+  },
+  alertColors: {
+    redAlert,
+    yellowAlert
   }
 };

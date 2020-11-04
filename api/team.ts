@@ -3,6 +3,7 @@ import {
   TeamData,
   TeamDetailData,
   TeamRegistrationForm,
+  TeamRegistrationStatus,
 } from "../interfaces/team";
 import { ApiError, StandardError } from "./error";
 
@@ -19,7 +20,27 @@ export const createTeam = async (
       return response.data;
     })
     .catch((error: AxiosError) => {
-      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+      if (error.response) {
+        const errorCode = error.response.data.code;
+        if (errorCode === "team_name_is_used") {
+          throw new ApiError<TeamRegistrationStatus>(
+            TeamRegistrationStatus.NAME_TAKEN,
+            error.response.data.detail
+          );
+        } else if (errorCode === "create_team_fail") {
+          throw new ApiError<TeamRegistrationStatus>(
+            TeamRegistrationStatus.CANNOT_CREATE_ANOTHER_TEAM,
+            error.response.data.detail
+          );
+        } else {
+          throw new ApiError<TeamRegistrationStatus>(
+            TeamRegistrationStatus.ERROR,
+            error.response.data.detail
+          );
+        }
+      }
+
+      throw new ApiError<TeamRegistrationStatus>(TeamRegistrationStatus.ERROR, error.message);
     });
 };
 

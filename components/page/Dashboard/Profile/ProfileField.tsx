@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
 import useFormInput from "../../../../utils/hooks/useFormInput";
+import useStringFormInput from "../../../../utils/hooks/useStringFormInput";
 import profileAttributes, {
   currentEducationList,
 } from "../../../../utils/constants/profile-attributes";
@@ -19,7 +20,7 @@ const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
   const [isEdit, setIsEdit] = useState(false);
-  const fullName = useFormInput("");
+  const fullName = useStringFormInput("");
   const email = useFormInput("");
   const phoneNumber = useFormInput("");
   const birthDate = useFormInput("");
@@ -38,6 +39,33 @@ const ProfileField: React.FC = () => {
     PROFILE_URL,
     () => getProfile(apiContext.axios)
   );
+
+  useEffect(() => {
+    if (profile !== undefined) {
+      if (profile?.fullName !== "") fullName.setValue(profile.fullName);
+      if (profile?.email !== "") email.setValue(profile.email);
+      if (profile?.phoneNumber !== "") {
+        phoneNumber.setValue(profile.phoneNumber);
+      }
+      if (profile?.birthDate !== "") birthDate.setValue(profile.birthDate);
+      if (profile?.address !== "") address.setValue(profile.address);
+      if (profile?.currentEducation !== "") {
+        currentEducation.setValue(profile.currentEducation);
+      }
+      if (profile?.institution !== "") {
+        institution.setValue(profile.institution);
+      }
+    }
+  }, [
+    profile,
+    fullName.setValue,
+    email.setValue,
+    phoneNumber.setValue,
+    birthDate.setValue,
+    address.setValue,
+    currentEducation.setValue,
+    institution.setValue,
+  ]);
 
   if (errorProfile) return <Alert error="Masalah koneksi" />;
   if (!profile) return <Spinner height="200px" />;
@@ -84,7 +112,6 @@ const ProfileField: React.FC = () => {
         ].map((data, index) => {
           const label = profileAttributes[data.key];
           const value = profile[data.key as keyof UserData] || "";
-
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">
               <div className="title">{label}</div>
@@ -95,9 +122,7 @@ const ProfileField: React.FC = () => {
                   <InputField
                     shouldRef={index === 0}
                     type={data.key === "birthDate" ? "date" : "text"}
-                    value={
-                      String(data.state.value) !== "" ? data.state.value : value
-                    }
+                    value={String(data.state.value)}
                     choices={data.choices ?? []}
                     setValue={data.state.setValue}
                   />
@@ -191,167 +216,3 @@ const ProfileField: React.FC = () => {
 };
 
 export default ProfileField;
-
-// import { useContext, useState } from "react";
-// import useSWR from "swr";
-// import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
-// import { ApiContext } from "../../../../utils/context/api";
-// import useFormInput from "../../../../utils/hooks/useFormInput";
-// import profileAttributes from "../../../../utils/constants/profile-attributes";
-// import Alert from "../../../Alert";
-// import Spinner from "../../../Spinner";
-// import FilledButton from "../../../FilledButton";
-// import { Theme } from "../../../../styles/theme";
-// import InputField from "./InputField";
-// // import { getLabelByProfileAttribute } from '../../../../utils/transformer/profile'
-
-// const ProfileField: React.FC = () => {
-//   const apiContext = useContext(ApiContext);
-
-//   const [isEdit, setIsEdit] = useState(false);
-//   const fullName = useFormInput("");
-//   const email = useFormInput("");
-//   const phoneNumber = useFormInput("");
-//   const birthDate = useFormInput("");
-//   const address = useFormInput("");
-//   const currentEducation = useFormInput("");
-//   const institution = useFormInput("");
-
-//   const [success, setSuccess] = useState(false);
-//   const [error, setError] = useState<string | null>(null);
-
-//   const { data: profile, error: errorProfile, mutate } = useSWR(
-//     PROFILE_URL,
-//     () => getProfile(apiContext.axios)
-//   );
-
-//   if (errorProfile) return <Alert error="Masalah koneksi" />;
-//   if (!profile) return <Spinner height="200px" />;
-
-//   const handleSubmit = async () => {
-//     try {
-//       const res = await editProfile(
-//         apiContext.axios,
-//         fullName.value,
-//         currentEducation.value,
-//         institution.value,
-//         phoneNumber.value,
-//         birthDate.value,
-//         address.value
-//       );
-//       console.log(res);
-//     } catch (e) {
-//       console.log(e);
-//     }
-//   };
-
-//   console.log(profile);
-
-//   return (
-//     <div className="mb-3">
-//       <div className="row">
-//         {
-//           <input
-//             value={profile?.fullName}
-//             onChange={async (e) =>
-//               mutate({ ...profile, fullName: e.target.value })
-//             }
-//           />
-//         }
-//         {/* {Object.entries(profile)?.map(([key, value], index) => {
-//           const label = profileAttributes[key];
-
-//           return (
-//             <div key={label} className="field col-md-6 col-sm-12 mt-3">
-//               <div className="title">
-//                 <h1>{label}</h1>
-//               </div>
-//               <div className="content">
-//                 {!(isEdit && key !== "email") ? (
-//                   <div className="value">{value ?? "-"}</div>
-//                 ) : (
-//                   <InputField
-//                     shouldRef={index === 0}
-//                     placeholder=""
-//                     type={label === "birthDate" ? "date" : "text"}
-//                     value={value}
-//                     // setValue={}
-//                   />
-//                 )}
-//               </div>
-//             </div>
-//           );
-//         })} */}
-//       </div>
-//       <div className="my-3">
-//         {isEdit ? (
-//           <div className="row">
-//             <div className="col-md-6 col-sm-12">
-//               <FilledButton
-//                 color={Theme.buttonColors.purpleButton}
-//                 text="Submit"
-//                 padding="0.75rem 3rem"
-//                 onClick={handleSubmit}
-//               />
-//             </div>
-//             <div className="col-md-6 col-sm-12 button-below">
-//               <FilledButton
-//                 color={Theme.buttonColors.blueButton}
-//                 text="Cancel"
-//                 padding="0.75em 1.5em"
-//                 onClick={() => setIsEdit(false)}
-//               />
-//             </div>
-//           </div>
-//         ) : (
-//           <FilledButton
-//             text="Edit Profile"
-//             color={Theme.buttonColors.purpleButton}
-//             padding="0.75rem 3rem"
-//             onClick={() => setIsEdit(true)}
-//           />
-//         )}
-//       </div>
-
-//       <style jsx>{`
-//         .title h1 {
-//           font-family: Roboto;
-//           font-size: 1.125rem;
-//           font-weight: bold;
-//           color: #646464;
-//         }
-//         .value {
-//           width: 100%;
-//           border: none;
-//           padding: 0.5rem 0 0.5rem 0;
-//           border-bottom: 0.15rem solid transparent;
-//           box-sizing: border-box;
-//           background: none;
-//           margin: 1rem 0;
-//           font-size: 1.2rem;
-//           font-style: normal;
-//         }
-//         .content {
-//           font-family: Roboto;
-//           font-size: 1.125rem;
-
-//           color: #646464;
-//         }
-
-//         #update {
-//           display: block;
-//         }
-//         form {
-//           display: block;
-//         }
-//         @media only screen and (max-width: 767px) {
-//           .button-below {
-//             margin-top: 1rem;
-//           }
-//         }
-//       `}</style>
-//     </div>
-//   );
-// };
-
-// export default ProfileField;
