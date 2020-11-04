@@ -5,13 +5,14 @@ import { Theme } from "../../../../../styles/theme";
 // import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
+import { Task } from "../../../../../interfaces/task";
 
 type Props = {
-  selection: number;
   team: TeamData;
+  widget: Task;
 };
 
-const ChoiceTask: React.FC<Props> = ({ team, selection }) => {
+const ChoiceTask: React.FC<Props> = ({ team, widget }) => {
   // const apiContext = useContext(ApiContext);
   const choice = useChoice("3");
   // const teamId = team?.id;
@@ -38,9 +39,8 @@ const ChoiceTask: React.FC<Props> = ({ team, selection }) => {
       <div id="ketentuan" className="mt-3">
         <div className="title">Ketentuan:</div>
         <ol>
-          <li>{selection}</li>
           <li>{team?.id}</li>
-          <li>Lorem</li>
+          <li>{widget?.id}</li>
         </ol>
       </div>
       <div id="upload" className="mt-3">

@@ -37,9 +37,11 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
 }) => {
   const apiContext = useContext(ApiContext);
 
-  const { data: teamDetail, error: teamDetailError } = useSWR(
-    `/competition/teams/${team.id}/`,
-    () => getTeamDetail(apiContext.axios, team.id)
+  const {
+    data: teamDetail,
+    error: teamDetailError,
+  } = useSWR(`/competition/teams/${team.id}/`, () =>
+    getTeamDetail(apiContext.axios, team.id)
   );
 
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
@@ -52,16 +54,15 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
         item.push({
           text: task.name,
           widget: task.widget,
-          param: task.widgetParameters
+          param: task.widgetParameters,
         });
       }
       sidebarData.push({
         name: stage.name,
-        item
+        item,
       });
     }
   }
-
 
   return (
     <div className="container mb-3 card">

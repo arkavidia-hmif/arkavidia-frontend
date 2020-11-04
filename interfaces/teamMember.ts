@@ -1,5 +1,7 @@
 export enum AddTeamMemberStatus {
-  ERROR, TEAM_FULL, ALREADY_EXISTS
+  ERROR,
+  TEAM_FULL,
+  ALREADY_EXISTS,
 }
 
 export interface TeamMemberDetail {

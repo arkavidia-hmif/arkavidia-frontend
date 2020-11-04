@@ -25,11 +25,8 @@ const StatusTim: React.FC = () => {
 
   const getStageTaskComponent = (
     team: TeamData,
-    competition: Competition,
     selection: number
-  ): ReactNode => (
-    <StageTask team={team} competition={competition} selection={selection} />
-  );
+  ): ReactNode => <StageTask team={team} selection={selection} />;
 
   return (
     <Layout title="Informati Tim" background={Theme.bgColors.whtogr}>

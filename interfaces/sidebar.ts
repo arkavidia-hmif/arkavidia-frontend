@@ -6,6 +6,6 @@ export interface SidebarEntry {
 }
 
 export interface SidebarGroup {
-  name: string,
-  item: SidebarEntry[]
+  name: string;
+  item: SidebarEntry[];
 }

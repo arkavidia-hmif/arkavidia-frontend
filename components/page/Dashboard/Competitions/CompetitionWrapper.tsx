@@ -11,11 +11,7 @@ import CompetitionSidebar from "./sidebar/CompetitionSidebar";
 type Props = {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
   teamMember: (team: TeamData, competition: Competition) => ReactNode;
-  stageTask: (
-    team: TeamData,
-    competition: Competition,
-    selection: number
-  ) => ReactNode;
+  stageTask: (team: TeamData, selection: number) => ReactNode;
 };
 
 const CompetitionWrapper: React.FC<Props> = ({
@@ -58,7 +54,7 @@ const CompetitionWrapper: React.FC<Props> = ({
     if (selection === 0) return teamInfo(currentTeam, currentCompetition);
     if (selection === 1) return teamMember(currentTeam, currentCompetition);
 
-    return stageTask(currentTeam, currentCompetition, selection);
+    return stageTask(currentTeam, selection);
   };
 
   return (
@@ -72,9 +68,7 @@ const CompetitionWrapper: React.FC<Props> = ({
             selection={selection}
           />
         </div>
-        <div className="col-lg-6 col-md-6 mt-5 mt-md-0">
-          {getComponent()}
-        </div>
+        <div className="col-lg-6 col-md-6 mt-5 mt-md-0">{getComponent()}</div>
       </div>
       <style jsx>{`
         #main-content::after {

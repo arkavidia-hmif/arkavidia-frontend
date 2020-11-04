@@ -17,3 +17,28 @@ export const isValidDate = (date: string | null): boolean => {
 
 export const isEmpty = (string: string | null): boolean =>
   string !== null && String(string).length === 0;
+
+export const isValidFile = (
+  file: File,
+  widget: {
+    description: string;
+    fileExtension: Array<string>;
+    maxFileSize: string;
+  }
+): Promise<boolean> | boolean => {
+  const format = `.${file.type.split("/").pop()}`;
+  const extensions = widget.fileExtension;
+  if (format && !extensions.includes(format)) {
+    const fileExtensionText = extensions?.reduce(
+      (accumulator, extension, i) =>
+        `${accumulator}${i === 0 ? "" : ", "}${extension}`
+    );
+    throw new Error(`File hanya boleh mengandung format ${fileExtensionText}.`);
+  }
+  const size = Math.ceil(file.size / 1024 / 1000);
+  const sizeConstraint = parseInt(widget.maxFileSize.split(" ")[0]);
+  if (size > sizeConstraint) {
+    throw new Error(`File tidak boleh melebihi size ${widget.maxFileSize}.`);
+  }
+  return true;
+};

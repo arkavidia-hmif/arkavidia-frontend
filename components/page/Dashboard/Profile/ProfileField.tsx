@@ -8,10 +8,10 @@ import profileAttributes, {
   currentEducationList,
 } from "../../../../utils/constants/profile-attributes";
 import { checkTruth } from "../../../../utils/transformer/profile";
-import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
 import FilledButton from "../../../FilledButton";
 import { Theme } from "../../../../styles/theme";
+import Alert from "../../../Alert";
 import Success from "../../../Success";
 import { UserData } from "../../../../interfaces/auth";
 import InputField from "./InputField";

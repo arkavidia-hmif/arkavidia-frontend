@@ -3,7 +3,13 @@ export interface Task {
   name: string;
   category: string;
   widget: string;
-  widgetParameters: string;
+  widgetParameters:
+    | string
+    | {
+        description: string;
+        fileExtension: Array<string>;
+        maxFileSize: string;
+      };
   isUserTask: boolean;
 }
 

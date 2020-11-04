@@ -3,7 +3,6 @@ import useSWR from "swr";
 import { ApiContext } from "../../../../../utils/context/api";
 import Alert from "../../../../Alert";
 import Spinner from "../../../../Spinner";
-import { Competition } from "../../../../../interfaces/competition";
 import { TeamData } from "../../../../../interfaces/team";
 import { getTeamDetail } from "../../../../../api/team";
 import { Task } from "../../../../../interfaces/task";
@@ -12,16 +11,17 @@ import ChoiceTask from "./ChoiceTask";
 
 type Props = {
   team: TeamData;
-  competition: Competition;
   selection: number;
 };
 
 const StageTask: React.FC<Props> = ({ team, selection }) => {
   const apiContext = useContext(ApiContext);
 
-  const { data: teamDetail, error: teamDetailError } = useSWR(
-    `/competition/teams/${team.id}/`,
-    () => getTeamDetail(apiContext.axios, team.id)
+  const {
+    data: teamDetail,
+    error: teamDetailError,
+  } = useSWR(`/competition/teams/${team.id}/`, () =>
+    getTeamDetail(apiContext.axios, team.id)
   );
 
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
@@ -37,19 +37,17 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
   const getTask = (): React.ReactNode => {
     const widget = widgetList[selection - 2];
 
-    if (widget.widget === 'File') {
-      return <PhotoTask selection={selection} team={team} />;
+    if (widget.widget === "File") {
+      return <PhotoTask widget={widget} team={team} />;
     }
-    if (widget.widget === 'Option') {
-      return <ChoiceTask selection={selection} team={team} />;
+    if (widget.widget === "Option") {
+      return <ChoiceTask widget={widget} team={team} />;
     }
   };
 
   return (
     <>
-      <div>
-        {getTask()}
-      </div>
+      <div>{getTask()}</div>
     </>
   );
 };

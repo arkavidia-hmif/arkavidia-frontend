@@ -1,51 +1,74 @@
-// import { useContext } from "react";
-// import { ApiContext } from "../../../../../utils/context/api";
+import { useContext, useState } from "react";
+import { ApiContext } from "../../../../../utils/context/api";
 import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
 import useFileUploader from "../../../../../utils/hooks/useFileUploader";
+import { isValidFile } from "../../../../../utils/validator";
 import FileUploader from "../../../../FileUploader";
-// import { uploadFile } from "../../../../../api/file";
+import { uploadFile } from "../../../../../api/file";
+import Alert from "../../../../Alert";
+import Success from "../../../../Success";
 import { TeamData } from "../../../../../interfaces/team";
+import { Task } from "../../../../../interfaces/task";
+import { submitTaskResponseCompetition } from "../../../../../api/competition";
 
 type Props = {
-  selection: number;
   team: TeamData;
+  widget: Task;
 };
 
-const PhotoInput: React.FC<Props> = ({ team, selection }) => {
-  // const apiContext = useContext(ApiContext);
-  const image = useFileUploader();
+const PhotoTask: React.FC<Props> = ({ team, widget }) => {
+  const apiContext = useContext(ApiContext);
+  const file = useFileUploader();
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const handleSubmit = async () => {
-    if (image?.value?.name) {
-      // const res = await uploadFile(
-      //   apiContext.axios,
-      //   image.value,
-      //   image.value.name
-      // );
-      // const submissionRes = res.id;
+    try {
+      if (file?.value?.name && typeof widget.widgetParameters !== "string") {
+        const bool = await isValidFile(file.value, widget.widgetParameters);
+        if (bool) {
+          const res = await uploadFile(
+            apiContext.axios,
+            file.value,
+            file.value.name
+          );
+          const submissionRes = await submitTaskResponseCompetition(
+            apiContext.axios,
+            widget.id,
+            team.id,
+            res.id
+          );
+          if (submissionRes) {
+            setSuccess(true);
+            setError(null);
+          }
+        }
+      }
+    } catch (e) {
+      setSuccess(false);
+      setError(String(e));
     }
   };
   return (
     <form
-      encType="multipart/form-data"
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit();
       }}
     >
-      <div id="heading">Persyaratan Pendaftaran</div>
+      <div id="heading">Persyaratan Pendaftaran - {widget?.name}</div>
       <div id="ketentuan" className="mt-3">
         <div className="title">Ketentuan:</div>
-        <ol>
-          <li>{selection}</li>
-          <li>{team?.category}</li>
-          <li>Lorem</li>
-        </ol>
+        {typeof widget.widgetParameters !== "string" && (
+          <div className="subtitle">{widget.widgetParameters?.description}</div>
+        )}
       </div>
       <div id="upload" className="mt-3">
         <div className="title">Upload:</div>
         <FileUploader
-          data={image}
+          data={file}
           color={Theme.buttonColors.purpleButton}
           padding="0.5rem 1rem"
         />
@@ -54,7 +77,11 @@ const PhotoInput: React.FC<Props> = ({ team, selection }) => {
         <div className="title">Status</div>
         <div className="subtitle">Belum diverivikasi</div>
       </div>
-      <div id="simpan" className="mt-5">
+      <div id="status" className="mt-3">
+        {error && !success && <Alert error={error} />}
+        {success && <Success message="Successfully update" />}
+      </div>
+      <div id="simpan" className="mt-4">
         <FilledButton
           text="Simpan"
           color={Theme.buttonColors.purpleButton}
@@ -84,12 +111,6 @@ const PhotoInput: React.FC<Props> = ({ team, selection }) => {
           padding: 0.5rem 1.125rem;
         }
 
-        @media (max-width: 800px) {
-          .mt-5 {
-            margin-top: 1rem !important;
-          }
-        }
-
         @media (max-width: 450px) {
           #heading {
             font-size: 1.25rem;
@@ -108,4 +129,4 @@ const PhotoInput: React.FC<Props> = ({ team, selection }) => {
   );
 };
 
-export default PhotoInput;
+export default PhotoTask;
