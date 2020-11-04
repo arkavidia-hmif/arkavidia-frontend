@@ -49,9 +49,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
               });
           }}
         >
-          <div id="heading">
-            {props.currentCompetition.name} - Informasi Tim
-          </div>
+          <h2>{props.currentCompetition.name} - Informasi Tim</h2>
           <div className="mt-4">
             <div className="title">Nama Tim</div>
             <input
@@ -83,22 +81,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
             </div>
           </div>
           <style jsx>{`
-            #main {
-              display: flex;
-            }
-
-            #content-container {
-              flex: 60%;
-            }
-
-            #bg-container {
-              flex: 40%;
-              max-width: auto;
-            }
-
-            #heading {
-              font-family: Viga;
-              font-size: 1.55rem;
+            h2 {
               color: #05058d;
             }
 
@@ -107,16 +90,13 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
             }
 
             .title {
-              font-family: Roboto;
               color: #646464;
               font-weight: bold;
               font-size: 1.125rem;
             }
 
             .subtitle {
-              font-family: Roboto;
               color: #646464;
-              font-weight: normal;
               font-size: 1.125rem;
             }
 
@@ -137,30 +117,11 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
             }
 
             label {
-              font-family: Roboto;
               font-size: 1.125rem;
-
               color: #696969;
             }
 
-            @media (max-width: 800px) {
-              #bg-container {
-                display: none;
-              }
-              .mt-5 {
-                margin-top: 0rem !important;
-              }
-            }
-
             @media (max-width: 450px) {
-              #main {
-                margin-left: auto;
-              }
-
-              #heading {
-                font-size: 1.25rem;
-              }
-
               .title {
                 font-size: 1rem;
               }
@@ -176,7 +137,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
   } else {
     return (
       <>
-        <div id="heading">{props.currentCompetition.name} - Informasi Tim</div>
+        <h2>{props.currentCompetition.name} - Informasi Tim</h2>
         <div className="mt-4">
           <div className="title">Nama Tim</div>
           <div className="subtitle">{props.currentTeam.name}</div>
@@ -213,22 +174,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
           </div>
         </div>
         <style jsx>{`
-          #main {
-            display: flex;
-          }
-
-          #content-container {
-            flex: 60%;
-          }
-
-          #bg-container {
-            flex: 40%;
-            max-width: auto;
-          }
-
-          #heading {
-            font-family: Viga;
-            font-size: 1.55rem;
+          h2 {
             color: #05058d;
           }
 
@@ -237,37 +183,18 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
           }
 
           .title {
-            font-family: Roboto;
             color: #646464;
             font-weight: bold;
             font-size: 1.125rem;
           }
 
           .subtitle {
-            font-family: Roboto;
             color: #646464;
             font-weight: normal;
             font-size: 1.125rem;
           }
 
-          @media (max-width: 800px) {
-            #bg-container {
-              display: none;
-            }
-            .mt-5 {
-              margin-top: 0rem !important;
-            }
-          }
-
           @media (max-width: 450px) {
-            #main {
-              margin-left: auto;
-            }
-
-            #heading {
-              font-size: 1.25rem;
-            }
-
             .title {
               font-size: 1rem;
             }
