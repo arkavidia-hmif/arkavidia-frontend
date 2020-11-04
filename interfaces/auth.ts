@@ -1,7 +1,7 @@
 export interface AuthData {
   token: string;
   exp: number;
-  user: UserData
+  user: UserData;
 }
 
 export interface ProfileData {
