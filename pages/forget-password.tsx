@@ -64,6 +64,7 @@ const LoginPage: React.FC = () => {
               text="KIRIM"
               loading={loading}
               padding="0.75em 1.5em"
+              submit
             />
           </form>
         </>

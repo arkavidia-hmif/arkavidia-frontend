@@ -107,7 +107,7 @@ const ModalProfile: React.FC = () => {
                     />
                   </label>
                   <div className="field col-12 mt-3 mb-3">
-                    <FilledButton text="EDIT" padding="0.75rem 4rem" />
+                    <FilledButton text="EDIT" padding="0.75rem 4rem" submit />
                   </div>
                 </form>
               </div>

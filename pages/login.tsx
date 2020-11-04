@@ -87,7 +87,7 @@ const LoginPage: React.FC = () => {
           placeholder="***********"
         />
         <br />
-        <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" submit={true} />
+        <FilledButton text="LOGIN" loading={loading} padding="0.75em 1.5em" submit />
         <p className="login-link mt-4 mb-0">
           Lupa kata sandi ?{" "}
           <a href="/forget-password">
