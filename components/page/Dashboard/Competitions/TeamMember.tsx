@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import useSWR from "swr";
 import { getTeamDetail } from "../../../../api/team";
-import { getTeamMemberDetail } from "../../../../api/teamMember";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import { ApiContext } from "../../../../utils/context/api";
