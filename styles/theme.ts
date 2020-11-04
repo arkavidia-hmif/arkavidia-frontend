@@ -75,7 +75,7 @@ const redAlert: AlertColor = {
 };
 
 const yellowAlert: AlertColor = {
-  main: "#FFCB00",
+  main: "#FDB43C",
   text: "white"
 };
 
