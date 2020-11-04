@@ -82,7 +82,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
           </div>
           <style jsx>{`
             h2 {
-              color: #05058d;
+              color: ${Theme.competitionColors.subHeadingColor};
             }
 
             #button {
@@ -175,7 +175,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
         </div>
         <style jsx>{`
           h2 {
-            color: #05058d;
+            color: ${Theme.competitionColors.subHeadingColor};
           }
 
           #button {
