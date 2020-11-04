@@ -1,7 +1,7 @@
 import { AxiosError, AxiosInstance } from "axios";
 import { Task, TaskResponse } from "../interfaces/task";
 import { TeamMember } from "../interfaces/team";
-import { AddTeamMemberForm, AddTeamMemberStatus, TeamMemberDetail } from "../interfaces/teamMember";
+import { AddTeamMemberStatus, TeamMemberDetail } from "../interfaces/teamMember";
 import { ApiError, StandardError } from "./error";
 
 export const addTeamMember = async (
@@ -46,45 +46,45 @@ export const getTeamMemberDetail = async (
     });
 };
 
-export const putTeamMember = async (
-  axios: AxiosInstance,
-  addTeamMember: AddTeamMemberForm,
-  team_id: string,
-  team_member_id: string
-): Promise<TeamMember> => {
-  return axios
-    .put<TeamMember>(`/competition/teams/${team_id}/members/${team_member_id}/`, addTeamMember)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error: AxiosError) => {
-      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
-    });
-};
+// export const putTeamMember = async (
+//   axios: AxiosInstance,
+//   addTeamMember: AddTeamMemberForm,
+//   team_id: string,
+//   team_member_id: string
+// ): Promise<TeamMember> => {
+//   return axios
+//     .put<TeamMember>(`/competition/teams/${team_id}/members/${team_member_id}/`, addTeamMember)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error: AxiosError) => {
+//       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+//     });
+// };
 
-export const editTeamMember = async (
-  axios: AxiosInstance,
-  addTeamMember: Partial<AddTeamMemberForm>,
-  team_id: string,
-  team_member_id: string
-): Promise<TeamMember> => {
-  return axios
-    .put<TeamMember>(`/competition/teams/${team_id}/members/${team_member_id}/`, addTeamMember)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error: AxiosError) => {
-      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
-    });
-};
+// export const editTeamMember = async (
+//   axios: AxiosInstance,
+//   addTeamMember: Partial<AddTeamMemberForm>,
+//   team_id: string,
+//   team_member_id: string
+// ): Promise<TeamMember> => {
+//   return axios
+//     .put<TeamMember>(`/competition/teams/${team_id}/members/${team_member_id}/`, addTeamMember)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error: AxiosError) => {
+//       throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+//     });
+// };
 
 export const deleteTeamMember = async (
   axios: AxiosInstance,
-  team_id: string,
-  team_member_id: string
+  teamId: number,
+  teamMemberId: number
 ): Promise<void> => {
   return axios
-    .delete(`/competition/teams/${team_id}/members/${team_member_id}/`)
+    .delete(`/competition/teams/${teamId}/members/${teamMemberId}/`)
     .then(() => {
       return;
     })
