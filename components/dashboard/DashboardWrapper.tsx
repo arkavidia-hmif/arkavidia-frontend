@@ -35,8 +35,8 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
       <style jsx>
         {`
           .container {
-            margin-top: 6rem;
-            padding-bottom: 6rem;
+            margin-top: 3rem;
+            padding-bottom: 5rem;
           }
 
           h1 {
@@ -44,9 +44,9 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
             color: #431785;
           }
 
-          @media(max-width: 1000px) {
+          @media (max-width: 1000px) {
             .container {
-              margin-top: 2rem;
+              margin-top: 1rem;
             }
           }
         `}
