@@ -127,7 +127,7 @@ const RegisterTim: React.FC = () => {
               <FilledButton text="SIMPAN DAN LANJUTKAN" padding="0.5rem 1.5rem" color={Theme.buttonColors.purpleButton} loading={loading} submit />
             </form>
           </div>
-          <div className="d-none d-md-block col-md-4 col-lg-6">
+          <div id="bg-container" className="d-none d-md-block col-md-4 col-lg-6">
             <img src={`/img/competitions/${competition}-logo.png`} />
           </div>
         </div>
@@ -154,7 +154,11 @@ const RegisterTim: React.FC = () => {
           }
 
           img {
-            max-width: 25rem;
+            max-width: 25vw;
+          }
+
+          #bg-container {
+            text-align: center;
           }
 
           input:focus {
