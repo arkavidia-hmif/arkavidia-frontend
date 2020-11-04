@@ -5,6 +5,7 @@ type Props = {
   value: string;
   shouldRef?: boolean;
   setValue: (newValue: string) => void;
+  choices: Array<string>;
 };
 
 const InputField: React.FC<Props> = ({
@@ -12,6 +13,7 @@ const InputField: React.FC<Props> = ({
   value,
   setValue,
   shouldRef = false,
+  choices,
 }) => {
   const ref = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -29,6 +31,14 @@ const InputField: React.FC<Props> = ({
             setValue(evt.target.value);
           }}
         />
+      ) : choices.length > 0 ? (
+        <select value={value} onChange={(e) => setValue(e.target.value)}>
+          {choices.map((choice) => (
+            <option value={choice} key={choice}>
+              {choice}
+            </option>
+          ))}
+        </select>
       ) : (
         <input
           type={type}
@@ -39,7 +49,8 @@ const InputField: React.FC<Props> = ({
         />
       )}
       <style jsx>{`
-        input {
+        input,
+        select {
           width: 100%;
           border: none;
           padding: 0.5rem 0 0.5rem 0;
@@ -52,12 +63,14 @@ const InputField: React.FC<Props> = ({
           font-weight: bold;
         }
 
-        input:focus {
+        input:focus,
+        select:focus {
           outline: none;
         }
 
         @media only screen and (max-width: 767px) {
-          input {
+          input,
+          select {
             font-size: 1rem;
           }
         }
