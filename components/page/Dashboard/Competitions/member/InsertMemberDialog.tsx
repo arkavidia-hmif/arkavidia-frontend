@@ -46,7 +46,8 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
 
     addTeamMember(apiContext.axios, team.id, name, email)
       .then(() => {
-        team.teamMembers.push({
+        const newTeam = { ...team };
+        newTeam.teamMembers.push({
           fullName: name,
           email,
           hasAccount: false,
@@ -54,7 +55,7 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
           id: -99,
           createdAt: ''
         });
-        mutate(team);
+        mutate(newTeam);
         closeAdd();
       }).catch((err) => {
         if (err instanceof ApiError && err.code === AddTeamMemberStatus.TEAM_FULL) {
