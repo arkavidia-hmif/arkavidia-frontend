@@ -16,7 +16,6 @@ type Props = {
     competition: Competition,
     selection: number
   ) => ReactNode;
-  // choiceInput: (competition: Competition, selection: number) => ReactNode;
 };
 
 const CompetitionWrapper: React.FC<Props> = ({
@@ -58,15 +57,8 @@ const CompetitionWrapper: React.FC<Props> = ({
   const getComponent = () => {
     if (selection === 0) return teamInfo(currentTeam, currentCompetition);
     if (selection === 1) return teamMember(currentTeam, currentCompetition);
-    if (selection === 2) {
-      return stageTask(currentTeam, currentCompetition, selection);
-    }
-    if (selection === 3) {
-      return stageTask(currentTeam, currentCompetition, selection);
-    }
-    if (selection === 4) {
-      return stageTask(currentTeam, currentCompetition, selection);
-    }
+
+    return stageTask(currentTeam, currentCompetition, selection);
   };
 
   return (
