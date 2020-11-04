@@ -72,6 +72,7 @@ const PhotoInput: React.FC<Props> = ({ competition, selection }) => {
 
           #content-container {
             flex: 60%;
+            overflow-x: hidden;
           }
 
           #bg-container {
@@ -112,7 +113,7 @@ const PhotoInput: React.FC<Props> = ({ competition, selection }) => {
               display: none;
             }
             .mt-5 {
-              margin-top: 0rem !important;
+              margin-top: 1rem !important;
             }
           }
 

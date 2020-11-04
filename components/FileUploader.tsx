@@ -15,27 +15,30 @@ const FileUploader: React.FC<Props> = ({
 }) => {
   return (
     <div className="input-file-wrapper">
-      <label className="custom-file-upload">
+      <label className={`custom-file-upload`}>
         <input type="file" onChange={data.onChange} />
-        {data?.value ? "File diterima" : "Pilih file"}
+        <div className="file-name">
+          {data?.value ? data.value?.name : "Pilih file"}
+        </div>
       </label>
-      <div className="file-name">{data?.value && data.value?.name}</div>
       <style jsx>{`
         .file-name {
-          color: red;
+          font-weight: bold;
           word-wrap: break-word;
         }
         input[type="file"] {
           display: none;
         }
-        .custom-file-upload {
+      }
+      .custom-file-upload {
+        border: 3px solid ${color.main};
+        color: ${color.main};
           padding: ${padding};
           outline: 0;
           display: block;
           font-weight: bold;
+          margin-top: 0.5rem;
           border-radius: 10px;
-          border: 3px solid ${color.main};
-          color: ${color.main};
           cursor: pointer;
         }
         .input-file-wrapper,
