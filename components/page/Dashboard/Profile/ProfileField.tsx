@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useSWR from "swr";
 import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
 import { ApiContext } from "../../../../utils/context/api";
@@ -11,8 +10,8 @@ import Spinner from "../../../Spinner";
 import FilledButton from "../../../FilledButton";
 import { Theme } from "../../../../styles/theme";
 import Success from "../../../Success";
-import InputField from "./InputField";
 import { UserData } from "../../../../interfaces/auth";
+import InputField from "./InputField";
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
@@ -28,6 +27,10 @@ const ProfileField: React.FC = () => {
 
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    isEdit ? setSuccess(false) : setError("");
+  }, [setError, setSuccess, isEdit]);
 
   const { data: profile, error: errorProfile, mutate } = useSWR(
     PROFILE_URL,
@@ -73,9 +76,8 @@ const ProfileField: React.FC = () => {
           { state: currentEducation, key: "currentEducation" },
           { state: institution, key: "institution" },
         ].map((data, index) => {
-
           const label = profileAttributes[data.key];
-          const value = profile[data.key as keyof UserData] || '';
+          const value = profile[data.key as keyof UserData] || "";
 
           return (
             <div key={label} className="field col-md-6 col-sm-12 mt-3">
@@ -84,15 +86,15 @@ const ProfileField: React.FC = () => {
                 {!(isEdit && data.key !== "email") ? (
                   <div className="value">{value ?? "-"}</div>
                 ) : (
-                    <InputField
-                      shouldRef={index === 0}
-                      type={data.key === "birthDate" ? "date" : "text"}
-                      value={
-                        String(data.state.value) !== "" ? data.state.value : value
-                      }
-                      setValue={data.state.setValue}
-                    />
-                  )}
+                  <InputField
+                    shouldRef={index === 0}
+                    type={data.key === "birthDate" ? "date" : "text"}
+                    value={
+                      String(data.state.value) !== "" ? data.state.value : value
+                    }
+                    setValue={data.state.setValue}
+                  />
+                )}
               </div>
             </div>
           );
@@ -123,13 +125,13 @@ const ProfileField: React.FC = () => {
               </div>
             </div>
           ) : (
-              <FilledButton
-                text="Edit Profile"
-                color={Theme.buttonColors.purpleButton}
-                padding="0.75rem 3rem"
-                onClick={() => setIsEdit(true)}
-              />
-            )}
+            <FilledButton
+              text="Edit Profile"
+              color={Theme.buttonColors.purpleButton}
+              padding="0.75rem 3rem"
+              onClick={() => setIsEdit(true)}
+            />
+          )}
         </div>
       </div>
 
