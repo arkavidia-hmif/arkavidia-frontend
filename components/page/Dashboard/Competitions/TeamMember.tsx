@@ -19,7 +19,7 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
   const apiContext = useContext(ApiContext);
   const [onAdd, setOnAdd] = useState(false);
 
-  const { data: teamDetail, error } = useSWR(
+  const { data: teamDetail, error, mutate: teamDetailMutate } = useSWR(
     `/competition/teams/${team.id}/`,
     () => getTeamDetail(apiContext.axios, team.id)
   );
@@ -54,7 +54,8 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
     if (onAdd) {
       return (
         <InsertMemberDialog
-          teamId={team.id}
+          team={teamDetail}
+          mutate={teamDetailMutate}
           closeAdd={() => { setOnAdd(false); }}
         />
       );

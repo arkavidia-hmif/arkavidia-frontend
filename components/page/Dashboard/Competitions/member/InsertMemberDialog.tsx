@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
+import { responseInterface } from "swr/dist/types";
 import { ApiError } from "../../../../../api/error";
 import { addTeamMember } from "../../../../../api/teamMember";
+import { TeamDetailData } from "../../../../../interfaces/team";
 import { AddTeamMemberStatus } from "../../../../../interfaces/teamMember";
 import { Theme } from "../../../../../styles/theme";
 import { ApiContext } from "../../../../../utils/context/api";
@@ -10,10 +12,11 @@ import FilledButton from "../../../../FilledButton";
 
 type Props = {
   closeAdd: () => void;
-  teamId: number;
+  team: TeamDetailData;
+  mutate: responseInterface<TeamDetailData, string>['mutate'];
 }
 
-const InsertMemberDialog: React.FC<Props> = ({ closeAdd, teamId }) => {
+const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
   const apiContext = useContext(ApiContext);
 
   const [name, setName] = useState("");
@@ -41,8 +44,17 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, teamId }) => {
 
     setLoading(true);
 
-    addTeamMember(apiContext.axios, teamId, name, email)
+    addTeamMember(apiContext.axios, team.id, name, email)
       .then(() => {
+        team.teamMembers.push({
+          fullName: name,
+          email,
+          hasAccount: false,
+          isTeamLeader: false,
+          id: -99,
+          createdAt: ''
+        });
+        mutate(team);
         closeAdd();
       }).catch((err) => {
         if (err instanceof ApiError && err.code === AddTeamMemberStatus.TEAM_FULL) {
