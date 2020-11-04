@@ -24,7 +24,7 @@ export default {
     bg: "-webkit-linear-gradient(left,#835FBF,#00FFFF);",
   },
   gamedev: {
-    image: "/img/competitions/gamedev-logo.png",
+    image: "/img/competitions/gamejam-logo.png",
     imageAlt: "logo gamedev",
     title: "Arkav Game Jam",
     paragraph:
