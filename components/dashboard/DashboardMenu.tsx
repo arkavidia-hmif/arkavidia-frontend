@@ -27,8 +27,9 @@ const DashboardMenu: React.FC = () => {
           overflow-y: hidden;
         }
         ::-webkit-scrollbar {
-          width: 0;
+          display: none;          
         }
+        
         ul {
           position: relative;
           display: flex;
@@ -78,12 +79,16 @@ const DashboardMenu: React.FC = () => {
           }
           .items a {
             font-size: 1rem;
-          }
+          }        
         }
         @media (max-width: 767px) {
           ul {
             margin-bottom: 0;
           }
+          #menu:before {
+            bottom: 0rem
+          }
+          
         }
       `}</style>
     </div>
