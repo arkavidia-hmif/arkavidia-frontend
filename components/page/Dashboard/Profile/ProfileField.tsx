@@ -42,17 +42,25 @@ const ProfileField: React.FC = () => {
 
   useEffect(() => {
     if (profile !== undefined) {
-      if (profile?.fullName !== "") fullName.setValue(profile.fullName);
-      if (profile?.email !== "") email.setValue(profile.email);
-      if (profile?.phoneNumber !== "") {
-        phoneNumber.setValue(profile.phoneNumber);
+      if (profile.fullName && profile.fullName !== "") {
+        fullName.setValue(profile.fullName);
       }
-      if (profile?.birthDate !== "") birthDate.setValue(profile.birthDate);
-      if (profile?.address !== "") address.setValue(profile.address);
-      if (profile?.currentEducation !== "") {
-        currentEducation.setValue(profile.currentEducation);
+      if (profile.email && profile.email !== "") {
+        email.setValue(profile.email);
       }
-      if (profile?.institution !== "") {
+      if (profile.phoneNumber && profile.phoneNumber !== "") {
+        phoneNumber.setValue(profile.phoneNumber || '');
+      }
+      if (profile.birthDate && profile.birthDate !== "") {
+        birthDate.setValue(profile.birthDate || '');
+      }
+      if (profile.address && profile.address !== "") {
+        address.setValue(profile.address || '');
+      }
+      if (profile.institution && profile.currentEducation !== "") {
+        currentEducation.setValue(profile.currentEducation || '');
+      }
+      if (profile.institution && profile.institution !== "") {
         institution.setValue(profile.institution);
       }
     }
