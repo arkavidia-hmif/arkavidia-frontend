@@ -95,7 +95,7 @@ const LoginPage: React.FC = () => {
           </a>
         </p>
         <p className="login-link">
-          Belum terdafar ?{" "}
+          Belum terdaftar ?{" "}
           <a href="/register">
             <b>Daftar</b>
           </a>
