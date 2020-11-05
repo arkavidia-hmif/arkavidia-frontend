@@ -8,7 +8,7 @@ import { getTeamDetail } from "../../../../../api/team";
 import { Task } from "../../../../../interfaces/task";
 import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
 import { AuthContext } from "../../../../../utils/context/auth";
-import PhotoTask from "./PhotoTask";
+import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
 
 type Props = {
@@ -47,7 +47,7 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
 
     if (task.widget === "File") {
       return (
-        <PhotoTask
+        <FileTask
           selection={selection}
           task={task}
           team={team}
