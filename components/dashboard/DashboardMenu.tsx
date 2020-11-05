@@ -8,18 +8,25 @@ const DashboardMenu: React.FC = () => {
   return (
     <div id="menu">
       <ul>
-        {DashboardItems.map((link, index) => (
-          <li
-            key={index}
-            className={
-              router.pathname === link.route ? "items current" : "items"
-            }
-          >
-            <Link href={link.route}>
-              <a>{link.title}</a>
-            </Link>
-          </li>
-        ))}
+        {DashboardItems.map((link, index) => {
+          let className = 'items';
+          if (link.haveChild && router.pathname.startsWith(link.route)) {
+            className += ' current';
+          } else if (!link.haveChild && router.pathname === link.route) {
+            className += ' current';
+          }
+
+          return (
+            <li
+              key={index}
+              className={className}
+            >
+              <Link href={link.route}>
+                <a>{link.title}</a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       {/* <div className="base-indicator"></div> */}
       <style jsx>{`
