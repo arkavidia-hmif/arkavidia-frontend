@@ -19,7 +19,6 @@ type Props = {
 const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
   const apiContext = useContext(ApiContext);
 
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -32,11 +31,6 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
       return;
     }
 
-    if (name.length === 0) {
-      setError('Nama harus diisi');
-      return;
-    }
-
     if (!isValidEmail(email)) {
       setError('Email tidak valid');
       return;
@@ -44,11 +38,11 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
 
     setLoading(true);
 
-    addTeamMember(apiContext.axios, team.id, name, email)
+    addTeamMember(apiContext.axios, team.id, email, email)
       .then(() => {
         const newTeam = { ...team };
         newTeam.teamMembers.push({
-          fullName: name,
+          fullName: email,
           email,
           hasAccount: false,
           isTeamLeader: false,
@@ -86,9 +80,6 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
         handleSubmit();
       }}>
         <Alert error={error} />
-        <br />
-        <label htmlFor="nameInput">Nama</label>
-        <input id="nameInput" type="text" value={name} onChange={(evt) => { setName(evt.target.value); }} placeholder="Nama" />
         <br />
         <label htmlFor="emailInput">Email</label>
         <input id="emailInput" type="text" value={email} onChange={(evt) => { setEmail(evt.target.value); }} placeholder="email@email.com" />
