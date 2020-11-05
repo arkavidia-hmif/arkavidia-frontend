@@ -28,14 +28,12 @@ export const submitTaskResponseCompetition = async (
   task_id: number,
   team_id: number,
   res: string,
-  teamMemberId: number
 ): Promise<TaskResponse> => {
   try {
     const response = await axios.post(
       SUBMIT_TASK_REPONSE_COMPETITION_URL(team_id, task_id),
       {
-        response: res,
-        teamMemberId,
+        response: res
       }
     );
 
