@@ -29,7 +29,7 @@ const StatusTim: React.FC = () => {
   ): ReactNode => <StageTask team={team} selection={selection} />;
 
   return (
-    <Layout title="Informati Tim" background={Theme.bgColors.whtogr}>
+    <Layout title="Informasi Tim" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
         <CompetitionWrapper
           teamInfo={getTeamInfoComponent}
