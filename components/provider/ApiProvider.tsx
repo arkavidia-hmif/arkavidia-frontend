@@ -1,5 +1,6 @@
 import * as React from "react";
 import Axios from "axios";
+import * as Sentry from "@sentry/react";
 import { SWRConfig } from "swr";
 import { ApiContext, ApiContextType } from "../../utils/context/api";
 import { AuthContext } from "../../utils/context/auth";
@@ -18,6 +19,16 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
 
     xsrfCookieName: "csrftoken",
     xsrfHeaderName: "X-CSRFToken",
+  });
+
+  apiClient.interceptors.response.use((response) => response, (error) => {
+    if (error?.response?.status === 401) {
+      authContext.setAuthenticated(false);
+      authContext.setAuth();
+    } else {
+      Sentry.captureException(error);
+    }
+    throw error;
   });
 
   apiClient.interceptors.request.use((config) => {
