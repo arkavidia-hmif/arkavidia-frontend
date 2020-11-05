@@ -31,6 +31,7 @@ const ProfileField: React.FC = () => {
   const institution = useFormInput("");
 
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -81,6 +82,7 @@ const ProfileField: React.FC = () => {
   if (!profile) return <Spinner height="200px" />;
 
   const handleSubmit = async () => {
+    setLoading(true);
     try {
       const truth = await checkTruth(
         fullName.value,
@@ -104,6 +106,8 @@ const ProfileField: React.FC = () => {
     } catch (e) {
       setSuccess(false);
       setError(e.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -131,15 +135,16 @@ const ProfileField: React.FC = () => {
               <div className="content">
                 {!(isEdit && data.key !== "email") ? (
                   <div className="value">{value ?? "-"}</div>
-                ) : (
-                  <InputField
-                    shouldRef={index === 0}
-                    type={data.key === "birthDate" ? "date" : "text"}
-                    value={String(data.state.value)}
-                    choices={data.choices ?? []}
-                    setValue={data.state.setValue}
-                  />
-                )}
+                )
+                  : (
+                    <InputField
+                      shouldRef={index === 0}
+                      type={data.key === "birthDate" ? "date" : "text"}
+                      value={String(data.state.value)}
+                      choices={data.choices ?? []}
+                      setValue={data.state.setValue}
+                    />
+                  )}
               </div>
             </div>
           );
@@ -155,6 +160,7 @@ const ProfileField: React.FC = () => {
               <div className="col-md-6 col-sm-12">
                 <FilledButton
                   color={Theme.buttonColors.purpleButton}
+                  loading={loading}
                   text="Submit"
                   padding="0.75rem 3rem"
                   onClick={handleSubmit}
@@ -170,13 +176,13 @@ const ProfileField: React.FC = () => {
               </div>
             </div>
           ) : (
-            <FilledButton
-              text="Edit Profile"
-              color={Theme.buttonColors.purpleButton}
-              padding="0.75rem 3rem"
-              onClick={() => setIsEdit(true)}
-            />
-          )}
+              <FilledButton
+                text="Edit Profile"
+                color={Theme.buttonColors.purpleButton}
+                padding="0.75rem 3rem"
+                onClick={() => setIsEdit(true)}
+              />
+            )}
         </div>
       </div>
 
