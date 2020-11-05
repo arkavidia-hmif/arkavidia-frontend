@@ -14,10 +14,12 @@ import { Theme } from "../../../../styles/theme";
 import Alert from "../../../Alert";
 import Success from "../../../Success";
 import { UserData } from "../../../../interfaces/auth";
+import { AuthContext } from "../../../../utils/context/auth";
 import InputField from "./InputField";
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);
+  const { auth, setAuth } = useContext(AuthContext);
 
   const [isEdit, setIsEdit] = useState(false);
   const fullName = useStringFormInput("");
@@ -49,16 +51,16 @@ const ProfileField: React.FC = () => {
         email.setValue(profile.email);
       }
       if (profile.phoneNumber && profile.phoneNumber !== "") {
-        phoneNumber.setValue(profile.phoneNumber || '');
+        phoneNumber.setValue(profile.phoneNumber || "");
       }
       if (profile.birthDate && profile.birthDate !== "") {
-        birthDate.setValue(profile.birthDate || '');
+        birthDate.setValue(profile.birthDate || "");
       }
       if (profile.address && profile.address !== "") {
-        address.setValue(profile.address || '');
+        address.setValue(profile.address || "");
       }
       if (profile.institution && profile.currentEducation !== "") {
-        currentEducation.setValue(profile.currentEducation || '');
+        currentEducation.setValue(profile.currentEducation || "");
       }
       if (profile.institution && profile.institution !== "") {
         institution.setValue(profile.institution);
@@ -92,6 +94,9 @@ const ProfileField: React.FC = () => {
       const res = await editProfile(apiContext.axios, truth);
       mutate(res);
       if (res) {
+        if (auth) {
+          setAuth({ token: auth?.token, exp: auth?.exp, user: res });
+        }
         setSuccess(true);
         setIsEdit(false);
         setError(null);
