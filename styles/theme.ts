@@ -79,6 +79,11 @@ const yellowAlert: AlertColor = {
   text: "white"
 };
 
+const greenAlert: AlertColor = {
+  main: "#1AA345",
+  text: "white"
+};
+
 export const Theme = {
   colors: {
     blue,
@@ -114,6 +119,7 @@ export const Theme = {
   },
   alertColors: {
     redAlert,
-    yellowAlert
+    yellowAlert,
+    greenAlert
   }
 };

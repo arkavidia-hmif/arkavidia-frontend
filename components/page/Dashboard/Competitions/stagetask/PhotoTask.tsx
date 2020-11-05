@@ -7,27 +7,30 @@ import { isValidFile } from "../../../../../utils/validator";
 import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
-import Success from "../../../../Success";
 import { TeamDetailData } from "../../../../../interfaces/team";
 import { Task } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 
 type Props = {
   team: TeamDetailData;
-  widget: Task;
+  task: Task;
 };
 
-const PhotoTask: React.FC<Props> = ({ team, widget }) => {
+const PhotoTask: React.FC<Props> = ({ team, task }) => {
   const apiContext = useContext(ApiContext);
   const file = useFileUploader();
 
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
+    setError(null);
+    setSuccess(false);
+    setLoading(true);
     try {
-      if (file?.value?.name && typeof widget.widgetParameters !== "string") {
-        const bool = await isValidFile(file.value, widget.widgetParameters);
+      if (file?.value?.name && typeof task.widgetParameters !== "string") {
+        const bool = await isValidFile(file.value, task.widgetParameters);
         if (bool) {
           const res = await uploadFile(
             apiContext.axios,
@@ -36,13 +39,14 @@ const PhotoTask: React.FC<Props> = ({ team, widget }) => {
           );
           const submissionRes = await submitTaskResponseCompetition(
             apiContext.axios,
-            widget.id,
+            task.id,
             team.id,
             res.id
           );
           if (submissionRes) {
             setSuccess(true);
             setError(null);
+            setLoading(false);
           }
         }
       }
@@ -58,11 +62,11 @@ const PhotoTask: React.FC<Props> = ({ team, widget }) => {
         handleSubmit();
       }}
     >
-      <div id="heading">Persyaratan Pendaftaran - {widget?.name}</div>
+      <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
       <div id="ketentuan" className="mt-3">
         <div className="title">Ketentuan:</div>
-        {typeof widget.widgetParameters !== "string" && (
-          <div className="subtitle">{widget.widgetParameters?.description}</div>
+        {typeof task.widgetParameters !== "string" && (
+          <div className="subtitle">{task.widgetParameters?.description}</div>
         )}
       </div>
       <div id="upload" className="mt-3">
@@ -79,10 +83,16 @@ const PhotoTask: React.FC<Props> = ({ team, widget }) => {
       </div>
       <div id="status" className="mt-3">
         {error && !success && <Alert error={error} />}
-        {success && <Success message="Successfully submitted" />}
+        {success && (
+          <Alert
+            color={Theme.alertColors.greenAlert}
+            error="Successfully submitted"
+          />
+        )}
       </div>
       <div id="simpan" className="mt-4">
         <FilledButton
+          loading={loading}
           text="Simpan"
           color={Theme.buttonColors.purpleButton}
           padding="0.5rem 2rem"
@@ -108,7 +118,7 @@ const PhotoTask: React.FC<Props> = ({ team, widget }) => {
           font-family: Roboto;
           color: #646464;
           font-size: 1rem;
-          padding: 0.5rem 1.125rem;
+          padding: 0.5rem 0;
         }
 
         @media (max-width: 450px) {
