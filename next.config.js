@@ -21,11 +21,11 @@ module.exports = withSourceMaps({
 
     const filteredPathMap = {};
     for (const key in defaultPathMap) {
-      if (!key.startsWith('/dashboard') && !key.startsWith('/email')) {
+      if (!key.startsWith('/dashboard')) {
         filteredPathMap[key] = defaultPathMap[key];
       }
     }
 
-    return defaultPathMap;
+    return filteredPathMap;
   }
 });

@@ -1,3 +1,4 @@
 # Netlify redirect rules
-# /dashboard/*    /dynamic-redirector.html   200
-# /email/*    /dynamic-redirector.html   200
+/dashboard/*    /dynamic-redirector.html   200
+/email/confirm/:token /email/confirm/[token].html 200
+/email/recover/:token /email/recover/[token].html 200
