@@ -43,7 +43,7 @@ const MemberCard: React.FC<Props> = ({ member, teamDetail, mutate, setError }) =
     <div id="member-container" className="my-3">
       <img src={gravatarUrl} />
       <div className="m-0 ml-3">
-        <p>{member.fullName} {member.isTeamLeader ? "(ketua)" : ""}</p>
+        <p>{member.fullName} {member.isTeamLeader ? "(ketua)" : ""} {!member.hasAccount ? "(belum mendaftar)" : ""}</p>
         <p className="email">{member.email}</p>
       </div>
       <div style={{ flex: 1 }} />
