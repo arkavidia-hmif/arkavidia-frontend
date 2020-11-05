@@ -10,5 +10,6 @@ export interface FileResponse {
 
 export interface FileInterface {
   value: File | null;
+  set: (newFile: File | null) => void;
   onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -59,7 +59,11 @@ const CompetitionsCard: React.FC = () => {
   };
 
   if (authContext.auth && !authContext.auth.user.currentEducation) {
-    return (<p style={{ textAlign: 'center' }}>Harap melengkapi profil terlebih dahulu</p>);
+    return (
+      <p style={{ textAlign: "center" }}>
+        Harap melengkapi profil terlebih dahulu
+      </p>
+    );
   }
 
   return (

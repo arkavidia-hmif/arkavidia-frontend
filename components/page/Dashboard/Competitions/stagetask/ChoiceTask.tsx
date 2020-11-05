@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
 import { TeamData } from "../../../../../interfaces/team";
@@ -11,6 +11,7 @@ import Alert from "../../../../Alert";
 type Props = {
   team: TeamData;
   task: Task;
+  selection: number;
 };
 
 type WidgetParam = {
@@ -18,7 +19,7 @@ type WidgetParam = {
   options: string[];
 };
 
-const ChoiceTask: React.FC<Props> = ({ team, task }) => {
+const ChoiceTask: React.FC<Props> = ({ team, task, selection }) => {
   const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
 
   const apiContext = useContext(ApiContext);
@@ -27,6 +28,8 @@ const ChoiceTask: React.FC<Props> = ({ team, task }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+
+  useEffect(() => choice.setValue(parsedParam.options[0]), [selection]);
 
   const handleSubmit = () => {
     setError(null);

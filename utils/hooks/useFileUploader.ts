@@ -13,6 +13,7 @@ const useFileUploader = (): FileInterface => {
   };
   return {
     value: file,
+    set: setFile,
     onChange: handleUploadFile,
   };
 };

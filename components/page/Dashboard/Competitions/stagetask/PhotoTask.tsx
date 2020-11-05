@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../../../../utils/context/api";
 import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
@@ -14,15 +14,18 @@ import { submitTaskResponseCompetition } from "../../../../../api/competition";
 type Props = {
   team: TeamData;
   task: Task;
+  selection: number;
 };
 
-const PhotoTask: React.FC<Props> = ({ team, task }) => {
+const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
   const apiContext = useContext(ApiContext);
   const file = useFileUploader();
 
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => file.set(null), [selection]);
 
   const handleSubmit = async () => {
     setError(null);

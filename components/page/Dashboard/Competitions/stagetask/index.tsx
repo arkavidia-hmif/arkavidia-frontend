@@ -37,10 +37,10 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     const widget = widgetList[selection - 2];
 
     if (widget.widget === "File") {
-      return <PhotoTask task={widget} team={team} />;
+      return <PhotoTask selection={selection} task={widget} team={team} />;
     }
     if (widget.widget === "Option") {
-      return <ChoiceTask team={team} task={widget} />;
+      return <ChoiceTask selection={selection} team={team} task={widget} />;
     }
   };
 
