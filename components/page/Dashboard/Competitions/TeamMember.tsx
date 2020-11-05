@@ -81,7 +81,15 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
 
 
   const renderList = () => {
-    return teamDetail.teamMembers.map((entry, i) => {
+    const memberList = [...teamDetail.teamMembers];
+    memberList.sort((a, b) => {
+      if (a.isTeamLeader) return -1;
+      if (b.isTeamLeader) return 1;
+
+      return 0;
+    });
+
+    return memberList.map((entry, i) => {
       return (
         <MemberCard
           key={i}
