@@ -6,6 +6,8 @@ import Spinner from "../../../../Spinner";
 import { TeamData } from "../../../../../interfaces/team";
 import { getTeamDetail } from "../../../../../api/team";
 import { Task } from "../../../../../interfaces/task";
+import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
+import { AuthContext } from "../../../../../utils/context/auth";
 import PhotoTask from "./PhotoTask";
 import ChoiceTask from "./ChoiceTask";
 
@@ -16,10 +18,12 @@ type Props = {
 
 const StageTask: React.FC<Props> = ({ team, selection }) => {
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const {
     data: teamDetail,
     error: teamDetailError,
+    mutate: teamDetailMutate
   } = useSWR(`/competition/teams/${team.id}/`, () =>
     getTeamDetail(apiContext.axios, team.id)
   );
@@ -33,14 +37,18 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     }
   }
 
-  const getTask = (): React.ReactNode => {
-    const widget = widgetList[selection - 2];
+  let allResponse = teamDetail.taskResponses;
+  allResponse = allResponse.concat(teamDetail.userTaskResponses);
+  const taskResponseById = filterAndGroupTaskResponse(allResponse, teamDetail, authContext.auth?.user.email || '');
 
-    if (widget.widget === "File") {
-      return <PhotoTask task={widget} team={team} />;
+  const getTask = (): React.ReactNode => {
+    const task = widgetList[selection - 2];
+
+    if (task.widget === "File") {
+      return <PhotoTask task={task} team={team} />;
     }
-    if (widget.widget === "Option") {
-      return <ChoiceTask team={team} task={widget} />;
+    if (task.widget === "Option") {
+      return <ChoiceTask team={team} task={task} mutate={teamDetailMutate} response={taskResponseById[task.id]} />;
     }
   };
 

@@ -4,13 +4,15 @@ import { Theme } from "../../../../../styles/theme";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
 import { ApiContext } from "../../../../../utils/context/api";
-import { Task } from "../../../../../interfaces/task";
+import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 
 type Props = {
   team: TeamData;
   task: Task;
+  response?: TaskResponse;
+  mutate: () => void;
 };
 
 type WidgetParam = {
@@ -18,11 +20,13 @@ type WidgetParam = {
   options: string[];
 };
 
-const ChoiceTask: React.FC<Props> = ({ team, task }) => {
+const ChoiceTask: React.FC<Props> = ({ team, task, response, mutate }) => {
   const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
 
+  const choiceInit = response ? response.response : parsedParam.options[0];
+
   const apiContext = useContext(ApiContext);
-  const choice = useChoice(parsedParam.options[0]);
+  const choice = useChoice(choiceInit);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,6 +44,7 @@ const ChoiceTask: React.FC<Props> = ({ team, task }) => {
     )
       .then(() => {
         setSuccess("Sukses");
+        mutate();
       })
       .catch((e) => {
         setError(e.message);
@@ -65,9 +70,6 @@ const ChoiceTask: React.FC<Props> = ({ team, task }) => {
       <div id="ketentuan" className="mt-3">
         <div className="title">Pertanyaan:</div>
         <div className="subtitle">{parsedParam.description}</div>
-        {/* {typeof task.widgetParameters !== "string" && (
-          <div className="subtitle">{task.widgetParameters?.description}</div>
-        )} */}
       </div>
 
       <form
