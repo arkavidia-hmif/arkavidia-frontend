@@ -6,10 +6,10 @@ import { SidebarEntry } from "../../../../../interfaces/sidebar";
 import { TeamData } from "../../../../../interfaces/team";
 import { ApiContext } from "../../../../../utils/context/api";
 import Alert from "../../../../Alert";
-import { filterAndGroupTaskResponse, getImageSidebar } from "../../../../../utils/transformer/task";
-import SidebarSection from "./SidebarSection";
+import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
 import { AuthContext } from "../../../../../utils/context/auth";
 import { TaskResponse } from "../../../../../interfaces/task";
+import SidebarSection from "./SidebarSection";
 
 interface SubmissionProgressProps {
   team: TeamData;
