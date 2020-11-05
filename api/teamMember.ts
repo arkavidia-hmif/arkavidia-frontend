@@ -27,6 +27,10 @@ export const addTeamMember = async (
           throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.TEAM_FULL, detail);
         } else if (code === 'team_has_selected_member') {
           throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ALREADY_EXISTS, detail);
+        } else if (code === 'competition_already_registered') {
+          throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ALREADY_REGISTERED, detail);
+        } else if (detail) {
+          throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ALREADY_REGISTERED, detail);
         }
       }
       throw new ApiError<AddTeamMemberStatus>(AddTeamMemberStatus.ERROR, error.message);

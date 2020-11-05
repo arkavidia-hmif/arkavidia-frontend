@@ -58,13 +58,19 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
         mutate(newTeam);
         closeAdd();
       }).catch((err) => {
-        if (err instanceof ApiError && err.code === AddTeamMemberStatus.TEAM_FULL) {
-          setError('Tim sudah penuh');
-          return;
-        }
-        if (err instanceof ApiError && err.code === AddTeamMemberStatus.ALREADY_EXISTS) {
-          setError('Anggota tim ini sudah terdaftar');
-          return;
+        if (err instanceof ApiError) {
+          if (err.code === AddTeamMemberStatus.TEAM_FULL) {
+            setError('Tim sudah penuh');
+            return;
+          }
+          if (err.code === AddTeamMemberStatus.ALREADY_EXISTS) {
+            setError('Anggota tim ini sudah terdaftar');
+            return;
+          }
+          if (err.code === AddTeamMemberStatus.ALREADY_REGISTERED) {
+            setError('Anggota ini sudah terdaftar di tim lain');
+            return;
+          }
         }
         setError(err.message);
       }).finally(() => {
