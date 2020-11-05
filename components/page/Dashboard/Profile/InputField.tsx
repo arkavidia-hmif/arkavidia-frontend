@@ -63,6 +63,10 @@ const InputField: React.FC<Props> = ({
           font-weight: bold;
         }
 
+        option {
+          font-family: Roboto;
+        }
+
         input:focus,
         select:focus {
           outline: none;
