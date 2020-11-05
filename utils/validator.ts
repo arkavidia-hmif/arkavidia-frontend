@@ -17,7 +17,7 @@ export const isValidDate = (date: string | null): boolean => {
 
 export const isValidPhone = (phone: string | null): boolean => {
   if (!phone) return false;
-  const re = /\(?(?:\+62|62|0)(?:\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}/;
+  const re = /^\(?(?:\+62|62|0)(?:\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}$/;
   return re.test(phone);
 };
 
