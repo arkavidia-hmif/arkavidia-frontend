@@ -143,6 +143,11 @@ const PhotoTask: React.FC<Props> = ({
       </div>
 
       <style jsx>{`
+        #simpan {
+          display: flex;
+          gap: 1rem;
+        }
+
         #heading {
           font-family: Viga;
           font-size: 1.5rem;
