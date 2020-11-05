@@ -37,6 +37,7 @@ const Alert: React.FC<Props> = ({
             width: 100%;
             background-color: ${color.main};
             padding: 1rem;
+            padding-right: 2rem;
             border-radius: 5px;
             position: relative;
           }
@@ -47,7 +48,7 @@ const Alert: React.FC<Props> = ({
 
           #close-btn {
             position: absolute;
-            top: 0.75rem;
+            top: 0.5rem;
             right: 0.5rem;
 
             margin: 0;
