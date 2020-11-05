@@ -61,8 +61,6 @@ const ChoiceTask: React.FC<Props> = ({ team, task }) => {
 
   return (
     <>
-      <Alert error={error} />
-      <Alert color={Theme.alertColors.greenAlert} error={success} />
       <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
       <div id="ketentuan" className="mt-3">
         <div className="title">Pertanyaan:</div>
@@ -86,6 +84,10 @@ const ChoiceTask: React.FC<Props> = ({ team, task }) => {
           >
             {getOption()}
           </select>
+        </div>
+        <div id="status" className="mt-3">
+          <Alert error={error} />
+          <Alert color={Theme.alertColors.greenAlert} error={success} />
         </div>
         <div id="simpan" className="mt-4">
           <FilledButton
