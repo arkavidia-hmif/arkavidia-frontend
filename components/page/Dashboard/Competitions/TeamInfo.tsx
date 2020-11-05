@@ -19,6 +19,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
   const router = useRouter();
 
   const [edit, setEdit] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [teamName, setTeamName] = useState<string>(props.currentTeam.name);
   const [institutionName, setInstitutionName] = useState<string>(
@@ -32,7 +33,8 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            await editTeam(
+            setLoading(true);
+            editTeam(
               apiContext.axios,
               {
                 name: teamName,
@@ -46,6 +48,9 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
               })
               .catch(() => {
                 setError("Pastikan field tidak kosong.");
+              })
+              .finally(() => {
+                setLoading(false);
               });
           }}
         >
@@ -76,6 +81,7 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
                 text="Simpan"
                 color={Theme.buttonColors.purpleButton}
                 padding="0.5rem 1.5rem"
+                loading={loading}
                 submit
               />
             </div>
