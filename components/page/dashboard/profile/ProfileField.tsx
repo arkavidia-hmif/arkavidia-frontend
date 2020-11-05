@@ -27,7 +27,7 @@ const ProfileField: React.FC = () => {
   const phoneNumber = useFormInput("");
   const birthDate = useFormInput("");
   const address = useFormInput("");
-  const currentEducation = useFormInput("");
+  const currentEducation = useFormInput(currentEducationList[0]);
   const institution = useFormInput("");
 
   const [success, setSuccess] = useState(false);
