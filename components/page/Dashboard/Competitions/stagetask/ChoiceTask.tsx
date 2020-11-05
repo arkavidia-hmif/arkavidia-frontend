@@ -5,109 +5,101 @@ import { Theme } from "../../../../../styles/theme";
 // import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
+import { ApiContext } from "../../../../../utils/context/api";
+import { useContext, useState } from "react";
 import { Task } from "../../../../../interfaces/task";
+import { submitTaskResponseCompetition } from "../../../../../api/competition";
+import { AuthContext } from "../../../../../utils/context/auth";
+import Alert from "../../../../Alert";
 
 type Props = {
   team: TeamData;
-  widget: Task;
+  task: Task;
 };
 
-const ChoiceTask: React.FC<Props> = ({ team, widget }) => {
-  // const apiContext = useContext(ApiContext);
-  const choice = useChoice("3");
-  // const teamId = team?.id;
-  // const taskId = 4;
+type WidgetParam = {
+  description: string,
+  options: string[]
+}
 
-  const handleSubmit = async () => {
-    if (choice) {
-      // console.log(team);
-      // const res = await submitTaskResponseCompetition(
-      //   apiContext.axios,
-      //   taskId,
-      //   teamId
-    }
+const ChoiceTask: React.FC<Props> = ({ team, task }) => {
+  const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
+
+  const apiContext = useContext(ApiContext);
+  const choice = useChoice(parsedParam.options[0]);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const handleSubmit = () => {
+    setError(null);
+    setSuccess(null);
+
+    submitTaskResponseCompetition(apiContext.axios, task.id, team.id, choice.value)
+      .then(() => {
+        setSuccess('Sukses');
+      }).catch((e) => {
+        setError(e.message);
+      }).finally(() => {
+        setLoading(false);
+      });
   };
+
+  const getOption = () => {
+    return parsedParam.options.map((entry) => {
+      return (<option key={entry} value={entry}>{entry}</option>);
+    });
+  };
+
   return (
-    <form
-      encType="multipart/form-data"
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-    >
-      <div id="heading">Persyaratan Pendaftaran</div>
-      <div id="ketentuan" className="mt-3">
-        <div className="title">Ketentuan:</div>
-        <ol>
-          <li>{team?.id}</li>
-          <li>{widget?.id}</li>
-        </ol>
-      </div>
-      <div id="upload" className="mt-3">
-        <div className="title">Upload:</div>
-        <select
-          value={choice.value}
-          onChange={(e) => choice.setValue(e.target.value)}
-        >
-          <option value={"3"}>{"3"}</option>
-          <option value={"4"}>{"5"}</option>
-        </select>
-      </div>
-      <div id="status" className="mt-4">
-        <div className="title">Status</div>
-        <div className="subtitle">Belum diverivikasi</div>
-      </div>
-      <div id="simpan" className="mt-5">
-        <FilledButton
-          text="Simpan"
-          color={Theme.buttonColors.purpleButton}
-          padding="0.5rem 2rem"
-          submit={true}
-        />
-      </div>
+    <>
+      <h2>{task.name}</h2>
+
+      <Alert error={error} />
+      <Alert color={Theme.alertColors.greenAlert} error={success} />
+
+      <div className="title mt-3">{parsedParam.description}</div>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}>
+        <div className="mt-3">
+          <div className="title">Jawaban:</div>
+          <select
+            value={choice.value}
+            onChange={(e) => choice.setValue(e.target.value)}
+          >
+            {getOption()}
+          </select>
+
+        </div>
+        <div id="simpan" className="mt-4">
+          <FilledButton
+            loading={loading}
+            text="Simpan"
+            color={Theme.buttonColors.purpleButton}
+            padding="0.5rem 2rem"
+            submit
+          />
+        </div>
+      </form>
 
       <style jsx>{`
-        #heading {
-          font-family: Viga;
+        h2 {
           font-size: 1.5rem;
           color: #05058d;
         }
 
         .title {
-          font-family: Roboto;
           font-weight: bold;
           color: #646464;
           font-size: 1.125rem;
         }
-
-        .subtitle {
-          font-family: Roboto;
-          color: #646464;
-          font-size: 1rem;
-          padding: 0.5rem 1.125rem;
-        }
-
-        @media (max-width: 800px) {
-          .mt-5 {
-            margin-top: 1rem !important;
-          }
-        }
-
-        @media (max-width: 450px) {
-          #heading {
-            font-size: 1.25rem;
-          }
-
-          .title {
-            font-size: 1rem;
-          }
-
-          .subtitle {
-            font-size: 0.9375rem;
-          }
-        }
       `}</style>
-    </form>
+    </>
   );
 };
 
