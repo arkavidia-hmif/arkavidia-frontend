@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "generate:production": "DOTENV_FILE=production next build && DOTENV_FILE=production next export",
-    "generate:staging": "DOTENV_FILE=staging next build && DOTENV_FILE=staging next export",
+    "generate:sitemap": "node sitemap_generator.js",
+    "generate:production": "DOTENV_FILE=production next build && DOTENV_FILE=production next export && npm run generate:sitemap",
+    "generate:staging": "DOTENV_FILE=staging next build && DOTENV_FILE=staging next export && npm run generate:sitemap",
     "start": "next start",
     "type-check": "tsc",
     "lint": "npm run lint:check",
@@ -42,6 +43,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
+    "nextjs-sitemap-generator": "^1.1.0",
     "typescript": "^4.0.5"
   },
   "license": "MIT",
