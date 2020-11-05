@@ -6,8 +6,8 @@ import { ApiError, StandardError } from "./error";
 export const LIST_COMPETITION_URL = "/competition";
 
 export const SUBMIT_TASK_REPONSE_COMPETITION_URL = (
-  team_id: string,
-  task_id: string
+  team_id: number,
+  task_id: number
 ): string => `/competition/teams/${team_id}/tasks/${task_id}/`;
 
 export const getCompetitions = async (
@@ -27,18 +27,16 @@ export const submitTaskResponseCompetition = async (
   axios: AxiosInstance,
   task_id: number,
   team_id: number,
-  res: string
-  // userId: number | undefined,
-  // teamMemberId: number | undefined
+  res: string,
+  teamMemberId: number
 ): Promise<TaskResponse> => {
   try {
     const response = await axios.post(
-      SUBMIT_TASK_REPONSE_COMPETITION_URL(String(team_id), String(task_id)),
+      SUBMIT_TASK_REPONSE_COMPETITION_URL(team_id, task_id),
       {
-        res,
+        response: res,
+        teamMemberId,
       }
-      // userId,
-      // teamMemberId,
     );
 
     return response.data as TaskResponse;
