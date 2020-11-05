@@ -140,6 +140,14 @@ const IndexPage: React.FC = () => {
                 type="event"
               />
               <CarouselItem
+                url="/preevent/arkavidia-academy"
+                desc={"ARKAVIDIA ACADEMY"}
+                backgroundImage={"/img/carousel/bg-academy.png"}
+                foregroundImage={"/img/carousel/academy.png"}
+                width={"200px"}
+                type="event"
+              />
+              <CarouselItem
                 url="/preevent/technocamp"
                 desc={"TECHNOCAMP"}
                 backgroundImage={"/img/carousel/bg-tech.png"}
