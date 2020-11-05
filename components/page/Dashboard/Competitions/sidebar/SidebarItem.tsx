@@ -1,13 +1,18 @@
 import { SidebarEntry } from "../../../../../interfaces/sidebar";
 
 type Props = {
-  entry: SidebarEntry,
-  index: number,
-  selection: number,
-  setSelection: (value: number) => void
-}
+  entry: SidebarEntry;
+  index: number;
+  selection: number;
+  setSelection: (value: number) => void;
+};
 
-const SidebarItem: React.FC<Props> = ({ entry, index, selection, setSelection }) => {
+const SidebarItem: React.FC<Props> = ({
+  entry,
+  index,
+  selection,
+  setSelection,
+}) => {
   return (
     <a>
       <li

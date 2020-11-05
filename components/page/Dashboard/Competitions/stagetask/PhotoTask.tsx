@@ -8,12 +8,12 @@ import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
 import Success from "../../../../Success";
-import { TeamData } from "../../../../../interfaces/team";
+import { TeamDetailData } from "../../../../../interfaces/team";
 import { Task } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 
 type Props = {
-  team: TeamData;
+  team: TeamDetailData;
   widget: Task;
 };
 
@@ -79,7 +79,7 @@ const PhotoTask: React.FC<Props> = ({ team, widget }) => {
       </div>
       <div id="status" className="mt-3">
         {error && !success && <Alert error={error} />}
-        {success && <Success message="Successfully update" />}
+        {success && <Success message="Successfully submitted" />}
       </div>
       <div id="simpan" className="mt-4">
         <FilledButton

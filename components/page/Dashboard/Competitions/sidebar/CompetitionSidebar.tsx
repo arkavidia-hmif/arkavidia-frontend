@@ -6,6 +6,7 @@ import { SidebarEntry } from "../../../../../interfaces/sidebar";
 import { TeamData } from "../../../../../interfaces/team";
 import { ApiContext } from "../../../../../utils/context/api";
 import Alert from "../../../../Alert";
+import { getImageSidebar } from "../../../../../utils/transformer/task";
 import SidebarSection from "./SidebarSection";
 
 interface SubmissionProgressProps {
@@ -47,6 +48,8 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
 
   const sidebarData = [sidebarTop];
+  const taskResponse = [];
+
   if (teamDetail) {
     for (const stage of teamDetail.stages) {
       const item = [];
@@ -54,13 +57,20 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
         item.push({
           text: task.name,
           widget: task.widget,
-          param: JSON.stringify(task.widgetParameters),
+          image: getImageSidebar(task.id, teamDetail.userTaskResponses),
+          param:
+            typeof task.widgetParameters === "string"
+              ? task.widgetParameters
+              : task.widgetParameters.description,
         });
       }
       sidebarData.push({
         name: stage.name,
         item,
       });
+    }
+    for (const usertaskResponse of teamDetail.userTaskResponses) {
+      taskResponse.push(usertaskResponse);
     }
   }
 

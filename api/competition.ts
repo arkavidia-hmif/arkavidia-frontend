@@ -28,7 +28,7 @@ export const submitTaskResponseCompetition = async (
   task_id: number,
   team_id: number,
   res: string,
-  teamMemberId: number
+  teamMemberId?: number
 ): Promise<TaskResponse> => {
   try {
     const response = await axios.post(

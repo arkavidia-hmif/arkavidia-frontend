@@ -45,5 +45,5 @@ export interface TeamMember {
 export enum TeamRegistrationStatus {
   ERROR,
   NAME_TAKEN,
-  CANNOT_CREATE_ANOTHER_TEAM
+  CANNOT_CREATE_ANOTHER_TEAM,
 }

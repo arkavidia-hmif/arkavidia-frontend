@@ -28,7 +28,6 @@ export const retrieveFile = async (
 ): Promise<FileResponse> => {
   try {
     const response = await axios.get(RETRIVE_FILE_URL(file_id));
-
     return response.data as FileResponse;
   } catch (e) {
     throw new ApiError<StandardError>(StandardError.ERROR, e.message);

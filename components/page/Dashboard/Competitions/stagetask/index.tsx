@@ -26,7 +26,6 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
 
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
   if (!teamDetail) return <Spinner />;
-
   const widgetList: Task[] = [];
   for (const stage of teamDetail.stages) {
     for (const task of stage.tasks) {
@@ -38,10 +37,10 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     const widget = widgetList[selection - 2];
 
     if (widget.widget === "File") {
-      return <PhotoTask widget={widget} team={team} />;
+      return <PhotoTask widget={widget} team={teamDetail} />;
     }
     if (widget.widget === "Option") {
-      return <ChoiceTask widget={widget} team={team} />;
+      return <ChoiceTask widget={widget} team={teamDetail} />;
     }
   };
 

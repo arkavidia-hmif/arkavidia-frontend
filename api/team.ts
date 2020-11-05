@@ -40,7 +40,10 @@ export const createTeam = async (
         }
       }
 
-      throw new ApiError<TeamRegistrationStatus>(TeamRegistrationStatus.ERROR, error.message);
+      throw new ApiError<TeamRegistrationStatus>(
+        TeamRegistrationStatus.ERROR,
+        error.message
+      );
     });
 };
 
