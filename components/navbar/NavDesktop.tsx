@@ -27,19 +27,25 @@ const NavDesktop: React.FC = () => {
             return;
           }
 
+          let className = '';
+          if (link.haveChild && router.pathname.startsWith(link.path)) {
+            className = 'current';
+          } else if (!link.haveChild && router.pathname === link.path) {
+            className = 'current';
+          }
+
           if (link.submenu) {
             const curentHover = hoverState[index];
             const setHover = curentHover[1];
             const hover = curentHover[0];
+
             return (
               <li key={index} className="mt-3">
                 <a
                   role="button"
                   tabIndex={0}
                   style={{ cursor: "pointer" }}
-                  className={
-                    router.pathname.startsWith(link.path) ? "current" : ""
-                  }
+                  className={className}
                   onFocus={() => setHover(true)}
                   onBlur={() => setHover(false)}
                   onMouseOver={() => setHover(true)}
@@ -59,7 +65,7 @@ const NavDesktop: React.FC = () => {
             return (
               <li key={index} className="mt-3">
                 <Link href={link.path}>
-                  <a className={router.pathname === link.path ? "current" : ""}>
+                  <a className={className}>
                     {link.text}
                   </a>
                 </Link>
@@ -77,16 +83,16 @@ const NavDesktop: React.FC = () => {
             authContext.setAuthenticated(false);
             authContext.setAuth();
           }}
-        />
-      ) : (
-        <FilledButton
-          text="LOGIN"
-          padding="0.75em 1.5em"
-          onClick={() => {
-            router.push("/login");
-          }}
-        />
-      )}
+        />)
+        : (
+          <FilledButton
+            text="LOGIN"
+            padding="0.75em 1.5em"
+            onClick={() => {
+              router.push("/login");
+            }}
+          />
+        )}
 
       <style jsx>{`
         ul {
