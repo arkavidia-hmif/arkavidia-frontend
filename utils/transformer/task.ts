@@ -12,7 +12,10 @@ export const getImageSidebar = (
 };
 
 
-export const filterAndGroupTaskResponse = (task: TaskResponse[], teamDetail: TeamDetailData, myEmail: string): { [taskId: number]: TaskResponse } => {
+export const filterAndGroupTaskResponse = (teamDetail: TeamDetailData, myEmail: string): { [taskId: number]: TaskResponse } => {
+  let task = teamDetail.userTaskResponses;
+  task = task.concat(teamDetail.taskResponses);
+
   const allMember = teamDetail.teamMembers;
   const myMember = allMember.filter((entry) => entry.email === myEmail);
   if (myMember.length !== 1) return {};
