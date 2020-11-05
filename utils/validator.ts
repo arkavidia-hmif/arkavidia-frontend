@@ -15,6 +15,13 @@ export const isValidDate = (date: string | null): boolean => {
   return parseInt(element[0]) < 2017;
 };
 
+export const isValidPhone = (phone: string | null): boolean => {
+  if (!phone) return false;
+  const re = /\(?(?:\+62|62|0)(?:\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}/;
+  return re.test(phone);
+};
+
+
 export const isEmpty = (string: string | null): boolean =>
   string !== null && String(string).length === 0;
 
