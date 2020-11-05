@@ -26,6 +26,6 @@ module.exports = withSourceMaps({
       }
     }
 
-    return filteredPathMap;
+    return defaultPathMap;
   }
 });
