@@ -11,11 +11,13 @@ import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/compet
 import { Competition } from "../../../../interfaces/competition";
 import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
+import { AuthContext } from "../../../../utils/context/auth";
 
 const CompetitionsCard: React.FC = () => {
   const baseUrl = "/dashboard/competitions/";
 
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const {
     data: competition,
@@ -55,6 +57,10 @@ const CompetitionsCard: React.FC = () => {
       return `${baseUrl}${entry.slug}/register-tim`;
     }
   };
+
+  if (authContext.auth && !authContext.auth.user.currentEducation) {
+    return (<p style={{ textAlign: 'center' }}>Harap melengkapi profil terlebih dahulu</p>);
+  }
 
   return (
     <div className="mb-3">
