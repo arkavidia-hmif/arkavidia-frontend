@@ -19,7 +19,7 @@ export const filterAndGroupTaskResponse = (task: TaskResponse[], teamDetail: Tea
 
   const myId = myMember[0].id;
 
-  const filteredResponseById = task.filter((entry) => entry.teamMemberId === myId);
+  const filteredResponseById = task.filter((entry) => !entry.teamMemberId || entry.teamMemberId === myId);
 
   const groupedTaskResponse: { [taskId: number]: TaskResponse } = {};
 
