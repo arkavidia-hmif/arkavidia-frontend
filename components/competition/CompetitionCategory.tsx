@@ -8,7 +8,7 @@ type Props = {
 const Category: React.FC<Props> = ({ category, fee }) => (
   <div id="pricing">
     <div className="wrapper">
-      <div className="text">
+      <div className="text p-0 pr-md-3">
         <p>Kategori</p>
       </div>
       <div className="coloredText">
@@ -16,7 +16,7 @@ const Category: React.FC<Props> = ({ category, fee }) => (
       </div>
     </div>
     <div className="wrapper">
-      <div className="text">
+      <div className="text p-0 pr-md-3">
         <p>Biaya Pendaftaran</p>
       </div>
       <div className="coloredText">
@@ -40,7 +40,6 @@ const Category: React.FC<Props> = ({ category, fee }) => (
       }
 
       .text {
-        padding-right: 1rem;
         font-weight: 700;
       }
 
