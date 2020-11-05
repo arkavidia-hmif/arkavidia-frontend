@@ -8,9 +8,11 @@ import AuthWrapper from "../../../components/auth/AuthWrapper";
 import FilledButton from "../../../components/FilledButton";
 import { EmailVerifyStatus } from "../../../interfaces/auth";
 import { ApiContext } from "../../../utils/context/api";
+import { AuthContext } from "../../../utils/context/auth";
 
 const ConfirmEmail: React.FC = () => {
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const router = useRouter();
   const { token } = router.query;
@@ -21,6 +23,11 @@ const ConfirmEmail: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (authContext.authenticated) {
+      setError('Sedang login dengan akun lain, harap logout terlebih dahulu');
+      return;
+    }
+
     setError(null);
 
     confirmEmailAddress(apiContext.axios, token as string)
@@ -48,17 +55,18 @@ const ConfirmEmail: React.FC = () => {
             Tunggu sebentar, kami sedang mengkonfirmasi email Anda
           </p>
         </>
-      ) : (
-        <>
-          <p className="my-3">
-            Sukses, silahkan login dengan email dan kata sandi yang sudah
-            didaftarkan
-          </p>
-          <Link href="/login">
-            <FilledButton text="LOGIN" padding="0.75em 1.5em" />
-          </Link>
-        </>
-      )}
+      )
+        : (
+          <>
+            <p className="my-3">
+              Sukses, silahkan login dengan email dan kata sandi yang sudah
+              didaftarkan
+            </p>
+            <Link href="/login">
+              <FilledButton text="LOGIN" padding="0.75em 1.5em" />
+            </Link>
+          </>
+        )}
 
       <style jsx>
         {`

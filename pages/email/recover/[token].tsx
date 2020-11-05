@@ -9,9 +9,11 @@ import InputField from "../../../components/auth/InputField";
 import FilledButton from "../../../components/FilledButton";
 import { EmailResetPasswordStatus } from "../../../interfaces/auth";
 import { ApiContext } from "../../../utils/context/api";
+import { AuthContext } from "../../../utils/context/auth";
 
 const EmailRecover: React.FC = () => {
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const router = useRouter();
   const { token } = router.query;
@@ -27,6 +29,11 @@ const EmailRecover: React.FC = () => {
 
   const onSubmit = () => {
     setError(null);
+
+    if (authContext.authenticated) {
+      setError('Sedang login dengan akun lain, harap logout terlebih dahulu');
+      return;
+    }
 
     if (password.length < 8) {
       setError("Kata sandi minimal 8 karakter");
@@ -99,16 +106,17 @@ const EmailRecover: React.FC = () => {
             />
           </form>
         </>
-      ) : (
-        <>
-          <p className="my-3">
-            Sukses, silahkan login dengan kata sandi barumu
-          </p>
-          <Link href="/login">
-            <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
-          </Link>
-        </>
-      )}
+      )
+        : (
+          <>
+            <p className="my-3">
+              Sukses, silahkan login dengan kata sandi barumu
+            </p>
+            <Link href="/login">
+              <FilledButton text="KEMBALI KE LOGIN" padding="0.75em 1.5em" />
+            </Link>
+          </>
+        )}
       <style jsx>{`
         p {
           color: #7446a1;
