@@ -7,12 +7,12 @@ import { isValidFile } from "../../../../../utils/validator";
 import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
-import { TeamDetailData } from "../../../../../interfaces/team";
+import { TeamData } from "../../../../../interfaces/team";
 import { Task } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 
 type Props = {
-  team: TeamDetailData;
+  team: TeamData;
   task: Task;
 };
 
