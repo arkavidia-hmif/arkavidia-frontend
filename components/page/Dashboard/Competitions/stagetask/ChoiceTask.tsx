@@ -36,14 +36,14 @@ const ChoiceTask: React.FC<Props> = ({
   const apiContext = useContext(ApiContext);
   const choice = useChoice(choiceInit);
 
-  const [isEdit, setIsEdit] = useState<boolean>(!response);
+  const [isEdit, setIsEdit] = useState<boolean>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
   useEffect(() => {
     choice.setValue(choiceInit);
-    setIsEdit(false);
+    setIsEdit(!response);
     setSuccess(null);
     setError(null);
   }, [selection]);
