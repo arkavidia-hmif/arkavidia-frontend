@@ -4,34 +4,53 @@ import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
 import useFileUploader from "../../../../../utils/hooks/useFileUploader";
 import { isValidFile } from "../../../../../utils/validator";
+import { getResponseStatus } from "../../../../../utils/transformer/task";
 import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
 import { TeamData } from "../../../../../interfaces/team";
-import { Task } from "../../../../../interfaces/task";
+import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 
 type Props = {
   team: TeamData;
   task: Task;
   selection: number;
+  response?: TaskResponse;
+  mutate: () => void;
 };
 
-const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
+const PhotoTask: React.FC<Props> = ({
+  team,
+  task,
+  selection,
+  response,
+  mutate,
+}) => {
   const apiContext = useContext(ApiContext);
   const file = useFileUploader();
 
+  const [isEdit, setIsEdit] = useState(!response);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => file.set(null), [selection]);
+  useEffect(() => {
+    file.set(null);
+    setIsEdit(false);
+    setSuccess(false);
+    setError(null);
+  }, [selection]);
 
   const handleSubmit = async () => {
     setError(null);
     setSuccess(false);
-    setLoading(true);
     try {
+      if (file.value === null) {
+        setError("File belum terupload");
+        return;
+      }
+      setLoading(true);
       if (file?.value?.name && typeof task.widgetParameters !== "string") {
         const bool = await isValidFile(file.value, task.widgetParameters);
         if (bool) {
@@ -46,10 +65,16 @@ const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
             team.id,
             res.id
           );
-          if (submissionRes) {
+          if (submissionRes?.reason === "") {
+            mutate();
             setSuccess(true);
             setError(null);
             setLoading(false);
+            setIsEdit(false);
+          } else {
+            setIsEdit(false);
+            setLoading(false);
+            setError(submissionRes.reason);
           }
         }
       }
@@ -59,12 +84,7 @@ const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
     }
   };
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-    >
+    <form>
       <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
       <div id="ketentuan" className="mt-3">
         <div className="title">Ketentuan:</div>
@@ -75,6 +95,7 @@ const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
       <div id="upload" className="mt-3">
         <div className="title">Upload:</div>
         <FileUploader
+          disabled={!!(!isEdit && response)}
           data={file}
           color={Theme.buttonColors.purpleButton}
           padding="0.5rem 1rem"
@@ -82,7 +103,7 @@ const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
       </div>
       <div id="status" className="mt-4">
         <div className="title">Status</div>
-        <div className="subtitle">Belum diverivikasi</div>
+        <div className="subtitle">{getResponseStatus(response?.status)}</div>
       </div>
       <div id="status" className="mt-3">
         {error && !success && <Alert error={error} />}
@@ -94,13 +115,33 @@ const PhotoTask: React.FC<Props> = ({ team, task, selection }) => {
         )}
       </div>
       <div id="simpan" className="mt-4">
-        <FilledButton
-          loading={loading}
-          text="Simpan"
-          color={Theme.buttonColors.purpleButton}
-          padding="0.5rem 2rem"
-          submit={true}
-        />
+        {!isEdit && response ? (
+          <FilledButton
+            text="Ubah"
+            color={Theme.buttonColors.pinkButton}
+            padding="0.5rem 2rem"
+            onClick={() => setIsEdit(true)}
+          />
+        ) : (
+          <FilledButton
+            loading={loading}
+            text="Simpan"
+            color={Theme.buttonColors.purpleButton}
+            padding="0.5rem 2rem"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+          />
+        )}
+        {isEdit && response && (
+          <FilledButton
+            text="Cancel"
+            color={Theme.buttonColors.pinkButton}
+            padding="0.5rem 2rem"
+            onClick={() => setIsEdit(false)}
+          />
+        )}
       </div>
 
       <style jsx>{`

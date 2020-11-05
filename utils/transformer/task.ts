@@ -36,3 +36,12 @@ export const filterAndGroupTaskResponse = (
 
   return groupedTaskResponse;
 };
+
+export const getResponseStatus = (taskStatus: string | undefined): string => {
+  if (typeof taskStatus === "string") {
+    if (taskStatus === "awaiting_validation") return "Awaiting validation";
+    if (taskStatus === "completed") return "Completed";
+    if (taskStatus === "rejected") return "Rejected";
+  }
+  return "Not received";
+};

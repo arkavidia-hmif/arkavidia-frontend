@@ -44,11 +44,13 @@ const ChoiceTask: React.FC<Props> = ({
     choice.setValue(choiceInit);
     setIsEdit(false);
     setSuccess(null);
+    setError(null);
   }, [selection]);
 
   const handleSubmit = () => {
     setError(null);
     setSuccess(null);
+    setLoading(true);
 
     submitTaskResponseCompetition(
       apiContext.axios,
