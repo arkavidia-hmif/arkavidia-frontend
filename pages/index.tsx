@@ -102,8 +102,8 @@ const IndexPage: React.FC = () => {
                 type="competition"
               />
               <CarouselItem
-                url="/competition/gamedev"
-                desc={"GAMEDEV"}
+                url="/competition/gamejam"
+                desc={"ARKAV GAME JAM"}
                 backgroundImage={"/img/carousel/bg-gamedev.png"}
                 foregroundImage={"/img/carousel/gamedev.png"}
                 width={"150px"}
