@@ -1,15 +1,11 @@
-// import { useContext } from "react";
-// import { ApiContext } from "../../../../../utils/context/api";
+import { useContext, useState } from "react";
 import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
-// import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
 import { ApiContext } from "../../../../../utils/context/api";
-import { useContext, useState } from "react";
 import { Task } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
-import { AuthContext } from "../../../../../utils/context/auth";
 import Alert from "../../../../Alert";
 
 type Props = {
