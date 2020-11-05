@@ -37,10 +37,7 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     }
   }
 
-  let allResponse = teamDetail.taskResponses;
-  allResponse = allResponse.concat(teamDetail.userTaskResponses);
   const taskResponseById = filterAndGroupTaskResponse(
-    allResponse,
     teamDetail,
     authContext.auth?.user.email || ""
   );

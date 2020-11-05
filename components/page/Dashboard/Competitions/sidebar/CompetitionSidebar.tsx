@@ -6,7 +6,9 @@ import { SidebarEntry } from "../../../../../interfaces/sidebar";
 import { TeamData } from "../../../../../interfaces/team";
 import { ApiContext } from "../../../../../utils/context/api";
 import Alert from "../../../../Alert";
-import { getImageSidebar } from "../../../../../utils/transformer/task";
+import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
+import { AuthContext } from "../../../../../utils/context/auth";
+import { TaskResponse } from "../../../../../interfaces/task";
 import SidebarSection from "./SidebarSection";
 
 interface SubmissionProgressProps {
@@ -37,6 +39,7 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   setSelection,
 }) => {
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const {
     data: teamDetail,
@@ -50,14 +53,26 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   const sidebarData = [sidebarTop];
   const taskResponse = [];
 
+  const getImageSidebar = (response?: TaskResponse): string => {
+    if (!response) return "/img/dashboard/submission/empty.svg";
+
+    if (response.status === 'completed') return "/img/dashboard/submission/check.svg";
+    if (response.status === 'awaiting_validation') return "/img/dashboard/submission/waiting.svg";
+    if (response.status === 'rejected') return "/img/dashboard/submission/cross.svg";
+
+    return "/img/dashboard/submission/cross.svg";
+  };
+
   if (teamDetail) {
+    const taskResponseById = filterAndGroupTaskResponse(teamDetail, authContext.auth?.user.email || '');
+
     for (const stage of teamDetail.stages) {
       const item = [];
       for (const task of stage.tasks) {
         item.push({
           text: task.name,
           widget: task.widget,
-          image: getImageSidebar(task.id, teamDetail.userTaskResponses),
+          image: getImageSidebar(taskResponseById[task.id]),
           param:
             typeof task.widgetParameters === "string"
               ? task.widgetParameters
