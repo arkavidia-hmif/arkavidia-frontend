@@ -4,7 +4,7 @@ import { Theme } from "../../../../../styles/theme";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
 import { ApiContext } from "../../../../../utils/context/api";
-import { Task } from "../../../../../interfaces/task";
+import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 
@@ -12,6 +12,8 @@ type Props = {
   team: TeamData;
   task: Task;
   selection: number;
+  response?: TaskResponse;
+  mutate: () => void;
 };
 
 type WidgetParam = {
@@ -19,17 +21,30 @@ type WidgetParam = {
   options: string[];
 };
 
-const ChoiceTask: React.FC<Props> = ({ team, task, selection }) => {
+const ChoiceTask: React.FC<Props> = ({
+  team,
+  task,
+  response,
+  mutate,
+  selection,
+}) => {
   const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
 
-  const apiContext = useContext(ApiContext);
-  const choice = useChoice(parsedParam.options[0]);
+  const choiceInit = response ? response.response : parsedParam.options[0];
 
+  const apiContext = useContext(ApiContext);
+  const choice = useChoice(choiceInit);
+
+  const [isEdit, setIsEdit] = useState<boolean>(!response);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
-  useEffect(() => choice.setValue(parsedParam.options[0]), [selection]);
+  useEffect(() => {
+    choice.setValue(choiceInit);
+    setIsEdit(false);
+    setSuccess(null);
+  }, [selection]);
 
   const handleSubmit = () => {
     setError(null);
@@ -42,13 +57,15 @@ const ChoiceTask: React.FC<Props> = ({ team, task, selection }) => {
       choice.value
     )
       .then(() => {
-        setSuccess("Sukses");
+        setSuccess("Data tersimpan");
+        mutate();
       })
       .catch((e) => {
         setError(e.message);
       })
       .finally(() => {
         setLoading(false);
+        setIsEdit(false);
       });
   };
 
@@ -68,20 +85,13 @@ const ChoiceTask: React.FC<Props> = ({ team, task, selection }) => {
       <div id="ketentuan" className="mt-3">
         <div className="title">Pertanyaan:</div>
         <div className="subtitle">{parsedParam.description}</div>
-        {/* {typeof task.widgetParameters !== "string" && (
-          <div className="subtitle">{task.widgetParameters?.description}</div>
-        )} */}
       </div>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
+      <form>
         <div className="mt-3">
           <div className="title">Jawaban:</div>
           <select
+            disabled={!isEdit}
             value={choice.value}
             onChange={(e) => choice.setValue(e.target.value)}
           >
@@ -89,17 +99,31 @@ const ChoiceTask: React.FC<Props> = ({ team, task, selection }) => {
           </select>
         </div>
         <div id="status" className="mt-3">
-          <Alert error={error} />
-          <Alert color={Theme.alertColors.greenAlert} error={success} />
+          {!isEdit && <Alert error={error} />}
+          {!isEdit && success && (
+            <Alert color={Theme.alertColors.greenAlert} error={success} />
+          )}
         </div>
         <div id="simpan" className="mt-4">
-          <FilledButton
-            loading={loading}
-            text="Simpan"
-            color={Theme.buttonColors.purpleButton}
-            padding="0.5rem 2rem"
-            submit
-          />
+          {!isEdit ? (
+            <FilledButton
+              text="Ubah"
+              color={Theme.buttonColors.pinkButton}
+              padding="0.5rem 2rem"
+              onClick={() => setIsEdit(true)}
+            />
+          ) : (
+            <FilledButton
+              loading={loading}
+              text="Simpan"
+              color={Theme.buttonColors.purpleButton}
+              padding="0.5rem 2rem"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+            />
+          )}
         </div>
       </form>
 
