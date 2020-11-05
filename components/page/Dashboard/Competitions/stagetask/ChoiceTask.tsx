@@ -7,6 +7,7 @@ import { ApiContext } from "../../../../../utils/context/api";
 import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
+import StatusBox from "./StatusBox";
 
 type Props = {
   team: TeamData;
@@ -100,6 +101,7 @@ const ChoiceTask: React.FC<Props> = ({
             {getOption()}
           </select>
         </div>
+        <StatusBox response={response} />
         <div id="status" className="mt-3">
           {!isEdit && <Alert error={error} />}
           {!isEdit && success && (
@@ -113,19 +115,19 @@ const ChoiceTask: React.FC<Props> = ({
               color={Theme.buttonColors.pinkButton}
               padding="0.5rem 2rem"
               onClick={() => setIsEdit(true)}
-            />
-          ) : (
-            <FilledButton
-              loading={loading}
-              text="Simpan"
-              color={Theme.buttonColors.purpleButton}
-              padding="0.5rem 2rem"
-              onClick={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            />
-          )}
+            />)
+            : (
+              <FilledButton
+                loading={loading}
+                text="Simpan"
+                color={Theme.buttonColors.purpleButton}
+                padding="0.5rem 2rem"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSubmit();
+                }}
+              />
+            )}
         </div>
       </form>
 

@@ -4,13 +4,13 @@ import FilledButton from "../../../../FilledButton";
 import { Theme } from "../../../../../styles/theme";
 import useFileUploader from "../../../../../utils/hooks/useFileUploader";
 import { isValidFile } from "../../../../../utils/validator";
-import { getResponseStatus } from "../../../../../utils/transformer/task";
 import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
 import { TeamData } from "../../../../../interfaces/team";
 import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
+import StatusBox from "./StatusBox";
 
 type Props = {
   team: TeamData;
@@ -79,6 +79,7 @@ const PhotoTask: React.FC<Props> = ({
         }
       }
     } catch (e) {
+      setLoading(false);
       setSuccess(false);
       setError(String(e));
     }
@@ -101,10 +102,7 @@ const PhotoTask: React.FC<Props> = ({
           padding="0.5rem 1rem"
         />
       </div>
-      <div id="status" className="mt-4">
-        <div className="title">Status</div>
-        <div className="subtitle">{getResponseStatus(response?.status)}</div>
-      </div>
+      <StatusBox response={response} />
       <div id="status" className="mt-3">
         {error && !success && <Alert error={error} />}
         {success && (
@@ -121,19 +119,19 @@ const PhotoTask: React.FC<Props> = ({
             color={Theme.buttonColors.pinkButton}
             padding="0.5rem 2rem"
             onClick={() => setIsEdit(true)}
-          />
-        ) : (
-          <FilledButton
-            loading={loading}
-            text="Simpan"
-            color={Theme.buttonColors.purpleButton}
-            padding="0.5rem 2rem"
-            onClick={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-          />
-        )}
+          />)
+          : (
+            <FilledButton
+              loading={loading}
+              text="Simpan"
+              color={Theme.buttonColors.purpleButton}
+              padding="0.5rem 2rem"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+            />
+          )}
         {isEdit && response && (
           <FilledButton
             text="Cancel"

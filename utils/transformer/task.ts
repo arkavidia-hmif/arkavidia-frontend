@@ -37,11 +37,15 @@ export const filterAndGroupTaskResponse = (
   return groupedTaskResponse;
 };
 
-export const getResponseStatus = (taskStatus: string | undefined): string => {
-  if (typeof taskStatus === "string") {
-    if (taskStatus === "awaiting_validation") return "Awaiting validation";
-    if (taskStatus === "completed") return "Completed";
-    if (taskStatus === "rejected") return "Rejected";
+export const getResponseStatus = (response?: TaskResponse): string => {
+  if (response) {
+    const taskStatus = response.status;
+
+    if (taskStatus === "awaiting_validation") return "Menunggu validasi";
+    if (taskStatus === "completed") return "Selesai";
+    if (taskStatus === "rejected") {
+      return `Ditolak - ${response.reason}`;
+    }
   }
-  return "Not received";
+  return "Belum dilakukan";
 };
