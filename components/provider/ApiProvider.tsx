@@ -25,7 +25,7 @@ const ApiProvider: React.FC<Props> = ({ children }) => {
     if (error?.response?.status === 401) {
       authContext.setAuthenticated(false);
       authContext.setAuth();
-    } else {
+    } else if (error?.response?.status !== 400) {
       Sentry.captureException(error);
     }
     throw error;

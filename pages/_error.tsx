@@ -1,7 +1,5 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import * as Sentry from "@sentry/react";
-import { useRouter } from "next/dist/client/router";
 import FilledButton from "../components/FilledButton";
 import Layout from "../components/Layout";
 
@@ -10,13 +8,6 @@ type Props = {
 };
 
 const Error: NextPage<Props> = ({ statusCode }) => {
-  if (typeof window !== undefined) {
-    const router = useRouter();
-    const scope = new Sentry.Scope();
-    scope.setTag("path", router.pathname);
-    Sentry.captureMessage('404', scope);
-  }
-
   return (
     <Layout>
       <div className="container">
