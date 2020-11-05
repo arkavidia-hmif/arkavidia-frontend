@@ -6,7 +6,7 @@ import {
 } from "../../../../api/competition";
 import { LIST_TEAM_URL, getTeam } from "../../../../api/team";
 import { ApiContext } from "../../../../utils/context/api";
-import DashboardCard from "../../../../components/dashboard/DashboardCard";
+import DashboardCard from "../../../dashboard/DashboardCard";
 import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/competition";
 import { Competition } from "../../../../interfaces/competition";
 import Alert from "../../../Alert";

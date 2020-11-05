@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import { Theme } from "../../../../styles/theme";
-import CompetitionWrapper from "../../../../components/page/Dashboard/Competitions/CompetitionWrapper";
+import CompetitionWrapper from "../../../../components/page/dashboard/competition/CompetitionWrapper";
 import Layout from "../../../../components/Layout";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
-import TeamInfo from "../../../../components/page/Dashboard/Competitions/TeamInfo";
+import TeamInfo from "../../../../components/page/dashboard/competition/TeamInfo";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
-import TeamMember from "../../../../components/page/Dashboard/Competitions/TeamMember";
-import StageTask from "../../../../components/page/Dashboard/Competitions/stagetask/index";
+import TeamMember from "../../../../components/page/dashboard/competition/TeamMember";
+import StageTask from "../../../../components/page/dashboard/competition/stagetask/index";
 
 const StatusTim: React.FC = () => {
   const getTeamInfoComponent = (
