@@ -2,17 +2,20 @@ const NavItems = [
   {
     text: "HOME",
     path: "/",
+    haveChild: false,
     protected: false,
   },
   {
     text: "ABOUT US",
     path: "/about",
+    haveChild: false,
     protected: false,
   },
   {
     text: "COMPETITIONS",
     path: "/competition",
     protected: false,
+    haveChild: true,
     submenu: [
       {
         text: "COMPETITIVE PROGRAMMING",
@@ -40,6 +43,7 @@ const NavItems = [
     text: "PRE-EVENTS",
     path: "/preevent",
     protected: false,
+    haveChild: true,
     submenu: [
       {
         text: "TECHNOCAMP",
@@ -63,6 +67,7 @@ const NavItems = [
     text: "EVENTS",
     path: "/event",
     protected: false,
+    haveChild: true,
     submenu: [
       {
         text: "IT FESTIVAL",
@@ -78,6 +83,7 @@ const NavItems = [
     text: "DASHBOARD",
     path: "/dashboard",
     protected: true,
+    haveChild: true
   },
 ];
 
