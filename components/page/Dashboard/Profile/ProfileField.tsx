@@ -175,7 +175,8 @@ const ProfileField: React.FC = () => {
                 />
               </div>
             </div>
-          ) : (
+          )
+            : (
               <FilledButton
                 text="Edit Profile"
                 color={Theme.buttonColors.purpleButton}
