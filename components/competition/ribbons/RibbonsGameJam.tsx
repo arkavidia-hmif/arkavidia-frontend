@@ -7,7 +7,7 @@ const GameJamRibbon : React.FC = () => (
     <div className="flex-row-center">
       <div>
         <div className="margins-2">
-          <SmallRibbon title="Best Audio" caption="Rp 1.000.000"/>
+          <SmallRibbon title="Best Presentation" caption="Rp 1.000.000"/>
         </div>
         <div className="margins-2">
           <SmallRibbon title="Best Gameplay" caption="Rp 1.000.000"/>
@@ -21,7 +21,7 @@ const GameJamRibbon : React.FC = () => (
           <SmallRibbon title="Best Narrative" caption="Rp 1.000.000"/>
         </div>
         <div className="margins-2">
-          <SmallRibbon title="Best Innovation" caption="Rp 1.000.000"/>
+          <SmallRibbon title="Best Originality" caption="Rp 1.000.000"/>
         </div>
         <div className="margins-2">
           <SmallRibbon title="Best Student" caption="Rp 1.000.000"/>
