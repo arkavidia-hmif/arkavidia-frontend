@@ -1,13 +1,9 @@
 import * as React from "react";
 import Link from "next/link";
-
-interface ArrayType {
-  path: string;
-  text: string;
-}
+import { SubMenuItem } from "../../interfaces/nav-items";
 
 interface Props {
-  items: ArrayType[];
+  items: SubMenuItem[];
   hover: boolean;
   setHover: (input: boolean) => void;
 }

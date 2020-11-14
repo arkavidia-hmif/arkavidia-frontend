@@ -1,4 +1,6 @@
-const NavItems = [
+import { NavItem } from "../../interfaces/nav-items";
+
+const NavItems: NavItem[] = [
   {
     text: "HOME",
     path: "/",
