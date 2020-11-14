@@ -1,6 +1,6 @@
-import * as React from 'react';
-import WinnerRibbon from './WinnerRibbon';
-import SmallRibbon from './SmallRibbon';
+import * as React from "react";
+import WinnerRibbon from "./WinnerRibbon";
+import SmallRibbon from "./SmallRibbon";
 
 const ArkaRibbon: React.FC = () => (
   <div className='container'>

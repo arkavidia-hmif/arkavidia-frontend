@@ -1,5 +1,5 @@
-import * as React from 'react';
-import BigRibbon from './BigRibbon';
+import * as React from "react";
+import BigRibbon from "./BigRibbon";
 
 interface Props {
   caption: string[]

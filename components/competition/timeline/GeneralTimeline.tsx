@@ -1,7 +1,7 @@
-import * as React from 'react';
-import CompetitionTimelineHeader from '../CompetitionTimeLineHeader';
-import Ribbon from '../ribbons/Ribbon';
-import items from 'utils/constants/competition-general-timeline-items';
+import * as React from "react";
+import CompetitionTimelineHeader from "../CompetitionTimeLineHeader";
+import Ribbon from "../ribbons/Ribbon";
+import items from "utils/constants/competition-general-timeline-items";
 
 const GeneralTimeline: React.FC = () => (
   <div>

@@ -1,10 +1,10 @@
 export const DynamicRoute = [
   {
-    url: '/dashboard',
+    url: "/dashboard",
     secure: true
   },
   {
-    url: '/email',
+    url: "/email",
     secure: false
   }
 ];

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import CompetitionTimelineHeader from '../CompetitionTimeLineHeader';
-import items from '../../../utils/constants/competition-datavidia-timeline-items';
-import Ribbon from '../ribbons/Ribbon';
+import * as React from "react";
+import CompetitionTimelineHeader from "../CompetitionTimeLineHeader";
+import items from "../../../utils/constants/competition-datavidia-timeline-items";
+import Ribbon from "../ribbons/Ribbon";
 
 const DatavidiaTimeline : React.FC= () => (
   <div>

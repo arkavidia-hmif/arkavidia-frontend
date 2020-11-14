@@ -32,7 +32,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   };
 
   useEffect(() => {
-    setAuthenticated(localStorage.getItem(authenticatedKey) === 'true');
+    setAuthenticated(localStorage.getItem(authenticatedKey) === "true");
     const savedAuth = localStorage.getItem(authKey);
     if (savedAuth) {
       setAuth(JSON.parse(savedAuth));
@@ -47,7 +47,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     setAuth: setAndSaveAuth,
   };
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const router = useRouter();
 
     const isSecure = DynamicRoute.some((entry) => {
@@ -58,7 +58,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     }
   }
 
-  if (loaded || typeof window === 'undefined') {
+  if (loaded || typeof window === "undefined") {
     return (
       <AuthContext.Provider value={authContext}>{children}</AuthContext.Provider>
     );

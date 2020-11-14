@@ -17,9 +17,9 @@ const Layout: React.FC<Props> = ({
 }) => {
 
   if (!title) {
-    title = 'Arkavidia 7.0';
+    title = "Arkavidia 7.0";
   } else {
-    title = title + ' | Arkavidia 7.0';
+    title = title + " | Arkavidia 7.0";
   }
 
   return (

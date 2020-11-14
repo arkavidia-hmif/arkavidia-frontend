@@ -9,11 +9,11 @@ const DashboardMenu: React.FC = () => {
     <div id="menu">
       <ul>
         {DashboardItems.map((link, index) => {
-          let className = 'items';
+          let className = "items";
           if (link.haveChild && router.pathname.startsWith(link.route)) {
-            className += ' current';
+            className += " current";
           } else if (!link.haveChild && router.pathname === link.route) {
-            className += ' current';
+            className += " current";
           }
 
           return (

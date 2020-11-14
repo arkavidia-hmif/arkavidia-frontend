@@ -23,7 +23,7 @@ const AnnouncementCard: React.FC = () => {
   if (announcement.length === 0) {
     return (
       <div className="mb-3">
-        <p style={{ textAlign: 'center' }}>Belum ada pengumuman</p>
+        <p style={{ textAlign: "center" }}>Belum ada pengumuman</p>
       </div>
     );
   } else {

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import TechHeader from './TechHeader';
-import BenefitBox from './BenefitBox';
+import * as React from "react";
+import TechHeader from "./TechHeader";
+import BenefitBox from "./BenefitBox";
 
 const TechBenefits: React.FC = () => (
   <div id="benefits-container">

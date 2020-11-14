@@ -1,6 +1,6 @@
-import * as React from 'react';
-import TechHeader from './TechHeader';
-import Ribbon from './Ribbon';
+import * as React from "react";
+import TechHeader from "./TechHeader";
+import Ribbon from "./Ribbon";
 
 const TechTimeline: React.FC = () => (
   <div id="timeline-container">

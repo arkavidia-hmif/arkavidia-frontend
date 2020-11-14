@@ -1,5 +1,5 @@
-import * as React from 'react';
-import items from '../../../../utils/constants/timeline-items';
+import * as React from "react";
+import items from "../../../../utils/constants/timeline-items";
 
 const Ribbon: React.FC = () => (
   <div id="ribbon-container">

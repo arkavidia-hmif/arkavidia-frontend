@@ -10,7 +10,7 @@ import FilledButton from "../../../../FilledButton";
 interface Props {
   member: TeamMember;
   teamDetail: TeamDetailData;
-  mutate: responseInterface<TeamDetailData, string>['mutate'];
+  mutate: responseInterface<TeamDetailData, string>["mutate"];
   setError: (error: string | null) => void;
 }
 

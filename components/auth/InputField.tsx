@@ -6,9 +6,9 @@ interface Props {
   placeholder: string
 }
 
-const InputField: React.FC<Props> = ({ name, type = 'text', value, setValue, placeholder }) => {
+const InputField: React.FC<Props> = ({ name, type = "text", value, setValue, placeholder }) => {
 
-  const id = name.toLowerCase().replace(/\s/g, '');
+  const id = name.toLowerCase().replace(/\s/g, "");
 
   return (
     <div>

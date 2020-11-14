@@ -36,8 +36,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
       textAlign: "right" as const,
     },
     gradient: {
-      transform: `rotate(0deg)`,
-      backgroundImage: `linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%`,
+      transform: "rotate(0deg)",
+      backgroundImage: "linear-gradient(90.9deg, #EBE3FF 15.28%, rgba(255, 255, 255, 0) 99.31%",
     },
     infoBtn: {
       textAlign: "right" as const,
@@ -46,8 +46,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
 
   const eventStyle = {
     gradient: {
-      transform: `rotate(180deg)`,
-      backgroundImage: `linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)`,
+      transform: "rotate(180deg)",
+      backgroundImage: "linear-gradient(90.9deg, #FFD2E1 15.28%, rgba(255, 255, 255, 0) 99.31%)",
     },
     img: {
       width: `${width}`,

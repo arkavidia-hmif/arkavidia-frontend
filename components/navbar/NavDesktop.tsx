@@ -27,11 +27,11 @@ const NavDesktop: React.FC = () => {
             return;
           }
 
-          let className = '';
+          let className = "";
           if (link.haveChild && router.pathname.startsWith(link.path)) {
-            className = 'current';
+            className = "current";
           } else if (!link.haveChild && router.pathname === link.path) {
-            className = 'current';
+            className = "current";
           }
 
           if (link.submenu) {

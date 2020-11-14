@@ -1,6 +1,6 @@
-import * as React from 'react';
-import BigRibbon from './BigRibbon';
-import SmallRibbon from './SmallRibbon';
+import * as React from "react";
+import BigRibbon from "./BigRibbon";
+import SmallRibbon from "./SmallRibbon";
 
 const GameJamRibbon: React.FC = () => (
   <div>

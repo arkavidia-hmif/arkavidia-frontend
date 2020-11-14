@@ -56,15 +56,15 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   const getImageSidebar = (response?: TaskResponse): string => {
     if (!response) return "/img/dashboard/submission/empty.svg";
 
-    if (response.status === 'completed') return "/img/dashboard/submission/check.svg";
-    if (response.status === 'awaiting_validation') return "/img/dashboard/submission/waiting.svg";
-    if (response.status === 'rejected') return "/img/dashboard/submission/cross.svg";
+    if (response.status === "completed") return "/img/dashboard/submission/check.svg";
+    if (response.status === "awaiting_validation") return "/img/dashboard/submission/waiting.svg";
+    if (response.status === "rejected") return "/img/dashboard/submission/cross.svg";
 
     return "/img/dashboard/submission/cross.svg";
   };
 
   if (teamDetail) {
-    const taskResponseById = filterAndGroupTaskResponse(teamDetail, authContext.auth?.user.email || '');
+    const taskResponseById = filterAndGroupTaskResponse(teamDetail, authContext.auth?.user.email || "");
 
     for (const stage of teamDetail.stages) {
       const item = [];

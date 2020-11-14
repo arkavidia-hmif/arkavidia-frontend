@@ -4,7 +4,7 @@ interface Props {
   height?: string
 }
 
-const Spinner: React.FC<Props> = ({ color = '#431785', size = '50px', height = '50px' }) => {
+const Spinner: React.FC<Props> = ({ color = "#431785", size = "50px", height = "50px" }) => {
 
   return (<>
     <div id="loader-container">

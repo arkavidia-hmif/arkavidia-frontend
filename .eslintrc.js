@@ -22,6 +22,7 @@ module.exports = {
     'eqeqeq': 'error',
     'no-console': 'warn',
     'curly': ['error', 'multi-line'],
+    'quotes': 'warn'
   },
   settings: {
     react: {

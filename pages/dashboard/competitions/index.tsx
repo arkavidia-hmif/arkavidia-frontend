@@ -1,6 +1,6 @@
-import CompetitionsCard from '../../../components/page/dashboard/competition/CompetitionsCard';
-import DashboardWrapper from '../../../components/dashboard/DashboardWrapper';
-import Layout from '../../../components/Layout';
+import CompetitionsCard from "../../../components/page/dashboard/competition/CompetitionsCard";
+import DashboardWrapper from "../../../components/dashboard/DashboardWrapper";
+import Layout from "../../../components/Layout";
 import { Theme } from "styles/theme";
 
 const IndexPage: React.FC = () => (

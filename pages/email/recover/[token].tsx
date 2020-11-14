@@ -31,7 +31,7 @@ const EmailRecover: React.FC = () => {
     setError(null);
 
     if (authContext.authenticated) {
-      setError('Sedang login dengan akun lain, harap logout terlebih dahulu');
+      setError("Sedang login dengan akun lain, harap logout terlebih dahulu");
       return;
     }
 

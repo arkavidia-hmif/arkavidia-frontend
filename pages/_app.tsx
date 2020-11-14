@@ -23,7 +23,7 @@ export function reportWebVitals({
     ReactGA.timing({
       category: label,
       variable: name,
-      value: Math.round(name === 'CLS' ? value * 1000 : value),
+      value: Math.round(name === "CLS" ? value * 1000 : value),
     });
   }
 }

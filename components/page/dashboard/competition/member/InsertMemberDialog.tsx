@@ -13,7 +13,7 @@ import { ApiError } from "interfaces/api";
 interface Props {
   closeAdd: () => void;
   team: TeamDetailData;
-  mutate: responseInterface<TeamDetailData, string>['mutate'];
+  mutate: responseInterface<TeamDetailData, string>["mutate"];
 }
 
 const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
@@ -27,12 +27,12 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
     setError(null);
 
     if (email.length === 0) {
-      setError('Email harus diisi');
+      setError("Email harus diisi");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setError('Email tidak valid');
+      setError("Email tidak valid");
       return;
     }
 
@@ -47,22 +47,22 @@ const InsertMemberDialog: React.FC<Props> = ({ closeAdd, team, mutate }) => {
           hasAccount: false,
           isTeamLeader: false,
           id: -99,
-          createdAt: ''
+          createdAt: ""
         });
         mutate(newTeam);
         closeAdd();
       }).catch((err) => {
         if (err instanceof ApiError) {
           if (err.code === AddTeamMemberStatus.TEAM_FULL) {
-            setError('Tim sudah penuh');
+            setError("Tim sudah penuh");
             return;
           }
           if (err.code === AddTeamMemberStatus.ALREADY_EXISTS) {
-            setError('Anggota tim ini sudah terdaftar');
+            setError("Anggota tim ini sudah terdaftar");
             return;
           }
           if (err.code === AddTeamMemberStatus.ALREADY_REGISTERED) {
-            setError('Anggota ini sudah terdaftar di tim lain');
+            setError("Anggota ini sudah terdaftar di tim lain");
             return;
           }
         }
