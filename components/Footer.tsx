@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { Theme } from "../styles/theme";
+import { Theme } from "styles/theme";
 
 const Footer: React.FC = () => {
   return (

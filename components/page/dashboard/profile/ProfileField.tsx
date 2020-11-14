@@ -10,12 +10,12 @@ import profileAttributes, {
 import { checkTruth } from "../../../../utils/transformer/profile";
 import Spinner from "../../../Spinner";
 import FilledButton from "../../../FilledButton";
-import { Theme } from "../../../../styles/theme";
 import Alert from "../../../Alert";
 import Success from "../../../Success";
 import { UserData } from "../../../../interfaces/auth";
 import { AuthContext } from "../../../../utils/context/auth";
 import InputField from "./InputField";
+import { Theme } from "styles/theme";
 
 const ProfileField: React.FC = () => {
   const apiContext = useContext(ApiContext);

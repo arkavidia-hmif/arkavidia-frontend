@@ -3,9 +3,9 @@ import Layout from "../components/Layout";
 import Hero from "../components/page/home/Hero";
 import Carousel from "../components/page/home/carousel/Carousel";
 import CarouselItem from "../components/page/home/carousel/CarouselItem";
-import { Theme } from "../styles/theme";
 import ColorfulHeader from "../components/ColorfulHeader";
 import FilledButton from "../components/FilledButton";
+import { Theme } from "styles/theme";
 
 const IndexPage: React.FC = () => {
   const router = useRouter();

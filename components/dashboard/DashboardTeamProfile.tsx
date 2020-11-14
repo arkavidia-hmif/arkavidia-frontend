@@ -2,11 +2,11 @@ import { useRouter } from "next/dist/client/router";
 import React, { useContext, useState } from "react";
 import { mutate } from "swr";
 import { editTeam, LIST_TEAM_URL } from "../../api/team";
-import { Theme } from "../../styles/theme";
 import { ApiContext } from "../../utils/context/api";
 import { useTeamCompetition } from "../../utils/hooks/useTeamCompetition";
 import Alert from "../Alert";
 import FilledButton from "../FilledButton";
+import { Theme } from "styles/theme";
 
 export const DashboardTeamProfile: React.FC = () => {
   const apiContext = useContext(ApiContext);

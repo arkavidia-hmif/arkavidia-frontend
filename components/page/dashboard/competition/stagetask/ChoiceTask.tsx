@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
 import FilledButton from "../../../../FilledButton";
-import { Theme } from "../../../../../styles/theme";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
 import { ApiContext } from "../../../../../utils/context/api";
@@ -8,6 +7,7 @@ import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 import StatusBox from "./StatusBox";
+import { Theme } from "styles/theme";
 
 interface Props {
   team: TeamData;

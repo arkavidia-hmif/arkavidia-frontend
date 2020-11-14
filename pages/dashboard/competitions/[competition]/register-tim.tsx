@@ -1,7 +1,7 @@
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
 import Layout from "../../../../components/Layout";
-import { Theme } from "../../../../styles/theme";
 import TeamRegistration from "../../../../components/page/dashboard/competition/TeamRegistration";
+import { Theme } from "styles/theme";
 
 
 const RegisterTim: React.FC = () => {

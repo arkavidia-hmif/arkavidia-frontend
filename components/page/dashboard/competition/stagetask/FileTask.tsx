@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../../../../../utils/context/api";
 import FilledButton from "../../../../FilledButton";
-import { Theme } from "../../../../../styles/theme";
 import useFileUploader from "../../../../../utils/hooks/useFileUploader";
 import { isValidFile } from "../../../../../utils/validator";
 import FileUploader from "../../../../FileUploader";
@@ -11,6 +10,7 @@ import { TeamData } from "../../../../../interfaces/team";
 import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import StatusBox from "./StatusBox";
+import { Theme } from "styles/theme";
 
 interface Props {
   team: TeamData;

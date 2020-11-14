@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Theme } from "../styles/theme";
+import { Theme } from "styles/theme";
 
 interface Props {
   children: React.ReactNode;

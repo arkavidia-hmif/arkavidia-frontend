@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Theme } from "../../../../styles/theme";
 import CompetitionWrapper from "../../../../components/page/dashboard/competition/CompetitionWrapper";
 import Layout from "../../../../components/Layout";
 import DashboardWrapper from "../../../../components/dashboard/DashboardWrapper";
@@ -8,6 +7,7 @@ import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
 import TeamMember from "../../../../components/page/dashboard/competition/TeamMember";
 import StageTask from "../../../../components/page/dashboard/competition/stagetask/index";
+import { Theme } from "styles/theme";
 
 const StatusTim: React.FC = () => {
   const getTeamInfoComponent = (

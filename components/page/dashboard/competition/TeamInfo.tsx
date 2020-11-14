@@ -4,10 +4,10 @@ import { mutate } from "swr";
 import { deleteTeam, editTeam, LIST_TEAM_URL } from "../../../../api/team";
 import { Competition } from "../../../../interfaces/competition";
 import { TeamData } from "../../../../interfaces/team";
-import { Theme } from "../../../../styles/theme";
 import { ApiContext } from "../../../../utils/context/api";
 import Alert from "../../../Alert";
 import FilledButton from "../../../FilledButton";
+import { Theme } from "styles/theme";
 
 interface TeamInfoProps {
   currentTeam: TeamData;

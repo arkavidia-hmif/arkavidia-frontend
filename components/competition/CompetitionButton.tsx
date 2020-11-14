@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useRouter } from "next/dist/client/router";
-import { Theme } from "../../styles/theme";
 import FilledButton from "../FilledButton";
+import { Theme } from "styles/theme";
 
 interface Props {
   guidebookLink: string;

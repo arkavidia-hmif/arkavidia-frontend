@@ -1,8 +1,8 @@
 import { ReactNode, useContext } from "react";
 import ColorfulHeader from "../ColorfulHeader";
-import { Theme } from "../../styles/theme";
 import { AuthContext } from "../../utils/context/auth";
 import DashboardMenu from "./DashboardMenu";
+import { Theme } from "styles/theme";
 
 interface Props {
   children: ReactNode;

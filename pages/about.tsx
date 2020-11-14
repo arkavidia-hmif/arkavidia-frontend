@@ -1,6 +1,6 @@
 import ColorfulHeader from "../components/ColorfulHeader";
 import Layout from "../components/Layout";
-import { Theme } from "../styles/theme";
+import { Theme } from "styles/theme";
 
 const AboutPage: React.FC = () => {
   return (

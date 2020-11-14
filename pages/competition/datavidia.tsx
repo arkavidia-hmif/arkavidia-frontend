@@ -5,7 +5,7 @@ import Buttons from "../../components/competition/CompetitionButton";
 import Timeline from "../../components/competition/timeline/DatavidiaTimeline";
 import CompetitionHeader from "../../components/CompetitionHeader";
 import competitionItems from "../../utils/constants/competition-items";
-import { Theme } from "../../styles/theme";
+import { Theme } from "styles/theme";
 import WinnerRibbon from "components/competition/ribbons/WinnerRibbon";
 
 const DatavidiaPage: React.FC = () => (

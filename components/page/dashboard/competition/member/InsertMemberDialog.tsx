@@ -3,11 +3,11 @@ import { responseInterface } from "swr/dist/types";
 import { addTeamMember } from "../../../../../api/teamMember";
 import { TeamDetailData } from "../../../../../interfaces/team";
 import { AddTeamMemberStatus } from "../../../../../interfaces/teamMember";
-import { Theme } from "../../../../../styles/theme";
 import { ApiContext } from "../../../../../utils/context/api";
 import { isValidEmail } from "../../../../../utils/validator";
 import Alert from "../../../../Alert";
 import FilledButton from "../../../../FilledButton";
+import { Theme } from "styles/theme";
 import { ApiError } from "interfaces/api";
 
 interface Props {
