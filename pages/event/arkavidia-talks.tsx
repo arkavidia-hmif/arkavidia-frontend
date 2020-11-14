@@ -6,7 +6,7 @@ import TalksGallery from "../../components/page/event/talks/TalksGallery";
 import Dates from "../../utils/constants/dates";
 import DateColor from "../../utils/constants/date-color";
 import DateContainer from "../../components/DateContainer";
-import ArkavTalksFAQ from "../../components/page/event/talks/ArkavTalksFAQ"
+import ArkavTalksFAQ from "../../components/page/event/talks/ArkavTalksFAQ";
 
 const Talks: React.FC = () => (
   <Layout {...BackgroundProps.talks}>
