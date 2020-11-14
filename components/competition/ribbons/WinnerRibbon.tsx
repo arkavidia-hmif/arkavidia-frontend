@@ -1,11 +1,11 @@
 import * as React from 'react';
-import BigRibbon from './RibbonBig';
+import BigRibbon from './BigRibbon';
 
 interface Props {
   caption: string[]
 }
 
-const TripleRibbon: React.FC<Props> = ({ caption }) => (
+const WinnerRibbon: React.FC<Props> = ({ caption }) => (
   <div>
     <div className="flex-row-center">
       <div className="margins">
@@ -46,4 +46,4 @@ const TripleRibbon: React.FC<Props> = ({ caption }) => (
   </div>
 );
 
-export default TripleRibbon;
+export default WinnerRibbon;

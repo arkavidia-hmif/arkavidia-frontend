@@ -6,7 +6,7 @@ import Timeline from "../../components/competition/timeline/GameJamTimeline";
 import CompetitionHeader from "../../components/CompetitionHeader";
 import competitionItems from "../../utils/constants/competition-items";
 import { Theme } from "../../styles/theme";
-import Ribbons from "../../components/competition/ribbons/RibbonsGameJam";
+import GameJamRibbon from "components/competition/ribbons/GameJamRibbon";
 
 const GamedevPage: React.FC = () => (
   <Layout title={competitionItems.gamedev.title} background={Theme.bgColors.whblplc}>
@@ -18,7 +18,7 @@ const GamedevPage: React.FC = () => (
           registerLink="/dashboard/competitions/gamedev"
         />
       </CompetitionHeader>
-      <Ribbons />
+      <GameJamRibbon />
       <Timeline />
     </div>
   </Layout>

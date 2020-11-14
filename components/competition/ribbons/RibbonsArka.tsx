@@ -1,16 +1,16 @@
 import * as React from 'react';
-import TripleRibbon from './RibbonJuara';
-import SmallRibbon from './RibbonsSmall';
+import WinnerRibbon from './WinnerRibbon';
+import SmallRibbon from './SmallRibbon';
 
-const ArkaRibbon : React.FC = () => (
+const ArkaRibbon: React.FC = () => (
   <div className='container'>
-    <TripleRibbon caption={["Rp 2.000.000","Rp 3.000.000","Rp 1.000.000"]}/>
+    <WinnerRibbon caption={["Rp 2.000.000", "Rp 3.000.000", "Rp 1.000.000"]} />
     <div className="flex-row-center">
       <div className="margins">
-        <SmallRibbon title="Juara 4" caption="Rp 500.000"/>
+        <SmallRibbon title="Juara 4" caption="Rp 500.000" />
       </div>
       <div className="margins">
-        <SmallRibbon title="Juara 5" caption="Rp 500.000"/>
+        <SmallRibbon title="Juara 5" caption="Rp 500.000" />
       </div>
     </div>
     <style jsx>{`          
@@ -38,5 +38,5 @@ const ArkaRibbon : React.FC = () => (
   `}</style>
   </div>
 );
-  
+
 export default ArkaRibbon;

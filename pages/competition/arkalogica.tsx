@@ -1,12 +1,12 @@
 import * as React from "react";
-import Layout from "../../components/Layout";
-import Category from "../../components/competition/CompetitionCategory";
-import Buttons from "../../components/competition/CompetitionButton";
-import Ribbons from "../../components/competition/ribbons/RibbonsArka";
-import Timeline from "../../components/competition/timeline/GeneralTimeline";
-import CompetitionHeader from "../../components/CompetitionHeader";
-import competitionItems from "../../utils/constants/competition-items";
-import { Theme } from "../../styles/theme";
+import Category from "components/competition/CompetitionCategory";
+import Layout from "components/Layout";
+import competitionItems from "utils/constants/competition-items";
+import { Theme } from "styles/theme";
+import CompetitionHeader from "components/CompetitionHeader";
+import Buttons from "components/page/preevent/technocamp/Buttons";
+import ArkaRibbon from "components/competition/ribbons/RibbonsArka";
+import GeneralTimeline from "components/competition/timeline/GeneralTimeline";
 
 const ArkaPage: React.FC = () => (
   <Layout title={competitionItems.arkalogica.title} background={Theme.bgColors.whblplc}>
@@ -18,8 +18,8 @@ const ArkaPage: React.FC = () => (
           registerLink="/dashboard/competitions/arkalogica"
         />
       </CompetitionHeader>
-      <Ribbons />
-      <Timeline />
+      <ArkaRibbon />
+      <GeneralTimeline />
     </div>
   </Layout>
 );

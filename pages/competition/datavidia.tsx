@@ -6,7 +6,7 @@ import Timeline from "../../components/competition/timeline/DatavidiaTimeline";
 import CompetitionHeader from "../../components/CompetitionHeader";
 import competitionItems from "../../utils/constants/competition-items";
 import { Theme } from "../../styles/theme";
-import TripleRibbon from "../../components/competition/ribbons/RibbonJuara";
+import WinnerRibbon from "components/competition/ribbons/WinnerRibbon";
 
 const DatavidiaPage: React.FC = () => (
   <Layout title={competitionItems.datavidia.title} background={Theme.bgColors.whblplc}>
@@ -19,7 +19,7 @@ const DatavidiaPage: React.FC = () => (
         />
       </CompetitionHeader>
       <div className="container">
-        <TripleRibbon
+        <WinnerRibbon
           caption={["Rp 3.000.000", "Rp 5.000.000", "Rp 2.000.000"]}
         />
       </div>

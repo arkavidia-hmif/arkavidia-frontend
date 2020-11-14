@@ -2,11 +2,11 @@ import * as React from "react";
 import Layout from "../../components/Layout";
 import Category from "../../components/competition/CompetitionCategory";
 import Buttons from "../../components/competition/CompetitionButton";
-import Timeline from "../../components/competition/timeline/GeneralTimeline";
 import CompetitionHeader from "../../components/CompetitionHeader";
 import competitionItems from "../../utils/constants/competition-items";
 import { Theme } from "../../styles/theme";
-import TripleRibbon from "../../components/competition/ribbons/RibbonJuara";
+import GeneralTimeline from "components/competition/timeline/GeneralTimeline";
+import WinnerRibbon from "components/competition/ribbons/WinnerRibbon";
 
 const CTFPage: React.FC = () => (
   <Layout title={competitionItems.ctf.title} background={Theme.bgColors.whblplc}>
@@ -16,11 +16,11 @@ const CTFPage: React.FC = () => (
         <Buttons guidebookLink="https://link.arkavidia.id/guidebook_ctf" registerLink="/dashboard/competitions/ctf" />
       </CompetitionHeader>
       <div className="container">
-        <TripleRibbon
+        <WinnerRibbon
           caption={["Rp 3.000.000", "Rp 5.000.000", "Rp 2.000.000"]}
         />
       </div>
-      <Timeline />
+      <GeneralTimeline />
     </div>
   </Layout>
 );
