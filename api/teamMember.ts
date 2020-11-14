@@ -1,8 +1,8 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Task, TaskResponse } from "../interfaces/task";
-import { TeamMember } from "../interfaces/team";
-import { AddTeamMemberStatus, TeamMemberDetail } from "../interfaces/teamMember";
-import { ApiError, StandardError } from "./error";
+import { Task, TaskResponse } from "interfaces/task";
+import { TeamMember } from "interfaces/team";
+import { AddTeamMemberStatus, TeamMemberDetail } from "interfaces/teamMember";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const addTeamMember = async (
   axios: AxiosInstance,

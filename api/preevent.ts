@@ -1,6 +1,6 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Preevent } from "../interfaces/preevent";
-import { ApiError, StandardError } from "./error";
+import { Preevent } from "interfaces/preevent";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const LIST_PREEVENT_URL = "/preevent";
 

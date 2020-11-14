@@ -1,6 +1,5 @@
 import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
-import { ApiError } from "../../../../api/error";
 import { createTeam } from "../../../../api/team";
 import { TeamRegistrationStatus } from "../../../../interfaces/team";
 import { Theme } from "../../../../styles/theme";
@@ -10,6 +9,7 @@ import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
 import Alert from "../../../Alert";
 import FilledButton from "../../../FilledButton";
 import Spinner from "../../../Spinner";
+import { ApiError } from "interfaces/api";
 
 const TeamRegistration: React.FC = () => {
   const [name, setName] = useState("");

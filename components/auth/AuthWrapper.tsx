@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { Theme } from "../../styles/theme";
-import ColorfulHeader from "../ColorfulHeader";
-import Layout from "../Layout";
-import GradientSeparator from "./GradientSeparator";
+import { Theme } from "styles/theme";
+import ColorfulHeader from "components/ColorfulHeader";
+import Layout from "components/Layout";
+import GradientSeparator from "components/auth/GradientSeparator";
 
 interface Props {
   children: ReactNode | ReactNode[],

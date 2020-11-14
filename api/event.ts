@@ -1,6 +1,6 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Event } from "../interfaces/event";
-import { ApiError, StandardError } from "./error";
+import { Event } from "interfaces/event";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const LIST_EVENT_URL = "/mainevent";
 

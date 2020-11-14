@@ -5,8 +5,8 @@ import {
   EmailVerifyStatus,
   LoginStatus,
   RegisterStatus,
-} from "../interfaces/auth";
-import { ApiError, StandardError } from "./error";
+} from "interfaces/auth";
+import { ApiError, StandardError } from "interfaces/api";
 
 export async function login(
   axios: AxiosInstance,

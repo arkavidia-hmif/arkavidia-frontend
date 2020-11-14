@@ -1,8 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useContext, useState } from "react";
-import { resetPassword } from "../../../api/auth";
-import { ApiError } from "../../../api/error";
 import Alert from "../../../components/Alert";
 import AuthWrapper from "../../../components/auth/AuthWrapper";
 import InputField from "../../../components/auth/InputField";
@@ -10,6 +8,8 @@ import FilledButton from "../../../components/FilledButton";
 import { EmailResetPasswordStatus } from "../../../interfaces/auth";
 import { ApiContext } from "../../../utils/context/api";
 import { AuthContext } from "../../../utils/context/auth";
+import { ApiError } from "interfaces/api";
+import { resetPassword } from "api/auth";
 
 const EmailRecover: React.FC = () => {
   const apiContext = useContext(ApiContext);

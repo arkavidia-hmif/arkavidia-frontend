@@ -1,14 +1,14 @@
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
-import { confirmEmailAddress } from "../../../api/auth";
-import { ApiError } from "../../../api/error";
 import Alert from "../../../components/Alert";
 import AuthWrapper from "../../../components/auth/AuthWrapper";
 import FilledButton from "../../../components/FilledButton";
 import { EmailVerifyStatus } from "../../../interfaces/auth";
 import { ApiContext } from "../../../utils/context/api";
 import { AuthContext } from "../../../utils/context/auth";
+import { ApiError } from "interfaces/api";
+import { confirmEmailAddress } from "api/auth";
 
 const ConfirmEmail: React.FC = () => {
   const apiContext = useContext(ApiContext);

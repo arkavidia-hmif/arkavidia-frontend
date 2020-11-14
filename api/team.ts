@@ -5,7 +5,7 @@ import {
   TeamRegistrationForm,
   TeamRegistrationStatus,
 } from "../interfaces/team";
-import { ApiError, StandardError } from "./error";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const REGISTER_TEAM_URL = "/competition/register-team/";
 export const LIST_TEAM_URL = "/competition/teams/";

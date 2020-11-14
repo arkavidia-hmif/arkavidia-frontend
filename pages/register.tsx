@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useContext, useState } from "react";
-import { register } from "../api/auth";
-import { ApiError } from "../api/error";
 import Alert from "../components/Alert";
 import AuthWrapper from "../components/auth/AuthWrapper";
 import InputField from "../components/auth/InputField";
 import FilledButton from "../components/FilledButton";
 import { RegisterStatus } from "../interfaces/auth";
 import { ApiContext } from "../utils/context/api";
+import { ApiError } from "interfaces/api";
+import { register } from "api/auth";
 
 const RegisterPage: React.FC = () => {
   const apiContext = useContext(ApiContext);

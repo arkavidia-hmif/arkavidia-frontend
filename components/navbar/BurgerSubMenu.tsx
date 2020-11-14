@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { SubMenuItem } from "../../interfaces/nav-items";
+import { SubMenuItem } from "interfaces/nav-items";
 
 interface Props {
   items: SubMenuItem[];

@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
-import { Announcement } from "../interfaces/announcement";
-import { ApiError, StandardError } from "./error";
+import { Announcement } from "interfaces/announcement";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const LIST_ANNOUNCEMENT_URL = "/announcement/announcements/";
 

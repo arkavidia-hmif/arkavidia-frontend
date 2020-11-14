@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
-import { FileResponse } from "../interfaces/file";
-import { ApiError, StandardError } from "./error";
+import { FileResponse } from "interfaces/file";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const UPLOAD_FILE_URL = "/uploader/uploaded-file/";
 export const RETRIVE_FILE_URL = (file_id: string): string =>

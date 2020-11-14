@@ -1,6 +1,6 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { ProfileData, UserData } from "../interfaces/auth";
-import { ApiError, StandardError } from "./error";
+import { ProfileData, UserData } from "interfaces/auth";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const PROFILE_URL = "/auth";
 export const EDIT_USER_URL = "/auth/edit-user/";

@@ -1,7 +1,5 @@
 import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
-import { login } from "../api/auth";
-import { ApiError } from "../api/error";
 import Alert from "../components/Alert";
 import AuthWrapper from "../components/auth/AuthWrapper";
 import InputField from "../components/auth/InputField";
@@ -10,6 +8,8 @@ import { LoginStatus } from "../interfaces/auth";
 import { ApiContext } from "../utils/context/api";
 import { AuthContext } from "../utils/context/auth";
 import { isValidEmail } from "../utils/validator";
+import { ApiError } from "interfaces/api";
+import { login } from "api/auth";
 
 const LoginPage: React.FC = () => {
   const router = useRouter();

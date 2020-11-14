@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { responseInterface } from "swr/dist/types";
-import { ApiError } from "../../../../../api/error";
 import { addTeamMember } from "../../../../../api/teamMember";
 import { TeamDetailData } from "../../../../../interfaces/team";
 import { AddTeamMemberStatus } from "../../../../../interfaces/teamMember";
@@ -9,6 +8,7 @@ import { ApiContext } from "../../../../../utils/context/api";
 import { isValidEmail } from "../../../../../utils/validator";
 import Alert from "../../../../Alert";
 import FilledButton from "../../../../FilledButton";
+import { ApiError } from "interfaces/api";
 
 interface Props {
   closeAdd: () => void;

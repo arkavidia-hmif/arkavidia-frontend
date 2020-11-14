@@ -1,7 +1,7 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Competition } from "../interfaces/competition";
-import { TaskResponse } from "../interfaces/task";
-import { ApiError, StandardError } from "./error";
+import { Competition } from "interfaces/competition";
+import { TaskResponse } from "interfaces/task";
+import { ApiError, StandardError } from "interfaces/api";
 
 export const LIST_COMPETITION_URL = "/competition";
 
