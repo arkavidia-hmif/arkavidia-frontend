@@ -5,7 +5,7 @@ import competitionItems from "utils/constants/competition-items";
 import { Theme } from "styles/theme";
 import CompetitionHeader from "components/CompetitionHeader";
 import Buttons from "components/page/preevent/technocamp/Buttons";
-import ArkaRibbon from "components/competition/ribbons/RibbonsArka";
+import ArkaRibbon from "components/competition/ribbons/ArkaRibbon";
 import GeneralTimeline from "components/competition/timeline/GeneralTimeline";
 
 const ArkaPage: React.FC = () => (
