@@ -9,10 +9,10 @@ import { ApiContext } from "../../../../utils/context/api";
 import Alert from "../../../Alert";
 import FilledButton from "../../../FilledButton";
 
-type TeamInfoProps = {
+interface TeamInfoProps {
   currentTeam: TeamData;
   currentCompetition: Competition;
-};
+}
 
 const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
   const apiContext = useContext(ApiContext);

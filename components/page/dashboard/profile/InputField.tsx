@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
-type Props = {
+interface Props {
   type?: string;
   value: string;
   shouldRef?: boolean;
   setValue: (newValue: string) => void;
   choices: Array<string>;
-};
+}
 
 const InputField: React.FC<Props> = ({
   type = "text",

@@ -1,12 +1,12 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   items: {
     date: string;
     content: string;
     css: { background: string };
   }[];
-};
+}
 
 const Ribbon: React.FC<Props> = ({ items }) => (
   <div id="ribbon-container">

@@ -1,11 +1,11 @@
 import { SidebarEntry } from "../../../../../interfaces/sidebar";
 
-type Props = {
+interface Props {
   entry: SidebarEntry;
   index: number;
   selection: number;
   setSelection: (value: number) => void;
-};
+}
 
 const SidebarItem: React.FC<Props> = ({
   entry,

@@ -10,10 +10,10 @@ import Spinner from "../../../Spinner";
 import InsertMemberDialog from "./member/InsertMemberDialog";
 import MemberCard from "./member/MemberCard";
 
-type Props = {
+interface Props {
   team: TeamData;
   competition: Competition;
-};
+}
 
 const TeamMember: React.FC<Props> = ({ team, competition }) => {
   const apiContext = useContext(ApiContext);

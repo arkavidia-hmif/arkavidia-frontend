@@ -1,14 +1,14 @@
 import * as React from "react";
 import { ButtonColor, Theme } from "../styles/theme";
 
-type Props = {
+interface Props {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   text: string;
   submit?: boolean;
   padding?: string;
   color?: ButtonColor;
   loading?: boolean;
-};
+}
 
 const FilledButton: React.FC<Props> = ({
   onClick,

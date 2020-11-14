@@ -1,9 +1,9 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   title: string;
   caption: string;
-};
+}
 
 const SmallRibbon: React.FC<Props> = ({ title, caption }) => (
   <div>

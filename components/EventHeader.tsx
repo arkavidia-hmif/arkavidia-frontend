@@ -1,14 +1,14 @@
 import * as React from "react";
 import { ReactNode } from "react";
 
-type Props = {
+interface Props {
   children?: ReactNode;
   image: string;
   imageAlt: string;
   title: string;
   paragraph: string;
   bg?: string;
-};
+}
 
 const EventHeader: React.FC<Props> = ({
   children,

@@ -7,12 +7,12 @@ import { defaultProfileUrl } from "../../../../../utils/constants/profile-pictur
 import { ApiContext } from "../../../../../utils/context/api";
 import FilledButton from "../../../../FilledButton";
 
-type Props = {
+interface Props {
   member: TeamMember;
   teamDetail: TeamDetailData;
   mutate: responseInterface<TeamDetailData, string>['mutate'];
   setError: (error: string | null) => void;
-};
+}
 
 const MemberCard: React.FC<Props> = ({ member, teamDetail, mutate, setError }) => {
   const apiContext = useContext(ApiContext);

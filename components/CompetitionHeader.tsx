@@ -1,14 +1,14 @@
 import * as React from "react";
 import { ReactNode } from "react";
 
-type Props = {
+interface Props {
   children?: ReactNode;
   image: string;
   imageAlt: string;
   title: string;
   paragraph: string;
   bg?: string;
-};
+}
 
 const CompetitionHeader: React.FC<Props> = ({
   children,
@@ -17,17 +17,18 @@ const CompetitionHeader: React.FC<Props> = ({
   title,
   paragraph,
   bg,
-}) => (
-  <div id="main-container">
-    <div id="logo-container">
-      <img src={image} alt={imageAlt} />
-    </div>
-    <div id="content-container">
-      <h1>{title.toUpperCase()}</h1>
-      <p>{paragraph}</p>
-      {children}
-    </div>
-    <style jsx>{`
+}) => {
+  return (
+    <div id="main-container">
+      <div id="logo-container">
+        <img src={image} alt={imageAlt} />
+      </div>
+      <div id="content-container">
+        <h1>{title.toUpperCase()}</h1>
+        <p>{paragraph}</p>
+        {children}
+      </div>
+      <style jsx>{`
       #main-container {
         display: flex;
         flex-direction: row-reverse;
@@ -91,7 +92,8 @@ const CompetitionHeader: React.FC<Props> = ({
         }
       }
     `}</style>
-  </div>
-);
+    </div>
+  );
+};
 
 export default CompetitionHeader;

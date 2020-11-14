@@ -1,6 +1,6 @@
-type Props = {
+interface Props {
   message: string | null;
-};
+}
 
 const Success: React.FC<Props> = ({ message }) => {
   if (!message) {

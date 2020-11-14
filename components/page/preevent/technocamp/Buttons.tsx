@@ -3,10 +3,10 @@ import { useRouter } from "next/dist/client/router";
 import { Theme } from "../../../../styles/theme";
 import FilledButton from "../../../FilledButton";
 
-type Props = {
+interface Props {
   guidebookLink: string;
   registerLink: string;
-};
+}
 
 const Buttons: React.FC<Props> = ({ guidebookLink, registerLink }) => {
   const router = useRouter();

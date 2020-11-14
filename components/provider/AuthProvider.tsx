@@ -4,9 +4,9 @@ import { AuthData } from "../../interfaces/auth";
 import { DynamicRoute } from "../../utils/constants/dynamic-route";
 import { AuthContext, AuthContextType } from "../../utils/context/auth";
 
-type Props = {
+interface Props {
   children: ReactNode;
-};
+}
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);

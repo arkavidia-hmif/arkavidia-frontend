@@ -6,9 +6,9 @@ import items from "../../utils/constants/nav-items";
 import { AuthContext } from "../../utils/context/auth";
 import BurgerSubMenu from "./BurgerSubMenu";
 
-type Props = {
+interface Props {
   open: boolean;
-};
+}
 
 const BurgerMenu: React.FC<Props> = ({ open }) => {
   const authContext = useContext(AuthContext);

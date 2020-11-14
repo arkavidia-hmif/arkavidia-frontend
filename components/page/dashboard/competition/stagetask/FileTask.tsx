@@ -12,13 +12,13 @@ import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import StatusBox from "./StatusBox";
 
-type Props = {
+interface Props {
   team: TeamData;
   task: Task;
   selection: number;
   response?: TaskResponse;
   mutate: () => void;
-};
+}
 
 const PhotoTask: React.FC<Props> = ({
   team,

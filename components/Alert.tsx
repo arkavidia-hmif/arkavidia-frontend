@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { AlertColor, Theme } from "../styles/theme";
 
-type Props = {
+interface Props {
   color?: AlertColor;
   error: string | null;
-};
+}
 
 const Alert: React.FC<Props> = ({
   color = Theme.alertColors.redAlert,

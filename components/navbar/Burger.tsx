@@ -1,9 +1,9 @@
 import { Dimen } from "../../styles/dimen";
 
-type Props = {
+interface Props {
   open: boolean;
   setOpen: (input: boolean) => void;
-};
+}
 
 const Burger: React.FC<Props> = ({ open, setOpen }) => (
   <div>

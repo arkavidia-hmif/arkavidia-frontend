@@ -1,21 +1,21 @@
 import * as React from 'react';
 import BigRibbon from './RibbonBig';
 
-type Props = {
-    caption: string[]
-  }
+interface Props {
+  caption: string[]
+}
 
-const TripleRibbon : React.FC<Props> = ({caption}) => (
+const TripleRibbon: React.FC<Props> = ({ caption }) => (
   <div>
     <div className="flex-row-center">
       <div className="margins">
-        <BigRibbon image="/img/competitions/secondmedal.png" title="Juara 2" caption={caption[0]}/>
+        <BigRibbon image="/img/competitions/secondmedal.png" title="Juara 2" caption={caption[0]} />
       </div>
       <div className="margins-center">
-        <BigRibbon image="/img/competitions/firstmedal.png" title="Juara 1" caption={caption[1]}/>
+        <BigRibbon image="/img/competitions/firstmedal.png" title="Juara 1" caption={caption[1]} />
       </div>
       <div className="margins">
-        <BigRibbon image="/img/competitions/thirdmedal.png" title="Juara 3" caption={caption[2]}/>
+        <BigRibbon image="/img/competitions/thirdmedal.png" title="Juara 3" caption={caption[2]} />
       </div>
     </div>
     <style jsx>{`
@@ -45,5 +45,5 @@ const TripleRibbon : React.FC<Props> = ({caption}) => (
           `}</style>
   </div>
 );
-  
+
 export default TripleRibbon;

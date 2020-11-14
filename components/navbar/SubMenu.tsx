@@ -1,16 +1,16 @@
 import * as React from "react";
 import Link from "next/link";
 
-type ArrayType = {
+interface ArrayType {
   path: string;
   text: string;
-};
+}
 
-type Props = {
+interface Props {
   items: ArrayType[];
   hover: boolean;
   setHover: (input: boolean) => void;
-};
+}
 
 const SubMenu: React.FC<Props> = ({ items, hover, setHover }) => {
   return (

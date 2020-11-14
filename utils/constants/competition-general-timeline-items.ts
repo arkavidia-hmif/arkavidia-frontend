@@ -1,8 +1,8 @@
-type Props = {
+interface Props {
   date: string;
   content: string;
   css: { background: string };
-};
+}
 const items: Props[] = [
   {
     date: "5 November 2020",

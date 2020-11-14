@@ -1,9 +1,9 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   category: string;
   fee: string;
-};
+}
 
 const Category: React.FC<Props> = ({ category, fee }) => (
   <div id="pricing">

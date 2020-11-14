@@ -4,9 +4,9 @@ import { Theme } from "../../styles/theme";
 import { AuthContext } from "../../utils/context/auth";
 import DashboardMenu from "./DashboardMenu";
 
-type Props = {
+interface Props {
   children: ReactNode;
-};
+}
 
 const DashboardWrapper: React.FC<Props> = ({ children }) => {
   const authContext = useContext(AuthContext);

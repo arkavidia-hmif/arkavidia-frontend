@@ -1,7 +1,7 @@
 import { TaskResponse } from "../../../../../interfaces/task";
 import { getResponseStatus } from "../../../../../utils/transformer/task";
 
-type Props = {
+interface Props {
   response?: TaskResponse
 }
 

@@ -4,11 +4,11 @@ import { Theme } from "../styles/theme";
 import Footer from "./Footer";
 import Navbar from "./navbar/Navbar";
 
-type Props = {
+interface Props {
   children?: ReactNode;
   title?: string;
   background?: string;
-};
+}
 
 const Layout: React.FC<Props> = ({
   children,

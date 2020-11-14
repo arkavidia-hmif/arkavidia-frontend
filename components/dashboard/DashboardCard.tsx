@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-type Props = {
+interface Props {
   title: string;
   body: string;
   buttonLink?: string | null;
   buttonText?: string | null;
   className?: string;
-};
+}
 
 const DashboardCard: React.FC<Props> = ({
   title,

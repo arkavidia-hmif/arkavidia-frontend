@@ -1,10 +1,10 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   question: string;
   answer: string;
   isOpen?: boolean;
-};
+}
 
 const QuestionAnswer: React.FC<Props> = ({
   question,

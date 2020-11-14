@@ -2,11 +2,11 @@ import { Fragment } from "react";
 import { SidebarGroup } from "../../../../../interfaces/sidebar";
 import SidebarItem from "./SidebarItem";
 
-type Props = {
+interface Props {
   selection: number;
   setSelection: (value: number) => void;
   data: SidebarGroup[];
-};
+}
 
 const SidebarSection: React.FC<Props> = ({ data, selection, setSelection }) => {
   let i = -1;

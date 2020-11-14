@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-type Props = {
-    date: string,
-    desc: string,
-    color: string
-  }
+interface Props {
+  date: string,
+  desc: string,
+  color: string
+}
 
-const SingleChevronPolygon : React.FC<Props> = ({ date, desc, color }) => (
+const SingleChevronPolygon: React.FC<Props> = ({ date, desc, color }) => (
   <div>
     <div className="polygon">
       <p className="text">{date}</p>
@@ -67,5 +67,5 @@ const SingleChevronPolygon : React.FC<Props> = ({ date, desc, color }) => (
           `}</style>
   </div>
 );
-  
+
 export default SingleChevronPolygon;

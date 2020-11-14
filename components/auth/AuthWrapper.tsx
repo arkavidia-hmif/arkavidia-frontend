@@ -4,7 +4,7 @@ import ColorfulHeader from "../ColorfulHeader";
 import Layout from "../Layout";
 import GradientSeparator from "./GradientSeparator";
 
-type Props = {
+interface Props {
   children: ReactNode | ReactNode[],
   title: string
 }

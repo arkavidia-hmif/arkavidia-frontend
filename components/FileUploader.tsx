@@ -2,12 +2,12 @@ import React from "react";
 import { FileInterface } from "../interfaces/file";
 import { ButtonColor, Theme } from "../styles/theme";
 
-type Props = {
+interface Props {
   data: FileInterface;
   padding?: string;
   color?: ButtonColor;
   disabled?: boolean;
-};
+}
 
 const FileUploader: React.FC<Props> = ({
   data,

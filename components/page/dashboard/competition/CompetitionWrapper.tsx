@@ -8,11 +8,11 @@ import Alert from "../../../Alert";
 import Spinner from "../../../Spinner";
 import CompetitionSidebar from "./sidebar/CompetitionSidebar";
 
-type Props = {
+interface Props {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
   teamMember: (team: TeamData, competition: Competition) => ReactNode;
   stageTask: (team: TeamData, selection: number) => ReactNode;
-};
+}
 
 const CompetitionWrapper: React.FC<Props> = ({
   teamInfo,

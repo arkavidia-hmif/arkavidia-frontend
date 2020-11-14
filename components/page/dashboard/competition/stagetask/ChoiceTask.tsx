@@ -9,18 +9,18 @@ import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 import StatusBox from "./StatusBox";
 
-type Props = {
+interface Props {
   team: TeamData;
   task: Task;
   selection: number;
   response?: TaskResponse;
   mutate: () => void;
-};
+}
 
-type WidgetParam = {
+interface WidgetParam {
   description: string;
   options: string[];
-};
+}
 
 const ChoiceTask: React.FC<Props> = ({
   team,

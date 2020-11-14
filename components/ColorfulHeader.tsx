@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Theme } from "../styles/theme";
 
-type Props = {
+interface Props {
   children: React.ReactNode;
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   color?: string;
   size?: string;
-};
+}
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 

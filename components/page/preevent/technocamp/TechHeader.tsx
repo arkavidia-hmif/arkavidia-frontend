@@ -1,8 +1,8 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   title: string;
-};
+}
 
 const TechHeader: React.FC<Props> = ({ title }) => (
   <div className="header">

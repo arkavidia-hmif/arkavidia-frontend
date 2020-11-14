@@ -11,10 +11,10 @@ import { AuthContext } from "../../../../../utils/context/auth";
 import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
 
-type Props = {
+interface Props {
   team: TeamData;
   selection: number;
-};
+}
 
 const StageTask: React.FC<Props> = ({ team, selection }) => {
   const apiContext = useContext(ApiContext);

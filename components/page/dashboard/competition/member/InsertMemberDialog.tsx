@@ -10,7 +10,7 @@ import { isValidEmail } from "../../../../../utils/validator";
 import Alert from "../../../../Alert";
 import FilledButton from "../../../../FilledButton";
 
-type Props = {
+interface Props {
   closeAdd: () => void;
   team: TeamDetailData;
   mutate: responseInterface<TeamDetailData, string>['mutate'];

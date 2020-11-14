@@ -3,9 +3,9 @@ import Link from "next/link";
 import FilledButton from "../components/FilledButton";
 import Layout from "../components/Layout";
 
-type Props = {
+interface Props {
   statusCode: number;
-};
+}
 
 const Error: NextPage<Props> = ({ statusCode }) => {
   return (

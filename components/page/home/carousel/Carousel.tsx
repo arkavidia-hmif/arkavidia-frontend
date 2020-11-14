@@ -1,9 +1,9 @@
 import React, { ReactNode, useState } from "react";
 
-type CarouselProps = {
+interface CarouselProps {
   children: ReactNode[];
   alignment: "left" | "right";
-};
+}
 
 const Carousel: React.FC<CarouselProps> = ({ children, alignment }) => {
   const [position, setPosition] = useState(0);

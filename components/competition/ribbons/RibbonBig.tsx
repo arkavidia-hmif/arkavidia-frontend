@@ -1,10 +1,10 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   image: string;
   title: string;
   caption: string;
-};
+}
 
 const BigRibbon: React.FC<Props> = ({ image, title, caption }) => (
   <div>

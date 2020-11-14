@@ -5,9 +5,9 @@ import { SWRConfig } from "swr";
 import { ApiContext, ApiContextType } from "../../utils/context/api";
 import { AuthContext } from "../../utils/context/auth";
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 const ApiProvider: React.FC<Props> = ({ children }) => {
   const authContext = React.useContext(AuthContext);

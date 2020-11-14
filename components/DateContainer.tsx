@@ -5,12 +5,12 @@ interface date {
   time: string
 }
 
-type Props = {
+interface Props {
   color?: string;
   dates?: string[];
   datesDetail?: date[]
   colorAbout?: string;
-};
+}
 
 const DateContainerExp: React.FC<Props> = ({ dates, color, colorAbout, datesDetail }) => (
   <div id="date-container">

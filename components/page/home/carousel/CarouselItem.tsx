@@ -1,13 +1,13 @@
 import React from "react";
 
-type CarouselItemProps = {
+interface CarouselItemProps {
   backgroundImage?: string;
   width: string;
   foregroundImage?: string;
   desc: string;
   type: "event" | "competition";
   url: string;
-};
+}
 
 const CarouselItem: React.FC<CarouselItemProps> = ({
   backgroundImage,

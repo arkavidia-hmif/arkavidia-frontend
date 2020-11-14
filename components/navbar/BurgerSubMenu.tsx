@@ -1,15 +1,15 @@
 import * as React from "react";
 import Link from "next/link";
 
-type ArrayType = {
+interface ArrayType {
   path: string;
   text: string;
-};
+}
 
-type Props = {
+interface Props {
   items: ArrayType[];
   toggle: boolean;
-};
+}
 
 const BurgerSubMenu: React.FC<Props> = ({ items, toggle }) => (
   <div className="sub-menu">

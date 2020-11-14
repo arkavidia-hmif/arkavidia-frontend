@@ -1,10 +1,10 @@
 import * as React from "react";
 
-type Props = {
+interface Props {
   link: string;
   text: string;
   alt?: string;
-};
+}
 
 const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
   <div className="content-box">
