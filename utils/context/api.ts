@@ -1,8 +1,8 @@
 import { AxiosInstance } from "axios";
-import React from "react";
+import { createContext } from "react";
 
 export interface ApiContextType {
   axios: AxiosInstance
 }
 
-export const ApiContext = React.createContext<ApiContextType>({} as ApiContextType);
+export const ApiContext = createContext<ApiContextType>({} as ApiContextType);

@@ -1,4 +1,4 @@
-import React from "react";
+import { createContext } from "react";
 import { AuthData } from "../../interfaces/auth";
 
 export interface AuthContextType {
@@ -8,6 +8,6 @@ export interface AuthContextType {
   setAuth: (newValue?: AuthData) => void;
 }
 
-export const AuthContext = React.createContext<AuthContextType>(
+export const AuthContext = createContext<AuthContextType>(
   {} as AuthContextType
 );
