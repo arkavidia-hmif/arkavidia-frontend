@@ -11,7 +11,7 @@ const CompetitionTimelineHeader: React.FC<Props> = ({ title, headerSize="3rem" }
     <style jsx>{`
       .header {
         text-align: center;
-        margin: 5rem 0 2rem;
+        margin: 5rem 0 1.5rem;
       }
 
       .header h2 {

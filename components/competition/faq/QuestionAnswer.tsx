@@ -29,6 +29,17 @@ const QuestionAnswer: React.FC<Props> = ({
         </div>
       </div>
       <style jsx>{`
+        @keyframes example {
+          from {
+            padding: 0%;
+            padding-left: 3%;
+          }
+          to {
+            padding: 1%;
+            padding-left: 3%;
+          }
+        }
+
         .show-children {            
           transition: all 0.5s ease-in-out;
         }
@@ -50,7 +61,7 @@ const QuestionAnswer: React.FC<Props> = ({
           transform: rotate(-180deg);
         }
         .question-container {
-          width: 80%;
+          width: 60%;
           border-radius: 10px;
           padding: 1%;
           padding-left: 3%;
@@ -65,7 +76,7 @@ const QuestionAnswer: React.FC<Props> = ({
         }
         .faq-question-container {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin-block-start: 0;
             margin-block-end: 0;
         }
@@ -82,10 +93,12 @@ const QuestionAnswer: React.FC<Props> = ({
           background-color: white;
           text-align: left;
           padding: 1%;
-          font-size: 1.5rem;
+          font-size: 1rem;
           border-radius: 10px;
           padding-left: 3%;
-          width: 80%;
+          width: 60%;
+          animation-name: example;
+          animation-duration: 1s;
         }
         .answer-container {
           display: flex;
