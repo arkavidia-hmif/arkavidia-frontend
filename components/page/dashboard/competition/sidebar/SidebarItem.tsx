@@ -27,6 +27,7 @@ const SidebarItem: React.FC<Props> = ({
         a {
           text-decoration: none;
         }
+
         img {
           max-width: 1rem;
         }
@@ -37,6 +38,7 @@ const SidebarItem: React.FC<Props> = ({
           line-height: 2.4rem;
           cursor: pointer;
           padding: 0.5rem;
+          padding-right: 0rem;
           position: relative;
           font-size: 0.875rem;
         }
@@ -45,13 +47,14 @@ const SidebarItem: React.FC<Props> = ({
           background: rgba(251, 188, 200, 0.3);
           margin: 0 -10px 0 -15px;
           padding: 0.5rem calc(0.5rem + 15px);
+          padding-right: 0rem;
         }
 
         #right-roller {
           position: absolute;
           background: #fe94ab;
           opacity: 0.5;
-          border-radius: 10.3125px;
+          border-radius: 10px;
           width: 10px;
           height: 3.4rem;
           top: 0;
