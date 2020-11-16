@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import { getTeamDetail } from "../../../../../api/team";
-import { Competition } from "../../../../../interfaces/competition";
-import { SidebarEntry } from "../../../../../interfaces/sidebar";
-import { TeamData } from "../../../../../interfaces/team";
-import { ApiContext } from "../../../../../utils/context/api";
-import Alert from "../../../../Alert";
-import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
-import { AuthContext } from "../../../../../utils/context/auth";
-import { TaskResponse } from "../../../../../interfaces/task";
 import SidebarSection from "./SidebarSection";
+import { getTeamDetail } from "api/team";
+import { Competition } from "interfaces/competition";
+import { SidebarEntry } from "interfaces/sidebar";
+import { TeamData } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import Alert from "components/Alert";
+import { filterAndGroupTaskResponse, getRequiredAndCompletedTask } from "utils/transformer/task";
+import { AuthContext } from "utils/context/auth";
+import { TaskResponse } from "interfaces/task";
 
 interface SubmissionProgressProps {
   team: TeamData;
@@ -63,6 +63,8 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
     return "/img/dashboard/submission/cross.svg";
   };
 
+  let status = "";
+
   if (teamDetail) {
     const taskResponseById = filterAndGroupTaskResponse(teamDetail, authContext.auth?.user.email || "");
 
@@ -87,12 +89,26 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
     for (const usertaskResponse of teamDetail.userTaskResponses) {
       taskResponse.push(usertaskResponse);
     }
+
+    // Status
+    if (teamDetail.teamMembers.length < competition.minTeamMembers) {
+      status = "Jumlah anggota kurang";
+    } else {
+      const [requiredTaskCount, completedTaskCount] = getRequiredAndCompletedTask(teamDetail);
+      if (requiredTaskCount === completedTaskCount) {
+        status = "Data tim lengkap";
+      } else {
+        status = "Data tim belum lengkap";
+      }
+    }
   }
+
 
   return (
     <div className="container mb-3 card">
       <h2>{team.name || "Nama Tim"}</h2>
       <p className="">{competition.name || "Nama Lomba"}</p>
+      <p>Status : {status}</p>
       <SidebarSection
         data={sidebarData}
         selection={selection}
