@@ -1,27 +1,45 @@
 import React from "react";
 
-const TextArea: React.FC = () => {
+interface Props {
+  value: string,
+  setValue: (newValue: string) => void;
+}
+
+const TextArea: React.FC<Props> = ({
+  value,
+  setValue
+}) => {
   return (
     <div id="text-area-wrapper">
       <label className="text-area">
-        <div className="title">
-          <h2>Text Area</h2>
-        </div>
-        <textarea name="text-area" id="text-area" placeholder="Test" />
+        <textarea 
+          name="text-area" 
+          id="text-area" 
+          value={value}
+          placeholder="Masukkan jawaban disini"
+          onChange={(evt) =>
+            setValue(evt.target.value)
+          } 
+        />
       </label>
       <style jsx>{`
         #text-area-wrapper {
-          display: flex;
-          flex-direction: column;
-          padding: 1rem;
+          margin-top: 1rem;
         }
 
         textarea {
           outline: none;
           resize: none;
           border: none;
-          padding: 0.5rem;
-          border: 0.15rem solid black;
+          background: transparent;
+          height: 20vh;
+          width: 100%;
+          padding-top: 0.5rem;
+          border-bottom: 0.15rem solid black;
+        }
+
+        .text-area {
+          width: 100%;
         }
       `}</style>
     </div>
