@@ -65,7 +65,7 @@ const PhotoTask: React.FC<Props> = ({
             team.id,
             res.id
           );
-          if (submissionRes?.reason === "") {
+          if (submissionRes?.status !== "rejected") {
             mutate();
             setSuccess(true);
             setError(null);
