@@ -30,12 +30,12 @@ const QuestionAnswer: React.FC<Props> = ({
       </div>
       <style jsx>{`
         .show-children {            
-          transition: all 0.5s linear;
+          transition: all 0.5s ease-in-out;
         }
         .hide-children {
           opacity: 0;
           display: none;
-          transition: all 0.5s linear;
+          transition: all 0.5s ease-in-out;
         }
         .margin-bottom {
           margin-bottom: 1rem;

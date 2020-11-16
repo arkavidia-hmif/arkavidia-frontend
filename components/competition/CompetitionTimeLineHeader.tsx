@@ -2,19 +2,20 @@ import * as React from "react";
 
 interface Props {
   title: string;
+  headerSize?: string;
 }
 
-const CompetitionTimelineHeader: React.FC<Props> = ({ title }) => (
+const CompetitionTimelineHeader: React.FC<Props> = ({ title, headerSize="3rem" }) => (
   <div className="header">
     <h2>{title}</h2>
     <style jsx>{`
       .header {
         text-align: center;
-        margin: 5rem 0 3rem;
+        margin: 5rem 0 2rem;
       }
 
       .header h2 {
-        font-size: 3rem;
+        font-size:  ${headerSize};
         color: #0084af;
       }
 
