@@ -4,12 +4,12 @@ export interface Task {
   category: string;
   widget: string;
   widgetParameters:
-    | string
-    | {
-        description: string;
-        fileExtension: Array<string>;
-        maxFileSize: string;
-      };
+  | string
+  | {
+    description: string;
+    fileExtension: Array<string>;
+    maxFileSize: string;
+  };
   isUserTask: boolean;
 }
 
@@ -19,6 +19,6 @@ export interface TaskResponse {
   status: "awaiting_validation" | "completed" | "rejected";
   reason: string;
   lastSubmittedAt: string;
-  userId: number;
-  teamMemberId: number;
+  userId?: number;
+  teamMemberId?: number;
 }
