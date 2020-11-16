@@ -48,14 +48,10 @@ const FilledButton: React.FC<Props> = ({
         border-radius: 10px;
         background-color: ${color.main};
         color: white;
-        cursor: pointer;
         transition: background-color 0.1s;
         position: relative;
       }
 
-      #container:hover {
-        background-color: ${color.hover};
-      }
 
       #loader {
         display: none;
@@ -89,10 +85,11 @@ const FilledButton: React.FC<Props> = ({
         ${loading ? "display: block" : ""}
       }
       #container {
-        ${loading ? "color: " + color.main : ""}
+        ${loading ? "color: " + color.main + ";" : ""}
+        ${loading ? "cursor: auto;" : "cursor: pointer;"}
       }
       #container:hover {
-        ${loading ? "color: " + color.hover : ""}
+        ${loading ? "" : "background-color: " + color.hover}
       }
     `}</style>
     </>
