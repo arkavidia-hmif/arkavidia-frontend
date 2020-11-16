@@ -19,7 +19,7 @@ interface SubmissionProgressProps {
 }
 
 const sidebarTop = {
-  name: "TIM",
+  name: "Tim",
   item: [
     {
       text: "Informasi Tim",
