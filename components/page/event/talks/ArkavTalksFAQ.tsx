@@ -4,7 +4,7 @@ import QuestionAnswer from "../../../competition/faq/QuestionAnswer";
 
 const ArkavTalksFAQ: React.FC = () => (
   <div className="margin-bottom">
-    <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" />
+    <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" headerSize="2rem"/>
     <QuestionAnswer
       question="Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet"
       answer="Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet Lorem Ipsum Dolor sit amet"
