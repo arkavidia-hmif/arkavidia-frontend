@@ -77,7 +77,7 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
           mutate={teamDetailMutate}
           response={taskResponseById[task.id]}
         />
-      )
+      );
     }
   };
 

@@ -5,9 +5,9 @@ import { ApiContext } from "../../../../../utils/context/api";
 import { Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
+import TextArea from "../../../../TextArea";
 import StatusBox from "./StatusBox";
 import { Theme } from "styles/theme";
-import TextArea from "../../../../TextArea";
 
 interface Props {
   team: TeamData;
@@ -160,7 +160,7 @@ const TextTask: React.FC<Props> = ({
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
 export default TextTask;
