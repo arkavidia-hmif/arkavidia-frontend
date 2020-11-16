@@ -1,15 +1,20 @@
+export interface ChoiceTaskParam {
+  description: string;
+  options: string[];
+}
+
+export interface FileTaskParam {
+  description: string;
+  fileExtension: Array<string>;
+  maxFileSize: string;
+}
+
 export interface Task {
   id: number;
   name: string;
   category: string;
   widget: string;
-  widgetParameters:
-  | string
-  | {
-    description: string;
-    fileExtension: Array<string>;
-    maxFileSize: string;
-  };
+  widgetParameters: ChoiceTaskParam | FileTaskParam;
   isUserTask: boolean;
 }
 

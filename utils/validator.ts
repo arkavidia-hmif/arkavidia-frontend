@@ -1,3 +1,5 @@
+import { FileTaskParam } from "interfaces/task";
+
 export function isValidEmail(email: string): boolean {
   // eslint-disable-next-line no-useless-escape
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -27,11 +29,7 @@ export const isEmpty = (string: string | null): boolean =>
 
 export const isValidFile = (
   file: File,
-  widget: {
-    description: string;
-    fileExtension: Array<string>;
-    maxFileSize: string;
-  }
+  widget: FileTaskParam
 ): Promise<boolean> | boolean => {
   const format = `.${file.type.split("/").pop()}`;
   const extensions = widget.fileExtension;

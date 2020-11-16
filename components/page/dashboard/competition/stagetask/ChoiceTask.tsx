@@ -3,7 +3,7 @@ import FilledButton from "../../../../FilledButton";
 import { TeamData } from "../../../../../interfaces/team";
 import useChoice from "../../../../../utils/hooks/useChoice";
 import { ApiContext } from "../../../../../utils/context/api";
-import { Task, TaskResponse } from "../../../../../interfaces/task";
+import { ChoiceTaskParam, Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 import StatusBox from "./StatusBox";
@@ -17,10 +17,7 @@ interface Props {
   mutate: () => void;
 }
 
-interface WidgetParam {
-  description: string;
-  options: string[];
-}
+
 
 const ChoiceTask: React.FC<Props> = ({
   team,
@@ -29,7 +26,7 @@ const ChoiceTask: React.FC<Props> = ({
   mutate,
   selection,
 }) => {
-  const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
+  const parsedParam = task.widgetParameters as ChoiceTaskParam;
 
   const choiceInit = response ? response.response : parsedParam.options[0];
 

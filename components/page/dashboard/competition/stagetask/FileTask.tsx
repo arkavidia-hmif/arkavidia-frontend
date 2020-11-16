@@ -7,7 +7,7 @@ import FileUploader from "../../../../FileUploader";
 import { uploadFile } from "../../../../../api/file";
 import Alert from "../../../../Alert";
 import { TeamData } from "../../../../../interfaces/team";
-import { Task, TaskResponse } from "../../../../../interfaces/task";
+import { FileTaskParam, Task, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import StatusBox from "./StatusBox";
 import { Theme } from "styles/theme";
@@ -52,7 +52,7 @@ const PhotoTask: React.FC<Props> = ({
       }
       setLoading(true);
       if (file?.value?.name && typeof task.widgetParameters !== "string") {
-        const bool = await isValidFile(file.value, task.widgetParameters);
+        const bool = await isValidFile(file.value, task.widgetParameters as FileTaskParam);
         if (bool) {
           const res = await uploadFile(
             apiContext.axios,
