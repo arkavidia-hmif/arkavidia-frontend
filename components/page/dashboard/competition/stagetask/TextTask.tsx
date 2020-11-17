@@ -30,41 +30,54 @@ const TextTask: React.FC<Props> = ({
 }) => {
   const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
   const apiContext = useContext(ApiContext);
+  const valueInit = response ? response.response : "";
 
   const [isEdit, setIsEdit] = useState<boolean>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
 
   useEffect(() => {
+    setValue(valueInit);
     setIsEdit(!response);
-    setSuccess(null);
+    setSuccess(false);
     setError(null);
   }, [selection]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     setError(null);
-    setSuccess(null);
-    setLoading(true);
+    setSuccess(false);
 
-    submitTaskResponseCompetition(
-      apiContext.axios,
-      task.id,
-      team.id,
-      value
-    )
-      .then(() => {
-        setSuccess("Data tersimpan");
+    try {
+      if (value === null) {
+        setError("Form belum diisi");
+        return;
+      }
+      setLoading(true);
+      const submissionRes = await submitTaskResponseCompetition(
+        apiContext.axios,
+        task.id,
+        team.id,
+        value
+      );
+
+      if (submissionRes?.reason === "") {
         mutate();
-      })
-      .catch((e) => {
-        setError(e.message);
-      })
-      .finally(() => {
+        setSuccess(true);
+        setError(null);
         setLoading(false);
         setIsEdit(false);
-      });
+      } else {
+        setIsEdit(false);
+        setLoading(false);
+        setError(submissionRes.reason);
+      }
+    } catch (e) {
+      setLoading(false);
+      setSuccess(false);
+      setError("Form kosong");
+    }
   };
   return (
     <>
@@ -78,19 +91,23 @@ const TextTask: React.FC<Props> = ({
         <div className="mt-3">
           <div className="title">Jawaban:</div>
           <TextArea 
+            disabled={!isEdit}
             value={value}
             setValue={setValue}
           />
         </div>
         <StatusBox response={response} />
         <div id="status" className="mt-3">
-          {!isEdit && <Alert error={error} />}
-          {!isEdit && success && (
-            <Alert color={Theme.alertColors.greenAlert} error={success} />
+          {error && !success && <Alert error={error} />}
+          {success && (
+            <Alert
+              color={Theme.alertColors.greenAlert}
+              error="Successfully submitted"
+            />
           )}
         </div>
         <div id="simpan" className="mt-4">
-          {!isEdit ? (
+          {!isEdit && response ? (
             <FilledButton
               text="Ubah"
               color={Theme.buttonColors.pinkButton}

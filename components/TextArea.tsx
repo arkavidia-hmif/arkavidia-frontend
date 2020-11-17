@@ -1,13 +1,15 @@
 import React from "react";
 
 interface Props {
-  value: string,
+  value: string;
   setValue: (newValue: string) => void;
+  disabled?: boolean;
 }
 
 const TextArea: React.FC<Props> = ({
   value,
-  setValue
+  setValue,
+  disabled = false
 }) => {
   return (
     <div id="text-area-wrapper">
@@ -17,6 +19,8 @@ const TextArea: React.FC<Props> = ({
           id="text-area" 
           value={value}
           placeholder="Masukkan jawaban disini"
+          className={disabled ? "disabled" : ""}
+          disabled={disabled}
           onChange={(evt) =>
             setValue(evt.target.value)
           } 
@@ -36,6 +40,10 @@ const TextArea: React.FC<Props> = ({
           width: 100%;
           padding-top: 0.5rem;
           border-bottom: 0.15rem solid black;
+        }
+
+        .disabled {
+          border-bottom: 0.15rem solid grey;
         }
 
         .text-area {
