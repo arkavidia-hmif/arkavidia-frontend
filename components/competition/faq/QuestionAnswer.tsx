@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React, { useState } from "react";
 interface Props {
   question: string;
   answer: string;
@@ -11,7 +10,7 @@ const QuestionAnswer: React.FC<Props> = ({
   answer,
   isOpen = false,
 }) => {
-  const [open, setOpen] = React.useState<boolean>(isOpen);
+  const [open, setOpen] = useState<boolean>(isOpen);
   return (
     <div className="margin-bottom">
       <div className="wrapper" onClick={() => setOpen((a) => !a)}>
@@ -29,19 +28,10 @@ const QuestionAnswer: React.FC<Props> = ({
         </div>
       </div>
       <style jsx>{`
-        @keyframes example {
-          from {
-            padding: 0%;
-            padding-left: 3%;
-          }
-          to {
-            padding: 1%;
-            padding-left: 3%;
-          }
-        }
-
         .show-children {            
           transition: all 0.5s ease-in-out;
+          max-height: 1000px;
+          opacity: 1;
         }
         .hide-children {
           opacity: 0;
@@ -97,13 +87,13 @@ const QuestionAnswer: React.FC<Props> = ({
           border-radius: 10px;
           padding-left: 3%;
           width: 60%;
-          animation-name: example;
-          animation-duration: 1s;
         }
         .answer-container {
           display: flex;
           justify-content: center;
           align-items: center;
+          // animation-name: example;
+          // animation-duration: 0.5s;
         }
 
         @media only screen and (max-width: 1000px) {
