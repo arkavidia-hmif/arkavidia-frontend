@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React, { useState } from "react";
 interface Props {
   question: string;
   answer: string;
@@ -11,7 +10,7 @@ const QuestionAnswer: React.FC<Props> = ({
   answer,
   isOpen = false,
 }) => {
-  const [open, setOpen] = React.useState<boolean>(isOpen);
+  const [open, setOpen] = useState<boolean>(isOpen);
   return (
     <div className="margin-bottom">
       <div className="wrapper" onClick={() => setOpen((a) => !a)}>
@@ -30,12 +29,14 @@ const QuestionAnswer: React.FC<Props> = ({
       </div>
       <style jsx>{`
         .show-children {            
-          transition: all 0.5s linear;
+          transition: all 0.5s ease-in-out;
+          max-height: 1000px;
+          opacity: 1;
         }
         .hide-children {
           opacity: 0;
           display: none;
-          transition: all 0.5s linear;
+          transition: all 0.5s ease-in-out;
         }
         .margin-bottom {
           margin-bottom: 1rem;
@@ -50,7 +51,7 @@ const QuestionAnswer: React.FC<Props> = ({
           transform: rotate(-180deg);
         }
         .question-container {
-          width: 80%;
+          width: 60%;
           border-radius: 10px;
           padding: 1%;
           padding-left: 3%;
@@ -65,7 +66,7 @@ const QuestionAnswer: React.FC<Props> = ({
         }
         .faq-question-container {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin-block-start: 0;
             margin-block-end: 0;
         }
@@ -82,15 +83,17 @@ const QuestionAnswer: React.FC<Props> = ({
           background-color: white;
           text-align: left;
           padding: 1%;
-          font-size: 1.5rem;
+          font-size: 1rem;
           border-radius: 10px;
           padding-left: 3%;
-          width: 80%;
+          width: 60%;
         }
         .answer-container {
           display: flex;
           justify-content: center;
           align-items: center;
+          // animation-name: example;
+          // animation-duration: 0.5s;
         }
 
         @media only screen and (max-width: 1000px) {
