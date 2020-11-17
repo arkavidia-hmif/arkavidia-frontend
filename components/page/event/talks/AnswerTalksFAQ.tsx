@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
 	faq: {
@@ -16,7 +16,7 @@ const ArkavAnswer: React.FC<Props> = ({
   toggleFAQ
 }) => {
   return (
-    <div className={"faq " + (faq.open ? 'open' : '')} key={index} onClick={() => toggleFAQ(index)}>
+    <div className={"faq " + (faq.open ? "open" : "")} key={index} onClick={() => toggleFAQ(index)}>
       <div className="faq-question">
         <p>{faq.question}</p>
       </div>

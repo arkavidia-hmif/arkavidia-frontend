@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import CompetitionTimelineHeader from "../../../competition/CompetitionTimeLineHeader";
 import Talks from "../../../../utils/constants/arkavTalksFAQ";
-import AnswerTalksFAQ from './AnswerTalksFAQ';
+import AnswerTalksFAQ from "./AnswerTalksFAQ";
 
 const ArkavFAQ: React.FC = () => {
   const [faqs, setFaqs] = useState(Talks.faq);
