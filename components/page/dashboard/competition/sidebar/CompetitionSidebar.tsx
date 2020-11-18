@@ -128,7 +128,7 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
 
         .card {
           background: linear-gradient(180deg, #ffffff 0%, #f3a9dd 100%);
-          border: 0.46875px solid #05058d;
+          border: 0.1rem solid #05058d;
           box-sizing: border-box;
           border-radius: 10px;
         }
