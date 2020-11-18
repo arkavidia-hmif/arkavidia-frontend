@@ -21,7 +21,7 @@ const SidebarItem: React.FC<Props> = ({
       >
         {selection === index && <span id="right-roller"></span>}
         <img src={entry.image} className="mr-3" />
-        {entry.text}
+        <p>{entry.text}</p>
       </li>
       <style jsx>{`
         a {
@@ -29,18 +29,26 @@ const SidebarItem: React.FC<Props> = ({
         }
 
         img {
-          max-width: 1rem;
+          width: 1rem;
+          height: 1rem;
         }
 
         li {
           color: #161f24;
-          min-height: 2.4rem;
-          line-height: 2.4rem;
           cursor: pointer;
           padding: 0.5rem;
           padding-right: 0rem;
           position: relative;
           font-size: 0.875rem;
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        li p {
+          margin: 0;
+          line-height: 1.5rem;
         }
 
         li.active {
@@ -56,7 +64,7 @@ const SidebarItem: React.FC<Props> = ({
           opacity: 0.5;
           border-radius: 10px;
           width: 10px;
-          height: 3.4rem;
+          height: 100%;
           top: 0;
           right: -5px;
         }
