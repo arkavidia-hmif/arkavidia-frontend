@@ -57,7 +57,7 @@ const DashboardMenu: React.FC = () => {
         li {
           height: 3rem;
           margin: 0 2rem;
-          border-bottom: 0rem solid;
+          border: 0rem;
           border-image-slice: 1;
           border-image-source: linear-gradient(90deg, #623fa2 0%, #f25785 100%);
           position: relative;
