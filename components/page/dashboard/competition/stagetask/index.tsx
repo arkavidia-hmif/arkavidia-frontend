@@ -10,6 +10,7 @@ import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/tas
 import { AuthContext } from "../../../../../utils/context/auth";
 import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
+import TextTask from "./TextTask";
 
 interface Props {
   team: TeamData;
@@ -59,6 +60,17 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     if (task.widget === "Option") {
       return (
         <ChoiceTask
+          selection={selection}
+          team={team}
+          task={task}
+          mutate={teamDetailMutate}
+          response={taskResponseById[task.id]}
+        />
+      );
+    }
+    if (task.widget === "TextArea") {
+      return (
+        <TextTask
           selection={selection}
           team={team}
           task={task}
