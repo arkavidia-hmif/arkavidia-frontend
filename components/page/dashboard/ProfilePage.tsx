@@ -1,23 +1,23 @@
 import { useContext, useEffect, useState } from "react";
 import useSWR from "swr";
-import { editProfile, getProfile, PROFILE_URL } from "../../../../api/profile";
-import { ApiContext } from "../../../../utils/context/api";
-import useFormInput from "../../../../utils/hooks/useFormInput";
-import useStringFormInput from "../../../../utils/hooks/useStringFormInput";
+import { editProfile, getProfile, PROFILE_URL } from "api/profile";
+import { ApiContext } from "utils/context/api";
+import useFormInput from "utils/hooks/useFormInput";
+import useStringFormInput from "utils/hooks/useStringFormInput";
 import profileAttributes, {
   currentEducationList,
-} from "../../../../utils/constants/profile-attributes";
-import { checkTruth } from "../../../../utils/transformer/profile";
-import Spinner from "../../../Spinner";
-import FilledButton from "../../../FilledButton";
-import Alert from "../../../Alert";
-import Success from "../../../Success";
-import { UserData } from "../../../../interfaces/auth";
-import { AuthContext } from "../../../../utils/context/auth";
-import InputField from "./InputField";
+} from "utils/constants/profile-attributes";
+import { checkTruth } from "utils/transformer/profile";
+import Spinner from "components/Spinner";
+import FilledButton from "components/FilledButton";
+import Alert from "components/Alert";
+import Success from "components/Success";
+import { UserData } from "interfaces/auth";
+import { AuthContext } from "utils/context/auth";
+import InputField from "components/dashboard/profile/InputField";
 import { Theme } from "styles/theme";
 
-const ProfileField: React.FC = () => {
+const ProfilePage: React.FC = () => {
   const apiContext = useContext(ApiContext);
   const { auth, setAuth } = useContext(AuthContext);
 
@@ -235,4 +235,4 @@ const ProfileField: React.FC = () => {
   );
 };
 
-export default ProfileField;
+export default ProfilePage;
