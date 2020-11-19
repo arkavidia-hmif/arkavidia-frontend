@@ -8,6 +8,7 @@ import { ChoiceTaskParam, Task, TaskResponse } from "interfaces/task";
 import { submitTaskResponseCompetition } from "api/competition";
 import Alert from "components/Alert";
 import { Theme } from "styles/theme";
+import useProgress from "utils/hooks/useProgress";
 
 interface Props {
   team: TeamData;
@@ -33,22 +34,18 @@ const ChoiceTask: React.FC<Props> = ({
   const apiContext = useContext(ApiContext);
   const choice = useChoice(choiceInit);
 
+  const progressObj = useProgress();
+
   const [isEdit, setIsEdit] = useState<boolean>();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
 
   useEffect(() => {
     choice.setValue(choiceInit);
     setIsEdit(!response);
-    setSuccess(null);
-    setError(null);
+    progressObj.reset();
   }, [selection]);
 
   const handleSubmit = () => {
-    setError(null);
-    setSuccess(null);
-    setLoading(true);
+    progressObj.startLoad();
 
     submitTaskResponseCompetition(
       apiContext.axios,
@@ -57,14 +54,14 @@ const ChoiceTask: React.FC<Props> = ({
       choice.value
     )
       .then(() => {
-        setSuccess("Data tersimpan");
+        progressObj.setSuccess(true);
         mutate();
       })
       .catch((e) => {
-        setError(e.message);
+        progressObj.setError(e.message);
       })
       .finally(() => {
-        setLoading(false);
+        progressObj.setLoading(false);
         setIsEdit(false);
       });
   };
@@ -100,9 +97,9 @@ const ChoiceTask: React.FC<Props> = ({
         </div>
         <StatusBox response={response} />
         <div id="status" className="mt-3">
-          {!isEdit && <Alert error={error} />}
-          {!isEdit && success && (
-            <Alert color={Theme.alertColors.greenAlert} error={success} />
+          {!isEdit && <Alert error={progressObj.error} />}
+          {!isEdit && progressObj.success && (
+            <Alert color={Theme.alertColors.greenAlert} error="Data tersimpan" />
           )}
         </div>
         <div id="simpan" className="mt-4">
@@ -115,7 +112,7 @@ const ChoiceTask: React.FC<Props> = ({
             />)
             : (
               <FilledButton
-                loading={loading}
+                loading={progressObj.loading}
                 text="Simpan"
                 color={Theme.buttonColors.purpleButton}
                 padding="0.5rem 2rem"
