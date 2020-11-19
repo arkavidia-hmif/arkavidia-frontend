@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import FilledButton from "../../../../FilledButton";
 import { TeamData } from "../../../../../interfaces/team";
 import { ApiContext } from "../../../../../utils/context/api";
-import { Task, TaskResponse } from "../../../../../interfaces/task";
+import { Task, TaskParam, TaskResponse } from "../../../../../interfaces/task";
 import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import Alert from "../../../../Alert";
 import TextArea from "../../../../TextArea";
@@ -17,10 +17,6 @@ interface Props {
   mutate: () => void;
 }
 
-interface WidgetParam {
-  description: string;
-}
-
 const TextTask: React.FC<Props> = ({
   team,
   task,
@@ -28,7 +24,7 @@ const TextTask: React.FC<Props> = ({
   mutate,
   selection,
 }) => {
-  const parsedParam = (task.widgetParameters as unknown) as WidgetParam;
+  const parsedParam = (task.widgetParameters as unknown) as TaskParam;
   const apiContext = useContext(ApiContext);
   const valueInit = response ? response.response : "";
 
@@ -45,7 +41,7 @@ const TextTask: React.FC<Props> = ({
     setError(null);
   }, [selection]);
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     setError(null);
     setSuccess(false);
 
@@ -90,7 +86,7 @@ const TextTask: React.FC<Props> = ({
       <form>
         <div className="mt-3">
           <div className="title">Jawaban:</div>
-          <TextArea 
+          <TextArea
             disabled={!isEdit}
             value={value}
             setValue={setValue}
@@ -137,7 +133,6 @@ const TextTask: React.FC<Props> = ({
         }
 
         .subtitle {
-          font-family: Roboto;
           color: #646464;
           font-size: 1rem;
           padding: 0.5rem 0;
@@ -148,26 +143,8 @@ const TextTask: React.FC<Props> = ({
           color: #646464;
           font-size: 1.125rem;
         }
-        select {
-          width: 100%;
-          border: none;
-          padding: 0.5rem 0 0.5rem 0;
-          border-bottom: 0.15rem solid black;
-          box-sizing: border-box;
-          background: none;
-          margin: 0rem 0 1rem 0;
-          font-size: 1rem;
-          font-style: normal;
-          font-weight: bold;
-        }
-        select:focus {
-          outline: none;
-        }
 
         @media only screen and (max-width: 450px) {
-          select {
-            font-size: 1rem;
-          }
           .subtitle {
             font-size: 0.9375rem;
           }

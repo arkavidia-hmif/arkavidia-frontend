@@ -12,25 +12,18 @@ const TextArea: React.FC<Props> = ({
   disabled = false
 }) => {
   return (
-    <div id="text-area-wrapper">
-      <label className="text-area">
-        <textarea 
-          name="text-area" 
-          id="text-area" 
-          value={value}
-          placeholder="Masukkan jawaban disini"
-          className={disabled ? "disabled" : ""}
-          disabled={disabled}
-          onChange={(evt) =>
-            setValue(evt.target.value)
-          } 
-        />
-      </label>
-      <style jsx>{`
-        #text-area-wrapper {
-          margin-top: 1rem;
+    <div className="my-3">
+      <textarea
+        name="text-area"
+        value={value}
+        placeholder="Masukkan jawaban disini"
+        className={disabled ? "disabled" : ""}
+        disabled={disabled}
+        onChange={(evt) =>
+          setValue(evt.target.value)
         }
-
+      />
+      <style jsx>{`
         textarea {
           outline: none;
           resize: none;
@@ -44,10 +37,6 @@ const TextArea: React.FC<Props> = ({
 
         .disabled {
           border-bottom: 0.15rem solid grey;
-        }
-
-        .text-area {
-          width: 100%;
         }
       `}</style>
     </div>
