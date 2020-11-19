@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { ApiContext } from "../../../../../utils/context/api";
-import FilledButton from "../../../../FilledButton";
-import useFileUploader from "../../../../../utils/hooks/useFileUploader";
-import { isValidFile } from "../../../../../utils/validator";
-import FileUploader from "../../../../FileUploader";
-import { uploadFile } from "../../../../../api/file";
-import Alert from "../../../../Alert";
-import { TeamData } from "../../../../../interfaces/team";
-import { FileTaskParam, Task, TaskResponse } from "../../../../../interfaces/task";
-import { submitTaskResponseCompetition } from "../../../../../api/competition";
 import StatusBox from "./StatusBox";
+import { ApiContext } from "utils/context/api";
+import FilledButton from "components/FilledButton";
+import useFileUploader from "utils/hooks/useFileUploader";
+import { isValidFile } from "utils/validator";
+import FileUploader from "components/FileUploader";
+import { uploadFile } from "api/file";
+import Alert from "components/Alert";
+import { TeamData } from "interfaces/team";
+import { FileTaskParam, Task, TaskResponse } from "interfaces/task";
+import { submitTaskResponseCompetition } from "api/competition";
 import { Theme } from "styles/theme";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { SidebarEntry } from "../../../../../interfaces/sidebar";
+import { SidebarEntry } from "interfaces/sidebar";
 
 interface Props {
   entry: SidebarEntry;

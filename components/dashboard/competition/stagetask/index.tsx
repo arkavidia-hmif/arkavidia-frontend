@@ -1,16 +1,16 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import { ApiContext } from "../../../../../utils/context/api";
-import Alert from "../../../../Alert";
-import Spinner from "../../../../Spinner";
-import { TeamData } from "../../../../../interfaces/team";
-import { getTeamDetail } from "../../../../../api/team";
-import { Task } from "../../../../../interfaces/task";
-import { filterAndGroupTaskResponse } from "../../../../../utils/transformer/task";
-import { AuthContext } from "../../../../../utils/context/auth";
 import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
 import TextTask from "./TextTask";
+import { ApiContext } from "utils/context/api";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
+import { TeamData } from "interfaces/team";
+import { getTeamDetail } from "api/team";
+import { Task } from "interfaces/task";
+import { filterAndGroupTaskResponse } from "utils/transformer/task";
+import { AuthContext } from "utils/context/auth";
 
 interface Props {
   team: TeamData;

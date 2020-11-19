@@ -1,5 +1,5 @@
-import { TaskResponse } from "../../../../../interfaces/task";
-import { getResponseStatus } from "../../../../../utils/transformer/task";
+import { TaskResponse } from "interfaces/task";
+import { getResponseStatus } from "utils/transformer/task";
 
 interface Props {
   response?: TaskResponse

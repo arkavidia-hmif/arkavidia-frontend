@@ -1,11 +1,11 @@
 import MD5 from "crypto-js/md5";
 import { useContext, useState } from "react";
 import { responseInterface } from "swr";
-import { deleteTeamMember } from "../../../../../api/teamMember";
-import { TeamDetailData, TeamMember } from "../../../../../interfaces/team";
-import { defaultProfileUrl } from "../../../../../utils/constants/profile-picture";
-import { ApiContext } from "../../../../../utils/context/api";
-import FilledButton from "../../../../FilledButton";
+import { deleteTeamMember } from "api/teamMember";
+import { TeamDetailData, TeamMember } from "interfaces/team";
+import { defaultProfileUrl } from "utils/constants/profile-picture";
+import { ApiContext } from "utils/context/api";
+import FilledButton from "components/FilledButton";
 
 interface Props {
   member: TeamMember;

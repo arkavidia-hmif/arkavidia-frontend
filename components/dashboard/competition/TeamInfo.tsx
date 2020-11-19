@@ -1,12 +1,12 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useContext, useState } from "react";
 import { mutate } from "swr";
-import { deleteTeam, editTeam, LIST_TEAM_URL } from "../../../../api/team";
-import { Competition } from "../../../../interfaces/competition";
-import { TeamData } from "../../../../interfaces/team";
-import { ApiContext } from "../../../../utils/context/api";
-import Alert from "../../../Alert";
-import FilledButton from "../../../FilledButton";
+import { deleteTeam, editTeam, LIST_TEAM_URL } from "api/team";
+import { Competition } from "interfaces/competition";
+import { TeamData } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import Alert from "components/Alert";
+import FilledButton from "components/FilledButton";
 import { Theme } from "styles/theme";
 
 interface TeamInfoProps {

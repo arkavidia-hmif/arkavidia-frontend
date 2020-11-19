@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect } from "react";
-import FilledButton from "../../../../FilledButton";
-import { TeamData } from "../../../../../interfaces/team";
-import { ApiContext } from "../../../../../utils/context/api";
-import { Task, TaskParam, TaskResponse } from "../../../../../interfaces/task";
-import { submitTaskResponseCompetition } from "../../../../../api/competition";
-import Alert from "../../../../Alert";
-import TextArea from "../../../../TextArea";
 import StatusBox from "./StatusBox";
+import FilledButton from "components/FilledButton";
+import { TeamData } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import { Task, TaskParam, TaskResponse } from "interfaces/task";
+import { submitTaskResponseCompetition } from "api/competition";
+import Alert from "components/Alert";
+import TextArea from "components/TextArea";
 import { Theme } from "styles/theme";
 
 interface Props {

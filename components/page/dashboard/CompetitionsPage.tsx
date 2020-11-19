@@ -3,17 +3,17 @@ import useSWR from "swr";
 import {
   getCompetitions,
   LIST_COMPETITION_URL,
-} from "../../../../api/competition";
-import { LIST_TEAM_URL, getTeam } from "../../../../api/team";
-import { ApiContext } from "../../../../utils/context/api";
-import DashboardCard from "../../../dashboard/DashboardCard";
-import { groupTeamByCompetitionSlug } from "../../../../utils/transformer/competition";
-import { Competition } from "../../../../interfaces/competition";
-import Alert from "../../../Alert";
-import Spinner from "../../../Spinner";
-import { AuthContext } from "../../../../utils/context/auth";
+} from "api/competition";
+import { LIST_TEAM_URL, getTeam } from "api/team";
+import { ApiContext } from "utils/context/api";
+import DashboardCard from "components/dashboard/DashboardCard";
+import { groupTeamByCompetitionSlug } from "utils/transformer/competition";
+import { Competition } from "interfaces/competition";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
+import { AuthContext } from "utils/context/auth";
 
-const CompetitionsCard: React.FC = () => {
+const CompetitionsPage: React.FC = () => {
   const baseUrl = "/dashboard/competitions/";
 
   const apiContext = useContext(ApiContext);
@@ -84,4 +84,4 @@ const CompetitionsCard: React.FC = () => {
   );
 };
 
-export default CompetitionsCard;
+export default CompetitionsPage;

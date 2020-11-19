@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import useSWR from "swr";
-import { getTeamDetail } from "../../../../api/team";
-import { Competition } from "../../../../interfaces/competition";
-import { TeamData } from "../../../../interfaces/team";
-import { ApiContext } from "../../../../utils/context/api";
-import Alert from "../../../Alert";
-import Spinner from "../../../Spinner";
 import InsertMemberDialog from "./member/InsertMemberDialog";
 import MemberCard from "./member/MemberCard";
+import { getTeamDetail } from "api/team";
+import { Competition } from "interfaces/competition";
+import { TeamData } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
 import { Theme } from "styles/theme";
 
 interface Props {

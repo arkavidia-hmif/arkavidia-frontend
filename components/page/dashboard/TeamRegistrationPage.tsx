@@ -1,17 +1,17 @@
 import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
-import { createTeam } from "../../../../api/team";
-import { TeamRegistrationStatus } from "../../../../interfaces/team";
-import { ApiContext } from "../../../../utils/context/api";
-import { AuthContext } from "../../../../utils/context/auth";
-import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
-import Alert from "../../../Alert";
-import FilledButton from "../../../FilledButton";
-import Spinner from "../../../Spinner";
+import { createTeam } from "api/team";
+import { TeamRegistrationStatus } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import { AuthContext } from "utils/context/auth";
+import { useTeamCompetition } from "utils/hooks/useTeamCompetition";
+import Alert from "components/Alert";
+import FilledButton from "components/FilledButton";
+import Spinner from "components/Spinner";
 import { Theme } from "styles/theme";
 import { ApiError } from "interfaces/api";
 
-const TeamRegistration: React.FC = () => {
+const TeamRegistrationPage: React.FC = () => {
   const [name, setName] = useState("");
   const [institution, setInstitution] = useState("");
 
@@ -171,4 +171,4 @@ const TeamRegistration: React.FC = () => {
   );
 };
 
-export default TeamRegistration;
+export default TeamRegistrationPage;

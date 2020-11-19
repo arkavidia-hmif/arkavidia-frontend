@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { SidebarGroup } from "../../../../../interfaces/sidebar";
 import SidebarItem from "./SidebarItem";
+import { SidebarGroup } from "interfaces/sidebar";
 
 interface Props {
   selection: number;

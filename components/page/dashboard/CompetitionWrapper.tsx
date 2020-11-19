@@ -1,12 +1,12 @@
 import { ReactNode, useContext, useState } from "react";
 import { useRouter } from "next/dist/client/router";
-import { Competition } from "../../../../interfaces/competition";
-import { TeamData } from "../../../../interfaces/team";
-import { ApiContext } from "../../../../utils/context/api";
-import { useTeamCompetition } from "../../../../utils/hooks/useTeamCompetition";
-import Alert from "../../../Alert";
-import Spinner from "../../../Spinner";
-import CompetitionSidebar from "./sidebar/CompetitionSidebar";
+import { Competition } from "interfaces/competition";
+import { TeamData } from "interfaces/team";
+import { ApiContext } from "utils/context/api";
+import { useTeamCompetition } from "utils/hooks/useTeamCompetition";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
+import CompetitionSidebar from "components/dashboard/competition/sidebar/CompetitionSidebar";
 
 interface Props {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
