@@ -3,13 +3,13 @@ import useSWR from "swr";
 import {
   getAnnouncement,
   LIST_ANNOUNCEMENT_URL,
-} from "../../../../api/announcement";
-import { ApiContext } from "../../../../utils/context/api";
-import Alert from "../../../Alert";
-import DashboardCard from "../../../dashboard/DashboardCard";
-import Spinner from "../../../Spinner";
+} from "api/announcement";
+import { ApiContext } from "utils/context/api";
+import Alert from "components/Alert";
+import DashboardCard from "components/dashboard/DashboardCard";
+import Spinner from "components/Spinner";
 
-const AnnouncementCard: React.FC = () => {
+const AnnouncementPage: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
   const {
@@ -37,4 +37,4 @@ const AnnouncementCard: React.FC = () => {
   }
 };
 
-export default AnnouncementCard;
+export default AnnouncementPage;
