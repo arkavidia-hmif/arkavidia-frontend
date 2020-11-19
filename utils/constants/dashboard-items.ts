@@ -24,6 +24,11 @@ const DashboardItems = [
     route: "/dashboard/events",
     haveChild: false
   },
+  {
+    title: "ARKAVTALKS",
+    route: "/dashboard/arkav-talks",
+    haveChild: false
+  },
 ];
 
 export default DashboardItems;
