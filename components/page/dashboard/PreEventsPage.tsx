@@ -3,14 +3,14 @@ import useSWR from "swr";
 import {
   getPreevent,
   LIST_PREEVENT_URL,
-} from "../../../../api/preevent";
-import { ApiContext } from "../../../../utils/context/api";
-import DashboardCard from "../../../dashboard/DashboardCard";
-import { Preevent } from "../../../../interfaces/preevent";
-import Alert from "../../../Alert";
-import Spinner from "../../../Spinner";
+} from "api/preevent";
+import { ApiContext } from "utils/context/api";
+import DashboardCard from "components/dashboard/DashboardCard";
+import { Preevent } from "interfaces/preevent";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
 
-const PreEventsCard: React.FC = () => {
+const PreEventsPage: React.FC = () => {
 
   const baseUrl = "/dashboard/pre-events/";
 
@@ -56,4 +56,4 @@ const PreEventsCard: React.FC = () => {
   );
 };
 
-export default PreEventsCard;
+export default PreEventsPage;

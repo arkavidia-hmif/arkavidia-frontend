@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import useSWR from "swr";
-import { getEvent, LIST_EVENT_URL } from "../../../../api/event";
-import { ApiContext } from "../../../../utils/context/api";
-import DashboardCard from "../../../dashboard/DashboardCard";
-import { Event } from "../../../../interfaces/event";
-import Alert from "../../../Alert";
-import Spinner from "../../../Spinner";
+import { getEvent, LIST_EVENT_URL } from "api/event";
+import { ApiContext } from "utils/context/api";
+import DashboardCard from "components/dashboard/DashboardCard";
+import { Event } from "interfaces/event";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
 
-const EventsCard: React.FC = () => {
+const EventsPage: React.FC = () => {
   const baseUrl = "/dashboard/events/";
 
   const apiContext = useContext(ApiContext);
@@ -51,4 +51,4 @@ const EventsCard: React.FC = () => {
   );
 };
 
-export default EventsCard;
+export default EventsPage;
