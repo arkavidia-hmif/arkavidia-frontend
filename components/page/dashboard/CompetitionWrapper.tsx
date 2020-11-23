@@ -42,7 +42,7 @@ const CompetitionWrapper: React.FC<Props> = ({
   const currentCompetition = getCompetitionBySlug(competition as string);
 
   if (!currentCompetition) {
-    return <Alert error="Tautan invalid" />;
+    return <Alert error="Tautan invalid, pastikan pendaftaran sudah dibuka dan profil sudah lengkap" />;
   }
 
   if (!currentTeam) {
