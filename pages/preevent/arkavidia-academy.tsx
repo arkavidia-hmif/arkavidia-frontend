@@ -13,7 +13,7 @@ const Academy: React.FC = () => (
   <Layout {...BackgroundProps.academy}>
     <div className="container pb-4">
       <EventHeader {...EventItems.academy}>
-        <EventCategory category="Mahasiswa" fee="TBD" />
+        <EventCategory category="Mahasiswa" fee="TBD" color="blue" />
         <DateContainer dates={Dates.academy} color={DateColor.preevent} />
       </EventHeader>
       <FAQSection entries={AcademyFAQ} />

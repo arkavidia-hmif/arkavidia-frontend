@@ -3,9 +3,10 @@ import * as React from "react";
 interface Props {
   category: string;
   fee: string;
+  color?: "purple" | "blue";
 }
 
-const EventCategory: React.FC<Props> = ({ category, fee }) => (
+const EventCategory: React.FC<Props> = ({ category, fee, color = "purple" }) => (
   <div id="pricing">
     <div className="wrapper">
       <div className="text p-0 pr-md-3">
@@ -48,7 +49,7 @@ const EventCategory: React.FC<Props> = ({ category, fee }) => (
         align-items: center;
         justify-content: center;
         color: #ffff;
-        background: #906af7;
+        background:${color === "purple" ? "#906af7" : "#0084B0"};
         border-radius: 15px;
         padding: 0.3rem 0.5rem;
       }
