@@ -1,8 +1,8 @@
 import * as React from "react";
-import Layout from "../../components/Layout";
-import Buttons from "../../components/competition/CompetitionButton";
-import CompetitionHeader from "../../components/CompetitionHeader";
-import competitionItems from "../../utils/constants/competition-items";
+import Layout from "components/Layout";
+import Buttons from "components/competition/CompetitionButton";
+import CompetitionHeader from "components/CompetitionHeader";
+import competitionItems from "utils/constants/competition-items";
 import { Theme } from "styles/theme";
 import GeneralTimeline from "components/competition/timeline/GeneralTimeline";
 import WinnerRibbon from "components/competition/ribbons/WinnerRibbon";
