@@ -42,11 +42,14 @@ const EventHeader: React.FC<Props> = ({
       }
 
       #logo-container {
+        max-height: 60vh;
         width: 50%;
         margin-right: 5%;
       }
 
       #logo-container img {
+        max-height: 60vh;
+        object-fit: contain;
         width: 100%;
       }
 
@@ -68,7 +71,7 @@ const EventHeader: React.FC<Props> = ({
         line-height: 1.3;
       }
 
-      @media (max-width: 1000px) {
+      @media (max-width: 992px) {
         #main-container {
           display: block;
           text-align: center;
