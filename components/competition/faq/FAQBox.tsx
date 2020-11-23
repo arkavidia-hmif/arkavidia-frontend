@@ -24,7 +24,7 @@ const FAQBox: React.FC<Props> = ({
       </div>
       <style jsx>{`
 				p {
-					font-size: 1rem;
+					font-size: 1.2rem;
 					padding: 1rem;
 					margin-block-start: 0;
 					margin-block-end: 0;
@@ -92,11 +92,6 @@ const FAQBox: React.FC<Props> = ({
 						transform: translate(-50%, -50%);
 						width: 1.5rem;
 						height: 1.5rem;
-					}
-
-					p {
-						width: 90%;
-						font-size: 0.9rem;
 					}
 
 					.faq-answer, .faq-question {

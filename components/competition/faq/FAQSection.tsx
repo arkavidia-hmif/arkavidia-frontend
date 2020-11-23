@@ -28,7 +28,7 @@ const FAQSection: React.FC<Props> = ({ entries: inputEntries }) => {
 
   return (
     <div className="App">
-      <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" headerSize="2rem" />
+      <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" />
       <div className="faqs">
         {faqs.map((faq, i) => (
           <FAQBox key={i} faq={faq} index={i} toggleFAQ={toggleFAQ} />
@@ -37,7 +37,7 @@ const FAQSection: React.FC<Props> = ({ entries: inputEntries }) => {
       <style jsx>
         {`
           .faqs {
-            width: 65%;
+            width: 80%;
             max-width: 768px;
             margin: 0 auto;
             padding: 1rem;
