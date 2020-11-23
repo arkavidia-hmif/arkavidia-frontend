@@ -13,6 +13,11 @@ const TechBenefits: React.FC = () => (
         text="Pengetahuan Dasar Pemrograman"
       />
       <BenefitBox
+        alt="private mentor"
+        link="/img/preevent/technocamp/mentor.svg"
+        text="Private mentor"
+      />
+      <BenefitBox
         alt="certificate"
         link="/img/preevent/technocamp/certificate.svg"
         text="Sertifikat"
@@ -29,21 +34,11 @@ const TechBenefits: React.FC = () => (
                 justify-content: space-evenly;
             }
 
-            .content-box {
-                display: flex;
+            @media (max-width: 576px){
+              .benefit-content {
                 align-items: center;
-                justify-content: center;
-                background: rgba(255, 221, 244, 0.8);
-                border-radius: 24px;
-                width: 35%;
-                height: auto;
-                padding: 3rem;
-            }
-
-            .content h3 {
-                font-size: 1.5em;
-                font-weight: 700;
-                color: #094963;
+                flex-direction: column;
+              }
             }
         `}</style>
   </div>

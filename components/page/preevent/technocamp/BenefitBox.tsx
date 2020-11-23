@@ -7,7 +7,7 @@ interface Props {
 }
 
 const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
-  <div className="content-box">
+  <div className="content-box mt-3 mt-md-0">
     <div className="content">
       <img src={link} alt={alt} />
       <p>{text}</p>
@@ -19,7 +19,7 @@ const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
         justify-content: center;
         background: rgba(255, 221, 244, 0.8);
         border-radius: 24px;
-        width: 35%;
+        width: 30%;
         height: auto;
         padding: 3%;
       }
@@ -43,15 +43,6 @@ const BenefitBox: React.FC<Props> = ({ link, text, alt }) => (
         }
         .content h3 {
           font-size: 1rem;
-        }
-      }
-      @media (max-width: 500px) {
-        .content p {
-          font-size: 0.8rem;
-          margin-top: 0.5rem;
-        }
-        img {
-          width: 50px;
         }
       }
     `}</style>
