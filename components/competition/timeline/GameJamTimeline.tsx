@@ -1,13 +1,13 @@
 import * as React from "react";
 import CompetitionTimelineHeader from "../CompetitionTimeLineHeader";
-import items from "../../../utils/constants/competition-gamedev-timeline-items";
-import Ribbon from "../ribbons/Ribbon";
+import EventTimeline from "components/EventTimeline";
+import { GamejamTimelineItems } from "utils/constants/timeline-items";
 
-const DatavidiaTimeline: React.FC = () => (
+const GameJamTimeline: React.FC = () => (
   <div>
     <div id="timeline-container">
       <CompetitionTimelineHeader title="TIMELINE" />
-      <Ribbon items={items} />
+      <EventTimeline items={GamejamTimelineItems} />
       <style jsx>{`
         #timeline-container {
           margin-bottom: 10%;
@@ -17,4 +17,4 @@ const DatavidiaTimeline: React.FC = () => (
   </div>
 );
 
-export default DatavidiaTimeline;
+export default GameJamTimeline;

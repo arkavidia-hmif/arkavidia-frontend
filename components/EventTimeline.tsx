@@ -1,17 +1,14 @@
 import * as React from "react";
+import { TimelineEntry } from "interfaces/timeline";
 
 interface Props {
-  items: {
-    date: string;
-    content: string;
-    css: { background: string };
-  }[];
+  items: Array<TimelineEntry>
 }
 
-const Ribbon: React.FC<Props> = ({ items }) => (
+const EventTimeline: React.FC<Props> = ({ items }) => (
   <div id="ribbon-container">
     {items.map((item, index) => (
-      <div className="ribbon" key={index} style={item.css}>
+      <div className="ribbon" key={index} style={{ background: item.background }}>
         <div className="text">
           <p className="ribbon-date mb-1 mt-2">
             <b>{item.date}</b>
@@ -102,4 +99,4 @@ const Ribbon: React.FC<Props> = ({ items }) => (
   </div>
 );
 
-export default Ribbon;
+export default EventTimeline;

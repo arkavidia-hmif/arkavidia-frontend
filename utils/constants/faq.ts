@@ -1,6 +1,6 @@
 import { FAQEntry } from "interfaces/faq";
 
-export const academyFAQ: Array<FAQEntry> = [
+export const AcademyFAQ: Array<FAQEntry> = [
   {
     question: "Kenapa sih aku harus ikut Arkavidia Academy?",
     answer: "Dengan ikut Arkavidia Academy, kamu bisa dapat insight dari pembicara yang berasal dari startup-startup yang keren banget. Peserta juga akan mendapat sertifikat sebagai bukti partisipasi Arkavidia Academy."

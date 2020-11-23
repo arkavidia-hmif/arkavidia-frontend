@@ -1,12 +1,12 @@
 import * as React from "react";
 import Layout from "../../components/Layout";
 import Buttons from "../../components/competition/CompetitionButton";
-import Timeline from "../../components/competition/timeline/GameJamTimeline";
 import CompetitionHeader from "../../components/CompetitionHeader";
 import competitionItems from "../../utils/constants/competition-items";
 import { Theme } from "styles/theme";
 import GameJamRibbon from "components/competition/ribbons/GameJamRibbon";
 import EventCategory from "components/EventCategory";
+import GameJamTimeline from "components/competition/timeline/GameJamTimeline";
 
 const GamedevPage: React.FC = () => (
   <Layout title={competitionItems.gamedev.title} background={Theme.bgColors.whblplc}>
@@ -19,7 +19,7 @@ const GamedevPage: React.FC = () => (
         />
       </CompetitionHeader>
       <GameJamRibbon />
-      <Timeline />
+      <GameJamTimeline />
     </div>
   </Layout>
 );
