@@ -75,12 +75,6 @@ const Button: React.FC<Props> = ({ guidebookLink, registerLink }) => {
             margin-block-start: 1vw;
           }
         }
-        @media only screen and (max-width: 500px) {
-          .guidebook-button,
-          .daftar-sekarang-button {
-            font-size: 0.8rem;
-          }
-        }
       `}</style>
     </div>
   );
