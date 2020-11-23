@@ -8,7 +8,7 @@ interface Props {
   registerLink: string;
 }
 
-const Buttons: React.FC<Props> = ({ guidebookLink, registerLink }) => {
+const Buttons: React.FC<Props> = ({ guidebookLink }) => {
   const router = useRouter();
   return (
     <div>
