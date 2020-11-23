@@ -8,7 +8,7 @@ const TalksCalendar: React.FC = () => {
       <div className="dates mt-3 mt-lg-0">
         {Dates.arkavtalks.map(entry => {
           return (
-            <div key={entry.title} className="mr-3">
+            <div key={entry.title}>
               <p className="date" >{entry.title}</p>
               {entry.items.map(item => {
                 return (
@@ -32,7 +32,8 @@ const TalksCalendar: React.FC = () => {
         .dates {
           display: flex;
           flex-direction: row;
-          align-items: space-evenly;
+          justify-content: space-around;
+          width: 100%;
           margin-left: 5%;
         }
 
