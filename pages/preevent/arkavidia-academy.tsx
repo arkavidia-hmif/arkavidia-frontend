@@ -7,11 +7,13 @@ import DateContainer from "components/DateContainer";
 import EventHeader from "components/EventHeader";
 import FAQSection from "components/competition/faq/FAQSection";
 import { academyFAQ } from "utils/constants/faq";
+import EventCategory from "components/EventCategory";
 
 const Academy: React.FC = () => (
   <Layout {...BackgroundProps.academy}>
     <div className="container pb-4">
       <EventHeader {...EventItems.academy}>
+        <EventCategory category="Mahasiswa" fee="TBD" />
         <DateContainer dates={Dates.academy} color={DateColor.preevent} />
       </EventHeader>
       <FAQSection entries={academyFAQ} />

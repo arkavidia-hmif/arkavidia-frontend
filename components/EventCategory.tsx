@@ -5,7 +5,7 @@ interface Props {
   fee: string;
 }
 
-const Category: React.FC<Props> = ({ category, fee }) => (
+const EventCategory: React.FC<Props> = ({ category, fee }) => (
   <div id="pricing">
     <div className="wrapper">
       <div className="text p-0 pr-md-3">
@@ -66,4 +66,4 @@ const Category: React.FC<Props> = ({ category, fee }) => (
   </div>
 );
 
-export default Category;
+export default EventCategory;
