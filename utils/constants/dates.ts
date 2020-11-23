@@ -15,11 +15,11 @@ const Dates = {
       items: [
         {
           name: "Sesi 1",
-          time: "20 Februari 13.00 - 14.30",
+          time: "20 Februari 13.00 - 15.00",
         },
         {
           name: "Sesi 2",
-          time: "21 Februari 13.00 - 14.30",
+          time: "21 Februari 13.00 - 15.00",
         }
       ]
     },
@@ -28,15 +28,15 @@ const Dates = {
       items: [
         {
           name: "Sesi 1",
-          time: "22 Februari 19.00 - 20.30",
+          time: "22 Februari 19.00 - 21.00",
         },
         {
           name: "Sesi 2",
-          time: "24 Februari 19.00 - 20.30",
+          time: "24 Februari 19.00 - 21.00",
         },
         {
           name: "Sesi 3",
-          time: "26 Februari 19.00 - 20.30",
+          time: "26 Februari 19.00 - 21.00",
         }
       ]
     }
