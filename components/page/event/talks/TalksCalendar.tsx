@@ -5,11 +5,11 @@ const TalksCalendar: React.FC = () => {
   return (
     <div id="date-container">
       <img src="/img/date.svg" alt="calendar" />
-      <div className="dates mt-3 mt-lg-0">
+      <div className="dates mt-3 mt-lg-0 ml-0 ml-lg-3">
         {Dates.arkavtalks.map(entry => {
           return (
             <div key={entry.title}>
-              <p className="date" >{entry.title}</p>
+              <p className="date mt-4 mt-sm-0" >{entry.title}</p>
               {entry.items.map(item => {
                 return (
                   <div className="mt-3" key={item.name}>
@@ -34,7 +34,6 @@ const TalksCalendar: React.FC = () => {
           flex-direction: row;
           justify-content: space-around;
           width: 100%;
-          margin-left: 5%;
         }
 
         .dates .date {
@@ -56,9 +55,11 @@ const TalksCalendar: React.FC = () => {
           #date-container {
             display: block;
           }
+        }
 
+        @media (max-width: 576px) {
           .dates {
-            justify-content: center;
+            flex-direction: column;
           }
         }
       `}</style>
