@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import CompetitionTimelineHeader from "../../../competition/CompetitionTimeLineHeader";
-import Talks from "../../../../utils/constants/arkavTalksFAQ";
-import AnswerTalksFAQ from "./AnswerTalksFAQ";
+import FAQBox from "./FAQBox";
+import CompetitionTimelineHeader from "components/competition/CompetitionTimeLineHeader";
+import { FAQEntry } from "interfaces/faq";
 
-const ArkavFAQ: React.FC = () => {
-  const [faqs, setFaqs] = useState(Talks.faq);
+interface Props {
+  entries: Array<FAQEntry>
+}
+
+const FAQSection: React.FC<Props> = ({ entries: inputEntries }) => {
+
+  const entries = inputEntries.map(entry => { return ({ ...entry, open: false }); });
+  entries[0].open = true;
+
+  const [faqs, setFaqs] = useState(entries);
 
   const toggleFAQ = (index: number) => {
     setFaqs(faqs.map((faq, i) => {
@@ -20,10 +28,10 @@ const ArkavFAQ: React.FC = () => {
 
   return (
     <div className="App">
-      <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" headerSize="2rem"/>
+      <CompetitionTimelineHeader title="FREQUENTLY ASKED QUESTIONS" headerSize="2rem" />
       <div className="faqs">
         {faqs.map((faq, i) => (
-          <AnswerTalksFAQ key={i} faq={faq} index={i} toggleFAQ={toggleFAQ} />
+          <FAQBox key={i} faq={faq} index={i} toggleFAQ={toggleFAQ} />
         ))}
       </div>
       <style jsx>
@@ -46,4 +54,4 @@ const ArkavFAQ: React.FC = () => {
   );
 };
 
-export default ArkavFAQ;
+export default FAQSection;

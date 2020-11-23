@@ -1,17 +1,17 @@
 import React from "react";
 interface Props {
-	faq: {
-		question: string;
-		answer: string;
-		open: boolean;
-	};
-	index: number;
-	toggleFAQ:(index: number) => void;
+  faq: {
+    question: string;
+    answer: string;
+    open: boolean;
+  };
+  index: number;
+  toggleFAQ: (index: number) => void;
 }
 
-const ArkavAnswer: React.FC<Props> = ({
-  faq, 
-  index, 
+const FAQBox: React.FC<Props> = ({
+  faq,
+  index,
   toggleFAQ
 }) => {
   return (
@@ -108,4 +108,4 @@ const ArkavAnswer: React.FC<Props> = ({
   );
 };
 
-export default ArkavAnswer;
+export default FAQBox;
