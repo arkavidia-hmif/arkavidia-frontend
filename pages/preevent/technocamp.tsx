@@ -12,7 +12,7 @@ const Technocamp: React.FC = () => (
   <Layout {...BackgroundProps.technocamp}>
     <div className="container pb-4">
       <EventHeader {...EventItems.technocamp}>
-        <EventCategory category="SMA/Sederajat" fee="Rp50.000,-" color="blue" />
+        <EventCategory category="SMA/Sederajat" fee="Rp50.000,-" feeType="Biaya Komitmen" color="blue" />
         <Buttons
           guidebookLink="https://link.arkavidia.id/guidebook_technocamp"
           registerLink="/dashboard/competitions/arkalogica"

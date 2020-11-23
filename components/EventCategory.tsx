@@ -3,10 +3,11 @@ import * as React from "react";
 interface Props {
   category: string;
   fee: string;
+  feeType?: string;
   color?: "purple" | "blue";
 }
 
-const EventCategory: React.FC<Props> = ({ category, fee, color = "purple" }) => (
+const EventCategory: React.FC<Props> = ({ category, fee, feeType = "Biaya Pendaftaran", color = "purple" }) => (
   <div id="pricing">
     <div className="wrapper">
       <div className="text p-0 pr-md-3">
@@ -18,7 +19,7 @@ const EventCategory: React.FC<Props> = ({ category, fee, color = "purple" }) => 
     </div>
     <div className="wrapper">
       <div className="text p-0 pr-md-3">
-        <p>Biaya Pendaftaran</p>
+        <p>{feeType}</p>
       </div>
       <div className="coloredText">
         <p>{fee}</p>
