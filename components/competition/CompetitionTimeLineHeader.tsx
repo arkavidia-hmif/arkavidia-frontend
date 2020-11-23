@@ -5,7 +5,7 @@ interface Props {
   headerSize?: string;
 }
 
-const CompetitionTimelineHeader: React.FC<Props> = ({ title, headerSize="3rem" }) => (
+const CompetitionTimelineHeader: React.FC<Props> = ({ title, headerSize = "3rem" }) => (
   <div className="header">
     <h2>{title}</h2>
     <style jsx>{`
