@@ -11,24 +11,34 @@ const Dates = {
   ],
   arkavtalks: [
     {
-      date: "Sabtu,  20 Februari 2021",
-      time: "Advanced 13.00 - 14.30",
+      title: "Advanced Talks",
+      items: [
+        {
+          name: "Sesi 1",
+          time: "20 Februari 13.00 - 14.30",
+        },
+        {
+          name: "Sesi 2",
+          time: "21 Februari 13.00 - 14.30",
+        }
+      ]
     },
     {
-      date: "Minggu,  21 Februari 2021",
-      time: "Advanced 13.00 - 14.30",
-    },
-    {
-      date: "Senin,  22 Februari 2021",
-      time: "Public 19.00 - 20.30",
-    },
-    {
-      date: "Rabu,  24 Februari 2021",
-      time: "Public 19.00 - 20.30",
-    },
-    {
-      date: "Jumat,  26 Februari 2021",
-      time: "Public 19.00 - 20.30",
+      title: "Public Talks",
+      items: [
+        {
+          name: "Sesi 1",
+          time: "22 Februari 19.00 - 20.30",
+        },
+        {
+          name: "Sesi 2",
+          time: "24 Februari 19.00 - 20.30",
+        },
+        {
+          name: "Sesi 3",
+          time: "26 Februari 19.00 - 20.30",
+        }
+      ]
     }
   ]
 };

@@ -6,16 +6,19 @@ import TalksGallery from "../../components/page/event/talks/TalksGallery";
 import Dates from "../../utils/constants/dates";
 import DateColor from "../../utils/constants/date-color";
 import DateContainer from "../../components/DateContainer";
-// import ArkavTalksFAQ from "../../components/page/event/talks/ArkavTalksFAQ";
+import FAQSection from "components/competition/faq/FAQSection";
+import { TalksFAQItems } from "utils/constants/faq-items";
+import TalksCalendar from "components/page/event/talks/TalksCalendar";
 
 const Talks: React.FC = () => (
   <Layout {...BackgroundProps.talks}>
-    <div className="container">
+    <div className="container mb-3">
       <EventHeader {...EventItems.talks} >
-        <DateContainer datesDetail={Dates.arkavtalks} color={DateColor.event} colorAbout={DateColor.eventAbout} />
+        <TalksCalendar />
       </EventHeader>
-      {/* <ArkavTalksFAQ /> */}
       <TalksGallery />
+      <FAQSection entries={TalksFAQItems} />
+      <br />
     </div>
   </Layout>
 );

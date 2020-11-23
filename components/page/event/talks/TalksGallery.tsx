@@ -19,7 +19,6 @@ const TalksGallery: React.FC = () => (
       #image-container {
         display: flex;
         width: 100%;
-        padding-bottom: 3rem;
         overflow-x: scroll;
       }
       ::-webkit-scrollbar {
