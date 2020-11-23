@@ -1,16 +1,16 @@
-const TimelineItems = [
+export const TechnocampTimelineItems = [
   {
     date: "4 Desember 2020",
     content: "Pembukaan Pendaftaran",
     css: { background: "linear-gradient(90deg, #0082AD 0.11%, #6478BD 100%)" },
   },
   {
-    date: "14 Januari 2021",
+    date: "17 Januari 2021",
     content: "Penutupan Pendaftaran",
     css: { background: "linear-gradient(90deg, #587ABB 1.82%, #A672C8 100%)" },
   },
   {
-    date: "21 Januari 2021",
+    date: "24 Januari 2021",
     content: "Pengumuman Peserta",
     css: { background: "linear-gradient(90deg, #9D73C7 1.82%, #FE67D4 100%)" },
   },
@@ -31,4 +31,3 @@ const TimelineItems = [
   },
 ];
 
-export default TimelineItems;
