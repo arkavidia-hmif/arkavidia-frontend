@@ -23,7 +23,7 @@ const Buttons: React.FC<Props> = ({ guidebookLink, registerLink }) => {
             }}
           />
         </div>
-        <div className="daftar-sekarang-button">
+        {/* <div className="daftar-sekarang-button">
           <FilledButton
             color={Theme.buttonColors.darkPinkButton}
             text="Daftar sekarang"
@@ -32,7 +32,7 @@ const Buttons: React.FC<Props> = ({ guidebookLink, registerLink }) => {
               router.push(registerLink);
             }}
           />
-        </div>
+        </div> */}
       </div>
       <style jsx>{`
         .flex-row-center {
