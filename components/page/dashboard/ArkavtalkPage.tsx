@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
+import useSWR from "swr";
 import FilledButton from "components/FilledButton";
 import { ApiContext } from "utils/context/api";
-import useSWR from "swr";
-import { getEvent, LIST_EVENT_URL } from "api/event";
+import { getEvent, getEventParticipant, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 import TalksTableRow from "components/dashboard/talks/TalksTableRow";
+import { groupParticipantByEventSlug } from "utils/transformer/event";
 
 const ArkavtalkPage: React.FC = () => {
   const router = useRouter();
@@ -16,30 +17,42 @@ const ArkavtalkPage: React.FC = () => {
   const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
     getEvent(apiContext.axios)
   );
+  const { data: participant, error: errorParticipant } = useSWR(LIST_EVENT_PARTICIPANT_URL, () =>
+    getEventParticipant(apiContext.axios)
+  );
 
-  if (errorEvent) return <Alert error="Masalah koneksi" />;
-  if (!event) return <Spinner height="200px" />;
+  if (errorEvent || errorParticipant) return <Alert error="Masalah koneksi" />;
+  if (!event || !participant) return <Spinner height="200px" />;
+
+  const participantBySlug = groupParticipantByEventSlug(participant);
 
   const generateTableRow = () => {
     return event.map((entry, idx) => {
-      return (<TalksTableRow key={idx} event={entry} idx={idx} />);
+      return (<TalksTableRow
+        key={idx}
+        event={entry}
+        idx={idx}
+        participant={participantBySlug[entry.slug]} />);
     });
   };
-
 
   return (
     <>
       <div className="row">
-        <div className="col-12">
+        <div className="col-12" id="table-container">
           <table>
-            <tr>
-              <th>No</th>
-              <th>Judul Talks</th>
-              <th>Jenis Talks</th>
-              <th>Status Pembayaran</th>
-              <th>Status Kehadiran</th>
-            </tr>
-            {generateTableRow()}
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Talks</th>
+                <th>Jenis Talks</th>
+                <th>Status</th>
+                <th>Daftar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {generateTableRow()}
+            </tbody>
           </table>
         </div>
       </div>
@@ -55,6 +68,10 @@ const ArkavtalkPage: React.FC = () => {
         </div>
       </div>
       <style jsx>{`
+        #table-container {
+          overflow-x: auto;
+        }
+        
         table {
           width: 100%;
           text-align: center;

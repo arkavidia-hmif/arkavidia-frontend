@@ -1,3 +1,4 @@
+import { UserData } from "./auth";
 import { Task } from "./task";
 
 export interface Event {
@@ -19,4 +20,11 @@ export interface Stage {
   name: string;
   order: number;
   tasks: Array<Task>;
+}
+
+export interface EventParticipant {
+  id: number,
+  mainevent: Event,
+  user: UserData,
+  isParticipating: boolean
 }
