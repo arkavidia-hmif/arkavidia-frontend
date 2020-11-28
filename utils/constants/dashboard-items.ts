@@ -20,11 +20,6 @@ const DashboardItems = [
     haveChild: false
   },
   {
-    title: "EVENTS",
-    route: "/dashboard/events",
-    haveChild: false
-  },
-  {
     title: "ARKAVTALKS",
     route: "/dashboard/arkav-talks",
     haveChild: false
