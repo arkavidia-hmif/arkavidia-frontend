@@ -12,7 +12,7 @@ import Alert from "components/Alert";
 interface Props {
   event: Event | null,
   closeCb: () => void,
-  mutate: (event?: Event) => void
+  mutate: () => void
 }
 
 const modalStyle = {

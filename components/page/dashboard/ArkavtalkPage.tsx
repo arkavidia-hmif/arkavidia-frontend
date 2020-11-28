@@ -19,7 +19,11 @@ const ArkavtalkPage: React.FC = () => {
   const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
     getEvent(apiContext.axios)
   );
-  const { data: participant, error: errorParticipant } = useSWR(LIST_EVENT_PARTICIPANT_URL, () =>
+  const {
+    data: participant,
+    error: errorParticipant,
+    mutate: mutateParticipant
+  } = useSWR(LIST_EVENT_PARTICIPANT_URL, () =>
     getEventParticipant(apiContext.axios)
   );
 
@@ -78,7 +82,7 @@ const ArkavtalkPage: React.FC = () => {
       </div>
       <TalksRegisterModal
         event={modalData}
-        mutate={() => { return; }}
+        mutate={mutateParticipant}
         closeCb={() => setModalData(null)} />
       <style jsx>{`
         #table-container {
