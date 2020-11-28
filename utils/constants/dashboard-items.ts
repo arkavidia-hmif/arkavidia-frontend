@@ -22,7 +22,7 @@ const DashboardItems = [
   {
     title: "ARKAVTALKS",
     route: "/dashboard/arkav-talks",
-    haveChild: false
+    haveChild: true
   },
 ];
 
