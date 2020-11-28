@@ -88,7 +88,7 @@ const FilledButton: React.FC<Props> = ({
         ${loading ? "color: " + color.main + ";" : ""}
         ${loading ? "cursor: auto;" : "cursor: pointer;"}
       }
-      #container:hover {
+      #container:hover, #container:focus {
         ${loading ? "" : "background-color: " + color.hover}
       }
     `}</style>
