@@ -11,13 +11,19 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant }) => {
   const isRegistered = !!participant;
   const status = isRegistered ? "Terdaftar" : "Belum terdaftar";
 
+  const registerLink = isRegistered ? event.slug : `${event.slug}/register`;
+
   return (
     <tr>
       <td>{idx + 1}</td>
       <td>{event.name}</td>
       <td>{event.category}</td>
       <td>{status}</td>
-      <td><Link href={`/dashboard/arkav-talks/${event.slug}`}><a>{isRegistered ? "Lihat" : "Daftar"}</a></Link></td>
+      <td>
+        <Link href={`/dashboard/arkav-talks/${registerLink}`}>
+          <a>{isRegistered ? "Lihat" : "Daftar"}</a>
+        </Link>
+      </td>
       <style jsx>{`
         tr {background-color: #ffffff;}
         tr:nth-child(even) {background-color: #f8f8f8;}
