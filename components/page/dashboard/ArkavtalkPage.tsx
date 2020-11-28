@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/dist/client/router";
 import FilledButton from "components/FilledButton";
+import { ApiContext } from "utils/context/api";
+import useSWR from "swr";
+import { getEvent, LIST_EVENT_URL } from "api/event";
+import Alert from "components/Alert";
+import Spinner from "components/Spinner";
+import TalksTableRow from "components/dashboard/talks/TalksTableRow";
 
 const ArkavtalkPage: React.FC = () => {
   const router = useRouter();
 
+  const apiContext = useContext(ApiContext);
+
+  const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
+    getEvent(apiContext.axios)
+  );
+
+  if (errorEvent) return <Alert error="Masalah koneksi" />;
+  if (!event) return <Spinner height="200px" />;
+
+  const generateTableRow = () => {
+    return event.map((entry, idx) => {
+      return (<TalksTableRow key={idx} event={entry} idx={idx} />);
+    });
+  };
+
+
   return (
     <>
-
       <div className="row">
         <div className="col-12">
           <table>
@@ -18,34 +39,7 @@ const ArkavtalkPage: React.FC = () => {
               <th>Status Pembayaran</th>
               <th>Status Kehadiran</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>Talks 1</td>
-              <td>Advanced</td>
-              <td>Terkonfirmasi</td>
-              <td>Belum Terkonfirmasi</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Talks 2</td>
-              <td>Public</td>
-              <td>-</td>
-              <td>Terkonfirmasi</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Talks 3</td>
-              <td>Advanced</td>
-              <td>Terkonfirmasi</td>
-              <td>Belum Terkonfirmasi</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Talks 4</td>
-              <td>Public</td>
-              <td>-</td>
-              <td>Terkonfirmasi</td>
-            </tr>
+            {generateTableRow()}
           </table>
         </div>
       </div>
@@ -74,24 +68,8 @@ const ArkavtalkPage: React.FC = () => {
           border-top-right-radius: 1rem;
         }
 
-        td {
-          border: 1px solid #ddd;
-        }
-
-        td {
-          padding: 0.5rem;
-        }
-
         th {
           padding: 0.75rem 0.5rem;
-        }
-        
-        tr {background-color: #ffffff;}
-        tr:nth-child(even) {background-color: #f8f8f8;}
-        
-        tr:hover {background-color: #ddd;}
-        
-        th {
           background-color: #FE789A;
           color: white;
         }
