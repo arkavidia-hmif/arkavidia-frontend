@@ -28,3 +28,9 @@ export interface EventParticipant {
   user: UserData,
   isParticipating: boolean
 }
+
+
+export enum EventRegisterStatus {
+  ERROR,
+  FULL
+}

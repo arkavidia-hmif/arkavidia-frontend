@@ -1,17 +1,26 @@
-import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 import { Event, EventParticipant } from "interfaces/event";
 
 interface Props {
   event: Event,
   idx: number,
-  participant?: EventParticipant
+  participant?: EventParticipant,
+  popupCb: (event: Event) => void
 }
 
-const TalksTableRow: React.FC<Props> = ({ event, idx, participant }) => {
+const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) => {
+  const router = useRouter();
+
   const isRegistered = !!participant;
   const status = isRegistered ? "Terdaftar" : "Belum terdaftar";
 
-  const registerLink = isRegistered ? event.slug : `${event.slug}/register`;
+  const clickHandler = () => {
+    if (isRegistered) {
+      router.push(`/dashboard/arkav-talks/${event.slug}`);
+    } else {
+      popupCb(event);
+    }
+  };
 
   return (
     <tr>
@@ -20,9 +29,7 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant }) => {
       <td>{event.category}</td>
       <td>{status}</td>
       <td>
-        <Link href={`/dashboard/arkav-talks/${registerLink}`}>
-          <a>{isRegistered ? "Lihat" : "Daftar"}</a>
-        </Link>
+        <a onClick={clickHandler}>{isRegistered ? "Lihat" : "Daftar"}</a>
       </td>
       <style jsx>{`
         tr {background-color: #ffffff;}
@@ -38,6 +45,7 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant }) => {
         a {
           color: #613FB6;
           font-weight: bold;
+          cursor: pointer;
         }
       `}</style>
     </tr>
