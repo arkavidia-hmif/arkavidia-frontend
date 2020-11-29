@@ -6,7 +6,7 @@ import { ApiContext } from "utils/context/api";
 import { useTeamCompetition } from "utils/hooks/useTeamCompetition";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
-import CompetitionSidebar from "components/dashboard/competition/sidebar/CompetitionSidebar";
+import CompetitionSidebar from "components/dashboard/competition/CompetitionSidebar";
 
 interface Props {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
@@ -62,8 +62,8 @@ const CompetitionWrapper: React.FC<Props> = ({
       <div className="row" id="main-content">
         <div className="col-lg-3 col-md-4">
           <CompetitionSidebar
-            team={currentTeam}
             competition={currentCompetition}
+            team={currentTeam}
             setSelection={setSelection}
             selection={selection}
           />
