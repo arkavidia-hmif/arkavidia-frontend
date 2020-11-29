@@ -1,31 +1,19 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
 import FilledButton from "components/FilledButton";
-import { TeamData } from "interfaces/team";
-import { ApiContext } from "utils/context/api";
-import { Task, TaskParam, TaskResponse } from "interfaces/task";
-import { submitTaskResponseCompetition } from "api/competition";
+import { TaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import TextArea from "components/TextArea";
 import { Theme } from "styles/theme";
 
-interface Props {
-  team: TeamData;
-  task: Task;
-  selection: number;
-  response?: TaskResponse;
-  mutate: () => void;
-}
-
-const TextTask: React.FC<Props> = ({
-  team,
+const TextTask: React.FC<TaskWidget> = ({
   task,
   response,
+  submitFunction,
   mutate,
   selection,
 }) => {
   const parsedParam = (task.widgetParameters as unknown) as TaskParam;
-  const apiContext = useContext(ApiContext);
   const valueInit = response ? response.response : "";
 
   const [isEdit, setIsEdit] = useState<boolean>();
@@ -51,10 +39,7 @@ const TextTask: React.FC<Props> = ({
         return;
       }
       setLoading(true);
-      const submissionRes = await submitTaskResponseCompetition(
-        apiContext.axios,
-        task.id,
-        team.id,
+      const submissionRes = await submitFunction(
         value
       );
 
@@ -98,7 +83,7 @@ const TextTask: React.FC<Props> = ({
           {success && (
             <Alert
               color={Theme.alertColors.greenAlert}
-              error="Successfully submitted"
+              error="Data tersimpan"
             />
           )}
         </div>

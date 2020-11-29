@@ -1,29 +1,16 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
 import FilledButton from "components/FilledButton";
-import { TeamData } from "interfaces/team";
 import useChoice from "utils/hooks/useChoice";
-import { ApiContext } from "utils/context/api";
-import { ChoiceTaskParam, Task, TaskResponse } from "interfaces/task";
-import { submitTaskResponseCompetition } from "api/competition";
+import { ChoiceTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import { Theme } from "styles/theme";
 import useProgress from "utils/hooks/useProgress";
 
-interface Props {
-  team: TeamData;
-  task: Task;
-  selection: number;
-  response?: TaskResponse;
-  mutate: () => void;
-}
-
-
-
-const ChoiceTask: React.FC<Props> = ({
-  team,
+const ChoiceTask: React.FC<TaskWidget> = ({
   task,
   response,
+  submitFunction,
   mutate,
   selection,
 }) => {
@@ -31,7 +18,6 @@ const ChoiceTask: React.FC<Props> = ({
 
   const choiceInit = response ? response.response : parsedParam.options[0];
 
-  const apiContext = useContext(ApiContext);
   const choice = useChoice(choiceInit);
 
   const progressObj = useProgress();
@@ -47,12 +33,7 @@ const ChoiceTask: React.FC<Props> = ({
   const handleSubmit = () => {
     progressObj.startLoad();
 
-    submitTaskResponseCompetition(
-      apiContext.axios,
-      task.id,
-      team.id,
-      choice.value
-    )
+    submitFunction(choice.value)
       .then(() => {
         progressObj.setSuccess(true);
         mutate();

@@ -12,6 +12,7 @@ import { getTeamDetail } from "api/team";
 import { Task } from "interfaces/task";
 import { filterAndGroupTaskResponse } from "utils/transformer/task";
 import { AuthContext } from "utils/context/auth";
+import { submitTaskResponseCompetition } from "api/competition";
 
 interface Props {
   team: TeamData;
@@ -47,12 +48,20 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
   const getTask = (): React.ReactNode => {
     const task = widgetList[selection - 2];
 
+    const competitionTaskResponseFunction =
+      (value: string) => submitTaskResponseCompetition(
+        apiContext.axios,
+        task.id,
+        team.id,
+        value
+      );
+
     if (task.widget === "File") {
       return (
         <FileTask
           selection={selection}
           task={task}
-          team={team}
+          submitFunction={competitionTaskResponseFunction}
           mutate={teamDetailMutate}
           response={taskResponseById[task.id]}
         />
@@ -62,7 +71,7 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
       return (
         <ChoiceTask
           selection={selection}
-          team={team}
+          submitFunction={competitionTaskResponseFunction}
           task={task}
           mutate={teamDetailMutate}
           response={taskResponseById[task.id]}
@@ -73,7 +82,7 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
       return (
         <TextTask
           selection={selection}
-          team={team}
+          submitFunction={competitionTaskResponseFunction}
           task={task}
           mutate={teamDetailMutate}
           response={taskResponseById[task.id]}
@@ -84,9 +93,9 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
       return (
         <MultiTextFieldTask
           selection={selection}
-          team={team}
           task={task}
           mutate={teamDetailMutate}
+          submitFunction={competitionTaskResponseFunction}
           response={taskResponseById[task.id]}
         />
       );

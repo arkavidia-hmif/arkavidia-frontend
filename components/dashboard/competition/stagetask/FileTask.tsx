@@ -7,24 +7,14 @@ import { isValidFile } from "utils/validator";
 import FileUploader from "components/FileUploader";
 import { uploadFile } from "api/file";
 import Alert from "components/Alert";
-import { TeamData } from "interfaces/team";
-import { FileTaskParam, Task, TaskResponse } from "interfaces/task";
-import { submitTaskResponseCompetition } from "api/competition";
+import { FileTaskParam, TaskWidget } from "interfaces/task";
 import { Theme } from "styles/theme";
 
-interface Props {
-  team: TeamData;
-  task: Task;
-  selection: number;
-  response?: TaskResponse;
-  mutate: () => void;
-}
-
-const PhotoTask: React.FC<Props> = ({
-  team,
+const PhotoTask: React.FC<TaskWidget> = ({
   task,
   selection,
   response,
+  submitFunction,
   mutate,
 }) => {
   const apiContext = useContext(ApiContext);
@@ -59,10 +49,7 @@ const PhotoTask: React.FC<Props> = ({
             file.value,
             file.value.name
           );
-          const submissionRes = await submitTaskResponseCompetition(
-            apiContext.axios,
-            task.id,
-            team.id,
+          const submissionRes = await submitFunction(
             res.id
           );
           if (submissionRes?.status !== "rejected") {

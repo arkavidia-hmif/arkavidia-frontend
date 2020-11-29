@@ -37,3 +37,11 @@ export interface TaskResponse {
   userId?: number;
   teamMemberId?: number;
 }
+
+export interface TaskWidget {
+  task: Task;
+  selection: number;
+  response?: TaskResponse;
+  submitFunction: (value: string) => Promise<TaskResponse>
+  mutate: () => void;
+}

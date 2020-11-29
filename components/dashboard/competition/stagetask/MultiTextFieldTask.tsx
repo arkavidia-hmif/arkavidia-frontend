@@ -1,34 +1,20 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
 import FilledButton from "components/FilledButton";
-import { TeamData } from "interfaces/team";
-import { ApiContext } from "utils/context/api";
-import { MultiTextFieldTaskParam, Task, TaskResponse } from "interfaces/task";
-import { submitTaskResponseCompetition } from "api/competition";
+import { MultiTextFieldTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import { Theme } from "styles/theme";
 import useProgress from "utils/hooks/useProgress";
 
-interface Props {
-  team: TeamData;
-  task: Task;
-  selection: number;
-  response?: TaskResponse;
-  mutate: () => void;
-}
 
-
-
-const MultiTextFieldTask: React.FC<Props> = ({
-  team,
+const MultiTextFieldTask: React.FC<TaskWidget> = ({
   task,
   response,
+  submitFunction,
   mutate,
   selection,
 }) => {
   const parsedParam = task.widgetParameters as MultiTextFieldTaskParam;
-
-  const apiContext = useContext(ApiContext);
 
   const progressObj = useProgress();
   let initialContent: Array<string> = [];
@@ -65,10 +51,7 @@ const MultiTextFieldTask: React.FC<Props> = ({
 
     progressObj.startLoad();
 
-    submitTaskResponseCompetition(
-      apiContext.axios,
-      task.id,
-      team.id,
+    submitFunction(
       submittedValue
     )
       .then(() => {
