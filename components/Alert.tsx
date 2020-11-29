@@ -4,11 +4,13 @@ import { AlertColor, Theme } from "../styles/theme";
 interface Props {
   color?: AlertColor;
   error: string | null;
+  closable?: boolean;
 }
 
 const Alert: React.FC<Props> = ({
   color = Theme.alertColors.redAlert,
   error,
+  closable = true
 }) => {
   const [close, setClose] = useState(false);
 
@@ -24,6 +26,7 @@ const Alert: React.FC<Props> = ({
         <div id="alert-body">
           <p>{error}</p>
           <div
+            className={closable ? "" : "d-none"}
             id="close-btn"
             onClick={() => {
               setClose(true);
