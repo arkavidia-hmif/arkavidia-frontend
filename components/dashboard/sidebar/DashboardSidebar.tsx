@@ -1,7 +1,6 @@
 import SidebarSection from "./SidebarSection";
-import { Stage } from "interfaces/competition";
 import { SidebarGroup } from "interfaces/sidebar";
-import { TaskResponse } from "interfaces/task";
+import { Stage, TaskResponse } from "interfaces/task";
 
 interface SubmissionProgressProps {
   title: string;
