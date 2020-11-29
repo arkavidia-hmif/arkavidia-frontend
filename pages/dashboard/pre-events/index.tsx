@@ -1,12 +1,12 @@
 import DashboardWrapper from "components/dashboard/DashboardWrapper";
 import Layout from "components/Layout";
 import { Theme } from "styles/theme";
-import PreEventsPage from "components/page/dashboard/PreEventsPage";
+import PreEventPage from "components/page/dashboard/PreEventPage";
 
 const IndexPage: React.FC = () => (
   <Layout title="Pre-Events" background={Theme.bgColors.whtogr}>
     <DashboardWrapper>
-      <PreEventsPage />
+      <PreEventPage />
     </DashboardWrapper>
   </Layout>
 );

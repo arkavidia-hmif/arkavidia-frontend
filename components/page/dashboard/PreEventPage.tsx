@@ -10,8 +10,7 @@ import { Preevent } from "interfaces/preevent";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 
-const PreEventsPage: React.FC = () => {
-
+const PreEventPage: React.FC = () => {
   const baseUrl = "/dashboard/pre-events/";
 
   const apiContext = useContext(ApiContext);
@@ -20,6 +19,7 @@ const PreEventsPage: React.FC = () => {
     data: preevent,
     error: errorPreevent,
   } = useSWR(LIST_PREEVENT_URL, () => getPreevent(apiContext.axios));
+
 
   if (errorPreevent) return <Alert error="Masalah koneksi" />;
   if (!preevent) return <Spinner height="200px" />;
@@ -36,6 +36,11 @@ const PreEventsPage: React.FC = () => {
     }
   };
 
+  const generateUrl = (entry: Preevent): string => {
+    return `${baseUrl}${entry.slug}/register`;
+  };
+
+
   return (
     <div className="mb-3">
       <div className="row">
@@ -46,7 +51,7 @@ const PreEventsPage: React.FC = () => {
             title={entry.name}
             body={generateCardBody(entry.subtitle)}
             buttonLink={
-              entry.isRegistrationOpen ? `${baseUrl}${entry.slug}` : null
+              entry.isRegistrationOpen ? generateUrl(entry) : null
             }
             buttonText={generateCardText(entry)}
           />
@@ -56,4 +61,4 @@ const PreEventsPage: React.FC = () => {
   );
 };
 
-export default PreEventsPage;
+export default PreEventPage;

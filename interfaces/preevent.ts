@@ -1,3 +1,4 @@
+import { UserData } from "./auth";
 import { Task } from "./task";
 
 export interface Preevent {
@@ -13,4 +14,19 @@ export interface Stage {
   name: string;
   order: number;
   tasks: Array<Task>;
+}
+
+
+export interface PreeventParticipant {
+  id: number,
+  preevent: Preevent,
+  user: UserData,
+  isParticipating: boolean
+  category: string,
+}
+
+export enum PreeventRegisterStatus {
+  ERROR,
+  CLOSED,
+  FULL
 }
