@@ -11,6 +11,14 @@ export interface FileTaskParam extends TaskParam {
   maxFileSize: string;
 }
 
+interface TextFieldTaskParam {
+  name: string;
+  regex: string;
+}
+export interface MultiTextFieldTaskParam extends TaskParam {
+  field: Array<TextFieldTaskParam>;
+}
+
 export interface Task {
   id: number;
   name: string;

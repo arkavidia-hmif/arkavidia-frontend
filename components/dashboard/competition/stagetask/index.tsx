@@ -3,6 +3,7 @@ import useSWR from "swr";
 import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
 import TextTask from "./TextTask";
+import MultiTextFieldTask from "./MultiTextFieldTask";
 import { ApiContext } from "utils/context/api";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
@@ -71,6 +72,17 @@ const StageTask: React.FC<Props> = ({ team, selection }) => {
     if (task.widget === "TextArea") {
       return (
         <TextTask
+          selection={selection}
+          team={team}
+          task={task}
+          mutate={teamDetailMutate}
+          response={taskResponseById[task.id]}
+        />
+      );
+    }
+    if (task.widget === "MultiTextField") {
+      return (
+        <MultiTextFieldTask
           selection={selection}
           team={team}
           task={task}
