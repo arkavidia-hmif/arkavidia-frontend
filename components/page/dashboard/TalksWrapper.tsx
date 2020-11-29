@@ -1,5 +1,5 @@
 const TalksWrapper: React.FC = () => {
-  return (<></>)
+  return (<></>);
 };
 
 export default TalksWrapper;
