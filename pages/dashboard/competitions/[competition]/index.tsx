@@ -6,8 +6,8 @@ import TeamInfo from "components/dashboard/competition/TeamInfo";
 import { Competition } from "interfaces/competition";
 import { TeamData } from "interfaces/team";
 import TeamMember from "components/dashboard/competition/TeamMember";
-import StageTask from "components/dashboard/competition/stagetask/index";
 import { Theme } from "styles/theme";
+import CompetitionStageTask from "components/dashboard/competition/CompetitionStageTask";
 
 const StatusTim: React.FC = () => {
   const getTeamInfoComponent = (
@@ -26,7 +26,7 @@ const StatusTim: React.FC = () => {
   const getStageTaskComponent = (
     team: TeamData,
     selection: number
-  ): ReactNode => <StageTask team={team} selection={selection} />;
+  ): ReactNode => <CompetitionStageTask team={team} selection={selection} />;
 
   return (
     <Layout title="Informasi Tim" background={Theme.bgColors.whtogr}>
