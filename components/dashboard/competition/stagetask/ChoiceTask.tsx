@@ -97,7 +97,7 @@ const ChoiceTask: React.FC<Props> = ({
         </div>
         <StatusBox response={response} />
         <div id="status" className="mt-3">
-          {!isEdit && <Alert error={progressObj.error} />}
+          {isEdit && <Alert error={progressObj.error} />}
           {!isEdit && progressObj.success && (
             <Alert color={Theme.alertColors.greenAlert} error="Data tersimpan" />
           )}
