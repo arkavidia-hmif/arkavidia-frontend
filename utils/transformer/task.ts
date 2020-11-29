@@ -1,5 +1,6 @@
-import { TaskResponse } from "../../interfaces/task";
+import { CompetitionTaskResponse, PreeventTaskResponse, TaskResponse } from "../../interfaces/task";
 import { TeamDetailData } from "../../interfaces/team";
+import { PreeventRegistrationDetail } from "interfaces/preevent";
 
 export const getImageSidebar = (
   taskId: number,
@@ -12,12 +13,8 @@ export const getImageSidebar = (
 };
 
 
-const groupTaskResponse = (teamDetail: TeamDetailData): Record<number, TaskResponse[]> => {
+const groupTaskResponse = (task: Array<TaskResponse>): Record<number, TaskResponse[]> => {
   const groupedTaskResponse: Record<number, TaskResponse[]> = {};
-
-  let task = teamDetail.userTaskResponses;
-  task = task.concat(teamDetail.taskResponses);
-
 
   for (const entry of task) {
     if (!groupedTaskResponse[entry.taskId]) {
@@ -29,10 +26,10 @@ const groupTaskResponse = (teamDetail: TeamDetailData): Record<number, TaskRespo
   return groupedTaskResponse;
 };
 
-export const filterAndGroupTaskResponse = (
+export const filterAndGroupCompetitionTaskResponse = (
   teamDetail: TeamDetailData,
   myEmail: string
-): { [taskId: number]: TaskResponse } => {
+): { [taskId: number]: CompetitionTaskResponse } => {
   let task = teamDetail.userTaskResponses;
   task = task.concat(teamDetail.taskResponses);
 
@@ -42,11 +39,28 @@ export const filterAndGroupTaskResponse = (
 
   const myId = myMember[0].id;
 
-  const filteredResponseById = task.filter(
-    (entry) => !entry.teamMemberId || entry.teamMemberId === myId
-  );
+  return filterAndGroupTaskResponse(task, "teamMemberId", myId);
+};
 
-  const groupedTaskResponse: { [taskId: number]: TaskResponse } = {};
+export const filterAndGroupPreeventTaskResponse = (
+  registrationDetail: PreeventRegistrationDetail
+): Record<number, PreeventTaskResponse> => {
+  return filterAndGroupTaskResponse(registrationDetail.taskResponses);
+};
+
+const filterAndGroupTaskResponse = <T extends TaskResponse>(
+  taskResponse: Array<T>,
+  idKey?: keyof T,
+  id?: T[keyof T]
+): Record<number, T> => {
+  let filteredResponseById = taskResponse;
+  if (id && idKey) {
+    filteredResponseById = taskResponse.filter(
+      (entry) => !entry[idKey] || entry[idKey] === id
+    );
+  }
+
+  const groupedTaskResponse: Record<number, T> = {};
 
   for (const entry of filteredResponseById) {
     groupedTaskResponse[entry.taskId] = entry;
@@ -56,8 +70,11 @@ export const filterAndGroupTaskResponse = (
 };
 
 
-export const getRequiredAndCompletedTask = (teamDetail: TeamDetailData): [number, number] => {
-  const allTaskResponse = groupTaskResponse(teamDetail);
+export const getRequiredAndCompletedCompetitionTask = (teamDetail: TeamDetailData): [number, number] => {
+  let task = teamDetail.userTaskResponses;
+  task = task.concat(teamDetail.taskResponses);
+
+  const allTaskResponse = groupTaskResponse(task);
   const activeStage = teamDetail.stages.filter(entry => entry.id === teamDetail.activeStageId)[0];
 
   const requiredTaskCount = activeStage.tasks.reduce((acc, curr) => {
@@ -67,6 +84,23 @@ export const getRequiredAndCompletedTask = (teamDetail: TeamDetailData): [number
       return acc + 1;
     }
   }, 0);
+
+  const completedTaskCount = activeStage.tasks.reduce((acc, curr) => {
+    if (allTaskResponse[curr.id]) {
+      const completedTaskResponse = allTaskResponse[curr.id].filter(entry => entry.status === "completed");
+      return acc + completedTaskResponse.length;
+    }
+    return acc;
+  }, 0);
+
+  return [requiredTaskCount, completedTaskCount];
+};
+
+export const getRequiredAndCompletedPreeventTask = (registrationDetail: PreeventRegistrationDetail): [number, number] => {
+  const allTaskResponse = groupTaskResponse(registrationDetail.taskResponses);
+  const activeStage = registrationDetail.stages.filter(entry => entry.id === registrationDetail.activeStageId)[0];
+
+  const requiredTaskCount = activeStage.tasks.length;
 
   const completedTaskCount = activeStage.tasks.reduce((acc, curr) => {
     if (allTaskResponse[curr.id]) {

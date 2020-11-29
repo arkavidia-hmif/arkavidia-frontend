@@ -17,7 +17,7 @@ const DashboardItems = [
   {
     title: "PRE-EVENTS",
     route: "/dashboard/pre-events",
-    haveChild: false
+    haveChild: true
   },
   {
     title: "EVENTS",

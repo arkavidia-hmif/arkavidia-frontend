@@ -1,3 +1,10 @@
+export interface Stage {
+  id: number;
+  name: string;
+  order: number;
+  tasks: Array<Task>;
+}
+
 export interface TaskParam {
   description: string;
 }
@@ -34,8 +41,15 @@ export interface TaskResponse {
   status: "awaiting_validation" | "completed" | "rejected";
   reason: string;
   lastSubmittedAt: string;
+}
+
+export interface CompetitionTaskResponse extends TaskResponse {
   userId?: number;
   teamMemberId?: number;
+}
+
+export interface PreeventTaskResponse extends TaskResponse {
+  registrantId: number;
 }
 
 export interface TaskWidget {

@@ -1,5 +1,5 @@
-import { Competition, Stage } from "./competition";
-import { TaskResponse } from "./task";
+import { Competition } from "./competition";
+import { CompetitionTaskResponse, Stage } from "./task";
 
 export interface TeamRegistrationForm {
   competitionId: number;
@@ -28,8 +28,8 @@ export interface TeamDetailData {
   teamMembers: Array<TeamMember>;
   activeStageId: number;
   stages: Array<Stage>;
-  taskResponses: Array<TaskResponse>;
-  userTaskResponses: Array<TaskResponse>;
+  taskResponses: Array<CompetitionTaskResponse>;
+  userTaskResponses: Array<CompetitionTaskResponse>;
   createdAt: string;
 }
 

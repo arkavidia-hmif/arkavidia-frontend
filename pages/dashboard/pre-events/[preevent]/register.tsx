@@ -6,7 +6,7 @@ import PreEventRegistrationPage from "components/page/dashboard/PreEventRegistra
 
 const RegisterPreEvent: React.FC = () => {
   return (
-    <Layout title="Competitions" background={Theme.bgColors.whtogr}>
+    <Layout title="Pre-Events" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
         <PreEventRegistrationPage />
       </DashboardWrapper>

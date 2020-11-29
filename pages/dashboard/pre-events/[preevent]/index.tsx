@@ -1,41 +1,13 @@
-import { ReactNode } from "react";
-import CompetitionWrapper from "components/page/dashboard/CompetitionWrapper";
 import Layout from "components/Layout";
 import DashboardWrapper from "components/dashboard/DashboardWrapper";
-import TeamInfo from "components/dashboard/competition/TeamInfo";
-import { Competition } from "interfaces/competition";
-import { TeamData } from "interfaces/team";
-import TeamMember from "components/dashboard/competition/TeamMember";
 import { Theme } from "styles/theme";
-import CompetitionStageTask from "components/dashboard/competition/CompetitionStageTask";
+import PreEventWrapper from "components/page/dashboard/PreEventWrapper";
 
 const StatusTim: React.FC = () => {
-  const getTeamInfoComponent = (
-    team: TeamData,
-    competition: Competition
-  ): ReactNode => {
-    return <TeamInfo currentTeam={team} currentCompetition={competition} />;
-  };
-  const getTeamMemberComponent = (
-    team: TeamData,
-    competition: Competition
-  ): ReactNode => {
-    return <TeamMember team={team} competition={competition} />;
-  };
-
-  const getStageTaskComponent = (
-    team: TeamData,
-    selection: number
-  ): ReactNode => <CompetitionStageTask team={team} selection={selection} />;
-
   return (
-    <Layout title="Informasi Tim" background={Theme.bgColors.whtogr}>
+    <Layout title="Informasi Pre-Events" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
-        <CompetitionWrapper
-          teamInfo={getTeamInfoComponent}
-          teamMember={getTeamMemberComponent}
-          stageTask={getStageTaskComponent}
-        />
+        <PreEventWrapper />
       </DashboardWrapper>
     </Layout>
   );

@@ -35,7 +35,11 @@ const PreEventRegistrationPage: React.FC = () => {
           router.push(`/dashboard/pre-events/${preeventSlug}`);
         }).catch(err => {
           if (err.code === PreeventRegisterStatus.CLOSED) {
-            return progressObj.setError("Pendaftaran ditutup");
+            progressObj.setError("Pendaftaran ditutup");
+            return;
+          } else if (err.code === PreeventRegisterStatus.ALREADY_REGISTERED) {
+            router.push(`/dashboard/pre-events/${preeventSlug}`);
+            return;
           }
           progressObj.setError(err.message);
         }).finally(() => {

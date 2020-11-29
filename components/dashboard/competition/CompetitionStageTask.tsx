@@ -9,7 +9,7 @@ import { Task } from "interfaces/task";
 import { TeamData } from "interfaces/team";
 import { ApiContext } from "utils/context/api";
 import { AuthContext } from "utils/context/auth";
-import { filterAndGroupTaskResponse } from "utils/transformer/task";
+import { filterAndGroupCompetitionTaskResponse } from "utils/transformer/task";
 
 interface Props {
   team: TeamData;
@@ -37,7 +37,7 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
     }
   }
 
-  const taskResponseById = filterAndGroupTaskResponse(
+  const taskResponseById = filterAndGroupCompetitionTaskResponse(
     teamDetail,
     authContext.auth?.user.email || ""
   );

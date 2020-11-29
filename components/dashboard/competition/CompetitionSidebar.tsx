@@ -7,7 +7,7 @@ import { SidebarEntry, SidebarGroup } from "interfaces/sidebar";
 import { TeamData } from "interfaces/team";
 import { ApiContext } from "utils/context/api";
 import Alert from "components/Alert";
-import { filterAndGroupTaskResponse, getRequiredAndCompletedTask } from "utils/transformer/task";
+import { filterAndGroupCompetitionTaskResponse, getRequiredAndCompletedCompetitionTask } from "utils/transformer/task";
 import { AuthContext } from "utils/context/auth";
 
 const sidebarTop: Array<SidebarGroup> = [{
@@ -55,12 +55,12 @@ const CompetitionSidebar: React.FC<SubmissionProgressProps> = ({
   let taskResponseById = {};
 
   if (teamDetail) {
-    taskResponseById = filterAndGroupTaskResponse(teamDetail, authContext.auth?.user.email || "");
+    taskResponseById = filterAndGroupCompetitionTaskResponse(teamDetail, authContext.auth?.user.email || "");
 
     if (teamDetail.teamMembers.length < competition.minTeamMembers) {
       status = "Jumlah anggota kurang";
     } else {
-      const [requiredTaskCount, completedTaskCount] = getRequiredAndCompletedTask(teamDetail);
+      const [requiredTaskCount, completedTaskCount] = getRequiredAndCompletedCompetitionTask(teamDetail);
       if (requiredTaskCount === completedTaskCount) {
         status = "Data tim lengkap";
       } else {

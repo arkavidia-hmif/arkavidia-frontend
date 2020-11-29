@@ -9,7 +9,7 @@ interface SubmissionProgressProps {
   status: string;
   registrationStage: Array<Stage>;
   taskResponse: Record<string, TaskResponse>;
-  additionalSidebar: Array<SidebarGroup>;
+  additionalSidebar?: Array<SidebarGroup>;
   selection: number;
   setSelection: (selection: number) => void;
 }
@@ -20,7 +20,7 @@ const DashboardSidebar: React.FC<SubmissionProgressProps> = ({
   status,
   taskResponse,
   registrationStage,
-  additionalSidebar,
+  additionalSidebar = [],
   selection,
   setSelection,
 }) => {
