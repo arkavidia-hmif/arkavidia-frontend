@@ -81,6 +81,7 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
         <div className="row mt-3" key={idx}>
           <div className="col-12">
             <label htmlFor={entry.name}>{entry.name}</label>
+            {entry.description && <p className="field-subtitle">{entry.description}</p>}
             <input
               id={entry.name}
               placeholder={entry.name}
@@ -96,6 +97,11 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
               font-weight: bold;
               color: #646464;
               font-size: 1.125rem;
+            }
+
+            .field-subtitle {
+              color: #646464;
+              margin-bottom: 0.5rem;
             }
 
             input {

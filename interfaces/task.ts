@@ -20,6 +20,7 @@ export interface FileTaskParam extends TaskParam {
 
 interface TextFieldTaskParam {
   name: string;
+  description?: string;
   regex?: string;
 }
 export interface MultiTextFieldTaskParam extends TaskParam {
