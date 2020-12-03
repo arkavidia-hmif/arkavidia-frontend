@@ -38,12 +38,14 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
     progressObj.reset();
 
     for (let i = 0; i < content.length; i++) {
-      const regex = new RegExp(parsedParam.field[i].regex);
-      const value = content[i];
+      if (parsedParam.field[i].regex) {
+        const regex = new RegExp(parsedParam.field[i].regex);
+        const value = content[i];
 
-      if (!regex.test(value)) {
-        progressObj.setError(`${parsedParam.field[i].name} tidak valid`);
-        return;
+        if (!regex.test(value)) {
+          progressObj.setError(`${parsedParam.field[i].name} tidak valid`);
+          return;
+        }
       }
     }
 

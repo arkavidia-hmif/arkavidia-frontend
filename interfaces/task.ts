@@ -20,7 +20,7 @@ export interface FileTaskParam extends TaskParam {
 
 interface TextFieldTaskParam {
   name: string;
-  regex: string;
+  regex?: string;
 }
 export interface MultiTextFieldTaskParam extends TaskParam {
   field: Array<TextFieldTaskParam>;
