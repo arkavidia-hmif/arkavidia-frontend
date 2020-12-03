@@ -60,7 +60,7 @@ const ProfilePage: React.FC = () => {
       if (profile.address && profile.address !== "") {
         address.setValue(profile.address || "");
       }
-      if (profile.institution && profile.currentEducation !== "") {
+      if (profile.currentEducation && profile.currentEducation !== "") {
         currentEducation.setValue(profile.currentEducation || "");
       }
       if (profile.institution && profile.institution !== "") {
