@@ -31,7 +31,7 @@ export interface Task {
   name: string;
   category: string;
   widget: string;
-  widgetParameters: ChoiceTaskParam | FileTaskParam | TaskParam;
+  widgetParameters: ChoiceTaskParam | FileTaskParam | TaskParam | MultiTextFieldTaskParam;
   isUserTask: boolean;
 }
 
