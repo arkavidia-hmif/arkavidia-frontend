@@ -2,6 +2,8 @@ import { useContext } from "react";
 import useSWR from "swr";
 import {
   getPreevent,
+  getPreeventRegistration,
+  LIST_PREEVENT_REGISTRATION_URL,
   LIST_PREEVENT_URL,
 } from "api/preevent";
 import { ApiContext } from "utils/context/api";
@@ -9,6 +11,7 @@ import DashboardCard from "components/dashboard/DashboardCard";
 import { Preevent } from "interfaces/preevent";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
+import { groupRegistrationByPreeventSlug } from "utils/transformer/preevent";
 
 const PreEventPage: React.FC = () => {
   const baseUrl = "/dashboard/pre-events/";
@@ -19,10 +22,13 @@ const PreEventPage: React.FC = () => {
     data: preevent,
     error: errorPreevent,
   } = useSWR(LIST_PREEVENT_URL, () => getPreevent(apiContext.axios));
+  const { data: registration, error: errorRegistration } = useSWR(LIST_PREEVENT_REGISTRATION_URL, () => getPreeventRegistration(apiContext.axios));
 
 
-  if (errorPreevent) return <Alert error="Masalah koneksi" />;
-  if (!preevent) return <Spinner height="200px" />;
+  if (errorPreevent || errorRegistration) return <Alert error="Masalah koneksi" />;
+  if (!(preevent && registration)) return <Spinner height="200px" />;
+
+  const groupedRegistration = groupRegistrationByPreeventSlug(registration);
 
   const generateCardBody = (subtitle: string): string => {
     return subtitle;
@@ -32,12 +38,20 @@ const PreEventPage: React.FC = () => {
     if (!entry.isRegistrationOpen) {
       return "Pendaftaran ditutup";
     } else {
-      return "Daftar";
+      if (groupedRegistration[entry.slug] && groupedRegistration[entry.slug].isParticipating) {
+        return "Lihat pendaftaran";
+      } else {
+        return "Daftar";
+      }
     }
   };
 
   const generateUrl = (entry: Preevent): string => {
-    return `${baseUrl}${entry.slug}/register`;
+    if (groupedRegistration[entry.slug] && groupedRegistration[entry.slug].isParticipating) {
+      return `${baseUrl}${entry.slug}`;
+    } else {
+      return `${baseUrl}${entry.slug}/register`;
+    }
   };
 
 
