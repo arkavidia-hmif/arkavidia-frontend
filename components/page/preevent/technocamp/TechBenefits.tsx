@@ -24,23 +24,23 @@ const TechBenefits: React.FC = () => (
       />
     </div>
     <style jsx>{`
-            #benefits-container {
-                text-align: center;
-                margin-bottom: 10%;
-            }
+      #benefits-container {
+        text-align: center;
+        margin-bottom: 10%;
+      }
 
-            .benefit-content {
-                display: flex;
-                justify-content: space-evenly;
-            }
+      .benefit-content {
+        display: flex;
+        justify-content: space-evenly;
+      }
 
-            @media (max-width: 576px){
-              .benefit-content {
-                align-items: center;
-                flex-direction: column;
-              }
-            }
-        `}</style>
+      @media (max-width: 576px){
+        .benefit-content {
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+    `}</style>
   </div>
 );
 
