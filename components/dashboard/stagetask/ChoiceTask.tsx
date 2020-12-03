@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import StandardInput from "../StandardInput";
 import StatusBox from "./StatusBox";
 import FilledButton from "components/FilledButton";
 import useChoice from "utils/hooks/useChoice";
@@ -6,6 +7,8 @@ import { ChoiceTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import { Theme } from "styles/theme";
 import useProgress from "utils/hooks/useProgress";
+
+const OTHER_VALUE = "Lainnya";
 
 const ChoiceTask: React.FC<TaskWidget> = ({
   task,
@@ -22,10 +25,20 @@ const ChoiceTask: React.FC<TaskWidget> = ({
 
   const progressObj = useProgress();
 
-  const [isEdit, setIsEdit] = useState<boolean>();
+  const [otherVal, setOtherVal] = useState<string>("");
+
+  const [isOther, setIsOther] = useState<boolean>(false);
+  const [isEdit, setIsEdit] = useState<boolean>(false);
 
   useEffect(() => {
-    choice.setValue(choiceInit);
+    if (parsedParam.options.includes(choiceInit)) {
+      choice.setValue(choiceInit);
+      setIsOther(false);
+    } else {
+      setIsOther(true);
+      choice.setValue(OTHER_VALUE);
+      setOtherVal(choiceInit);
+    }
     setIsEdit(!response);
     progressObj.reset();
   }, [selection]);
@@ -33,7 +46,12 @@ const ChoiceTask: React.FC<TaskWidget> = ({
   const handleSubmit = () => {
     progressObj.startLoad();
 
-    submitFunction(choice.value)
+    let value = choice.value;
+    if (isOther) {
+      value = otherVal;
+    }
+
+    submitFunction(value)
       .then(() => {
         progressObj.setSuccess(true);
         mutate();
@@ -48,7 +66,12 @@ const ChoiceTask: React.FC<TaskWidget> = ({
   };
 
   const getOption = () => {
-    return parsedParam.options.map((entry) => {
+    const options = [...parsedParam.options];
+    if (parsedParam.other) {
+      options.push(OTHER_VALUE);
+    }
+
+    return options.map((entry) => {
       return (
         <option key={entry} value={entry}>
           {entry}
@@ -56,6 +79,25 @@ const ChoiceTask: React.FC<TaskWidget> = ({
       );
     });
   };
+
+  const optionCallback = (value: string) => {
+    choice.setValue(value);
+    setIsOther(value === OTHER_VALUE);
+  };
+
+  const getOtherBox = () => {
+    if (isOther) {
+      return (
+        <StandardInput
+          setValue={setOtherVal}
+          value={otherVal}
+          disabled={!isEdit}
+          placeholder="Lainnya"
+        />
+      );
+    }
+  };
+
 
   return (
     <>
@@ -71,10 +113,13 @@ const ChoiceTask: React.FC<TaskWidget> = ({
           <select
             disabled={!isEdit}
             value={choice.value}
-            onChange={(e) => choice.setValue(e.target.value)}
+            onChange={(e) => optionCallback(e.target.value)}
           >
             {getOption()}
           </select>
+        </div>
+        <div className="mt-3">
+          {getOtherBox()}
         </div>
         <StatusBox response={response} />
         <div id="status" className="mt-3">

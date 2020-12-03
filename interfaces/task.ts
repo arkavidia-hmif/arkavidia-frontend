@@ -11,6 +11,7 @@ export interface TaskParam {
 
 export interface ChoiceTaskParam extends TaskParam {
   options: string[];
+  other?: boolean;
 }
 
 export interface FileTaskParam extends TaskParam {
