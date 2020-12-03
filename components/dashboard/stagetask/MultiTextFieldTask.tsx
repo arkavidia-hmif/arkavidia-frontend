@@ -38,8 +38,9 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
     progressObj.reset();
 
     for (let i = 0; i < content.length; i++) {
-      if (parsedParam.field[i].regex) {
-        const regex = new RegExp(parsedParam.field[i].regex);
+      const regexParam = parsedParam.field[i].regex;
+      if (regexParam) {
+        const regex = new RegExp(regexParam);
         const value = content[i];
 
         if (!regex.test(value)) {
