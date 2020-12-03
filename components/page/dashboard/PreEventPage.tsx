@@ -12,11 +12,13 @@ import { Preevent } from "interfaces/preevent";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 import { groupRegistrationByPreeventSlug } from "utils/transformer/preevent";
+import { AuthContext } from "utils/context/auth";
 
 const PreEventPage: React.FC = () => {
   const baseUrl = "/dashboard/pre-events/";
 
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const {
     data: preevent,
@@ -53,6 +55,14 @@ const PreEventPage: React.FC = () => {
       return `${baseUrl}${entry.slug}/register`;
     }
   };
+
+  if (authContext.auth && !authContext.auth.user.currentEducation) {
+    return (
+      <p style={{ textAlign: "center" }}>
+        Harap melengkapi profil terlebih dahulu
+      </p>
+    );
+  }
 
 
   return (
