@@ -11,9 +11,9 @@ import { AcademyFAQItems } from "utils/constants/faq-items";
 
 const Academy: React.FC = () => (
   <Layout {...BackgroundProps.academy}>
-    <div className="container pb-4">
+    <div className="container pb-4 pt-4">
       <EventHeader {...EventItems.academy}>
-        <EventCategory category="Mahasiswa" fee="TBD" color="blue" />
+        <EventCategory category="Mahasiswa" fee="Gratis" color="blue" />
         <DateContainer dates={Dates.academy} color={DateColor.preevent} />
       </EventHeader>
       <FAQSection entries={AcademyFAQItems} />
