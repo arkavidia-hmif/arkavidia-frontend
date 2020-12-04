@@ -15,7 +15,7 @@ const Technocamp: React.FC = () => (
         <EventCategory category="SMA/Sederajat" fee="Rp50.000,-" feeType="Biaya Komitmen" color="blue" />
         <Buttons
           guidebookLink="https://link.arkavidia.id/guidebook_technocamp"
-          registerLink="/dashboard/competitions/arkalogica"
+          registerLink="/dashboard/pre-events"
         />
       </EventHeader>
       <TechDesc />

@@ -8,7 +8,7 @@ interface Props {
   registerLink: string;
 }
 
-const Buttons: React.FC<Props> = ({ guidebookLink }) => {
+const Buttons: React.FC<Props> = ({ guidebookLink, registerLink }) => {
   const router = useRouter();
   return (
     <div>
@@ -23,7 +23,7 @@ const Buttons: React.FC<Props> = ({ guidebookLink }) => {
             }}
           />
         </div>
-        {/* <div className="daftar-sekarang-button">
+        <div className="daftar-sekarang-button">
           <FilledButton
             color={Theme.buttonColors.darkPinkButton}
             text="Daftar sekarang"
@@ -32,7 +32,7 @@ const Buttons: React.FC<Props> = ({ guidebookLink }) => {
               router.push(registerLink);
             }}
           />
-        </div> */}
+        </div>
       </div>
       <style jsx>{`
         .flex-row-center {
