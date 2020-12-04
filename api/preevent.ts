@@ -39,6 +39,8 @@ export const registerPreevent = async (
           throw new ApiError<PreeventRegisterStatus>(PreeventRegisterStatus.CLOSED, error.response.data.detail);
         } else if (errorCode === "preevent_already_registered") {
           throw new ApiError<PreeventRegisterStatus>(PreeventRegisterStatus.ALREADY_REGISTERED, error.response.data.detail);
+        } else if (errorCode === "profile_incomplete") {
+          throw new ApiError<PreeventRegisterStatus>(PreeventRegisterStatus.PROFILE_INCOMPLETE, error.response.data.detail);
         }
       }
 

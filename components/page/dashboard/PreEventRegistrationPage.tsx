@@ -47,6 +47,9 @@ const PreEventRegistrationPage: React.FC = () => {
           } else if (err.code === PreeventRegisterStatus.ALREADY_REGISTERED) {
             router.push(`/dashboard/pre-events/${preeventSlug}`);
             return;
+          } else if (err.code === PreeventRegisterStatus.PROFILE_INCOMPLETE) {
+            progressObj.setError("Profil belum lengkap, harap melengkapi profil terlebih dahulu");
+            return;
           }
           progressObj.setError(err.message);
         }).finally(() => {

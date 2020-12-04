@@ -35,5 +35,6 @@ export enum PreeventRegisterStatus {
   ERROR,
   CLOSED,
   ALREADY_REGISTERED,
+  PROFILE_INCOMPLETE,
   FULL
 }
