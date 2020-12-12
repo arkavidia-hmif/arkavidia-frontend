@@ -3,7 +3,7 @@ import DashboardWrapper from "components/dashboard/DashboardWrapper";
 import { Theme } from "styles/theme";
 import PreEventWrapper from "components/page/dashboard/PreEventWrapper";
 
-const StatusTim: React.FC = () => {
+const PreeventIndex: React.FC = () => {
   return (
     <Layout title="Informasi Pre-Events" background={Theme.bgColors.whtogr}>
       <DashboardWrapper>
@@ -13,4 +13,4 @@ const StatusTim: React.FC = () => {
   );
 };
 
-export default StatusTim;
+export default PreeventIndex;

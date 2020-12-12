@@ -14,7 +14,11 @@ import Spinner from "components/Spinner";
 import { groupRegistrationByPreeventSlug } from "utils/transformer/preevent";
 import { AuthContext } from "utils/context/auth";
 
-const PreEventPage: React.FC = () => {
+interface Props {
+  academy?: boolean
+}
+
+const PreEventPage: React.FC<Props> = ({ academy = false }) => {
   const baseUrl = "/dashboard/pre-events/";
 
   const apiContext = useContext(ApiContext);
@@ -26,9 +30,34 @@ const PreEventPage: React.FC = () => {
   } = useSWR(LIST_PREEVENT_URL, () => getPreevent(apiContext.axios));
   const { data: registration, error: errorRegistration } = useSWR(LIST_PREEVENT_REGISTRATION_URL, () => getPreeventRegistration(apiContext.axios));
 
-
   if (errorPreevent || errorRegistration) return <Alert error="Masalah koneksi" />;
   if (!(preevent && registration)) return <Spinner height="200px" />;
+
+  const filteredPreevent = preevent.filter(entry => !entry.slug.startsWith("academy"));
+  const academyPreevent = preevent.filter(entry => entry.slug.startsWith("academy"));
+  const academyOpen = academyPreevent.some(entry => entry.isRegistrationOpen);
+
+  const academyEntry: Preevent = {
+    id: -1,
+    name: "Arkavidia Academy",
+    slug: "academy",
+    subtitle: "Untuk mahasiswa",
+    isRegistrationOpen: academyOpen,
+  };
+
+  let allPreevent;
+
+  if (academy) {
+    allPreevent = [
+      ...academyPreevent
+    ];
+  } else {
+    allPreevent = [
+      ...filteredPreevent,
+      academyEntry
+    ];
+  }
+
 
   const groupedRegistration = groupRegistrationByPreeventSlug(registration);
 
@@ -68,7 +97,7 @@ const PreEventPage: React.FC = () => {
   return (
     <div className="mb-3">
       <div className="row">
-        {preevent.map((entry, index) => (
+        {allPreevent.map((entry, index) => (
           <DashboardCard
             key={index}
             className="col-md-6 col-lg-4"
