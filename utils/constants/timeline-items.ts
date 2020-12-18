@@ -40,12 +40,12 @@ export const CompetitionTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #623FA2 0.11%, #4D82C2 100%)",
   },
   {
-    date: "18 Desember 2020",
+    date: "17 Januari 2021",
     content: "Penutupan Pendaftaran",
     background: "linear-gradient(90deg, #587ABB 1.82%, #00B6F1 100%)",
   },
   {
-    date: "23 Desember 2020",
+    date: "20 Januari 2021",
     content: "Batas Pembayaran Biaya Pendaftaran",
     background: "linear-gradient(90deg, #13AAE6 13.33%, #08DFF6 100%)",
   },
@@ -78,12 +78,12 @@ export const DatavidiaTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #623FA2 0.11%, #4D82C2 100%)",
   },
   {
-    date: "18 Desember 2020",
+    date: "17 Januari 2021",
     content: "Penutupan Pendaftaran",
     background: "linear-gradient(90deg, #587ABB 1.82%, #00B6F1 100%)",
   },
   {
-    date: "23 Desember 2020",
+    date: "20 Januari 2021",
     content: "Batas Pembayaran Biaya Pendaftaran",
     background: "linear-gradient(90deg, #13AAE6 13.33%, #08DFF6 100%)",
   },
@@ -121,12 +121,12 @@ export const GamejamTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #623FA2 0.11%, #4D82C2 100%)",
   },
   {
-    date: "18 Desember 2020",
+    date: "5 Februari 2021",
     content: "Penutupan Pendaftaran",
     background: "linear-gradient(90deg, #587ABB 1.82%, #00B6F1 100%)",
   },
   {
-    date: "23 Desember 2020",
+    date: "7 Februari 2021",
     content: "Batas Pembayaran Biaya Pendaftaran",
     background: "linear-gradient(90deg, #13AAE6 13.33%, #08DFF6 100%)",
   },
