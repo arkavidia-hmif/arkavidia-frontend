@@ -11,7 +11,7 @@ import { groupParticipantByEventSlug } from "utils/transformer/event";
 import { Event } from "interfaces/event";
 import TalksRegisterModal from "components/dashboard/talks/TalksRegisterModal";
 
-const ArkavtalkPage: React.FC = () => {
+const TalksPage: React.FC = () => {
   const router = useRouter();
 
   const apiContext = useContext(ApiContext);
@@ -112,4 +112,4 @@ const ArkavtalkPage: React.FC = () => {
   );
 };
 
-export default ArkavtalkPage;
+export default TalksPage;
