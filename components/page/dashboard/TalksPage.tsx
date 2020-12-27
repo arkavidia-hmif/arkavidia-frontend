@@ -1,19 +1,15 @@
 import React, { useContext, useState } from "react";
-import { useRouter } from "next/dist/client/router";
 import useSWR from "swr";
-import FilledButton from "components/FilledButton";
 import { ApiContext } from "utils/context/api";
-import { getEvent, getEventParticipant, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
+import { getEvent, getEventRegistration, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 import TalksTableRow from "components/dashboard/talks/TalksTableRow";
-import { groupParticipantByEventSlug } from "utils/transformer/event";
+import { groupRegistrationByEventSlug } from "utils/transformer/event";
 import { Event } from "interfaces/event";
 import TalksRegisterModal from "components/dashboard/talks/TalksRegisterModal";
 
 const TalksPage: React.FC = () => {
-  const router = useRouter();
-
   const apiContext = useContext(ApiContext);
 
   const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
@@ -24,7 +20,7 @@ const TalksPage: React.FC = () => {
     error: errorParticipant,
     mutate: mutateParticipant
   } = useSWR(LIST_EVENT_PARTICIPANT_URL, () =>
-    getEventParticipant(apiContext.axios)
+    getEventRegistration(apiContext.axios)
   );
 
   const [modalData, setModalData] = useState<null | Event>(null);
@@ -32,7 +28,7 @@ const TalksPage: React.FC = () => {
   if (errorEvent || errorParticipant) return <Alert error="Masalah koneksi" />;
   if (!event || !participant) return <Spinner height="200px" />;
 
-  const participantBySlug = groupParticipantByEventSlug(participant);
+  const participantBySlug = groupRegistrationByEventSlug(participant);
 
   const triggerPopup = (event: Event) => {
     setModalData(event);

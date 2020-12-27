@@ -1,10 +1,10 @@
 import { useRouter } from "next/dist/client/router";
-import { Event, EventParticipant } from "interfaces/event";
+import { Event, EventRegistration } from "interfaces/event";
 
 interface Props {
   event: Event,
   idx: number,
-  participant?: EventParticipant,
+  participant?: EventRegistration,
   popupCb: (event: Event) => void
 }
 
@@ -16,7 +16,7 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
 
   const clickHandler = () => {
     if (isRegistered) {
-      router.push(`/dashboard/arkav-talks/${event.slug}/payment`);
+      router.push(`/dashboard/arkav-talks/${participant?.id}/payment`);
     } else {
       popupCb(event);
     }
