@@ -9,6 +9,7 @@ import { Task } from "interfaces/task";
 import { ApiContext } from "utils/context/api";
 import { filterAndGroupEventTaskResponse } from "utils/transformer/task";
 import FilledButton from "components/FilledButton";
+import { TALKS_PAYMENT_TASK_INDEX } from "utils/constants/talks-stage";
 
 
 const TalksPayment: React.FC = () => {
@@ -41,7 +42,7 @@ const TalksPayment: React.FC = () => {
     registrationDetail
   );
 
-  const task = widgetList[0];
+  const task = widgetList[TALKS_PAYMENT_TASK_INDEX];
 
   const taskResponseFunction =
     (value: string) => submitEventTaskResponse(

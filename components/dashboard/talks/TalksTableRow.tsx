@@ -5,6 +5,7 @@ import { Event, EventRegistration } from "interfaces/event";
 import { getEventRegistrationDetail } from "api/event";
 import { ApiContext } from "utils/context/api";
 import Spinner from "components/Spinner";
+import { TALKS_REGISTRATION_STAGE, TALKS_PAYMENT_TASK_INDEX } from "utils/constants/talks-stage";
 
 interface Props {
   event: Event,
@@ -54,9 +55,9 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
       const activeStage = data.stages.find(entry => entry.id === data.activeStageId);
 
       if (activeStage) {
-        if (activeStage.name === "Registrasi") {
+        if (activeStage.name === TALKS_REGISTRATION_STAGE) {
           // Registration stage
-          const taskId = activeStage.tasks[0].id;
+          const taskId = activeStage.tasks[TALKS_PAYMENT_TASK_INDEX].id;
           const response = data.taskResponses.find(entry => entry.taskId === taskId);
 
           if (!response) {
