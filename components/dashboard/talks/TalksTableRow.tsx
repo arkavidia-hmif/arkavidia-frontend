@@ -65,7 +65,7 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
           } else if (response.status === "completed") {
             return "Terdaftar";
           } else if (response.status === "awaiting_validation") {
-            return "Memvalidasi pembayaran";
+            return "Menunggu validasi pembayaran";
           } else if (response.status === "rejected") {
             return "Pembayaran ditolak";
           }
