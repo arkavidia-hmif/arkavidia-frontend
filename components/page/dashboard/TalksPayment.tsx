@@ -8,6 +8,7 @@ import Spinner from "components/Spinner";
 import { Task } from "interfaces/task";
 import { ApiContext } from "utils/context/api";
 import { filterAndGroupEventTaskResponse } from "utils/transformer/task";
+import FilledButton from "components/FilledButton";
 
 
 const TalksPayment: React.FC = () => {
@@ -59,6 +60,14 @@ const TalksPayment: React.FC = () => {
         task={task}
         response={taskResponseById[task.id]}
         taskResponseFunction={taskResponseFunction}
+      />
+      <br />
+      <FilledButton
+        padding="0.5rem 2rem"
+        text="Kembali"
+        onClick={() => {
+          router.back();
+        }}
       />
     </div>
   );
