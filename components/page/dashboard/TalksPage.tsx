@@ -60,9 +60,8 @@ const TalksPage: React.FC = () => {
 
   return (
     <>
-      <br />
-      <p>Terdaftar</p>
-      <div className="row">
+      <div id="heading">Terdaftar</div>
+      <div className="row mt-3 mb-5">
         <div className="col-12" id="table-container">
           <table>
             <thead>
@@ -81,9 +80,9 @@ const TalksPage: React.FC = () => {
         </div>
       </div>
 
-      <br />
-      <p>Belum Terdaftar</p>
-      <div className="row">
+      <div id="heading">Belum Terdaftar</div>
+
+      <div className="row mt-3">
         <div className="col-12" id="table-container">
           <table>
             <thead>
@@ -91,8 +90,7 @@ const TalksPage: React.FC = () => {
                 <th>No</th>
                 <th>Judul Talks</th>
                 <th>Jenis Talks</th>
-                <th>Status</th>
-                <th>Aksi</th>
+                <th>Pendaftaran</th>
               </tr>
             </thead>
             <tbody>
@@ -107,6 +105,12 @@ const TalksPage: React.FC = () => {
         mutate={mutateParticipant}
         closeCb={() => setModalData(null)} />
       <style jsx>{`
+        #heading {
+          font-family: Viga;
+          font-size: 1.5rem;
+          color: #05058d;
+        }
+
         #table-container {
           overflow-x: auto;
         }
