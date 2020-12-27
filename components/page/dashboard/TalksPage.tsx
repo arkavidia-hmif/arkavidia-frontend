@@ -38,8 +38,17 @@ const TalksPage: React.FC = () => {
     setModalData(event);
   };
 
-  const generateTableRow = () => {
-    return event.map((entry, idx) => {
+  const generateTableRow = (registered: boolean) => {
+
+    const filteredEvent = event.filter(entry => {
+      if (registered) {
+        return participantBySlug[entry.slug];
+      } else {
+        return !(participantBySlug[entry.slug]);
+      }
+    });
+
+    return filteredEvent.map((entry, idx) => {
       return (<TalksTableRow
         key={idx}
         event={entry}
@@ -51,6 +60,8 @@ const TalksPage: React.FC = () => {
 
   return (
     <>
+      <br />
+      <p>Terdaftar</p>
       <div className="row">
         <div className="col-12" id="table-container">
           <table>
@@ -60,26 +71,37 @@ const TalksPage: React.FC = () => {
                 <th>Judul Talks</th>
                 <th>Jenis Talks</th>
                 <th>Status</th>
-                <th>Daftar</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              {generateTableRow()}
+              {generateTableRow(true)}
             </tbody>
           </table>
         </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-md-4 d-flex justify-content-center justify-content-md-start mt-3">
-          <FilledButton text="Daftar Arkavidia Talks" padding="0.75em" onClick={() => { router.push("/register"); }} />
-        </div>
-        <div className="col-md-4 d-flex justify-content-center mt-3">
-          <FilledButton text="Konfirmasi Pembayaran" padding="0.75em" onClick={() => { router.push("/login"); }} />
-        </div>
-        <div className="col-md-4 d-flex justify-content-center justify-content-md-end mt-3">
-          <FilledButton text="Konfirmasi Kehadiran" padding="0.75em" onClick={() => { router.push("/about"); }} />
+
+      <br />
+      <p>Belum Terdaftar</p>
+      <div className="row">
+        <div className="col-12" id="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Talks</th>
+                <th>Jenis Talks</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {generateTableRow(false)}
+            </tbody>
+          </table>
         </div>
       </div>
+
       <TalksRegisterModal
         event={modalData}
         mutate={mutateParticipant}

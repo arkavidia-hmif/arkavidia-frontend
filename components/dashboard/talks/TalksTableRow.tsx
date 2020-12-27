@@ -16,9 +16,18 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
 
   const clickHandler = () => {
     if (isRegistered) {
-      router.push(`/dashboard/arkav-talks/${event.slug}`);
+      router.push(`/dashboard/arkav-talks/${event.slug}/payment`);
     } else {
       popupCb(event);
+    }
+  };
+
+  const getStatusColumn = () => {
+    if (isRegistered) {
+      return (<td style={{
+        border: "1px solid #ddd",
+        padding: "0.5rem"
+      }}>{status}</td>);
     }
   };
 
@@ -27,9 +36,9 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
       <td>{idx + 1}</td>
       <td>{event.name}</td>
       <td>{event.category}</td>
-      <td>{status}</td>
+      {getStatusColumn()}
       <td>
-        <a onClick={clickHandler}>{isRegistered ? "Lihat" : "Daftar"}</a>
+        <a onClick={clickHandler}>{isRegistered ? "Konfirmasi Pembayaran" : "Daftar"}</a>
       </td>
       <style jsx>{`
         tr {background-color: #ffffff;}
