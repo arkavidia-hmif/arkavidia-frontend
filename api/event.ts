@@ -1,5 +1,5 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Event, EventParticipant, EventRegisterStatus } from "interfaces/event";
+import { Event, EventParticipant, EventRegisterStatus, EventRegistrationDetail } from "interfaces/event";
 import { ApiError, StandardError } from "interfaces/api";
 
 export const LIST_EVENT_URL = "/mainevent";
@@ -49,5 +49,20 @@ export const registerForEvent = async (
       }
 
       throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, error.message);
+    });
+};
+
+
+export const getEventRegistrationDetail = async (
+  axios: AxiosInstance,
+  registrationId: number
+): Promise<EventRegistrationDetail> => {
+  return axios
+    .get<EventRegistrationDetail>(`/mainevent/registrants/${registrationId}/`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };
