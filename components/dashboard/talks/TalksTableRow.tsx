@@ -108,7 +108,7 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
   return (
     <tr>
       <td>{idx + 1}</td>
-      <td>{event.name}</td>
+      <td>{event.name} - {event.shortDesc}</td>
       <td>{event.category}</td>
       {isRegistered && <td>{getStatusColumn()}</td>}
       <td>
