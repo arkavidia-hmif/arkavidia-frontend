@@ -1,3 +1,5 @@
+import { TalksCarouselItem } from "interfaces/talks-page";
+
 export const TalksItems = [
   {
     hero: "https://picsum.photos/id/1/400/300",
@@ -22,13 +24,13 @@ export const TalksItems = [
         credential: "Co-Founder of Natuno Design Lab, Ex-Senior Visual Designer at Traveloka",
         profilePicture: "/img/talks/advanced-2-speaker.png",
       }
-    ]
+    ] as Array<TalksCarouselItem>
   },
   {
     hero: "https://picsum.photos/id/2/400/300",
     items: [
 
-    ]
+    ] as Array<TalksCarouselItem>
   }
 ];
 

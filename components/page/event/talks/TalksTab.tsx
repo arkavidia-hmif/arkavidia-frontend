@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TalksItems } from "utils/constants/talks-items";
+import TalksCarousel from "./TalksCarousel";
 
 const TalksTab: React.FC = () => {
   const [tabSelection, setTabSelection] = React.useState(0);
@@ -25,6 +26,13 @@ const TalksTab: React.FC = () => {
               <h2>ADVANCED TALKS</h2>
             </li>
           </ul>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <TalksCarousel
+            items={TalksItems[tabSelection].items}
+          />
         </div>
       </div>
       <style jsx>{`
