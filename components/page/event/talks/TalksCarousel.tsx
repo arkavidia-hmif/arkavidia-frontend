@@ -69,6 +69,8 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
             border-radius: 1rem;
             overflow: hidden;
             height: 100%;
+            max-width: 300px;
+            margin: auto;
           }
 
           #profile-holder p {
