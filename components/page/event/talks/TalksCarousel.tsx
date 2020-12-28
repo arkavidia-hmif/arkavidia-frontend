@@ -4,13 +4,15 @@ import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 import { TalksCarouselItem } from "interfaces/talks-page";
 import FilledButton from "components/FilledButton";
-import { Theme } from "styles/theme";
+import { ButtonColor, Theme } from "styles/theme";
 
 interface Props {
+  color: string;
+  buttonColor: ButtonColor;
   items: Array<TalksCarouselItem>
 }
 
-const TalksCarousel: React.FC<Props> = ({ items }) => {
+const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
 
   const generateItem = (entry: TalksCarouselItem) => {
     return (
@@ -24,7 +26,7 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
           <Link href="/dashboard/arkav-talks">
             <FilledButton
               text="Daftar"
-              color={Theme.buttonColors.purpleButton}
+              color={buttonColor}
               padding="0.75rem 3rem"
               fontSize="1.3rem"
             />
@@ -56,7 +58,7 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
           }
 
           #profile-holder {
-            background-color: #623FA2;
+            background-color: ${color};
             padding: 0;
             border-radius: 1rem;
             overflow: hidden;
@@ -70,10 +72,23 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
           }
         `}</style>
         <style jsx global>{`
-          .carousel .slide{ 
+          .carousel .slide { 
             border-radius: 1rem;
-            border: solid 0.25rem #623FA2;
+            border: solid 0.25rem ${color};
             background-color: rgba(255,255,255,0.6);
+          }
+
+          .carousel-status {
+            display: none;
+          }
+
+          li.dot.selected {
+            background-color: ${color} !important;
+          }
+
+          li.dot {
+            width: 1rem !important;
+            height: 1rem !important;
           }
         `}</style>
       </div>

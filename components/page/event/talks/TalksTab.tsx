@@ -31,6 +31,8 @@ const TalksTab: React.FC = () => {
       <div className="row">
         <div className="col-12">
           <TalksCarousel
+            color={TalksItems[tabSelection].color}
+            buttonColor={TalksItems[tabSelection].buttonColor}
             items={TalksItems[tabSelection].items}
           />
         </div>

@@ -1,8 +1,11 @@
 import { TalksCarouselItem } from "interfaces/talks-page";
+import { Theme } from "styles/theme";
 
 export const TalksItems = [
   {
     hero: "https://picsum.photos/id/2/400/300",
+    color: "#FE789A",
+    buttonColor: Theme.buttonColors.pinkButton,
     items: [
       {
         session: "Day 1 - Sesi 1",
@@ -78,6 +81,8 @@ export const TalksItems = [
   },
   {
     hero: "https://picsum.photos/id/1/400/300",
+    color: "#623FA2",
+    buttonColor: Theme.buttonColors.purpleButton,
     items: [
       {
         session: "Day 1",
