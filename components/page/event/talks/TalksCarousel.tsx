@@ -17,16 +17,16 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
       <div className="row m-5">
         <div className="col-8" id="content-holder">
           <p id="day">{entry.session}</p>
-          <p className="font125 my-0">{entry.date}</p>
-          <p className="font125 my-0">{entry.time}</p>
+          <p className="font12 my-0">{entry.date}</p>
+          <p className="font12 my-0">{entry.time}</p>
           <h3>{entry.title}</h3>
-          <p className="font125 mb-5">{entry.description}</p>
+          <p className="font12 mb-5">{entry.description}</p>
           <Link href="/dashboard/arkav-talks">
             <FilledButton
               text="Daftar"
               color={Theme.buttonColors.purpleButton}
-              padding="1rem 3rem"
-              fontSize="1.5rem"
+              padding="0.75rem 3rem"
+              fontSize="1.3rem"
             />
           </Link>
         </div>
@@ -36,8 +36,8 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
           <p className="mb-3 px-3">{entry.credential}</p>
         </div>
         <style jsx>{`
-          .font125 {
-            font-size: 1.25rem;
+          .font12 {
+            font-size: 1.2rem;
           }
 
           #content-holder {
@@ -47,12 +47,12 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
 
           #day {
             font-family: Viga;
-            font-size: 2.5rem;
+            font-size: 2rem;
           }
 
           h3 {
             margin-top: 2rem;
-            font-size: 2rem;
+            font-size: 1.75rem;
           }
 
           #profile-holder {
