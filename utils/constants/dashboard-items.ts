@@ -25,7 +25,7 @@ const DashboardItems = [
   //   haveChild: false
   // },
   {
-    title: "ARKAVTALKS",
+    title: "ARKAVIDIA TALKS",
     route: "/dashboard/arkav-talks",
     haveChild: true
   },
