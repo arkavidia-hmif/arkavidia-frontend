@@ -8,9 +8,11 @@ import TalksTableRow from "components/dashboard/talks/TalksTableRow";
 import { groupRegistrationByEventSlug } from "utils/transformer/event";
 import { Event } from "interfaces/event";
 import TalksRegisterModal from "components/dashboard/talks/TalksRegisterModal";
+import { AuthContext } from "utils/context/auth";
 
 const TalksPage: React.FC = () => {
   const apiContext = useContext(ApiContext);
+  const authContext = useContext(AuthContext);
 
   const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
     getEvent(apiContext.axios)
@@ -27,6 +29,15 @@ const TalksPage: React.FC = () => {
 
   if (errorEvent || errorParticipant) return <Alert error="Masalah koneksi" />;
   if (!event || !participant) return <Spinner height="200px" />;
+
+  if (authContext.auth && !authContext.auth.user.currentEducation) {
+    return (
+      <p style={{ textAlign: "center" }}>
+        Harap melengkapi profil terlebih dahulu
+      </p>
+    );
+  }
+
 
   const participantBySlug = groupRegistrationByEventSlug(participant);
 
