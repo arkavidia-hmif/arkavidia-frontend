@@ -25,8 +25,8 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
             <FilledButton
               text="Daftar"
               color={Theme.buttonColors.purpleButton}
-              padding="0.5rem 2rem"
-              fontSize="1.25rem"
+              padding="1rem 3rem"
+              fontSize="1.5rem"
             />
           </Link>
         </div>
