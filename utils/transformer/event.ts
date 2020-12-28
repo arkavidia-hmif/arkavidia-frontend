@@ -1,9 +1,9 @@
-import { EventParticipant } from "interfaces/event";
+import { EventRegistration } from "interfaces/event";
 
-export function groupParticipantByEventSlug(
-  response: Array<EventParticipant>
-): Record<string, EventParticipant> {
-  const output: Record<string, EventParticipant> = {};
+export function groupRegistrationByEventSlug(
+  response: Array<EventRegistration>
+): Record<string, EventRegistration> {
+  const output: Record<string, EventRegistration> = {};
 
   response.forEach((entry) => {
     output[entry.mainevent.slug] = entry;

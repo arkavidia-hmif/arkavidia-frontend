@@ -24,7 +24,35 @@ export const AcademyFAQItems: Array<FAQEntry> = [
 
 export const TalksFAQItems: Array<FAQEntry> = [
   {
-    question: "When will the amazing speakers be revealed?",
-    answer: "Coming real soon! (P.S. It's less than a month!)"
+    question: "Apakah aku bisa daftar kapan saja?",
+    answer: "Pendaftaran terbuka selama kuota masih ada, jangan sampai kehabisan!"
+  },
+  {
+    question: "Apakah event ini berbayar?",
+    answer: "Semua sesi Public Talks gratis yah! Untuk Advanced Talks ada biaya Rp 20.000,- untuk 1 sesi, atau Rp 35.000,- untuk 2 sesi."
+  },
+  {
+    question: "Aku mau ikut Advanced Talks, apa yang perlu dipersiapkan?",
+    answer: "Untuk Day 1 Ethical Hacking, silahkan siapkan code editor Python dan untuk Day 2 UI/UX Design silahkan siapkan Aplikasi Web Figma.com"
+  },
+  {
+    question: "Platform Webinar yang digunakan apa?",
+    answer: "Kami menggunakan Zoom dengan link yang akan diberikan beberapa waktu sebelum acara dimulai melalui email pendaftaranmu. Silahkan join menggunakan nama yang sama dengan nama pada akun Arkavidia kamu!"
+  },
+  {
+    question: "Apakah seluruh webinar yang diselenggarakan menggunakan bahasa Indonesia?",
+    answer: "Ya!"
+  },
+  {
+    question: "Cara daftarnya gimana kak?",
+    answer: "Langsung klik tombol 'Daftar' dan ikuti instruksinya ya!"
+  },
+  {
+    question: "Apakah aku bisa refund biaya daftar Advanced Talks kalau berubah pikiran?",
+    answer: "Bisa! Pembatalan bisa diajukan dengan menghubungi CP ya!"
+  },
+  {
+    question: "Siapa CP aku hubungi untuk informasi yang lebih lanjut?",
+    answer: "Silahkan kontak ke\nWhatsapp\nHarry - 082298956355\nFarid - 082358765877"
   }
 ];

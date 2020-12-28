@@ -36,6 +36,7 @@ const FAQBox: React.FC<Props> = ({
 
 				.faq-answer p {
 					color: black;
+          white-space: pre-wrap
 				}
 
 				.faq {

@@ -1,6 +1,6 @@
 interface Props {
   color?: string,
-  size?: number,
+  size?: string,
   height?: string
 }
 

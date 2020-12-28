@@ -1,6 +1,7 @@
 import { AxiosError, AxiosInstance } from "axios";
-import { Event, EventParticipant, EventRegisterStatus } from "interfaces/event";
+import { Event, EventRegisterStatus, EventRegistration, EventRegistrationDetail } from "interfaces/event";
 import { ApiError, StandardError } from "interfaces/api";
+import { TaskResponse } from "interfaces/task";
 
 export const LIST_EVENT_URL = "/mainevent";
 export const LIST_EVENT_PARTICIPANT_URL = "/mainevent/registrants";
@@ -18,9 +19,9 @@ export const getEvent = async (
     });
 };
 
-export const getEventParticipant = async (
+export const getEventRegistration = async (
   axios: AxiosInstance
-): Promise<Array<EventParticipant>> => {
+): Promise<Array<EventRegistration>> => {
   return axios
     .get(LIST_EVENT_PARTICIPANT_URL)
     .then(response => {
@@ -49,5 +50,39 @@ export const registerForEvent = async (
       }
 
       throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, error.message);
+    });
+};
+
+
+export const getEventRegistrationDetail = async (
+  axios: AxiosInstance,
+  registrationId: number
+): Promise<EventRegistrationDetail> => {
+  return axios
+    .get<EventRegistrationDetail>(`/mainevent/registrants/${registrationId}/`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+    });
+};
+
+
+export const submitEventTaskResponse = async (
+  axios: AxiosInstance,
+  registrationId: number,
+  taskId: number,
+  value: string
+): Promise<TaskResponse> => {
+  return axios
+    .post<TaskResponse>(
+      `/mainevent/registrants/${registrationId}/tasks/${taskId}/`,
+      { response: value })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
     });
 };

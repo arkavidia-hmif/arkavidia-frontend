@@ -1,5 +1,5 @@
 import { UserData } from "./auth";
-import { Task } from "./task";
+import { Task, TaskResponse } from "./task";
 
 export interface Event {
   id: number;
@@ -22,11 +22,18 @@ export interface Stage {
   tasks: Array<Task>;
 }
 
-export interface EventParticipant {
+export interface EventRegistration {
   id: number,
   mainevent: Event,
   user: UserData,
   isParticipating: boolean
+}
+
+export interface EventRegistrationDetail extends EventRegistration {
+  stages: Array<Stage>;
+  taskResponses: Array<TaskResponse>;
+  createdAt: string;
+  activeStageId: number;
 }
 
 

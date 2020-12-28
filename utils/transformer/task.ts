@@ -1,6 +1,7 @@
 import { CompetitionTaskResponse, PreeventTaskResponse, TaskResponse } from "../../interfaces/task";
 import { TeamDetailData } from "../../interfaces/team";
 import { PreeventRegistrationDetail } from "interfaces/preevent";
+import { EventRegistrationDetail } from "interfaces/event";
 
 export const getImageSidebar = (
   taskId: number,
@@ -45,6 +46,12 @@ export const filterAndGroupCompetitionTaskResponse = (
 export const filterAndGroupPreeventTaskResponse = (
   registrationDetail: PreeventRegistrationDetail
 ): Record<number, PreeventTaskResponse> => {
+  return filterAndGroupTaskResponse(registrationDetail.taskResponses);
+};
+
+export const filterAndGroupEventTaskResponse = (
+  registrationDetail: EventRegistrationDetail
+): Record<number, TaskResponse> => {
   return filterAndGroupTaskResponse(registrationDetail.taskResponses);
 };
 

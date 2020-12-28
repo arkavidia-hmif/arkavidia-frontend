@@ -1,19 +1,15 @@
 import React, { useContext, useState } from "react";
-import { useRouter } from "next/dist/client/router";
 import useSWR from "swr";
-import FilledButton from "components/FilledButton";
 import { ApiContext } from "utils/context/api";
-import { getEvent, getEventParticipant, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
+import { getEvent, getEventRegistration, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 import TalksTableRow from "components/dashboard/talks/TalksTableRow";
-import { groupParticipantByEventSlug } from "utils/transformer/event";
+import { groupRegistrationByEventSlug } from "utils/transformer/event";
 import { Event } from "interfaces/event";
 import TalksRegisterModal from "components/dashboard/talks/TalksRegisterModal";
 
-const ArkavtalkPage: React.FC = () => {
-  const router = useRouter();
-
+const TalksPage: React.FC = () => {
   const apiContext = useContext(ApiContext);
 
   const { data: event, error: errorEvent } = useSWR(LIST_EVENT_URL, () =>
@@ -24,7 +20,7 @@ const ArkavtalkPage: React.FC = () => {
     error: errorParticipant,
     mutate: mutateParticipant
   } = useSWR(LIST_EVENT_PARTICIPANT_URL, () =>
-    getEventParticipant(apiContext.axios)
+    getEventRegistration(apiContext.axios)
   );
 
   const [modalData, setModalData] = useState<null | Event>(null);
@@ -32,14 +28,23 @@ const ArkavtalkPage: React.FC = () => {
   if (errorEvent || errorParticipant) return <Alert error="Masalah koneksi" />;
   if (!event || !participant) return <Spinner height="200px" />;
 
-  const participantBySlug = groupParticipantByEventSlug(participant);
+  const participantBySlug = groupRegistrationByEventSlug(participant);
 
   const triggerPopup = (event: Event) => {
     setModalData(event);
   };
 
-  const generateTableRow = () => {
-    return event.map((entry, idx) => {
+  const generateTableRow = (registered: boolean) => {
+
+    const filteredEvent = event.filter(entry => {
+      if (registered) {
+        return participantBySlug[entry.slug];
+      } else {
+        return !(participantBySlug[entry.slug]);
+      }
+    });
+
+    return filteredEvent.map((entry, idx) => {
       return (<TalksTableRow
         key={idx}
         event={entry}
@@ -51,7 +56,8 @@ const ArkavtalkPage: React.FC = () => {
 
   return (
     <>
-      <div className="row">
+      <div id="heading">Terdaftar</div>
+      <div className="row mt-3 mb-5">
         <div className="col-12" id="table-container">
           <table>
             <thead>
@@ -60,31 +66,47 @@ const ArkavtalkPage: React.FC = () => {
                 <th>Judul Talks</th>
                 <th>Jenis Talks</th>
                 <th>Status</th>
-                <th>Daftar</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              {generateTableRow()}
+              {generateTableRow(true)}
             </tbody>
           </table>
         </div>
       </div>
+
+      <div id="heading">Belum Terdaftar</div>
+
       <div className="row mt-3">
-        <div className="col-md-4 d-flex justify-content-center justify-content-md-start mt-3">
-          <FilledButton text="Daftar Arkavidia Talks" padding="0.75em" onClick={() => { router.push("/register"); }} />
-        </div>
-        <div className="col-md-4 d-flex justify-content-center mt-3">
-          <FilledButton text="Konfirmasi Pembayaran" padding="0.75em" onClick={() => { router.push("/login"); }} />
-        </div>
-        <div className="col-md-4 d-flex justify-content-center justify-content-md-end mt-3">
-          <FilledButton text="Konfirmasi Kehadiran" padding="0.75em" onClick={() => { router.push("/about"); }} />
+        <div className="col-12" id="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Talks</th>
+                <th>Jenis Talks</th>
+                <th>Pendaftaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              {generateTableRow(false)}
+            </tbody>
+          </table>
         </div>
       </div>
+
       <TalksRegisterModal
         event={modalData}
         mutate={mutateParticipant}
         closeCb={() => setModalData(null)} />
       <style jsx>{`
+        #heading {
+          font-family: Viga;
+          font-size: 1.5rem;
+          color: #05058d;
+        }
+
         #table-container {
           overflow-x: auto;
         }
@@ -112,4 +134,4 @@ const ArkavtalkPage: React.FC = () => {
   );
 };
 
-export default ArkavtalkPage;
+export default TalksPage;
