@@ -101,15 +101,70 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
   };
 
   return (
-    <Carousel
-      selectedItem={currentItem}
-      onChange={(index) => {
-        setCurrentItem(index);
-      }}
-      showThumbs={false}
-      showStatus={false}>
-      {items.map(generateItem)}
-    </Carousel>
+    <>
+      <div className="arrow" id="arrow-left">
+        <span onClick={() => {
+          setCurrentItem(currentItem - 1);
+        }}></span>
+      </div>
+      <div className="arrow" id="arrow-right">
+        <span onClick={() => {
+          setCurrentItem(currentItem + 1);
+        }}></span>
+      </div>
+      <Carousel
+        selectedItem={currentItem}
+        onChange={(index) => {
+          setCurrentItem(index);
+        }}
+        showArrows={false}
+        showThumbs={false}
+        showStatus={false}>
+        {items.map(generateItem)}
+      </Carousel>
+      <style jsx>{`
+        .arrow {
+          position: absolute;
+          height: 100%;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .arrow span {
+          height: 2rem;
+          width: 2rem;
+          transform: rotateY(0deg) rotate(45deg);
+          
+          cursor: pointer;
+        }
+
+        #arrow-left {
+          left: -2rem;
+        }
+
+        #arrow-right {
+          right: -2rem;
+        }
+
+        #arrow-left span {
+          border-left: 0.5rem solid ${color};
+          border-bottom: 0.5rem solid ${color};
+        }
+
+        #arrow-right span {
+          border-right: 0.5rem solid ${color};
+          border-top: 0.5rem solid ${color};
+        }
+
+        @media (max-width: 768px){
+          .arrow span{
+            display: none;
+          }
+        }
+      `}</style>
+    </>
   );
 };
 
