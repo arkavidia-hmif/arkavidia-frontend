@@ -8,6 +8,7 @@ interface Props {
   padding?: string;
   color?: ButtonColor;
   loading?: boolean;
+  fontSize?: string;
 }
 
 const FilledButton: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const FilledButton: React.FC<Props> = ({
   padding,
   loading,
   submit,
+  fontSize = "1rem",
   color = Theme.buttonColors.pinkButton,
 }) => {
 
@@ -50,8 +52,8 @@ const FilledButton: React.FC<Props> = ({
         color: white;
         transition: background-color 0.1s;
         position: relative;
+        font-size: ${fontSize}
       }
-
 
       #loader {
         display: none;
