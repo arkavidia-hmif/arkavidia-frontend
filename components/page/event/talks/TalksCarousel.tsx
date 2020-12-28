@@ -87,8 +87,11 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
           }
 
           li.dot {
+            background-color: #C4C4C4 !important;
             width: 1rem !important;
+            opacity: 1 !important;
             height: 1rem !important;
+            box-shadow: none !important;
           }
         `}</style>
       </div>
