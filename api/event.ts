@@ -48,6 +48,8 @@ export const registerForEvent = async (
           throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Gagal mendaftar, harap coba lagi dan hubungi pantitia jika gagal kembali");
         } else if (errorCode === "mainevent_registration_closed") {
           throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Pendaftaran belum dibuka");
+        } else if (errorCode === "mainevent_already_registered") {
+          throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Sudah terdaftar, coba refresh halaman");
         }
       }
 
