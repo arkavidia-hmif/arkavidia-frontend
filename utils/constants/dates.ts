@@ -14,12 +14,12 @@ const Dates = {
       title: "Advanced Talks",
       items: [
         {
-          name: "Sesi 1",
-          time: "20 Februari 13.00 - 15.00",
+          name: "Day 1",
+          time: "27 Februari 13.00 - 15.00",
         },
         {
-          name: "Sesi 2",
-          time: "21 Februari 13.00 - 15.00",
+          name: "Day 2",
+          time: "28 Februari 13.00 - 15.00",
         }
       ]
     },
@@ -27,15 +27,15 @@ const Dates = {
       title: "Public Talks",
       items: [
         {
-          name: "Sesi 1",
+          name: "Day 1",
           time: "22 Februari 19.00 - 21.00",
         },
         {
-          name: "Sesi 2",
+          name: "Day 2",
           time: "24 Februari 19.00 - 21.00",
         },
         {
-          name: "Sesi 3",
+          name: "Day 3",
           time: "26 Februari 19.00 - 21.00",
         }
       ]
