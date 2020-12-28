@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 import { TalksCarouselItem } from "interfaces/talks-page";
@@ -13,6 +14,11 @@ interface Props {
 }
 
 const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
+  const [currentItem, setCurrentItem] = useState(0);
+
+  useEffect(() => {
+    setCurrentItem(0);
+  }, [color]);
 
   const generateItem = (entry: TalksCarouselItem) => {
     return (
@@ -78,10 +84,6 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
             background-color: rgba(255,255,255,0.6);
           }
 
-          .carousel-status {
-            display: none;
-          }
-
           li.dot.selected {
             background-color: ${color} !important;
           }
@@ -99,7 +101,13 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
   };
 
   return (
-    <Carousel>
+    <Carousel
+      selectedItem={currentItem}
+      onChange={(index) => {
+        setCurrentItem(index);
+      }}
+      showThumbs={false}
+      showStatus={false}>
       {items.map(generateItem)}
     </Carousel>
   );

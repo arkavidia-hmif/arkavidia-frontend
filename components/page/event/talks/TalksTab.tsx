@@ -28,7 +28,7 @@ const TalksTab: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="row">
+      <div className="row mb-5">
         <div className="col-12">
           <TalksCarousel
             color={TalksItems[tabSelection].color}
