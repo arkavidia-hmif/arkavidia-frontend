@@ -14,8 +14,8 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
 
   const generateItem = (entry: TalksCarouselItem) => {
     return (
-      <div className="row m-5">
-        <div className="col-8" id="content-holder">
+      <div className="row m-3 m-md-5">
+        <div className="col-md-8 order-1 order-md-0" id="content-holder">
           <p id="day">{entry.session}</p>
           <p className="font12 my-0">{entry.date}</p>
           <p className="font12 my-0">{entry.time}</p>
@@ -30,7 +30,7 @@ const TalksCarousel: React.FC<Props> = ({ items }) => {
             />
           </Link>
         </div>
-        <div className="col-4" id="profile-holder">
+        <div className="col-md-4 mb-3 mb-md-0" id="profile-holder">
           <img src={entry.profilePicture} />
           <p className="mt-3 px-3"><b>{entry.speaker}</b></p>
           <p className="mb-3 px-3">{entry.credential}</p>

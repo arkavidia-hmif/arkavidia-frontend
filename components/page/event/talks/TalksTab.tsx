@@ -36,6 +36,9 @@ const TalksTab: React.FC = () => {
         </div>
       </div>
       <style jsx>{`
+        img {
+          max-width: 90vw;
+        }
         ul {
           position: relative;
           display: flex;
@@ -69,6 +72,15 @@ const TalksTab: React.FC = () => {
         li.current {
           border-bottom: 0.5rem solid;
         }
+
+        @media (max-width: 768px){
+          li {
+            margin: 0 1rem;
+            font-size: 1rem;
+            height: 4rem;
+            text-align: center;
+          }
+        } 
       `}</style>
     </>
   );
