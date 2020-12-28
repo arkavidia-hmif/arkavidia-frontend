@@ -3,7 +3,7 @@ import { Theme } from "styles/theme";
 
 export const TalksItems = [
   {
-    hero: "https://picsum.photos/id/2/400/300",
+    hero: "/img/talks/public.png",
     color: "#FE789A",
     buttonColor: Theme.buttonColors.pinkButton,
     items: [
@@ -80,7 +80,7 @@ export const TalksItems = [
     ] as Array<TalksCarouselItem>
   },
   {
-    hero: "https://picsum.photos/id/1/400/300",
+    hero: "/img/talks/advanced.png",
     color: "#623FA2",
     buttonColor: Theme.buttonColors.purpleButton,
     items: [

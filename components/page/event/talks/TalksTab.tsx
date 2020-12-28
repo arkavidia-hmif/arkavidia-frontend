@@ -39,6 +39,7 @@ const TalksTab: React.FC = () => {
       </div>
       <style jsx>{`
         img {
+          width: 100%;
           max-width: 90vw;
         }
         ul {
