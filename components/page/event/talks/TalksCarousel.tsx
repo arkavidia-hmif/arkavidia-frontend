@@ -1,25 +1,22 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import { CSSProperties } from "react";
 import { Carousel } from "react-responsive-carousel";
+import Link from "next/link";
 import { TalksCarouselItem } from "interfaces/talks-page";
 import FilledButton from "components/FilledButton";
 import { Theme } from "styles/theme";
-import { useRouter } from "next/dist/client/router";
-import Link from "next/link";
 
 interface Props {
   items: Array<TalksCarouselItem>
 }
 
 const TalksCarousel: React.FC<Props> = ({ items }) => {
-  const router = useRouter();
 
   const generateItem = (entry: TalksCarouselItem) => {
     return (
       <div className="row m-5">
         <div className="col-8" id="content-holder">
-          <p id="day">Day {entry.day}</p>
+          <p id="day">{entry.session}</p>
           <p className="font125 my-0">{entry.date}</p>
           <p className="font125 my-0">{entry.time}</p>
           <h3>{entry.title}</h3>

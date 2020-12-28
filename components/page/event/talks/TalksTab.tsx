@@ -1,6 +1,6 @@
 import * as React from "react";
-import { TalksItems } from "utils/constants/talks-items";
 import TalksCarousel from "./TalksCarousel";
+import { TalksItems } from "utils/constants/talks-items";
 
 const TalksTab: React.FC = () => {
   const [tabSelection, setTabSelection] = React.useState(0);

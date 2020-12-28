@@ -5,7 +5,7 @@ export const TalksItems = [
     hero: "https://picsum.photos/id/1/400/300",
     items: [
       {
-        day: 1,
+        session: "Day 1",
         date: "Sabtu, 27 Februari 2021",
         time: "13.00 - 15.00 WIB",
         title: "Ethical Hacking 101",
@@ -15,7 +15,7 @@ export const TalksItems = [
         profilePicture: "/img/talks/advanced-1-speaker.png",
       },
       {
-        day: 2,
+        session: "Day 2",
         date: "Minggu, 28 Februari 2021",
         time: "13.00 - 15.00 WIB",
         title: "How to Use Behavior Patterns in Interface Designing",
@@ -29,7 +29,9 @@ export const TalksItems = [
   {
     hero: "https://picsum.photos/id/2/400/300",
     items: [
+      {
 
+      }
     ] as Array<TalksCarouselItem>
   }
 ];

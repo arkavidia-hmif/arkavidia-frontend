@@ -1,5 +1,5 @@
 export interface TalksCarouselItem {
-  day: number;
+  session: string;
   date: string;
   time: string;
   title: string;
