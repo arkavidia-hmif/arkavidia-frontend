@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 import { TalksCarouselItem } from "interfaces/talks-page";
 import FilledButton from "components/FilledButton";
-import { ButtonColor, Theme } from "styles/theme";
+import { ButtonColor } from "styles/theme";
 
 interface Props {
   color: string;
