@@ -50,6 +50,8 @@ export const registerForEvent = async (
           throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Pendaftaran belum dibuka");
         } else if (errorCode === "mainevent_already_registered") {
           throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Sudah terdaftar, coba refresh halaman");
+        } else if (errorCode === "profile_incomplete") {
+          throw new ApiError<EventRegisterStatus>(EventRegisterStatus.ERROR, "Harap lengkapi profil terlebih dahulu");
         }
       }
 
