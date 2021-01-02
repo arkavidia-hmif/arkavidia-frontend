@@ -53,11 +53,12 @@ export const checkTruth = async (
   } else throw new Error("Nomor telepon tidak valid");
 
   if (isEmpty(address)) {
-    if (isValidString(profile?.address, 75)) data.address = profile?.address;
+    if (isValidString(profile?.address, 255)) data.address = profile?.address;
     else throw new Error("Alamat tidak valid");
-  } else if (isValidString(address, 75)) {
+  } else if (isValidString(address, 255)) {
     data.address = address;
   } else throw new Error("Alamat tidak valid");
+
   if (isEmpty(birthDate)) {
     if (isValidDate(profile?.birthDate)) data.birthDate = profile?.birthDate;
     else throw new Error("Tanggal lahir tidak valid");
