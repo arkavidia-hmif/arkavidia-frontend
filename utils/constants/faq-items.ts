@@ -48,6 +48,10 @@ export const TalksFAQItems: Array<FAQEntry> = [
     answer: "Langsung klik tombol 'Daftar' dan ikuti instruksinya ya!"
   },
   {
+    question: "Apakah aku bisa batalkan pendaftaran Public Talks?",
+    answer: "Lakukan pembatalan dengan menekan tombol batal pada halaman dashboard"
+  },
+  {
     question: "Apakah aku bisa refund biaya daftar Advanced Talks kalau berubah pikiran?",
     answer: "Bisa! Pembatalan bisa diajukan dengan menghubungi CP ya!"
   },
