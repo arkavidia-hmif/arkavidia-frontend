@@ -4,11 +4,13 @@ import { ApiContext } from "utils/context/api";
 import { getEvent, getEventRegistration, LIST_EVENT_PARTICIPANT_URL, LIST_EVENT_URL } from "api/event";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
-import TalksTableRow from "components/dashboard/talks/TalksTableRow";
 import { groupRegistrationByEventSlug } from "utils/transformer/event";
-import { Event } from "interfaces/event";
+import { Event, EventRegistration } from "interfaces/event";
 import TalksRegisterModal from "components/dashboard/talks/TalksRegisterModal";
 import { AuthContext } from "utils/context/auth";
+import TalksTableRowUnregistered from "components/dashboard/talks/TalksTableRowUnregistered";
+import TalksTableRowRegistered from "components/dashboard/talks/TalksTableRowRegistered";
+import TalksCancelModal from "components/dashboard/talks/TalksCancelModal";
 
 const TalksPage: React.FC = () => {
   const apiContext = useContext(ApiContext);
@@ -25,7 +27,8 @@ const TalksPage: React.FC = () => {
     getEventRegistration(apiContext.axios)
   );
 
-  const [modalData, setModalData] = useState<null | Event>(null);
+  const [registerModalData, setRegisterModalData] = useState<null | Event>(null);
+  const [cancelModalData, setCancelModalData] = useState<null | EventRegistration>(null);
 
   if (errorEvent || errorParticipant) return <Alert error="Masalah koneksi" />;
   if (!event || !participant) return <Spinner height="200px" />;
@@ -42,7 +45,11 @@ const TalksPage: React.FC = () => {
   const participantBySlug = groupRegistrationByEventSlug(participant);
 
   const triggerPopup = (event: Event) => {
-    setModalData(event);
+    setRegisterModalData(event);
+  };
+
+  const triggerCancel = (event: Event) => {
+    setCancelModalData(participantBySlug[event.slug]);
   };
 
   const generateTableRow = (registered: boolean) => {
@@ -56,12 +63,21 @@ const TalksPage: React.FC = () => {
     });
 
     return filteredEvent.map((entry, idx) => {
-      return (<TalksTableRow
-        key={idx}
-        event={entry}
-        idx={idx}
-        popupCb={triggerPopup}
-        participant={participantBySlug[entry.slug]} />);
+      if (registered) {
+        return (<TalksTableRowRegistered
+          key={idx}
+          event={entry}
+          idx={idx}
+          popupCb={triggerPopup}
+          cancelCb={triggerCancel}
+          participant={participantBySlug[entry.slug]} />);
+      } else {
+        return (<TalksTableRowUnregistered
+          key={idx}
+          event={entry}
+          idx={idx}
+          registerCb={triggerPopup} />);
+      }
     });
   };
 
@@ -78,6 +94,7 @@ const TalksPage: React.FC = () => {
                 <th>Jenis Talks</th>
                 <th>Status</th>
                 <th>Aksi</th>
+                <th>Batal</th>
               </tr>
             </thead>
             <tbody>
@@ -108,9 +125,15 @@ const TalksPage: React.FC = () => {
       </div>
 
       <TalksRegisterModal
-        event={modalData}
+        event={registerModalData}
         mutate={mutateParticipant}
-        closeCb={() => setModalData(null)} />
+        closeCb={() => setRegisterModalData(null)} />
+
+      <TalksCancelModal
+        registration={cancelModalData}
+        mutate={mutateParticipant}
+        closeCb={() => setCancelModalData(null)} />
+
       <style jsx>{`
         #heading {
           font-family: Viga;

@@ -59,6 +59,18 @@ export const registerForEvent = async (
     });
 };
 
+export const cancelEventRegistration = async (
+  axios: AxiosInstance,
+  registrationId: number
+): Promise<void> => {
+  return axios.delete(`/mainevent/registrants/${registrationId}/`)
+    .then(() => {
+      return;
+    })
+    .catch((error: AxiosError) => {
+      throw new ApiError<StandardError>(StandardError.ERROR, error.message);
+    });
+};
 
 export const getEventRegistrationDetail = async (
   axios: AxiosInstance,

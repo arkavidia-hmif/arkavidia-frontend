@@ -1,16 +1,17 @@
 import { useContext, useEffect } from "react";
 import Modal from "react-modal";
-import { Event } from "interfaces/event";
+import { EventRegistration } from "interfaces/event";
 import FilledButton from "components/FilledButton";
 import { Theme } from "styles/theme";
 import useProgress from "utils/hooks/useProgress";
 import Spinner from "components/Spinner";
-import { registerForEvent } from "api/event";
+import { cancelEventRegistration } from "api/event";
 import { ApiContext } from "utils/context/api";
 import Alert from "components/Alert";
+import { TALKS_ADVANCED_CAT } from "utils/constants/talks-stage";
 
 interface Props {
-  event: Event | null,
+  registration: EventRegistration | null,
   closeCb: () => void,
   mutate: () => void
 }
@@ -33,24 +34,24 @@ const modalStyle = {
   }
 };
 
-const TalksRegisterModal: React.FC<Props> = ({ event, closeCb, mutate }) => {
+const TalksCancelModal: React.FC<Props> = ({ registration, closeCb, mutate }) => {
   const progressObj = useProgress();
   const apiContext = useContext(ApiContext);
 
   useEffect(() => {
     progressObj.reset();
-  }, [event]);
+  }, [registration]);
 
   const handleSubmit = () => {
-    if (!event) {
+    if (!registration) {
       return progressObj.setError("Tidak ada event terpilih");
     }
 
     progressObj.startLoad();
 
-    registerForEvent(
+    cancelEventRegistration(
       apiContext.axios,
-      event.id
+      registration.id
     )
       .then(() => {
         progressObj.setSuccess(true);
@@ -68,12 +69,13 @@ const TalksRegisterModal: React.FC<Props> = ({ event, closeCb, mutate }) => {
   return (
     <Modal
       style={modalStyle}
-      isOpen={!!event}
+      isOpen={!!registration}
       onRequestClose={closeCb}
     >
       <div className="row">
         <div className="col-12">
-          <p>Apakah Anda yakin ingin mendaftarkan diri ke &quot;{event?.name}&quot;</p>
+          <p>Apakah Anda yakin ingin membatalkan pendaftaran &quot;{registration?.mainevent?.name}&quot;</p>
+          {registration?.mainevent?.category === TALKS_ADVANCED_CAT && <p><b>Untuk pengembalian uang harap hubungi contact person</b></p>}
         </div>
       </div>
       <div className="row">
@@ -85,10 +87,10 @@ const TalksRegisterModal: React.FC<Props> = ({ event, closeCb, mutate }) => {
         {progressObj.loading ?
           <Spinner />
           : <div className="col-12 col-md-6 offset-md-6 d-flex justify-content-end">
-            <FilledButton text="Batal" onClick={closeCb} />
+            <FilledButton text="Tidak" onClick={closeCb} />
             <div className="ml-3" />
             <FilledButton
-              text="Daftar"
+              text="Ya"
               color={Theme.buttonColors.purpleButton}
               onClick={handleSubmit} />
           </div>
@@ -112,4 +114,4 @@ const TalksRegisterModal: React.FC<Props> = ({ event, closeCb, mutate }) => {
   );
 };
 
-export default TalksRegisterModal;
+export default TalksCancelModal;

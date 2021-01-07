@@ -12,9 +12,10 @@ interface Props {
   idx: number,
   participant?: EventRegistration,
   popupCb: (event: Event) => void
+  cancelCb: (event: Event) => void
 }
 
-const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) => {
+const TalksTableRowRegistered: React.FC<Props> = ({ event, idx, participant, popupCb, cancelCb }) => {
   const router = useRouter();
   const apiContext = useContext(ApiContext);
 
@@ -49,6 +50,10 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
         popupCb(event);
       }
     }
+  };
+
+  const cancelHandler = () => {
+    cancelCb(event);
   };
 
   const getStatusColumn = () => {
@@ -112,7 +117,10 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
       <td>{event.category}</td>
       {isRegistered && <td>{getStatusColumn()}</td>}
       <td>
-        <a onClick={clickHandler}>{getActionLabel()}</a>
+        <a className="action-btn" onClick={clickHandler}>{getActionLabel()}</a>
+      </td>
+      <td>
+        <a onClick={cancelHandler}>Batal</a>
       </td>
       <style jsx>{`
         tr {background-color: #ffffff;}
@@ -126,12 +134,22 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
         }  
 
         a {
-          color: ${isActionable() ? "#613FB6" : "gray"};
+          color: #613FB6;
           font-weight: bold;
-          cursor: ${isActionable() ? "pointer" : ""};
+          cursor: pointer;
         }
 
         a:hover {
+          text-decoration: "none";
+        }
+      `}</style>
+      <style jsx>{`
+        a.action-btn {
+          color: ${isActionable() ? "#613FB6" : "gray"};
+          cursor: ${isActionable() ? "pointer" : ""};
+        }
+
+        a.action-btn:hover {
           text-decoration: ${isActionable() ? "" : "none"};
         }
       `}</style>
@@ -139,4 +157,4 @@ const TalksTableRow: React.FC<Props> = ({ event, idx, participant, popupCb }) =>
   );
 };
 
-export default TalksTableRow;
+export default TalksTableRowRegistered;
