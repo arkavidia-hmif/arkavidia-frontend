@@ -72,7 +72,7 @@ const NavItems: NavItem[] = [
     haveChild: true,
     submenu: [
       {
-        text: "IT FESTIVAL",
+        text: "IT FEST",
         path: "/event/it-festival",
       },
       {
