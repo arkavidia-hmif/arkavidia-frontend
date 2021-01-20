@@ -53,7 +53,7 @@ export const TalksFAQItems: Array<FAQEntry> = [
   },
   {
     question: "Apakah aku bisa refund biaya daftar Advanced Talks kalau berubah pikiran?",
-    answer: "Bisa! Pembatalan bisa diajukan dengan menghubungi CP ya!"
+    answer: "Apabila 24 jam setelah pendaftaran bukti bayar belum terunggah sistem akan membatalkan pendaftaranmu secara otomatis. Jika kamu sudah bayar ingin melakukan pembatalan silahkan hubungi CP untuk mengajukan refund ya!"
   },
   {
     question: "Siapa CP aku hubungi untuk informasi yang lebih lanjut?",
