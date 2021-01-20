@@ -7,12 +7,12 @@ export const TechnocampTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #0082AD 0.11%, #6478BD 100%)",
   },
   {
-    date: "17 Januari 2021",
+    date: "28 Januari 2021",
     content: "Penutupan Pendaftaran",
     background: "linear-gradient(90deg, #587ABB 1.82%, #A672C8 100%)",
   },
   {
-    date: "24 Januari 2021",
+    date: "29 Januari 2021",
     content: "Pengumuman Peserta",
     background: "linear-gradient(90deg, #9D73C7 1.82%, #FE67D4 100%)",
   },
