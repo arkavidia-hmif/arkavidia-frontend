@@ -39,6 +39,8 @@ const ColorfulHeader: React.FC<Props> = ({
           -webkit-text-fill-color: transparent;
           -moz-text-fill-color: transparent;
 
+          -webkit-box-decoration-break: clone;
+
           ${size ? "font-size:" + size + ";" : ""}
         }
       `}</style>
