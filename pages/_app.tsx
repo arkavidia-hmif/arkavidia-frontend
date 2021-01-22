@@ -132,6 +132,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           .max-content {
             max-width: 1440px;
           }
+
+          .w-100 {
+            width: 100%;
+          }
         `}
       </style>
     </>

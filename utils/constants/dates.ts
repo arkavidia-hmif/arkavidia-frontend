@@ -4,7 +4,6 @@ const Dates = {
     "11 - 16 Januari 2021"
   ],
   academy: [
-    "Sabtu, 30 Januari 2021",
     "Sabtu, 6 Februari 2021",
     "Sabtu, 13 Februari 2021",
     "Sabtu, 20 Februari 2021",
