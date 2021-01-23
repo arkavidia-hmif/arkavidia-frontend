@@ -35,7 +35,7 @@ const AcademyBox: React.FC<Props> = ({ entry }) => {
             }} />
             <span style={{ width: "1rem" }} />
             <FilledButton text="Daftar" onClick={() => {
-              router.push("/dashboard/pre-events/academy/register");
+              router.push(entry.registerLink);
             }} />
           </div>
         </div>

@@ -7,4 +7,5 @@ export interface AcademyEntry {
   registrationFee?: string;
   registrationDate: string;
   guidebookLink: string;
+  registerLink: string;
 }

@@ -8,7 +8,8 @@ export const AcademySelection: Array<AcademyEntry> = [
     date: "Sabtu, 6 Februari 2021",
     registrationDate: "23 Januari - 5 Februari 2021",
     logo: "/img/academy/ibm.png",
-    guidebookLink: "https://link.arkavidia.id/guidebook_academy_ai"
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_ai",
+    registerLink: "/dashboard/pre-events/academy-ai/register"
   },
   {
     title: "Start-Up Academy",
@@ -17,7 +18,8 @@ export const AcademySelection: Array<AcademyEntry> = [
     registrationDate: "23 Januari - 6 Februari 2021",
     registrationFee: "Rp 20.000,-",
     logo: "/img/academy/eduka.png",
-    guidebookLink: "https://link.arkavidia.id/guidebook_academy_startup"
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_startup",
+    registerLink: "/dashboard/pre-events/academy-startup/register"
   },
   {
     title: "Game Dev Academy",
@@ -27,6 +29,7 @@ export const AcademySelection: Array<AcademyEntry> = [
     registrationDate: "23 Januari - 13 Februari 2021",
     registrationFee: "Rp 20.000,-",
     logo: "/img/academy/agate.png",
-    guidebookLink: "https://link.arkavidia.id/guidebook_academy_game"
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_game",
+    registerLink: "/dashboard/pre-events/academy-gamedev/register"
   }
 ];
