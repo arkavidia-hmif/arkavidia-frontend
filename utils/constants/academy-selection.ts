@@ -3,6 +3,7 @@ import { AcademyEntry } from "interfaces/academy";
 export const AcademySelection: Array<AcademyEntry> = [
   {
     title: "AI Academy",
+    subTitle: "Penerapan Kecerdasan Buatan pada Dunia Bisnis",
     company: "IBM",
     date: "Sabtu, 6 Februari 2021",
     registrationDate: "23 Januari - 5 Februari 2021",
