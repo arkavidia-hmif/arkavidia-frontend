@@ -7,7 +7,7 @@ export const AcademySelection: Array<AcademyEntry> = [
     date: "Sabtu, 6 Februari 2021",
     registrationDate: "22 Januari - 5 Februari 2021",
     logo: "/img/academy/ibm.png",
-    guidebookLink: ""
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_ai"
   },
   {
     title: "Start-Up Academy",
@@ -16,7 +16,7 @@ export const AcademySelection: Array<AcademyEntry> = [
     registrationDate: "22 Januari - 6 Februari 2021",
     registrationFee: "Rp 20.000,-",
     logo: "/img/academy/eduka.png",
-    guidebookLink: ""
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_startup"
   },
   {
     title: "Game Dev Academy",
@@ -26,6 +26,6 @@ export const AcademySelection: Array<AcademyEntry> = [
     registrationDate: "22 Januari - 13 Februari 2021",
     registrationFee: "Rp 20.000,-",
     logo: "/img/academy/agate.png",
-    guidebookLink: ""
+    guidebookLink: "https://link.arkavidia.id/guidebook_academy_game"
   }
 ];
