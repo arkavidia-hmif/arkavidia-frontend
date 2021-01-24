@@ -45,6 +45,10 @@ const CompetitionWrapper: React.FC<Props> = ({
     return <Alert error="Tautan invalid, pastikan pendaftaran sudah dibuka dan profil sudah lengkap" />;
   }
 
+  if (!currentCompetition.isRegistrationOpen) {
+    return <Alert error="Pendaftaran sudah ditutup" />;
+  }
+
   if (!currentTeam) {
     router.push(`/dashboard/competitions/${competition}/register-tim`);
     return <Spinner height="200px" />;
