@@ -93,7 +93,7 @@ export const DatavidiaTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #08DDF5 1.82%, #00FFFF 100%)",
   },
   {
-    date: "1 Februari 2021",
+    date: "31 Januari 2021",
     content: "Hari Terakhir Babak Penyisihan",
     background: "linear-gradient(90deg, #01FCFE 1.82%, #13ABE7 100%)",
   },
