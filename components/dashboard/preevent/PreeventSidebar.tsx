@@ -39,9 +39,9 @@ const PreeventSidebar: React.FC<Props> = ({
 
     const [requiredTaskCount, completedTaskCount] = getRequiredAndCompletedPreeventTask(registrationDetail);
     if (requiredTaskCount === completedTaskCount) {
-      status = "Data lengkap";
+      status = "Pendaftaran sukses, silahkan tunggu pengumuman lebih lanjut";
     } else {
-      status = "Data belum lengkap";
+      status = "Data belum lengkap/diverifikasi";
     }
   }
 
