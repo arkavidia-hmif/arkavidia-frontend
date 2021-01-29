@@ -3,7 +3,7 @@ import { Competition } from "interfaces/competition";
 import { TaskResponse } from "interfaces/task";
 import { ApiError, StandardError } from "interfaces/api";
 
-export const LIST_COMPETITION_URL = "/competition";
+export const LIST_COMPETITION_URL = "/competition/";
 
 export const SUBMIT_TASK_REPONSE_COMPETITION_URL = (
   team_id: number,

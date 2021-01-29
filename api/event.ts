@@ -3,8 +3,8 @@ import { Event, EventRegisterStatus, EventRegistration, EventRegistrationDetail 
 import { ApiError, StandardError } from "interfaces/api";
 import { TaskResponse } from "interfaces/task";
 
-export const LIST_EVENT_URL = "/mainevent";
-export const LIST_EVENT_PARTICIPANT_URL = "/mainevent/registrants";
+export const LIST_EVENT_URL = "/mainevent/";
+export const LIST_EVENT_PARTICIPANT_URL = "/mainevent/registrants/";
 
 export const getEvent = async (
   axios: AxiosInstance
