@@ -25,7 +25,7 @@ export const AcademySelection: Array<AcademyEntry> = [
     title: "Game Dev Academy",
     subTitle: "Intro to Shader in Unity 3D",
     company: "Agate",
-    date: "Sabtu, 30 Februari 2021",
+    date: "Sabtu, 20 Februari 2021",
     registrationDate: "23 Januari - 13 Februari 2021",
     registrationFee: "Rp 20.000,-",
     logo: "/img/academy/agate.png",
