@@ -14,11 +14,11 @@ const Dates = {
       items: [
         {
           name: "Day 1",
-          time: "27 Februari 13.00 - 15.00",
+          time: "20 Februari 13.00 - 15.00",
         },
         {
           name: "Day 2",
-          time: "28 Februari 13.00 - 15.00",
+          time: "21 Februari 13.00 - 15.00",
         }
       ]
     },
