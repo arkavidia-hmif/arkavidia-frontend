@@ -86,7 +86,7 @@ export const TalksItems = [
     items: [
       {
         session: "Day 1",
-        date: "Sabtu, 27 Februari 2021",
+        date: "Sabtu, 20 Februari 2021",
         time: "13.00 - 15.00 WIB",
         title: "Ethical Hacking 101",
         description: "Achmad is a engineer who is passionate about  cyber security. He is a security engineer in Bukalapak for more than a year and a half now. During the college years, he was a champion in more than 5 CTF competitions, a finalist in ACM ICPC, and winner of various other cyber security related competition.",
@@ -96,7 +96,7 @@ export const TalksItems = [
       },
       {
         session: "Day 2",
-        date: "Minggu, 28 Februari 2021",
+        date: "Minggu, 21 Februari 2021",
         time: "13.00 - 15.00 WIB",
         title: "How to Use Behavior Patterns in Interface Designing",
         description: "As the Co-Founder of Natuno Design Lab, one of the rising User Experience Firm based in Jakarta, Dimas Wibowo brands himself as a designer who works in the intersection of technology, design and arts. Before contributing in the grow of Natuno, he had a lot of experience helping startups, brands and companies to achieve better products as a designer, including the big indonesia's travel startup, Traveloka.",
