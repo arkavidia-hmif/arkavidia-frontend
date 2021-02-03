@@ -7,6 +7,7 @@ interface Props {
   imageAlt: string;
   title: string;
   sponsor: string;
+  sponsorLogo: string;
   paragraph: string;
   bg?: string;
 }
@@ -17,6 +18,7 @@ const CompetitionHeader: React.FC<Props> = ({
   imageAlt,
   title,
   sponsor,
+  sponsorLogo,
   paragraph,
   bg,
 }) => {
@@ -27,7 +29,7 @@ const CompetitionHeader: React.FC<Props> = ({
       </div>
       <div id="content-container">
         <h1>{title.toUpperCase()}</h1>
-        <p><b>Supported by {sponsor}</b></p>
+        <p className="mt-3 mt-sm-0"><b>Supported by</b><img id="sponsor-logo" className="ml-0 ml-sm-3" src={sponsorLogo} alt={sponsor} /></p>
         <p>{paragraph}</p>
         {children}
       </div>
@@ -55,9 +57,7 @@ const CompetitionHeader: React.FC<Props> = ({
       }
 
       h1 {
-        font-family: "Viga";
         font-size: 3.6rem;
-        font-weight: normal;
         margin: 0;
         margin-block-end: 0.4em;
         line-height: 100%;
@@ -65,6 +65,10 @@ const CompetitionHeader: React.FC<Props> = ({
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+
+      #sponsor-logo {
+        height: 8rem;
       }
 
       p {
