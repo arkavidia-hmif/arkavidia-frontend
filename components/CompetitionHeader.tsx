@@ -6,6 +6,7 @@ interface Props {
   image: string;
   imageAlt: string;
   title: string;
+  sponsor: string;
   paragraph: string;
   bg?: string;
 }
@@ -15,16 +16,18 @@ const CompetitionHeader: React.FC<Props> = ({
   image,
   imageAlt,
   title,
+  sponsor,
   paragraph,
   bg,
 }) => {
   return (
-    <div id="main-container">
+    <div id="main-container" className="mt-3">
       <div id="logo-container">
         <img src={image} alt={imageAlt} />
       </div>
       <div id="content-container">
         <h1>{title.toUpperCase()}</h1>
+        <p><b>Supported by {sponsor}</b></p>
         <p>{paragraph}</p>
         {children}
       </div>
