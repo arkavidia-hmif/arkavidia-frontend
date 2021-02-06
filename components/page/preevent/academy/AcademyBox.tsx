@@ -25,7 +25,7 @@ const AcademyBox: React.FC<Props> = ({ entry }) => {
           </div>
           <div className="d-flex flex-row">
             <img className="tiny-logo mr-3" src="/img/academy/icon_date.png" />
-            <p>{entry.date}</p>
+            <p>{entry.date} <span id="updated" className="ml-3">{entry.updated ? "[UPDATED]" : ""}</span> </p>
           </div>
           <p className="mb-1">Periode Pendaftaran : {entry.registrationDate}</p>
           {entry.registrationFee && <p>Biaya Kegiatan : {entry.registrationFee}</p>}
@@ -55,6 +55,10 @@ const AcademyBox: React.FC<Props> = ({ entry }) => {
 
         .tiny-logo {
           height: 1.25rem;
+        }
+
+        #updated {
+          color: red;
         }
       `}</style>
     </div>

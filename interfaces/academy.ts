@@ -8,4 +8,5 @@ export interface AcademyEntry {
   registrationDate: string;
   guidebookLink: string;
   registerLink: string;
+  updated?: boolean;
 }

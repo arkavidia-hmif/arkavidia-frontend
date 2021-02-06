@@ -5,11 +5,12 @@ export const AcademySelection: Array<AcademyEntry> = [
     title: "AI Academy",
     subTitle: "Penerapan Kecerdasan Buatan pada Dunia Bisnis",
     company: "IBM",
-    date: "Sabtu, 6 Februari 2021",
-    registrationDate: "23 Januari - 5 Februari 2021",
+    date: "Minggu, 21 Februari 2021",
+    registrationDate: "23 Januari - 20 Februari 2021",
     logo: "/img/academy/ibm.png",
     guidebookLink: "https://link.arkavidia.id/guidebook_academy_ai",
-    registerLink: "/dashboard/pre-events/academy-ai/register"
+    registerLink: "/dashboard/pre-events/academy-ai/register",
+    updated: true
   },
   {
     title: "Start-Up Academy",
