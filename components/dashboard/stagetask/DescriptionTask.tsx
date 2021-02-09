@@ -6,6 +6,7 @@ const DescriptionTask: React.FC<TaskWidget> = ({
   task,
   response,
   submitFunction,
+  mutate,
   editable
 }) => {
   const parsedParam = (task.widgetParameters as unknown) as DescriptionTaskParam;
@@ -13,6 +14,7 @@ const DescriptionTask: React.FC<TaskWidget> = ({
   useEffect(() => {
     if (editable && response?.status !== "completed") {
       submitFunction("done");
+      mutate();
     }
   }, [editable, response]);
 
