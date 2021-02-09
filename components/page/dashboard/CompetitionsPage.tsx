@@ -41,9 +41,13 @@ const CompetitionsPage: React.FC = () => {
   };
 
   const generateCardText = (entry: Competition): string => {
-    return teamBySlug[entry.slug]?.isParticipating
-      ? "Lihat Pendaftaran"
-      : "Daftar";
+    if (teamBySlug[entry.slug]?.isParticipating) {
+      return "Lihat Pendaftaran";
+    } else {
+      return !entry.isRegistrationOpen
+        ? "Pendaftaran Ditutup"
+        : "Daftar";
+    }
   };
 
   const generateUrl = (entry: Competition): string => {
