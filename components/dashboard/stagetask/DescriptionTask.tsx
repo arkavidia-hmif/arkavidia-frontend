@@ -1,4 +1,5 @@
 import { useEffect, ReactNode } from "react";
+import StageTaskStyle from "./StageTask.module.css";
 import { DescriptionTaskParam, TaskWidget } from "interfaces/task";
 
 const DescriptionTask: React.FC<TaskWidget> = ({
@@ -28,7 +29,7 @@ const DescriptionTask: React.FC<TaskWidget> = ({
 
   return (
     <>
-      <div id="heading">Informasi Pendaftaran - {task?.name}</div>
+      <div className={StageTaskStyle.heading}>Informasi Pendaftaran - {task?.name}</div>
       <br />
       <br />
 
@@ -36,30 +37,13 @@ const DescriptionTask: React.FC<TaskWidget> = ({
 
       <br />
 
-      <p className={parsedParam.link ? "title" : "d-none"}>Beberapa Tautan Penting</p>
+      <p className={parsedParam.link ? StageTaskStyle.title : "d-none"}>
+        Beberapa Tautan Penting
+      </p>
+
       <ul>
         {getLinkList(parsedParam.link)}
       </ul>
-
-      <style jsx>{`
-        #heading {
-          font-family: Viga;
-          font-size: 1.5rem;
-          color: #05058d;
-        }
-
-        .title {
-          font-weight: bold;
-          color: #646464;
-          font-size: 1.125rem;
-        }
-
-        @media only screen and (max-width: 450px) {
-          #heading {
-            font-size: 1.25rem;
-          }
-        }
-      `}</style>
     </>
   );
 };

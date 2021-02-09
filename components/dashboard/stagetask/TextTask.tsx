@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
+import StageTaskStyle from "./StageTask.module.css";
 import FilledButton from "components/FilledButton";
 import { TaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
@@ -62,15 +63,15 @@ const TextTask: React.FC<TaskWidget> = ({
   };
   return (
     <>
-      <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
-      <div id="ketentuan" className="mt-3">
-        <div className="title">Pertanyaan:</div>
-        <div className="subtitle">{parsedParam.description}</div>
+      <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
+      <div className="mt-3">
+        <div className={StageTaskStyle.title}>Pertanyaan:</div>
+        <div className={StageTaskStyle.text}>{parsedParam.description}</div>
       </div>
 
       <form>
         <div className="mt-3">
-          <div className="title">Jawaban:</div>
+          <div className={StageTaskStyle.title}>Jawaban:</div>
           <TextArea
             disabled={!isEdit}
             value={value}
@@ -109,35 +110,6 @@ const TextTask: React.FC<TaskWidget> = ({
             )}
         </div>
       </form>
-
-      <style jsx>{`
-        #heading {
-          font-family: Viga;
-          font-size: 1.5rem;
-          color: #05058d;
-        }
-
-        .subtitle {
-          color: #646464;
-          font-size: 1rem;
-          padding: 0.5rem 0;
-        }
-
-        .title {
-          font-weight: bold;
-          color: #646464;
-          font-size: 1.125rem;
-        }
-
-        @media only screen and (max-width: 450px) {
-          .subtitle {
-            font-size: 0.9375rem;
-          }
-          #heading {
-            font-size: 1.25rem;
-          }
-        }
-      `}</style>
     </>
   );
 };

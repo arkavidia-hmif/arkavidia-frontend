@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import StatusBox from "./StatusBox";
+import StageTaskStyle from "./StageTask.module.css";
 import { ApiContext } from "utils/context/api";
 import FilledButton from "components/FilledButton";
 import useFileUploader from "utils/hooks/useFileUploader";
@@ -73,15 +74,15 @@ const PhotoTask: React.FC<TaskWidget> = ({
   };
   return (
     <form>
-      <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
+      <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
       <div id="ketentuan" className="mt-3">
-        <div className="title">Ketentuan:</div>
+        <div className={StageTaskStyle.title}>Ketentuan:</div>
         {typeof task.widgetParameters !== "string" && (
-          <div className="subtitle">{task.widgetParameters?.description}</div>
+          <div className={StageTaskStyle.text}>{task.widgetParameters?.description}</div>
         )}
       </div>
       <div id="upload" className="mt-3">
-        <div className="title">Upload:</div>
+        <div className={StageTaskStyle.title}>Upload:</div>
         <FileUploader
           disabled={!!(!isEdit && response)}
           data={file}
@@ -133,40 +134,6 @@ const PhotoTask: React.FC<TaskWidget> = ({
         #simpan {
           display: flex;
           gap: 1rem;
-        }
-
-        #heading {
-          font-family: Viga;
-          font-size: 1.5rem;
-          color: #05058d;
-        }
-
-        .title {
-          font-family: Roboto;
-          font-weight: bold;
-          color: #646464;
-          font-size: 1.125rem;
-        }
-
-        .subtitle {
-          font-family: Roboto;
-          color: #646464;
-          font-size: 1rem;
-          padding: 0.5rem 0;
-        }
-
-        @media (max-width: 450px) {
-          #heading {
-            font-size: 1.25rem;
-          }
-
-          .title {
-            font-size: 1rem;
-          }
-
-          .subtitle {
-            font-size: 0.9375rem;
-          }
         }
       `}</style>
     </form>

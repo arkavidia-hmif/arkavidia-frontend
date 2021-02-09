@@ -1,0 +1,32 @@
+.title {
+  font-weight: bold;
+  color: #646464;
+  font-size: 1.125rem;
+}
+
+.heading {
+  font-family: Viga;
+  font-size: 1.5rem;
+  color: #05058d;
+}
+
+.text {
+  color: #646464;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 450px) {
+  .heading {
+    font-size: 1.25rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+}
+

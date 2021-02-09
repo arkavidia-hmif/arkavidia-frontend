@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
+import StageTaskStyle from "./StageTask.module.css";
 import FilledButton from "components/FilledButton";
 import { MultiTextFieldTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
@@ -81,7 +82,7 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
       return (
         <div className="row mt-3" key={idx}>
           <div className="col-12">
-            <label htmlFor={entry.name}>{entry.name}</label>
+            <label className={StageTaskStyle.title} htmlFor={entry.name}>{entry.name}</label>
             {entry.description && <p className="field-subtitle">{entry.description}</p>}
             <input
               id={entry.name}
@@ -93,13 +94,6 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
             />
           </div>
           <style jsx>{`
-            label {
-              width: 100%;
-              font-weight: bold;
-              color: #646464;
-              font-size: 1.125rem;
-            }
-
             .field-subtitle {
               color: #646464;
               margin-bottom: 0.5rem;
@@ -123,10 +117,10 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
 
   return (
     <>
-      <div id="heading">Persyaratan Pendaftaran - {task?.name}</div>
+      <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
       <div id="ketentuan" className="mt-3">
-        <div className="title">Keterangan:</div>
-        <div className="subtitle">{parsedParam.description}</div>
+        <div className={StageTaskStyle.title}>Keterangan:</div>
+        <div className={StageTaskStyle.text}>{parsedParam.description}</div>
       </div>
 
       <form>
@@ -161,36 +155,6 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
             )}
         </div>
       </form>
-
-      <style jsx>{`
-        #heading {
-          font-family: Viga;
-          font-size: 1.5rem;
-          color: #05058d;
-        }
-
-        .subtitle {
-          font-family: Roboto;
-          color: #646464;
-          font-size: 1rem;
-          padding: 0.5rem 0;
-        }
-
-        .title {
-          font-weight: bold;
-          color: #646464;
-          font-size: 1.125rem;
-        }
-
-        @media only screen and (max-width: 450px) {
-          .subtitle {
-            font-size: 0.9375rem;
-          }
-          #heading {
-            font-size: 1.25rem;
-          }
-        }
-      `}</style>
     </>
   );
 };
