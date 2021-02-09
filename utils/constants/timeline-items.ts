@@ -131,7 +131,7 @@ export const GamejamTimelineItems: Array<TimelineEntry> = [
     background: "linear-gradient(90deg, #13AAE6 13.33%, #08DFF6 100%)",
   },
   {
-    date: "13-14 Februari 2021",
+    date: "12-14 Februari 2021",
     content: "Pelaksanaan Lomba",
     background: "linear-gradient(90deg, #08DDF5 1.82%, #00FFFF 100%)",
   },
