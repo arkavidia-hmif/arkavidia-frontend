@@ -9,8 +9,12 @@ export interface TaskParam {
   description: string;
 }
 
+export interface DescriptionTaskParam extends TaskParam {
+  link?: Record<string, string>;
+}
+
 export interface ChoiceTaskParam extends TaskParam {
-  options: string[];
+  options: Array<string>;
   other?: boolean;
 }
 
@@ -32,7 +36,7 @@ export interface Task {
   id: number;
   name: string;
   category: string;
-  widget: string;
+  widget: "Description" | "MultiTextField" | "TextArea" | "Option" | "File";
   widgetParameters: ChoiceTaskParam | FileTaskParam | TaskParam | MultiTextFieldTaskParam;
   isUserTask: boolean;
 }

@@ -2,6 +2,7 @@ import FileTask from "./FileTask";
 import ChoiceTask from "./ChoiceTask";
 import TextTask from "./TextTask";
 import MultiTextFieldTask from "./MultiTextFieldTask";
+import DescriptionTask from "./DescriptionTask";
 import { Task, TaskResponse } from "interfaces/task";
 
 interface Props {
@@ -57,6 +58,17 @@ const StageTask: React.FC<Props> = ({
     if (task.widget === "MultiTextField") {
       return (
         <MultiTextFieldTask
+          selection={selection}
+          task={task}
+          mutate={mutate}
+          submitFunction={taskResponseFunction}
+          response={response}
+        />
+      );
+    }
+    if (task.widget === "Description") {
+      return (
+        <DescriptionTask
           selection={selection}
           task={task}
           mutate={mutate}
