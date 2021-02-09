@@ -60,7 +60,7 @@ const TalksPayment: React.FC = () => {
         selection={0}
         task={task}
         response={taskResponseById[task.id]}
-        taskResponseFunction={taskResponseFunction}
+        submitFunction={taskResponseFunction}
         editable={true}
       />
       <br />

@@ -60,7 +60,7 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
     selection={selection}
     task={task}
     response={taskResponseById[task.id]}
-    taskResponseFunction={taskResponseFunction}
+    submitFunction={taskResponseFunction}
     editable={taskEnabled}
   />);
 };

@@ -58,7 +58,7 @@ const PreeventStageTask: React.FC<Props> = ({ registration, selection }) => {
     selection={selection}
     task={task}
     response={taskResponseById[task.id]}
-    taskResponseFunction={taskResponseFunction}
+    submitFunction={taskResponseFunction}
     editable={taskEnabled}
   />);
 };
