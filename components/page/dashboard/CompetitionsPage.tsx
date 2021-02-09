@@ -41,13 +41,9 @@ const CompetitionsPage: React.FC = () => {
   };
 
   const generateCardText = (entry: Competition): string => {
-    if (!entry.isRegistrationOpen) {
-      return "Pendaftaran ditutup";
-    } else {
-      return teamBySlug[entry.slug]?.isParticipating
-        ? "Lihat Pendaftaran"
-        : "Daftar";
-    }
+    return teamBySlug[entry.slug]?.isParticipating
+      ? "Lihat Pendaftaran"
+      : "Daftar";
   };
 
   const generateUrl = (entry: Competition): string => {
@@ -75,7 +71,7 @@ const CompetitionsPage: React.FC = () => {
             className="col-md-6 col-lg-4"
             title={entry.name}
             body={generateCardBody(entry.minTeamMembers, entry.maxTeamMembers)}
-            buttonLink={entry.isRegistrationOpen ? generateUrl(entry) : null}
+            buttonLink={entry.isRegistrationOpen || teamBySlug[entry.slug]?.isParticipating ? generateUrl(entry) : null}
             buttonText={generateCardText(entry)}
           />
         ))}

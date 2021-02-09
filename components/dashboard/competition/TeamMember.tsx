@@ -48,7 +48,7 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
   };
 
   const getAddSection = () => {
-    if (teamDetail.teamMembers.length >= competition.maxTeamMembers) {
+    if (teamDetail.teamMembers.length >= competition.maxTeamMembers || !competition.isRegistrationOpen) {
       return;
     }
 
@@ -92,6 +92,7 @@ const TeamMember: React.FC<Props> = ({ team, competition }) => {
     return memberList.map((entry, i) => {
       return (
         <MemberCard
+          deletable={competition.isRegistrationOpen}
           key={i}
           member={entry}
           teamDetail={teamDetail}

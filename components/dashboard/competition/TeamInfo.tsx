@@ -153,21 +153,23 @@ const TeamInfo: React.FC<TeamInfoProps> = (props: TeamInfoProps) => {
           <div className="subtitle">{props.currentTeam.institution}</div>
         </div>
         <div className="mt-5" id="button">
-          <div className="mr-5">
-            <FilledButton
-              text="Hapus Tim"
-              color={Theme.buttonColors.purpleButton}
-              padding="0.5rem 1.5rem"
-              onClick={async () => {
-                await deleteTeam(
-                  apiContext.axios,
-                  props.currentTeam.id.toString()
-                ).then(() => {
-                  router.push("/dashboard/competitions");
-                });
-              }}
-            />
-          </div>
+          {props.currentCompetition.isRegistrationOpen &&
+            <div className="mr-5">
+              <FilledButton
+                text="Hapus Tim"
+                color={Theme.buttonColors.purpleButton}
+                padding="0.5rem 1.5rem"
+                onClick={async () => {
+                  await deleteTeam(
+                    apiContext.axios,
+                    props.currentTeam.id.toString()
+                  ).then(() => {
+                    router.push("/dashboard/competitions");
+                  });
+                }}
+              />
+            </div>
+          }
           <div>
             <FilledButton
               text="Edit Tim"

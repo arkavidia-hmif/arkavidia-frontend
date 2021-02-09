@@ -8,13 +8,14 @@ import { ApiContext } from "utils/context/api";
 import FilledButton from "components/FilledButton";
 
 interface Props {
+  deletable: boolean;
   member: TeamMember;
   teamDetail: TeamDetailData;
   mutate: responseInterface<TeamDetailData, string>["mutate"];
   setError: (error: string | null) => void;
 }
 
-const MemberCard: React.FC<Props> = ({ member, teamDetail, mutate, setError }) => {
+const MemberCard: React.FC<Props> = ({ deletable, member, teamDetail, mutate, setError }) => {
   const apiContext = useContext(ApiContext);
 
   const gravatarHash = MD5(member.email.toLowerCase()).toString();
@@ -47,7 +48,7 @@ const MemberCard: React.FC<Props> = ({ member, teamDetail, mutate, setError }) =
         <p className="email">{member.email}</p>
       </div>
       <div style={{ flex: 1 }} />
-      {member.id !== -99 && !member.isTeamLeader && <FilledButton text="Hapus" loading={loading} onClick={deleteHandler} />}
+      {member.id !== -99 && !member.isTeamLeader && deletable && <FilledButton text="Hapus" loading={loading} onClick={deleteHandler} />}
       <style jsx>{`
         #member-container {
           display: flex;
