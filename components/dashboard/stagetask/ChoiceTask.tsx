@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import StandardInput from "../StandardInput";
 import StatusBox from "./StatusBox";
 import StageTaskStyle from "./StageTask.module.css";
-import FilledButton from "components/FilledButton";
+import EditButton from "./EditButton";
 import useChoice from "utils/hooks/useChoice";
 import { ChoiceTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
@@ -18,6 +18,7 @@ const ChoiceTask: React.FC<TaskWidget> = ({
   submitFunction,
   mutate,
   selection,
+  editable
 }) => {
   const parsedParam = task.widgetParameters as ChoiceTaskParam;
 
@@ -100,7 +101,6 @@ const ChoiceTask: React.FC<TaskWidget> = ({
     }
   };
 
-
   return (
     <>
       <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
@@ -131,25 +131,13 @@ const ChoiceTask: React.FC<TaskWidget> = ({
           )}
         </div>
         <div id="simpan" className="mt-4">
-          {!isEdit ? (
-            <FilledButton
-              text="Ubah"
-              color={Theme.buttonColors.pinkButton}
-              padding="0.5rem 2rem"
-              onClick={() => setIsEdit(true)}
-            />)
-            : (
-              <FilledButton
-                loading={progressObj.loading}
-                text="Simpan"
-                color={Theme.buttonColors.purpleButton}
-                padding="0.5rem 2rem"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSubmit();
-                }}
-              />
-            )}
+          <EditButton
+            isEdit={isEdit}
+            editable={editable}
+            handleSubmit={handleSubmit}
+            setIsEdit={setIsEdit}
+            loading={progressObj.loading}
+          />
         </div>
       </form>
 

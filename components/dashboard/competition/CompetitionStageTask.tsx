@@ -30,10 +30,12 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
 
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
   if (!teamDetail) return <Spinner />;
-  const widgetList: Task[] = [];
+  const widgetList: Array<Task> = [];
+  const widgetEnabled: Array<boolean> = [];
   for (const stage of teamDetail.stages) {
     for (const task of stage.tasks) {
       widgetList.push(task);
+      widgetEnabled.push(stage.id === teamDetail.activeStageId);
     }
   }
 
@@ -43,6 +45,7 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
   );
 
   const task = widgetList[selection - 2];
+  const taskEnabled = widgetEnabled[selection - 2];
 
   const taskResponseFunction =
     (value: string) => submitTaskResponseCompetition(
@@ -52,13 +55,13 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
       value
     );
 
-
   return (<StageTask
     mutate={teamDetailMutate}
     selection={selection}
     task={task}
     response={taskResponseById[task.id]}
     taskResponseFunction={taskResponseFunction}
+    editable={taskEnabled}
   />);
 };
 

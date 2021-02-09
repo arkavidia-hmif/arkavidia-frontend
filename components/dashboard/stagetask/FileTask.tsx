@@ -17,6 +17,7 @@ const PhotoTask: React.FC<TaskWidget> = ({
   response,
   submitFunction,
   mutate,
+  editable
 }) => {
   const apiContext = useContext(ApiContext);
   const file = useFileUploader();
@@ -28,7 +29,7 @@ const PhotoTask: React.FC<TaskWidget> = ({
 
   useEffect(() => {
     file.set(null);
-    setIsEdit(false);
+    setIsEdit(!response);
     setSuccess(false);
     setError(null);
   }, [selection]);
@@ -72,6 +73,30 @@ const PhotoTask: React.FC<TaskWidget> = ({
       setError(String(e));
     }
   };
+
+  const getEditButton = () => {
+    if (!editable) return null;
+    if (isEdit) {
+      return (<FilledButton
+        loading={loading}
+        text="Simpan"
+        color={Theme.buttonColors.purpleButton}
+        padding="0.5rem 2rem"
+        onClick={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      />);
+    } else {
+      return (<FilledButton
+        text="Ubah"
+        color={Theme.buttonColors.pinkButton}
+        padding="0.5rem 2rem"
+        onClick={() => setIsEdit(true)}
+      />);
+    }
+  };
+
   return (
     <form>
       <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
@@ -101,25 +126,7 @@ const PhotoTask: React.FC<TaskWidget> = ({
         )}
       </div>
       <div id="simpan" className="mt-4">
-        {!isEdit && response ? (
-          <FilledButton
-            text="Ubah"
-            color={Theme.buttonColors.pinkButton}
-            padding="0.5rem 2rem"
-            onClick={() => setIsEdit(true)}
-          />)
-          : (
-            <FilledButton
-              loading={loading}
-              text="Simpan"
-              color={Theme.buttonColors.purpleButton}
-              padding="0.5rem 2rem"
-              onClick={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            />
-          )}
+        {getEditButton()}
         {isEdit && response && (
           <FilledButton
             text="Cancel"

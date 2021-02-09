@@ -61,6 +61,7 @@ export interface PreeventTaskResponse extends TaskResponse {
 export interface TaskWidget {
   task: Task;
   selection: number;
+  editable: boolean;
   response?: TaskResponse;
   submitFunction: (value: string) => Promise<TaskResponse>
   mutate: () => void;

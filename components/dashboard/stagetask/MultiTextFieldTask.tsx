@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
 import StageTaskStyle from "./StageTask.module.css";
-import FilledButton from "components/FilledButton";
+import EditButton from "./EditButton";
 import { MultiTextFieldTaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import { Theme } from "styles/theme";
@@ -14,6 +14,7 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
   submitFunction,
   mutate,
   selection,
+  editable
 }) => {
   const parsedParam = task.widgetParameters as MultiTextFieldTaskParam;
 
@@ -27,7 +28,7 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
   }
 
   const [content, setContent] = useState<Array<string>>([]);
-  const [isEdit, setIsEdit] = useState<boolean>();
+  const [isEdit, setIsEdit] = useState<boolean>(false);
 
   useEffect(() => {
     setContent(initialContent);
@@ -135,24 +136,13 @@ const MultiTextFieldTask: React.FC<TaskWidget> = ({
           )}
         </div>
         <div id="simpan" className="mt-4">
-          {!isEdit ? (
-            <FilledButton
-              text="Ubah"
-              color={Theme.buttonColors.pinkButton}
-              padding="0.5rem 2rem"
-              onClick={() => setIsEdit(true)}
-            />)
-            : (
-              <FilledButton
-                onClick={() => {
-                  handleSubmit();
-                }}
-                loading={progressObj.loading}
-                text="Simpan"
-                color={Theme.buttonColors.purpleButton}
-                padding="0.5rem 2rem"
-              />
-            )}
+          <EditButton
+            isEdit={isEdit}
+            editable={editable}
+            handleSubmit={handleSubmit}
+            setIsEdit={setIsEdit}
+            loading={progressObj.loading}
+          />
         </div>
       </form>
     </>

@@ -5,15 +5,16 @@ import { DescriptionTaskParam, TaskWidget } from "interfaces/task";
 const DescriptionTask: React.FC<TaskWidget> = ({
   task,
   response,
-  submitFunction
+  submitFunction,
+  editable
 }) => {
   const parsedParam = (task.widgetParameters as unknown) as DescriptionTaskParam;
 
   useEffect(() => {
-    if (response?.status !== "completed") {
+    if (editable && response?.status !== "completed") {
       submitFunction("done");
     }
-  }, [response]);
+  }, [editable, response]);
 
   const getLinkList = (link?: Record<string, string>) => {
     const linkNode: Array<ReactNode> = [];

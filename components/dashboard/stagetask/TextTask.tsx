@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import StatusBox from "./StatusBox";
 import StageTaskStyle from "./StageTask.module.css";
-import FilledButton from "components/FilledButton";
+import EditButton from "./EditButton";
 import { TaskParam, TaskWidget } from "interfaces/task";
 import Alert from "components/Alert";
 import TextArea from "components/TextArea";
@@ -13,11 +13,12 @@ const TextTask: React.FC<TaskWidget> = ({
   submitFunction,
   mutate,
   selection,
+  editable
 }) => {
   const parsedParam = (task.widgetParameters as unknown) as TaskParam;
   const valueInit = response ? response.response : "";
 
-  const [isEdit, setIsEdit] = useState<boolean>();
+  const [isEdit, setIsEdit] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
@@ -89,25 +90,13 @@ const TextTask: React.FC<TaskWidget> = ({
           )}
         </div>
         <div id="simpan" className="mt-4">
-          {!isEdit && response ? (
-            <FilledButton
-              text="Ubah"
-              color={Theme.buttonColors.pinkButton}
-              padding="0.5rem 2rem"
-              onClick={() => setIsEdit(true)}
-            />)
-            : (
-              <FilledButton
-                loading={loading}
-                text="Simpan"
-                color={Theme.buttonColors.purpleButton}
-                padding="0.5rem 2rem"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSubmit();
-                }}
-              />
-            )}
+          <EditButton
+            isEdit={isEdit}
+            editable={editable}
+            handleSubmit={handleSubmit}
+            setIsEdit={setIsEdit}
+            loading={loading}
+          />
         </div>
       </form>
     </>

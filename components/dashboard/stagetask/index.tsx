@@ -11,6 +11,7 @@ interface Props {
   mutate: () => void;
   taskResponseFunction: (value: string) => Promise<TaskResponse>
   selection: number;
+  editable: boolean;
 }
 
 const StageTask: React.FC<Props> = ({
@@ -18,7 +19,8 @@ const StageTask: React.FC<Props> = ({
   response,
   mutate,
   taskResponseFunction,
-  selection
+  selection,
+  editable
 }) => {
   const getTask = (): React.ReactNode => {
 
@@ -30,6 +32,7 @@ const StageTask: React.FC<Props> = ({
           submitFunction={taskResponseFunction}
           mutate={mutate}
           response={response}
+          editable={editable}
         />
       );
     }
@@ -41,6 +44,7 @@ const StageTask: React.FC<Props> = ({
           task={task}
           mutate={mutate}
           response={response}
+          editable={editable}
         />
       );
     }
@@ -52,6 +56,7 @@ const StageTask: React.FC<Props> = ({
           task={task}
           mutate={mutate}
           response={response}
+          editable={editable}
         />
       );
     }
@@ -63,6 +68,7 @@ const StageTask: React.FC<Props> = ({
           mutate={mutate}
           submitFunction={taskResponseFunction}
           response={response}
+          editable={editable}
         />
       );
     }
@@ -74,14 +80,13 @@ const StageTask: React.FC<Props> = ({
           mutate={mutate}
           submitFunction={taskResponseFunction}
           response={response}
+          editable={editable}
         />
       );
     }
   };
 
-  return (
-    <div>{getTask()}</div>
-  );
+  return getTask();
 };
 
 export default StageTask;
