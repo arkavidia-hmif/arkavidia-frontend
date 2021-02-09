@@ -61,6 +61,7 @@ const TalksPayment: React.FC = () => {
         task={task}
         response={taskResponseById[task.id]}
         taskResponseFunction={taskResponseFunction}
+        editable={true}
       />
       <br />
       <FilledButton

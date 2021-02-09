@@ -28,10 +28,12 @@ const PreeventStageTask: React.FC<Props> = ({ registration, selection }) => {
   if (registrationDetailError) return <Alert error="Masalah koneksi" />;
   if (!registrationDetail) return <Spinner />;
 
-  const widgetList: Task[] = [];
+  const widgetList: Array<Task> = [];
+  const widgetEnabled: Array<boolean> = [];
   for (const stage of registrationDetail.stages) {
     for (const task of stage.tasks) {
       widgetList.push(task);
+      widgetEnabled.push(stage.id === registrationDetail.activeStageId);
     }
   }
 
@@ -40,6 +42,7 @@ const PreeventStageTask: React.FC<Props> = ({ registration, selection }) => {
   );
 
   const task = widgetList[selection];
+  const taskEnabled = widgetEnabled[selection];
 
   const taskResponseFunction =
     (value: string) => submitPreeventTaskResponse(
@@ -56,6 +59,7 @@ const PreeventStageTask: React.FC<Props> = ({ registration, selection }) => {
     task={task}
     response={taskResponseById[task.id]}
     taskResponseFunction={taskResponseFunction}
+    editable={taskEnabled}
   />);
 };
 
