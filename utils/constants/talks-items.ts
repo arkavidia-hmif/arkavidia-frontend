@@ -48,6 +48,16 @@ export const TalksItems = [
         profilePicture: "/img/talks/basic-2-2-speaker.png"
       },
       {
+        session: "Day 2 - Sesi 3",
+        date: "Rabu, 24 Februari 2021",
+        time: "19.00 - 21.00 WIB",
+        title: "A Day in The Life of CTO",
+        description: "Dekha Anggareska is the Co-Founder & CTO of CrediBook, a VC-backed start up that aims to digitize Indonesian SMEs financial activities. Before co-founded CrediBook, Dekha also co-founded Rulo, an online startup that enable general trade chain between retailer and wholesaler. Dekha started his career from junior level as a Software Engineer and worked his way up until becoming CTO. All of his employers are digital startups based in Singapore and Indonesia, be it early stage or growth stage companies. All those experiences made him decide to build his own venture with his co-founders. Dekha also graduated from IF-ITB in 2014",
+        speaker: "Dekha Anggareska",
+        credential: "CTO at Credibook",
+        profilePicture: "/img/talks/basic-2-3-speaker.png"
+      },
+      {
         session: "Day 3 - Sesi 1",
         date: "Jumat, 26 Februari 2021",
         time: "19.00 - 21.00 WIB",
