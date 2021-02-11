@@ -14,6 +14,8 @@ const EventItems = {
     paragraph:
       "Arkavidia Talks merupakan salah satu main event Arkavidia 7.0 berupa webinar talkshow \"Public Talks\" serta webinar hands-on \"Advanced Talks\" dimana diundangnya para praktisi dan profesional dalam industri IT dari berbagai bidang karir yang siap untuk berbagi pengetahuan dan pengalamannya dengan kamu!",
     bg: "linear-gradient(101.29deg, #906AF7 17.7%, #FE628B 76.97%)",
+    sponsor: "Codex",
+    sponsorLogo: "https://arkavidia.nyc3.cdn.digitaloceanspaces.com/logo-codex.png"
   },
   academy: {
     image: "/img/preevent/academy/logo-academy.png",
