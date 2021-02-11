@@ -8,6 +8,9 @@ interface Props {
   title: string;
   paragraph: string;
   bg?: string;
+  sponsor?: string;
+  sponsorLogo?: string;
+  reverse?: boolean;
 }
 
 const EventHeader: React.FC<Props> = ({
@@ -15,22 +18,27 @@ const EventHeader: React.FC<Props> = ({
   image,
   imageAlt,
   title,
+  sponsor,
+  sponsorLogo,
   paragraph,
   bg,
-}) =>
-  (
-    <div id="main-container">
+  reverse = false
+}) => {
+  return (
+    <div id="main-container" className="mt-3">
       <div id="logo-container">
         <img src={image} alt={imageAlt} />
       </div>
       <div id="content-container">
         <h1>{title.toUpperCase()}</h1>
+        {sponsor && <p className="mt-3 mt-sm-0"><b>Supported by</b><img id="sponsor-logo" className="ml-0 ml-sm-3" src={sponsorLogo} alt={sponsor} /></p>}
         <p>{paragraph}</p>
         {children}
       </div>
       <style jsx>{`
       #main-container {
         display: flex;
+        flex-direction: ${reverse ? "row" : "row-reverse"};
         margin-bottom: 10%;
       }
 
@@ -42,23 +50,18 @@ const EventHeader: React.FC<Props> = ({
       }
 
       #logo-container {
-        max-height: 60vh;
         width: 50%;
         margin-right: 5%;
       }
 
       #logo-container img {
-        max-height: 60vh;
-        object-fit: contain;
         width: 100%;
       }
 
       h1 {
-        font-family: "Viga";
-        font-size: 4rem;
-        font-weight: normal;
+        font-size: 3.6rem;
         margin: 0;
-        margin-bottom: 5%;
+        margin-block-end: 0.4em;
         line-height: 100%;
         background: ${bg};
         background-clip: text;
@@ -66,12 +69,16 @@ const EventHeader: React.FC<Props> = ({
         -webkit-text-fill-color: transparent;
       }
 
+      #sponsor-logo {
+        height: 8rem;
+      }
+
       p {
         font-size: 1.2rem;
         line-height: 1.3;
       }
 
-      @media (max-width: 992px) {
+      @media (max-width: 1000px) {
         #main-container {
           display: block;
           text-align: center;
@@ -90,12 +97,12 @@ const EventHeader: React.FC<Props> = ({
           font-size: 2.5rem;
         }
         p {
-          font-size: 1.2rem;
           line-height: 1.2;
         }
       }
     `}</style>
     </div>
   );
+};
 
 export default EventHeader;

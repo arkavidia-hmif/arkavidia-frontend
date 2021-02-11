@@ -4,13 +4,14 @@ import EventItems from "../../utils/constants/event-items";
 import Dates from "../../utils/constants/dates";
 import DateColor from "../../utils/constants/date-color";
 import DateContainer from "../../components/DateContainer";
-import EventHeader from "../../components/EventHeader";
 import AGTSGallery from "../../components/page/preevent/agts/AGTSGallery";
+import EventHeader from "components/EventHeader";
+
 
 const Agts: React.FC = () => (
   <Layout {...BackgroundProps.agts}>
     <div className="container pb-4">
-      <EventHeader {...EventItems.agts}>
+      <EventHeader {...EventItems.agts} reverse={true}>
         <DateContainer dates={Dates.agts} color={DateColor.preevent} />
       </EventHeader>
       <AGTSGallery />
