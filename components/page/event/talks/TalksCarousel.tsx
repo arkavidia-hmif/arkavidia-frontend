@@ -22,7 +22,7 @@ const TalksCarousel: React.FC<Props> = ({ items, color, buttonColor }) => {
 
   const generateItem = (entry: TalksCarouselItem) => {
     return (
-      <div className="row m-3 m-md-5">
+      <div key={entry.title} className="row m-3 m-md-5">
         <div className="col-md-8 order-1 order-md-0" id="content-holder">
           <p id="day">{entry.session}</p>
           <p className="font12 my-0">{entry.date}</p>
