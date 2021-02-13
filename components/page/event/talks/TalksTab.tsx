@@ -8,7 +8,7 @@ const TalksTab: React.FC = () => {
   return (
     <>
       <div className="row mb-5">
-        <div className="col-md-6 offset-md-3 col-12" style={{ textAlign: "center" }}>
+        <div className="col-md-8 offset-md-2 col-12" style={{ textAlign: "center" }}>
           <img src={TalksItems[tabSelection].hero} />
         </div>
       </div>
