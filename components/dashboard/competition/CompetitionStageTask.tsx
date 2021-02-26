@@ -24,7 +24,7 @@ const CompetitionStageTask: React.FC<Props> = ({ team, selection }) => {
     data: teamDetail,
     error: teamDetailError,
     mutate: teamDetailMutate,
-  } = useSWR(`/competition/teams/${team.id}/`, () => getTeamDetail(apiContext.axios, team.id), { refreshInterval: 10 });
+  } = useSWR(`/competition/teams/${team.id}/`, () => getTeamDetail(apiContext.axios, team.id), { refreshInterval: 5000 });
 
   if (teamDetailError) return <Alert error="Masalah koneksi" />;
   if (!teamDetail) return <Spinner />;
