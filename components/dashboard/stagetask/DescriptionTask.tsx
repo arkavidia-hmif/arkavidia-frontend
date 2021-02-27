@@ -32,7 +32,7 @@ const DescriptionTask: React.FC<TaskWidget> = ({
 
   return (
     <>
-      <div className={StageTaskStyle.heading}>Informasi Pendaftaran - {task?.name}</div>
+      <div className={StageTaskStyle.heading}>Informasi - {task?.name}</div>
       <br />
       <br />
 

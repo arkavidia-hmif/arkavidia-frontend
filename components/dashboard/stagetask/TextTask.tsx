@@ -64,7 +64,7 @@ const TextTask: React.FC<TaskWidget> = ({
   };
   return (
     <>
-      <div className={StageTaskStyle.heading}>Persyaratan Pendaftaran - {task?.name}</div>
+      <div className={StageTaskStyle.heading}>{task?.name}</div>
       <div className="mt-3">
         <div className={StageTaskStyle.title}>Pertanyaan:</div>
         <div className={StageTaskStyle.text}>{parsedParam.description}</div>
