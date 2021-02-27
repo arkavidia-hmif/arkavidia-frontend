@@ -22,7 +22,7 @@ const DescriptionTask: React.FC<TaskWidget> = ({
     const linkNode: Array<ReactNode> = [];
     for (const key in link) {
       linkNode.push(
-        <li key={key}><a href={link[key]}>{key}</a></li>
+        <li key={key}><a href={link[key]} target="_blank" rel="noreferrer">{key}</a></li>
       );
     }
 
