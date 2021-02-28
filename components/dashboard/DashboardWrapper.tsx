@@ -37,7 +37,6 @@ const DashboardWrapper: React.FC<Props> = ({ children }) => {
           .container {
             margin-top: 3rem;
             padding-bottom: 5rem;
-            overflow-x: hidden;
           }
 
           h1 {

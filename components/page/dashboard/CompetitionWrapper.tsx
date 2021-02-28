@@ -7,6 +7,7 @@ import { useTeamCompetition } from "utils/hooks/useTeamCompetition";
 import Alert from "components/Alert";
 import Spinner from "components/Spinner";
 import CompetitionSidebar from "components/dashboard/competition/CompetitionSidebar";
+import { Dimen } from "styles/dimen";
 
 interface Props {
   teamInfo: (team: TeamData, competition: Competition) => ReactNode;
@@ -68,7 +69,7 @@ const CompetitionWrapper: React.FC<Props> = ({
             selection={selection}
           />
         </div>
-        <div className="col-lg-6 col-md-6 mt-5 mt-md-0">{getComponent()}</div>
+        <div className="col-lg-6 col-md-6 mt-5 mt-md-0 content-float">{getComponent()}</div>
       </div>
       <style jsx>{`
         #main-content::after {
@@ -85,6 +86,12 @@ const CompetitionWrapper: React.FC<Props> = ({
           opacity: 0.5;
           width: min(calc(100% + 50px), 100vw);
           height: 100%;
+        }
+
+        .content-float {
+          position: sticky;
+          top: calc(${Dimen.navbarHeight} + 1rem);
+          align-self: flex-start;
         }
 
         @media (max-width: 992px) {
